@@ -27,6 +27,11 @@ namespace scratch_collect.API
         {
 
             services.AddControllers();
+
+            // third party
+
+            // register swagger document
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +41,12 @@ namespace scratch_collect.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // third party
+
+            // add swagger
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseHttpsRedirection();
 

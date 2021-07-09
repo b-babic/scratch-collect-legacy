@@ -7,8 +7,12 @@
 
   <ItemGroup>
     <None Remove="Controllers\" />
+    <None Remove="NSwag.AspNetCore" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NSwag.AspNetCore" Version="13.11.3" />
   </ItemGroup>
 </Project>
