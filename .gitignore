@@ -11,6 +11,9 @@ autom4te.cache/
 tarballs/
 test-results/
 
+# Local dev
+.vscode
+
 # Mac bundle stuff
 *.dmg
 *.app
