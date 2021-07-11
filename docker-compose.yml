@@ -1,7 +1,7 @@
 version: '3'
 services:
   collect-sql:
-    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    image: mcr.microsoft.com/mssql/server:2019-latest
     restart: unless-stopped
     environment:
       - ACCEPT_EULA=Y
@@ -10,25 +10,23 @@ services:
     ports:
       - 1401:1433
     networks:
-      - evetnet
+      - collectnet
 
   collect-api:
     restart: unless-stopped
     build:
       context: .
     environment:
-		# For the MVP sake, provided credentials are safe to store on github
-		# They're not going to be deployed anywhere
       - ConnectionStrings:collect=Server=collect-sql,1433;Database=IB130149;User=sa;Password=Test123!;ConnectRetryCount=0
     ports:
-      - 5000:80
+      - 5010:5010
     networks:
-      - evetnet      
+      - collectnet
     links:
       - collect-sql
     depends_on:
       - collect-sql
 
 networks:
-  evetnet:
-    driver: bridge 
+  collectnet:
+    driver: bridge
