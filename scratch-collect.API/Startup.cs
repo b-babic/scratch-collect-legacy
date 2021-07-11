@@ -76,6 +76,8 @@ namespace scratch_collect.API
                     options.UseSqlServer(Configuration.GetConnectionString("collect")));
 
                 
+                services.AddAutoMapper(typeof(Startup));
+                
                 services.AddAuthentication("BasicAuthentication")
                     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
         }
