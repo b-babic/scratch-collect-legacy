@@ -5,6 +5,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using scratch_collect.API.Database;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication;
+using scratch_collect.API.Filters;
+using scratch_collect.API.Infra;
+using scratch_collect.API.Services;
+using scratch_collect.API.Services.Base;
+using scratch_collect.Model.Requests;
+using AuthenticationService = scratch_collect.API.Services.AuthenticationService;
+using IAuthenticationService = scratch_collect.API.Services.IAuthenticationService;
 
 namespace scratch_collect.API
 {
@@ -66,6 +75,9 @@ namespace scratch_collect.API
                 services.AddDbContext<ScratchCollectContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("collect")));
 
+                
+                services.AddAuthentication("BasicAuthentication")
+                    .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,7 +97,7 @@ namespace scratch_collect.API
 
             app.UseHttpsRedirection();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
