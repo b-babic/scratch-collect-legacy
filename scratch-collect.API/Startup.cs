@@ -35,7 +35,7 @@ namespace scratch_collect.API
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
-
+            
             services.AddRouting(options => options.LowercaseUrls = true);
 
             // register swagger document
@@ -76,6 +76,8 @@ namespace scratch_collect.API
                 services.AddDbContext<ScratchCollectContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("collect")));
 
+                services.AddScoped<IAuthenticationService, AuthenticationService>();
+                services.AddScoped<IUserService, UserService>();
                 services.AddScoped<IService<Role, RoleSearchRequest>, RoleService>();
                 
                 services.AddAutoMapper(typeof(Startup));
