@@ -14,6 +14,7 @@ using scratch_collect.API.Services.Base;
 using scratch_collect.Model.Requests;
 using AuthenticationService = scratch_collect.API.Services.AuthenticationService;
 using IAuthenticationService = scratch_collect.API.Services.IAuthenticationService;
+using Role = scratch_collect.Model.Role.Role;
 
 namespace scratch_collect.API
 {
@@ -75,6 +76,7 @@ namespace scratch_collect.API
                 services.AddDbContext<ScratchCollectContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("collect")));
 
+                services.AddScoped<IService<Role, RoleSearchRequest>, RoleService>();
                 
                 services.AddAutoMapper(typeof(Startup));
                 
