@@ -26,6 +26,7 @@ namespace scratch_collect.API
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
 
+            services.AddRouting(options => options.LowercaseUrls = true);
 
             services.AddDbContext<ScratchCollectContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("collect")));
