@@ -2,9 +2,11 @@
 using System.Linq;
 using System.Collections.Generic;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using scratch_collect.API.Database;
+using scratch_collect.API.Exceptions;
 using scratch_collect.API.Helper;
 using scratch_collect.Model.User;
 using User = scratch_collect.Model.User.User;
@@ -54,7 +56,11 @@ namespace scratch_collect.API.Services
         {
             var entity = _mapper.Map<Database.User>(request);
             
-            // TODO: check if user already exist ?
+            // check if user already exist ?
+            var userAlreadyExist = _context.Users.Any(x => x.Email == request.Email);
+
+            if (userAlreadyExist)
+                throw new BadRequestException("User with provided email already exist in the system !");
 
             entity.PasswordSalt = Password.GenerateSalt();
             entity.PasswordHash = Password.GenerateHash(entity.PasswordSalt, request.Password);
@@ -76,20 +82,24 @@ namespace scratch_collect.API.Services
             return _mapper.Map<User>(entity);
         }
 
+        [Authorize("Administrator")]
         [HttpPut]
         public User Update(int id, UserUpsertRequest request)
         {
             var entity = _context.Users.Find(id);
-            
-            // TODO: check if request is coming from admin and throw error if no flag ?
 
-            // TODO: check if user exist ?
+            if (entity == null)
+                throw new BadRequestException("User does not exist !");
+
+            var emailEntity = _context.Users.FirstOrDefault(x => x.Email == request.Email);
+
+            // if there is another user in the system with email value passed in request
+            if (emailEntity != null && entity.Email != emailEntity.Email)
+                throw new BadRequestException("There is another user with provided email address !");
             
             _context.Users.Attach(entity);
             _context.Users.Update(entity);
             _mapper.Map(request, entity);
-            
-            // TODO: check if request email is unique ?
             
             if (!string.IsNullOrWhiteSpace(request.Password))
             {
@@ -101,7 +111,7 @@ namespace scratch_collect.API.Services
 
             var userRoles = _context.UserRoles.Where(x => x.UserId == entity.Id);
             
-            if (request.Roles.Count() <= userRoles.Count())
+            if (request.Roles.Count <= userRoles.Count())
             {
                 foreach (var role in userRoles)
                 {
