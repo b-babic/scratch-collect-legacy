@@ -20,8 +20,6 @@ namespace scratch_collect.API.Controllers
         [Route("api/[controller]/signin")]
         public IActionResult Signin(SigninRequest request)
         {
-            // TODO: Replace current method definition with email instead of username.
-            // Check email existence in the DB instead of username
             return Ok(_authService.Signin(request));
         }
         

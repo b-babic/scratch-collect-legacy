@@ -45,10 +45,10 @@ namespace scratch_collect.API.Infra
                 var credentialBytes = Convert.FromBase64String(authHeader.Parameter ?? string.Empty);
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
                 
-                var username = credentials[0];
+                var email = credentials[0];
                 var password = credentials[1];
                 
-                user = _authService.HandleSignin(username, password);
+                user = _authService.HandleSignin(email, password);
             }
             catch
             {
@@ -56,11 +56,11 @@ namespace scratch_collect.API.Infra
             }
 
             if (user == null)
-                return AuthenticateResult.Fail("Invalid Username or Password");
+                return AuthenticateResult.Fail("Invalid Email or Password");
 
             var claims = new List<Claim> {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Name, user.Email),
             };
             
             claims.AddRange(user.UserRoles.Select(role => new Claim(ClaimTypes.Role, role.Role.Name)));

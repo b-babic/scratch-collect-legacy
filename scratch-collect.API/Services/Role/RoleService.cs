@@ -35,7 +35,7 @@ namespace scratch_collect.API.Services
                 {
                     list.Add(new Role() { 
                         Name= item.Name,
-                        Id= item.Role.Id // TODO: find if any better way ?
+                        Id= item.Role.Id
                     });
                 }
                 return list;

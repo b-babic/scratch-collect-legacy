@@ -15,7 +15,7 @@ namespace scratch_collect.API
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            // TODO: check this one out ?
+
             using (var scope = host.Services.CreateScope())
             {
                 var service = scope.ServiceProvider.GetRequiredService<ScratchCollectContext>();

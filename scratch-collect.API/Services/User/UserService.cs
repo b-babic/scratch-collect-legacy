@@ -52,8 +52,6 @@ namespace scratch_collect.API.Services
 
         public User Insert(UserUpsertRequest request)
         {
-            // TODO: Maybe change upsert user definition and add new one to AuthenticationService -> Signup method
-            // By doing this, we can remove a lot more statements inside the code below
             var entity = _mapper.Map<Database.User>(request);
             
             // TODO: check if user already exist ?

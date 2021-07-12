@@ -59,11 +59,11 @@ namespace scratch_collect.API.Services
             return _mapper.Map<User>(entity);
         }
 
-        public User HandleSignin(string username, string password)
+        public User HandleSignin(string email, string password)
         {
             var request = new SigninRequest()
             {
-                Username = username,
+                Email = email,
                 Password = password
             };
 
@@ -72,8 +72,8 @@ namespace scratch_collect.API.Services
         
         public User Signin(SigninRequest request)
         {
-            if (string.IsNullOrEmpty(request.Username))
-                throw new ArgumentNullException(request.Username, "You must provide username !");
+            if (string.IsNullOrEmpty(request.Email))
+                throw new ArgumentNullException(request.Email, "You must provide email !");
 
             if (string.IsNullOrEmpty(request.Password))
                 throw new ArgumentNullException(request.Password, "You must provide password !");
@@ -81,12 +81,10 @@ namespace scratch_collect.API.Services
             var user = _context.Users
                 .Include(i => i.UserRoles)
                 .ThenInclude(j => j.Role)
-                // TODO: Replace current implementation and use email instead of username for signing in ?
-                // By doing so, it's going to be easier to constraint unique email accounts
-                .FirstOrDefault(x => x.Username == request.Username);
+                .FirstOrDefault(x => x.Email == request.Email);
 
             if (user == null)
-                throw new BadRequestException("Account with provided credentials do not exist !");
+                throw new BadRequestException("Account with provided email do not exist !");
             
             var newHash = Password.GenerateHash(user.PasswordSalt, request.Password);
             
