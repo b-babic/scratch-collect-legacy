@@ -11,14 +11,41 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Database\" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="Database\Seed\" />
+    <None Remove="Helper\" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Swashbuckle.AspNetCore.Swagger" />
+    <None Remove="Swashbuckle.AspNetCore.Newtonsoft" />
+    <None Remove="Swashbuckle.AspNetCore.SwaggerUI" />
+    <None Remove="Infra\" />
+    <None Remove="Services\" />
+    <None Remove="Services\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Database\" />
+    <Folder Include="Database\Seed\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Infra\" />
+    <Folder Include="Migrations" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Base\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NSwag.AspNetCore" Version="13.11.3" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.7">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.1.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\scratch-collect.Model\scratch-collect.Model.csproj" />
   </ItemGroup>
 </Project>

@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.810.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scratch-collect.API", "scratch-collect.API\scratch-collect.API.csproj", "{3DEFB17D-F0D6-473B-AD90-9E85F63D19D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scratch-collect.Model", "scratch-collect.Model\scratch-collect.Model.csproj", "{8115423B-0904-45C5-8ED3-E117EAB13C4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3DEFB17D-F0D6-473B-AD90-9E85F63D19D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DEFB17D-F0D6-473B-AD90-9E85F63D19D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DEFB17D-F0D6-473B-AD90-9E85F63D19D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8115423B-0904-45C5-8ED3-E117EAB13C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8115423B-0904-45C5-8ED3-E117EAB13C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8115423B-0904-45C5-8ED3-E117EAB13C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8115423B-0904-45C5-8ED3-E117EAB13C4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
