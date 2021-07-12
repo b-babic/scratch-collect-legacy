@@ -8,6 +8,7 @@ using scratch_collect.API.Database;
 using scratch_collect.API.Exceptions;
 using scratch_collect.API.Helper;
 using scratch_collect.Model.Auth;
+using scratch_collect.Model.Enums;
 using User = scratch_collect.Model.User.User;
 
 namespace scratch_collect.API.Services
@@ -49,7 +50,7 @@ namespace scratch_collect.API.Services
             var userRole = new UserRole()
             {
                 UserId = entity.Id,
-                RoleId = 2, // TODO: Refactor these hardcoded numbers to Role Enum type and reuse ?
+                RoleId = (int)Roles.Client,
                 UpdatedAt = DateTime.Now
             };
 
