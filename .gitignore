@@ -13,8 +13,6 @@ test-results/
 
 # Local dev
 .vscode
-**/appsettings.json
-**/appsettings.Development.json
 
 # Mac bundle stuff
 *.dmg

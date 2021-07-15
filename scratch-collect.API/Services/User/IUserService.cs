@@ -11,5 +11,7 @@ namespace scratch_collect.API.Services
         User GetById(int id);
         User Insert(UserUpsertRequest request);
         User Update(int id, UserUpsertRequest request);
+        
+        // TODO: add user profile edit action
     }
 }

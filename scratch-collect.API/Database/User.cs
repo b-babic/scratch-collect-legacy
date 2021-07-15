@@ -40,6 +40,8 @@ namespace scratch_collect.API.Database
         [Required]
         [MaxLength(500, ErrorMessage = "Hash can have max 500 characters.")]
         public string PasswordHash { get; set; }
+        
+        public string Token { get; set; }
 
         public DateTime? RegisteredAt { get; set; }
 

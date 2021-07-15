@@ -5,8 +5,4 @@
         <RootNamespace>scratch_collect.Model</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Requests" />
-    </ItemGroup>
-
 </Project>

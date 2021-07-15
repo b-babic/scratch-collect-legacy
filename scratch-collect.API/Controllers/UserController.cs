@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using scratch_collect.API.Filters;
 using scratch_collect.API.Services;
-using scratch_collect.Model.Requests;
 using scratch_collect.Model.User;
 
 namespace scratch_collect.API.Controllers
@@ -46,6 +44,20 @@ namespace scratch_collect.API.Controllers
         public User Update(int id, UserUpsertRequest request)
         {
             return _userService.Update(id, request);
+        }
+        
+        [AllowAnonymous]
+        [HttpPut("profile/{id:int}")]
+        public User EditProfile(int id, UserUpsertRequest request)
+        {
+            return _userService.Update(id, request);
+        }
+        
+        [AllowAnonymous]
+        [HttpGet("profile/{id:int}")]
+        public User Profile(int id)
+        {
+            return _userService.GetById(id);
         }
     }
 }

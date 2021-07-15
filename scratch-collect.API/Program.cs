@@ -18,14 +18,15 @@ namespace scratch_collect.API
 
             using (var scope = host.Services.CreateScope())
             {
-                var service = scope.ServiceProvider.GetRequiredService<ScratchCollectContext>();
-                Data.Seed(service);
+                var context = scope.ServiceProvider.GetRequiredService<ScratchCollectContext>();
+                SetupService.Init(context);
+                Data.Seed(context);
             }
-            
+           
             host.Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        private static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
