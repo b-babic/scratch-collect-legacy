@@ -1,6 +1,5 @@
 using AutoMapper;
 using scratch_collect.Model.Auth;
-using scratch_collect.Model.Requests;
 using scratch_collect.Model.Role;
 using scratch_collect.Model.User;
 using scratch_collect.Model.UserRole;
@@ -12,6 +11,7 @@ namespace scratch_collect.API.Infra
         public Mapper()
         {
             // auth
+            CreateMap<Database.User, SignedUser>();
             CreateMap<Database.User, SignupRequest>().ReverseMap();
             
             // user

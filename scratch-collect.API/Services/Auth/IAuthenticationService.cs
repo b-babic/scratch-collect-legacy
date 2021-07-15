@@ -7,7 +7,6 @@ namespace scratch_collect.API.Services
     public interface IAuthenticationService
     {
         User Signup(SignupRequest request);
-        User HandleSignin(string username, string password);
-        User Signin(SigninRequest request);
+        SignedUser Signin(SigninRequest request);
     }
 }

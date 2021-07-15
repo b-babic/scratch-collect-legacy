@@ -22,16 +22,15 @@ namespace scratch_collect.API.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                var configuration = new ConfigurationBuilder()
+            if (optionsBuilder.IsConfigured) return;
+            
+            var configuration = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile("appsettings.Development.json")
                 .Build();
-
-                optionsBuilder.UseSqlServer(configuration.GetConnectionString("collect"));
-            }
+        
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("collect"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

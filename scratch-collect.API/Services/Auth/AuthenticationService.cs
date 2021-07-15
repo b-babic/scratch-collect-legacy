@@ -1,15 +1,20 @@
 using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using scratch_collect.API.Database;
 using scratch_collect.API.Exceptions;
 using scratch_collect.API.Helper;
 using scratch_collect.Model.Auth;
 using scratch_collect.Model.Enums;
 using User = scratch_collect.Model.User.User;
+using SignedUser = scratch_collect.Model.Auth.SignedUser;
 
 namespace scratch_collect.API.Services
 {
@@ -17,11 +22,13 @@ namespace scratch_collect.API.Services
     {
         private readonly ScratchCollectContext _context;
         private readonly IMapper _mapper;
+        private readonly AppSettings _appSettings;
 
-        public AuthenticationService(IMapper mapper, ScratchCollectContext context)
+        public AuthenticationService(IMapper mapper, ScratchCollectContext context, IOptions<AppSettings> appSettings)
         {
             _mapper = mapper;
             _context = context;
+            _appSettings = appSettings.Value;
         }
 
         public User Signup(SignupRequest request)
@@ -59,19 +66,8 @@ namespace scratch_collect.API.Services
 
             return _mapper.Map<User>(entity);
         }
-
-        public User HandleSignin(string email, string password)
-        {
-            var request = new SigninRequest()
-            {
-                Email = email,
-                Password = password
-            };
-
-            return Signin(request);
-        }
         
-        public User Signin(SigninRequest request)
+        public SignedUser Signin(SigninRequest request)
         {
             if (string.IsNullOrEmpty(request.Email))
                 throw new ArgumentNullException(request.Email, "You must provide email !");
@@ -87,12 +83,29 @@ namespace scratch_collect.API.Services
             if (user == null)
                 throw new BadRequestException("Account with provided email do not exist !");
             
-            var newHash = Password.GenerateHash(user.PasswordSalt, request.Password);
-            
-            if(newHash != user.PasswordHash)
-                throw new BadRequestException("User does not match given password !");
+            // authentication successful so generate jwt token
+            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
 
-            return _mapper.Map<User>(user);
+            var customClaims = new List<Claim> {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.Email),
+            };
+            
+            customClaims.AddRange(user.UserRoles.Select(role => new Claim(ClaimTypes.Role, role.Role.Name)));
+
+            var token = new JwtSecurityToken
+            (issuer: null,
+                audience: null,
+                claims: customClaims,
+                notBefore: DateTime.Now,
+                expires: DateTime.UtcNow.AddDays(7),
+                signingCredentials: credentials
+            );
+
+            user.Token = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return _mapper.Map<SignedUser>(user);
         }
     }
 }
