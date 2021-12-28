@@ -47,6 +47,8 @@ namespace scratch_collect.API.Database
 
         public byte[] UserPhoto { get; set; }
         
+        // relationships
         public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<Coupon> UsedCoupons { get; set; }
     }
 }

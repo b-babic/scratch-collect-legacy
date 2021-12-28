@@ -1,0 +1,32 @@
+﻿[
+  {
+    "id": 1,
+    "text": "804C-4D13",
+    "value": "10"
+  },
+  {
+    "id": 2,
+    "text": "4422-83E8",
+    "value": "15"
+  },
+  {
+    "id": 3,
+    "text": "4492-BD28",
+    "value": "10"
+  },
+  // Mobile user used coupons
+  {
+    "id": 4,
+    "text": "497D-A613",
+    "value": "30",
+    // optional fields
+    "usedById": "2"
+  },
+  {
+    "id": 5,
+    "text": "47E7-9714",
+    "value": "30",
+    // optional fields
+    "usedById": "2"
+  }
+]

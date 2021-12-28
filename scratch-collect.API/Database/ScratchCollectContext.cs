@@ -19,17 +19,18 @@ namespace scratch_collect.API.Database
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<Coupon> Coupons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (optionsBuilder.IsConfigured) return;
-            
+
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile("appsettings.Development.json")
                 .Build();
-        
+
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("collect"));
         }
 
@@ -50,6 +51,20 @@ namespace scratch_collect.API.Database
                     .WithMany()
                     .OnDelete(DeleteBehavior.ClientSetNull);
             });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasMany(d => d.UsedCoupons)
+                    .WithOne(p => p.UsedBy);
+            });
+
+            modelBuilder.Entity<Coupon>()
+                .Property(b => b.CreatedAt)
+                .HasDefaultValueSql("getdate()");
+
+            modelBuilder.Entity<Coupon>()
+                .Property(b => b.UsedAt)
+                .HasDefaultValueSql("getdate()");
 
             // custom partial for setting seed data
             OnModelCreatingPartial(modelBuilder);

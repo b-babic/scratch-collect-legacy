@@ -9,12 +9,15 @@ namespace scratch_collect.API.Database
             // seed database with initial data
             modelBuilder.Entity<User>().HasData(Helper.Json.LoadFromFile<User>
                   ("User.json"));
-            
+
             modelBuilder.Entity<Role>().HasData(Helper.Json.LoadFromFile<Role>
                 ("Role.json"));
-            
+
             modelBuilder.Entity<UserRole>().HasData(Helper.Json.LoadFromFile<UserRole>
                 ("UserRole.json"));
+
+            modelBuilder.Entity<Coupon>().HasData(Helper.Json.LoadFromFile<Coupon>
+                ("Coupon.json"));
         }
     }
 }

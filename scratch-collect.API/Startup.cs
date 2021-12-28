@@ -35,13 +35,13 @@ namespace scratch_collect.API
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
-            
+
             services
                 .AddControllers(x => x.Filters.Add(new ErrorFilter()))
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
-            
+
             services.AddRouting(options => options.LowercaseUrls = true);
 
             // register swagger document
@@ -73,19 +73,20 @@ namespace scratch_collect.API
                     }
                 });
             });
-            
+
             services.AddDbContext<ScratchCollectContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("collect")));
 
-                services.AddScoped<IAuthenticationService, AuthenticationService>();
-                services.AddScoped<IUserService, UserService>();
-                services.AddScoped<IService<Role, RoleSearchRequest>, RoleService>();
-                
-                services.AddAutoMapper(typeof(Startup));
-                
-                var appSettings = appSettingsSection.Get<AppSettings>();
-                var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-                services.AddAuthentication(x =>
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IService<Role, RoleSearchRequest>, RoleService>();
+
+            services.AddAutoMapper(typeof(Startup));
+
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+
+            services.AddAuthentication(x =>
                     {
                         x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                         x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -117,6 +118,7 @@ namespace scratch_collect.API
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Scratch & Collect API");
+                c.RoutePrefix = "swagger";
             });
 
             app.UseHttpsRedirection();
