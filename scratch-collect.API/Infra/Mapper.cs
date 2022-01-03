@@ -3,6 +3,7 @@ using scratch_collect.Model.Auth;
 using scratch_collect.Model.Role;
 using scratch_collect.Model.User;
 using scratch_collect.Model.UserRole;
+using scratch_collect.Model.Coupon;
 
 namespace scratch_collect.API.Infra
 {
@@ -23,6 +24,9 @@ namespace scratch_collect.API.Infra
             
             // role
             CreateMap<Database.Role, Role>();
+
+            // coupons
+            CreateMap<Database.Coupon, CouponModel>();
         }
     }
 }

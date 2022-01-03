@@ -17,6 +17,7 @@ using scratch_collect.Model.Requests;
 using AuthenticationService = scratch_collect.API.Services.AuthenticationService;
 using IAuthenticationService = scratch_collect.API.Services.IAuthenticationService;
 using Role = scratch_collect.Model.Role.Role;
+using scratch_collect.API.Services.Coupon;
 
 namespace scratch_collect.API
 {
@@ -80,6 +81,7 @@ namespace scratch_collect.API
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IService<Role, RoleSearchRequest>, RoleService>();
+            services.AddScoped<ICouponService, CouponService>();
 
             services.AddAutoMapper(typeof(Startup));
 

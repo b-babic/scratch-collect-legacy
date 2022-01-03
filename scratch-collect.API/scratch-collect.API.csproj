@@ -22,13 +22,9 @@
     <None Remove="Services\Default\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Database\" />
-    <Folder Include="Database\Seed\" />
     <Folder Include="Helper\" />
     <Folder Include="Infra\" />
     <Folder Include="Migrations" />
-    <Folder Include="Services\" />
     <Folder Include="Services\Base\" />
   </ItemGroup>
   <ItemGroup>
