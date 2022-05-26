@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace scratch_collect.API.Database
 {
@@ -17,6 +17,7 @@ namespace scratch_collect.API.Database
 
         // define db sets
         public virtual DbSet<User> Users { get; set; }
+
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
@@ -70,6 +71,6 @@ namespace scratch_collect.API.Database
             OnModelCreatingPartial(modelBuilder);
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        private partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

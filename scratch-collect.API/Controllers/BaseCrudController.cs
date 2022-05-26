@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using scratch_collect.Api.Services;
 
@@ -12,13 +11,13 @@ namespace scratch_collect.API.Controllers
         {
             _service = service;
         }
-        
+
         [HttpPost]
         public T Insert(TInsert request)
         {
             return _service.Insert(request);
         }
-        
+
         [HttpPut("{id}")]
         public T Update(int id, TUpdate request)
         {

@@ -9,12 +9,12 @@ namespace scratch_collect.API.Controllers
     public class AuthController : Controller
     {
         private readonly IAuthenticationService _authService;
-        
+
         public AuthController(IAuthenticationService authService)
         {
             _authService = authService;
         }
-        
+
         [HttpPost]
         [AllowAnonymous]
         [Route("api/[controller]/signin")]
@@ -22,7 +22,7 @@ namespace scratch_collect.API.Controllers
         {
             return Ok(_authService.Signin(request));
         }
-        
+
         [HttpPost]
         [AllowAnonymous]
         [Route("api/[controller]/signup")]

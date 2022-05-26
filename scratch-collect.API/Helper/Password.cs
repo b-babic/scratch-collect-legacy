@@ -10,10 +10,10 @@ namespace scratch_collect.API.Helper
         {
             var buf = new byte[16];
             (new RNGCryptoServiceProvider()).GetBytes(buf);
-            
+
             return Convert.ToBase64String(buf);
         }
-        
+
         public static string GenerateHash(string salt, string password)
         {
             var src = Convert.FromBase64String(salt);
@@ -25,9 +25,9 @@ namespace scratch_collect.API.Helper
 
             var algorithm = HashAlgorithm.Create("SHA1");
             if (algorithm == null) return null;
-            
+
             var inArray = algorithm.ComputeHash(dst);
-            
+
             return Convert.ToBase64String(inArray);
         }
     }

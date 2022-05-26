@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using scratch_collect.API.Services.Base;
-using scratch_collect.Model;
 using scratch_collect.Model.Requests;
 using scratch_collect.Model.Role;
 

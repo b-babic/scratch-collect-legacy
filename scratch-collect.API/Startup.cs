@@ -1,23 +1,23 @@
-﻿using System.Text;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using scratch_collect.API.Database;
-using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using scratch_collect.API.Database;
 using scratch_collect.API.Filters;
 using scratch_collect.API.Helper;
 using scratch_collect.API.Services;
 using scratch_collect.API.Services.Base;
+using scratch_collect.API.Services.Coupon;
 using scratch_collect.Model.Requests;
+using System.Text;
 using AuthenticationService = scratch_collect.API.Services.AuthenticationService;
 using IAuthenticationService = scratch_collect.API.Services.IAuthenticationService;
 using Role = scratch_collect.Model.Role.Role;
-using scratch_collect.API.Services.Coupon;
 
 namespace scratch_collect.API
 {

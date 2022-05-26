@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -13,12 +7,18 @@ using scratch_collect.API.Exceptions;
 using scratch_collect.API.Helper;
 using scratch_collect.Model.Auth;
 using scratch_collect.Model.Enums;
-using User = scratch_collect.Model.User.User;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using SignedUser = scratch_collect.Model.Auth.SignedUser;
+using User = scratch_collect.Model.User.User;
 
 namespace scratch_collect.API.Services
 {
-    public class AuthenticationService: IAuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
         private readonly ScratchCollectContext _context;
         private readonly IMapper _mapper;
@@ -34,25 +34,25 @@ namespace scratch_collect.API.Services
         public User Signup(SignupRequest request)
         {
             var entity = _mapper.Map<Database.User>(request);
-            
+
             // check if user is unique (already have an account ? )
             var accountAlreadyExist =
                 _context.Users.Any(x => x.Username == request.Username || x.Email == request.Email);
-            
+
             // check if account already exist
             if (accountAlreadyExist)
                 throw new BadRequestException("Account with provided email | username already exist !");
-                
+
             // check if passwords match
             if (request.Password != request.PasswordConfirm)
                 throw new BadRequestException("Passwords did not match !");
-            
+
             entity.PasswordSalt = Password.GenerateSalt();
             entity.PasswordHash = Password.GenerateHash(entity.PasswordSalt, request.Password);
-            
+
             _context.Users.Add(entity);
             _context.SaveChanges();
-            
+
             // Assign default user role when signin up
             var userRole = new UserRole()
             {
@@ -61,12 +61,12 @@ namespace scratch_collect.API.Services
                 UpdatedAt = DateTime.Now
             };
 
-            _context.UserRoles.Add(userRole);            
+            _context.UserRoles.Add(userRole);
             _context.SaveChanges();
 
             return _mapper.Map<User>(entity);
         }
-        
+
         public SignedUser Signin(SigninRequest request)
         {
             if (string.IsNullOrEmpty(request.Email))
@@ -74,7 +74,7 @@ namespace scratch_collect.API.Services
 
             if (string.IsNullOrEmpty(request.Password))
                 throw new ArgumentNullException(request.Password, "You must provide password !");
-            
+
             var user = _context.Users
                 .Include(i => i.UserRoles)
                 .ThenInclude(j => j.Role)
@@ -82,7 +82,7 @@ namespace scratch_collect.API.Services
 
             if (user == null)
                 throw new BadRequestException("Account with provided email do not exist !");
-            
+
             // authentication successful so generate jwt token
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
@@ -91,7 +91,7 @@ namespace scratch_collect.API.Services
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Email),
             };
-            
+
             customClaims.AddRange(user.UserRoles.Select(role => new Claim(ClaimTypes.Role, role.Role.Name)));
 
             var token = new JwtSecurityToken

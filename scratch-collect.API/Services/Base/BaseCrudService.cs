@@ -1,13 +1,14 @@
 using AutoMapper;
-using scratch_collect.API.Database;
 using scratch_collect.Api.Services;
+using scratch_collect.API.Database;
 
 namespace scratch_collect.API.Services.Base
 {
-    public class BaseCrudService<TModel, TSearch, TDatabase, TInsert, TUpdate> : BaseService<TModel, TSearch, TDatabase>, ICrudService<TModel, TSearch, TInsert, TUpdate> where TDatabase:class
+    public class BaseCrudService<TModel, TSearch, TDatabase, TInsert, TUpdate> : BaseService<TModel, TSearch, TDatabase>, ICrudService<TModel, TSearch, TInsert, TUpdate> where TDatabase : class
     {
         private readonly IMapper _mapper;
         private readonly ScratchCollectContext _context;
+
         public BaseCrudService(ScratchCollectContext context, IMapper mapper) : base(context, mapper)
         {
             _mapper = mapper;
@@ -29,7 +30,6 @@ namespace scratch_collect.API.Services.Base
             _context.Set<TDatabase>().Attach(entity);
             _context.Set<TDatabase>().Update(entity);
             _mapper.Map(request, entity);
-         
 
             _context.SaveChanges();
             return _mapper.Map<TModel>(entity);

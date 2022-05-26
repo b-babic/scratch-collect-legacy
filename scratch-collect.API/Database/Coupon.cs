@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace scratch_collect.API.Database
@@ -22,6 +21,7 @@ namespace scratch_collect.API.Database
 
         // User can use coupon once and only once
         public int? UsedById { get; set; }
+
         public virtual User UsedBy { get; set; }
         public DateTime? UsedAt { get; set; }
     }

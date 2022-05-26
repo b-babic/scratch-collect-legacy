@@ -1,5 +1,4 @@
-﻿using System;
-using scratch_collect.API.Database;
+﻿using scratch_collect.API.Database;
 
 namespace scratch_collect.API
 {

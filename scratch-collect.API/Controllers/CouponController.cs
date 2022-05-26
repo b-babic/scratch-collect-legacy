@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using scratch_collect.API.Services;
-using scratch_collect.API.Services.Base;
 using scratch_collect.Model.Coupon;
 using System.Collections.Generic;
 
 namespace scratch_collect.API.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
     public class CouponController : Controller
