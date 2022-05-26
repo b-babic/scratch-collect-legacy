@@ -140,5 +140,41 @@ namespace scratch_collect.API.Services
             _context.SaveChanges();
             return _mapper.Map<User>(entity);
         }
+
+        public void Delete(int id)
+        {
+            var entity = _context.Users.Find(id);
+
+            if (entity == null)
+            {
+                throw new BadRequestException("There is no user with provided email address !");
+            }
+
+            // Cascade Relations
+            // This essentially resets used coupons so we can use them again.
+            // For demo purposes only and not suitable for production use hence it makes not much sense.
+            var userCoupons = _context.Coupons.Where(c => c.UsedById == entity.Id).ToList();
+
+            if (userCoupons.Count() > 0)
+            {
+                foreach (var coupon in userCoupons)
+                {
+                    _context.Coupons.Remove(coupon);
+                }
+            }
+
+            var userRoles = _context.UserRoles.Where(r => r.UserId == entity.Id).ToList();
+
+            if (userRoles.Count() > 0)
+            {
+                foreach (var role in userRoles)
+                {
+                    _context.UserRoles.Remove(role);
+                }
+            }
+
+            _context.Users.Remove(entity);
+            _context.SaveChanges();
+        }
     }
 }

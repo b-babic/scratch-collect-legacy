@@ -13,6 +13,8 @@ namespace scratch_collect.API.Services
 
         User Update(int id, UserUpsertRequest request);
 
+        void Delete(int id);
+
         // TODO: add user profile edit action
     }
 }

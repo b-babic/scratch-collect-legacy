@@ -59,5 +59,12 @@ namespace scratch_collect.API.Controllers
         {
             return _userService.GetById(id);
         }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpDelete("{id:int}")]
+        public void Delete(int id)
+        {
+            _userService.Delete(id);
+        }
     }
 }
