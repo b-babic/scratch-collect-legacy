@@ -20,9 +20,17 @@ namespace scratch_collect.API
             {
                 var context = scope.ServiceProvider.GetRequiredService<ScratchCollectContext>();
                 SetupService.Init(context);
-                Data.Seed(context);
+
+                try
+                {
+                    Data.Seed(context);
+                }
+                catch
+                {
+                    // Ignore for now
+                }
             }
-           
+
             host.Run();
         }
 
