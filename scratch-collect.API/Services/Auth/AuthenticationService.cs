@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -11,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
-using SignedUser = scratch_collect.Model.Auth.SignedUser;
 using User = scratch_collect.Model.User.User;
 
 namespace scratch_collect.API.Services
@@ -81,7 +82,12 @@ namespace scratch_collect.API.Services
                 .FirstOrDefault(x => x.Email == request.Email);
 
             if (user == null)
-                throw new BadRequestException("Account with provided email do not exist !");
+                throw new BadRequestException("User does not exist!");
+
+            // check password
+            var requestHash = Password.GenerateHash(user.PasswordSalt, request.Password);
+            if (user.PasswordHash != requestHash)
+                throw new BadRequestException("Wrong password!");
 
             // authentication successful so generate jwt token
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);

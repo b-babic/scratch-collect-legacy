@@ -22,7 +22,6 @@
     <None Remove="Services\Default\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helper\" />
     <Folder Include="Infra\" />
     <Folder Include="Migrations" />
     <Folder Include="Services\Base\" />

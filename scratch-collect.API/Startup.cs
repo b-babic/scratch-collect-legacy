@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,7 +40,10 @@ namespace scratch_collect.API
             services.Configure<AppSettings>(appSettingsSection);
 
             services
-                .AddControllers(x => x.Filters.Add(new ErrorFilter()))
+                .AddControllers(x =>
+                {
+                    x.Filters.Add(new ErrorFilter());
+                })
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
@@ -122,6 +127,14 @@ namespace scratch_collect.API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Scratch & Collect API");
                 c.RoutePrefix = "swagger";
             });
+
+            app.UseExceptionHandler(a => a.Run(async context =>
+            {
+                var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+                var exception = exceptionHandlerPathFeature.Error;
+
+                await context.Response.WriteAsJsonAsync(new { error = exception.Message });
+            }));
 
             app.UseHttpsRedirection();
             app.UseRouting();
