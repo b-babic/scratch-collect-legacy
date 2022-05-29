@@ -38,7 +38,7 @@ namespace scratch_collect.API.Services
                 query = query.Where(x => x.Username.StartsWith(request.Username));
             }
 
-            var list = query.Include(x => x.UserRoles).ToList();
+            var list = query.Include(x => x.UserRoles).ThenInclude(ur => ur.Role).ToList();
 
             return _mapper.Map<List<User>>(list);
         }
