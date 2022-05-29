@@ -34,6 +34,9 @@ namespace scratch_collect.API.Services
 
         public User Signup(SignupRequest request)
         {
+            // Default columns
+            request.RegisteredAt = DateTime.UtcNow;
+
             var entity = _mapper.Map<Database.User>(request);
 
             // check if user is unique (already have an account ? )
