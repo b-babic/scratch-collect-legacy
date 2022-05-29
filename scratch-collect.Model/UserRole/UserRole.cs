@@ -11,5 +11,10 @@ namespace scratch_collect.Model.UserRole
 
         public virtual User.User User { get; set; }
         public virtual Role.Role Role { get; set; }
+
+        public override string ToString()
+        {
+            return Role.ToString();
+        }
     }
 }

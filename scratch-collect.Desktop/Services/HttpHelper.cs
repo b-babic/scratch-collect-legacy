@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using scratch_collect.Model.ValidationError;
 using System;
 using System.Collections.Generic;
 using System.IO;

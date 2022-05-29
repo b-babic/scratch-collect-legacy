@@ -1,5 +1,4 @@
-﻿using scratch_collect.Desktop.Services;
-using scratch_collect.Model.Auth;
+﻿using scratch_collect.Model.Auth;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,8 +10,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using scratch_collect.Desktop.Helpers;
 using scratch_collect.Desktop.Forms;
+using AutoMapper;
+using scratch_collect.Desktop.Services.Authentication;
 
 namespace scratch_collect.Desktop
 {
@@ -25,6 +25,7 @@ namespace scratch_collect.Desktop
             // Hide validation labels
             validation_label.Text = "";
             validation_label.Visible = false;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private async void signin_button_Click(object sender, EventArgs e)
