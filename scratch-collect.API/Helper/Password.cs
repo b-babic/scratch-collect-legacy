@@ -9,7 +9,7 @@ namespace scratch_collect.API.Helper
         public static string GenerateSalt()
         {
             var buf = new byte[16];
-            (new RNGCryptoServiceProvider()).GetBytes(buf);
+            new RNGCryptoServiceProvider().GetBytes(buf);
 
             return Convert.ToBase64String(buf);
         }

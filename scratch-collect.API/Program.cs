@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using scratch_collect.API.Database;
 
 namespace scratch_collect.API
 {
@@ -9,24 +7,10 @@ namespace scratch_collect.API
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
-
-            using (var scope = host.Services.CreateScope())
-            {
-                var context = scope.ServiceProvider.GetRequiredService<ScratchCollectContext>();
-                SetupService.Init(context);
-
-                try
-                {
-                    Data.Seed(context);
-                }
-                catch
-                {
-                    // Ignore for now
-                }
-            }
-
-            host.Run();
+            CreateHostBuilder(args)
+            .Build()
+            .MigrateDatabase()
+            .Run();
         }
 
         private static IHostBuilder CreateHostBuilder(string[] args) =>
