@@ -51,10 +51,13 @@ namespace scratch_collect.Desktop.Forms
                     usersDataGrid.DataSource = users;
                     usersDataGrid.AutoResizeColumns();
                     // Rename specific header columns
-                    //usersDataGrid.Columns["UserPhoto"].Visible = false;
+                    usersDataGrid.Columns["Id"].HeaderText = "#ID";
+                    usersDataGrid.Columns["FirstName"].HeaderText = "First Name";
+                    usersDataGrid.Columns["LastName"].HeaderText = "Last Name";
                     usersDataGrid.Columns["RegisteredAt"].HeaderText = "Registration Date";
+                    usersDataGrid.Columns["UserRole"].HeaderText = "User Role";
                     // Override specific columns
-                    //usersDataGrid.Columns["UserPhoto"].ValueType = typeof(ImageGrid);
+                    usersDataGrid.Columns["UserPhoto"].Visible = false;
 
                     usersDataGrid.Visible = true;
                     UseWaitCursor = false;
