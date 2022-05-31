@@ -17,14 +17,21 @@ namespace scratch_collect.Desktop.Services
             _mapper = mapper;
         }
 
-        public async Task<List<UserVM>> GetAllUsers()
+        public async Task<List<UserVM>> GetAllUsers(string emailQuery = null, string usernameQuery = null)
         {
+            Dictionary<string, string> parameters = new();
+
+            if (!string.IsNullOrEmpty(emailQuery))
+                parameters["Email"] = emailQuery;
+
+            if (!string.IsNullOrEmpty(usernameQuery))
+                parameters["Username"] = usernameQuery;
+
             try
             {
-                List<User> users = await HttpHelper.GetAsync<List<User>>(_baseUrl + "/all");
+                List<User> users = await HttpHelper.GetAsync<List<User>>(_baseUrl + "/all", parameters);
 
                 // Map to VM
-                //return _mapper.Map<List<UserVM>>(users);
                 return _mapper.Map<List<UserVM>>(users);
             }
             catch (Exception)

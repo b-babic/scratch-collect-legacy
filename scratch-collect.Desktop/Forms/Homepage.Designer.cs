@@ -32,6 +32,15 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.usersDataGrid = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.filter_users_username = new System.Windows.Forms.TextBox();
+            this.filter_users_button = new System.Windows.Forms.Button();
+            this.filter_users_email = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -41,6 +50,8 @@
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersDataGrid)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.table_layout_main.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +87,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.usersDataGrid, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -103,6 +115,99 @@
             this.usersDataGrid.RowTemplate.Height = 33;
             this.usersDataGrid.Size = new System.Drawing.Size(1550, 590);
             this.usersDataGrid.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.filter_users_username);
+            this.panel1.Controls.Add(this.filter_users_button);
+            this.panel1.Controls.Add(this.filter_users_email);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1550, 121);
+            this.panel1.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel3.Location = new System.Drawing.Point(1081, 18);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 90);
+            this.panel3.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(1097, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(453, 121);
+            this.panel2.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Brown;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.LightCoral;
+            this.button3.Location = new System.Drawing.Point(40, 35);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(112, 49);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Delete";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(186, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(112, 49);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Edit";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(327, 35);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 49);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "New";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // filter_users_username
+            // 
+            this.filter_users_username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.filter_users_username.Location = new System.Drawing.Point(307, 36);
+            this.filter_users_username.Name = "filter_users_username";
+            this.filter_users_username.PlaceholderText = "Filter by username...";
+            this.filter_users_username.Size = new System.Drawing.Size(242, 39);
+            this.filter_users_username.TabIndex = 2;
+            // 
+            // filter_users_button
+            // 
+            this.filter_users_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.filter_users_button.Location = new System.Drawing.Point(598, 36);
+            this.filter_users_button.Name = "filter_users_button";
+            this.filter_users_button.Size = new System.Drawing.Size(112, 49);
+            this.filter_users_button.TabIndex = 1;
+            this.filter_users_button.Text = "Filter";
+            this.filter_users_button.UseVisualStyleBackColor = true;
+            this.filter_users_button.Click += new System.EventHandler(this.filter_users_button_Click);
+            // 
+            // filter_users_email
+            // 
+            this.filter_users_email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.filter_users_email.Location = new System.Drawing.Point(34, 36);
+            this.filter_users_email.Name = "filter_users_email";
+            this.filter_users_email.PlaceholderText = "Filter by email...";
+            this.filter_users_email.Size = new System.Drawing.Size(242, 39);
+            this.filter_users_email.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -176,6 +281,9 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.usersDataGrid)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.table_layout_main.ResumeLayout(false);
             this.table_layout_main.PerformLayout();
             this.ResumeLayout(false);
@@ -193,5 +301,14 @@
         private System.Windows.Forms.TableLayoutPanel table_layout_main;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label logo_title;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button filter_users_button;
+        private System.Windows.Forms.TextBox filter_users_email;
+        private System.Windows.Forms.TextBox filter_users_username;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel3;
     }
 }

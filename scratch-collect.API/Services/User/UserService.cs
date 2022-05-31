@@ -31,6 +31,7 @@ namespace scratch_collect.API.Services
             if (!string.IsNullOrWhiteSpace(request?.Email))
             {
                 query = query.Where(x => x.Email.StartsWith(request.Email));
+                var test = _mapper.Map<List<User>>(query.ToList());
             }
 
             if (!string.IsNullOrWhiteSpace(request?.Username))

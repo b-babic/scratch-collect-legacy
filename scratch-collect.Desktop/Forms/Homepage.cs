@@ -1,5 +1,6 @@
 ﻿using scratch_collect.Desktop.Services;
 using scratch_collect.Desktop.Services.Authentication;
+using scratch_collect.Model.User.Desktop;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,31 +48,12 @@ namespace scratch_collect.Desktop.Forms
 
                 if (users != null)
                 {
-                    // Populate the grid and resize columns
-                    usersDataGrid.DataSource = users;
-                    usersDataGrid.AutoResizeColumns();
-                    // Rename specific header columns
-                    usersDataGrid.Columns["Id"].HeaderText = "#ID";
-                    usersDataGrid.Columns["FirstName"].HeaderText = "First Name";
-                    usersDataGrid.Columns["LastName"].HeaderText = "Last Name";
-                    usersDataGrid.Columns["RegisteredAt"].HeaderText = "Registration Date";
-                    usersDataGrid.Columns["UserRole"].HeaderText = "User Role";
-                    // Override specific columns
-                    usersDataGrid.Columns["UserPhoto"].Visible = false;
-
-                    usersDataGrid.Visible = true;
-                    UseWaitCursor = false;
+                    await HandleDataSuccess(users);
                 }
             }
             catch (Exception)
             {
-                // TODO: Show validation label or placeholder screen instead of data grid ?
-                MessageBox.Show("Error while loading users!");
-
-                usersDataGrid.Enabled = false;
-                usersDataGrid.Visible = false;
-
-                UseWaitCursor = false;
+                await HandleDataError();
             }
         }
 
@@ -88,6 +70,74 @@ namespace scratch_collect.Desktop.Forms
             ConstructNavigation();
             SetupInitialLayout();
             await FetchUsersPageData();
+        }
+
+        private async void filter_users_button_Click(object sender, EventArgs e)
+        {
+            await FilterUsers();
+        }
+
+        private async Task FilterUsers()
+        {
+            var emailQuery = filter_users_email.Text.Trim();
+            var usernameQuery = filter_users_username.Text.Trim();
+
+            UseWaitCursor = true;
+            filter_users_button.Enabled = false;
+
+            try
+            {
+                var users = await _userService.GetAllUsers(emailQuery, usernameQuery);
+
+                if (users != null && users.Count > 0)
+                {
+                    usersDataGrid.DataSource = users;
+                    usersDataGrid.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("No users matching search criteria!");
+                }
+
+                filter_users_button.Enabled = true;
+                UseWaitCursor = false;
+            }
+            catch (Exception)
+            {
+                await HandleDataError();
+            }
+        }
+
+        private Task HandleDataSuccess(List<UserVM> users)
+        {
+            // Populate the grid and resize columns
+            usersDataGrid.DataSource = users;
+            usersDataGrid.AutoResizeColumns();
+            // Rename specific header columns
+            usersDataGrid.Columns["Id"].HeaderText = "#ID";
+            usersDataGrid.Columns["FirstName"].HeaderText = "First Name";
+            usersDataGrid.Columns["LastName"].HeaderText = "Last Name";
+            usersDataGrid.Columns["RegisteredAt"].HeaderText = "Registration Date";
+            usersDataGrid.Columns["UserRole"].HeaderText = "User Role";
+            // Override specific columns
+            usersDataGrid.Columns["UserPhoto"].Visible = false;
+
+            usersDataGrid.Visible = true;
+            UseWaitCursor = false;
+
+            return Task.CompletedTask;
+        }
+
+        private Task HandleDataError()
+        {
+            MessageBox.Show("Error while loading users!");
+
+            usersDataGrid.Enabled = false;
+            usersDataGrid.Visible = false;
+
+            UseWaitCursor = false;
+
+            return Task.CompletedTask;
         }
     }
 }
