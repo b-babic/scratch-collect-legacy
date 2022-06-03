@@ -1,18 +1,9 @@
-﻿using scratch_collect.Model.Auth;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using scratch_collect.Desktop.Forms;
-using AutoMapper;
+﻿using scratch_collect.Desktop.Forms;
 using scratch_collect.Desktop.Services.Authentication;
+using System;
+using System.ComponentModel;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace scratch_collect.Desktop
 {

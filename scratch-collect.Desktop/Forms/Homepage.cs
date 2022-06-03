@@ -4,11 +4,6 @@ using scratch_collect.Desktop.Services.Authentication;
 using scratch_collect.Model.User.Desktop;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -143,7 +138,7 @@ namespace scratch_collect.Desktop.Forms
 
         private void new_user_button_Click(object sender, EventArgs e)
         {
-            var newUserForm = new NewUserForm();
+            var newUserForm = new NewUserForm(this);
 
             newUserForm.Show();
             Hide();

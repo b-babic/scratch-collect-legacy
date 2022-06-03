@@ -1,6 +1,4 @@
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using scratch_collect.Desktop.Forms;
 using scratch_collect.Desktop.Services;
 using scratch_collect.Desktop.Utilities;

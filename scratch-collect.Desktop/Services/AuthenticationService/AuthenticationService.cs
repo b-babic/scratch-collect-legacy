@@ -1,8 +1,5 @@
 ﻿using scratch_collect.Model.Auth;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace scratch_collect.Desktop.Services.Authentication
