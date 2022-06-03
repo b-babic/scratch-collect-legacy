@@ -1,4 +1,5 @@
-﻿using scratch_collect.Desktop.Services;
+﻿using scratch_collect.Desktop.Forms.Users;
+using scratch_collect.Desktop.Services;
 using scratch_collect.Desktop.Services.Authentication;
 using scratch_collect.Model.User.Desktop;
 using System;
@@ -138,6 +139,14 @@ namespace scratch_collect.Desktop.Forms
             UseWaitCursor = false;
 
             return Task.CompletedTask;
+        }
+
+        private void new_user_button_Click(object sender, EventArgs e)
+        {
+            var newUserForm = new NewUserForm();
+
+            newUserForm.Show();
+            Hide();
         }
     }
 }

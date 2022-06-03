@@ -35,9 +35,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.delete_user_button = new System.Windows.Forms.Button();
+            this.edit_user_button = new System.Windows.Forms.Button();
+            this.new_user_button = new System.Windows.Forms.Button();
             this.filter_users_username = new System.Windows.Forms.TextBox();
             this.filter_users_button = new System.Windows.Forms.Button();
             this.filter_users_email = new System.Windows.Forms.TextBox();
@@ -139,46 +139,47 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.delete_user_button);
+            this.panel2.Controls.Add(this.edit_user_button);
+            this.panel2.Controls.Add(this.new_user_button);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1097, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(453, 121);
             this.panel2.TabIndex = 3;
             // 
-            // button3
+            // delete_user_button
             // 
-            this.button3.BackColor = System.Drawing.Color.Brown;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.LightCoral;
-            this.button3.Location = new System.Drawing.Point(40, 35);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 49);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = false;
+            this.delete_user_button.BackColor = System.Drawing.Color.Brown;
+            this.delete_user_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.delete_user_button.ForeColor = System.Drawing.Color.LightCoral;
+            this.delete_user_button.Location = new System.Drawing.Point(40, 35);
+            this.delete_user_button.Name = "delete_user_button";
+            this.delete_user_button.Size = new System.Drawing.Size(112, 49);
+            this.delete_user_button.TabIndex = 6;
+            this.delete_user_button.Text = "Delete";
+            this.delete_user_button.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // edit_user_button
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(186, 35);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 49);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.edit_user_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.edit_user_button.Location = new System.Drawing.Point(186, 35);
+            this.edit_user_button.Name = "edit_user_button";
+            this.edit_user_button.Size = new System.Drawing.Size(112, 49);
+            this.edit_user_button.TabIndex = 5;
+            this.edit_user_button.Text = "Edit";
+            this.edit_user_button.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // new_user_button
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(327, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 49);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "New";
-            this.button1.UseVisualStyleBackColor = true;
+            this.new_user_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.new_user_button.Location = new System.Drawing.Point(327, 35);
+            this.new_user_button.Name = "new_user_button";
+            this.new_user_button.Size = new System.Drawing.Size(112, 49);
+            this.new_user_button.TabIndex = 4;
+            this.new_user_button.Text = "New";
+            this.new_user_button.UseVisualStyleBackColor = true;
+            this.new_user_button.Click += new System.EventHandler(this.new_user_button_Click);
             // 
             // filter_users_username
             // 
@@ -306,9 +307,9 @@
         private System.Windows.Forms.TextBox filter_users_email;
         private System.Windows.Forms.TextBox filter_users_username;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button delete_user_button;
+        private System.Windows.Forms.Button edit_user_button;
+        private System.Windows.Forms.Button new_user_button;
         private System.Windows.Forms.Panel panel3;
     }
 }
