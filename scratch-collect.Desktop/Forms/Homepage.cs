@@ -24,9 +24,12 @@ namespace scratch_collect.Desktop.Forms
 
         private void SetupInitialLayout()
         {
+            // Default styles
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+
             // Hide initial elements
             usersDataGrid.Visible = false;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            DisableDeleteButton();
         }
 
         private static void FakeAuthentication()
@@ -142,6 +145,74 @@ namespace scratch_collect.Desktop.Forms
 
             newUserForm.Show();
             Hide();
+        }
+
+        private void usersDataGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            if (usersDataGrid.Focused)
+            {
+                EnableDeleteButton();
+            }
+        }
+
+        private void usersDataGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            usersDataGrid.ClearSelection();
+            usersDataGrid.Rows[0].Selected = false;
+            usersDataGrid.CurrentCell = null;
+        }
+
+        // Delete a user
+        private async void delete_user_button_Click(object sender, EventArgs e)
+        {
+            if (usersDataGrid.Focused) return;
+
+            if (usersDataGrid.SelectedRows.Count == 0) return;
+
+            var toDeleteID = usersDataGrid.SelectedRows[0].Cells[0].Value;
+
+            if (toDeleteID == null) return;
+
+            DisableDeleteButton();
+            UseWaitCursor = true;
+
+            try
+            {
+                var deleted = await _userService.DeleteUser((int)toDeleteID);
+
+                if (deleted)
+                {
+                    MessageBox.Show("Successfully deleted", " User", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    DisableDeleteButton();
+                    await FetchUsersPageData();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong !", " User", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                EnableDeleteButton();
+
+                throw;
+            }
+            finally
+            {
+                UseWaitCursor = false;
+                usersDataGrid.ClearSelection();
+            }
+        }
+
+        // Helpers
+        private void DisableDeleteButton()
+        {
+            delete_user_button.Enabled = false;
+            delete_user_button.Visible = false;
+        }
+
+        private void EnableDeleteButton()
+        {
+            delete_user_button.Enabled = true;
+            delete_user_button.Visible = true;
         }
     }
 }

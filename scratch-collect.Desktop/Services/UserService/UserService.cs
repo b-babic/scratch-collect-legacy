@@ -53,5 +53,19 @@ namespace scratch_collect.Desktop.Services
                 throw;
             }
         }
+
+        public async Task<bool> DeleteUser(int id)
+        {
+            try
+            {
+                var response = await HttpHelper.DeleteAsync(_baseUrl + String.Format("/{0}", id));
+
+                return response;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

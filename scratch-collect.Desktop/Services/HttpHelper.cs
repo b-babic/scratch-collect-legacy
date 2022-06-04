@@ -45,13 +45,18 @@ namespace scratch_collect.Desktop.Services
             return deserializedResponse;
         }
 
-        public static async Task<T> DeleteAsync<T>(string resourceUrl)
+        public static async Task<bool> DeleteAsync(string resourceUrl)
         {
             var response = await _httpClient.DeleteAsync(resourceUrl);
 
-            T deserializedResponse = await DeserializeResponse<T>(response);
-
-            return deserializedResponse;
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private static async Task<T> DeserializeResponse<T>(HttpResponseMessage response)

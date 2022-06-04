@@ -108,13 +108,18 @@
             this.usersDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usersDataGrid.Location = new System.Drawing.Point(3, 130);
+            this.usersDataGrid.MultiSelect = false;
             this.usersDataGrid.Name = "usersDataGrid";
             this.usersDataGrid.ReadOnly = true;
             this.usersDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.usersDataGrid.RowHeadersWidth = 62;
             this.usersDataGrid.RowTemplate.Height = 33;
+            this.usersDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersDataGrid.Size = new System.Drawing.Size(1550, 590);
+            this.usersDataGrid.StandardTab = true;
             this.usersDataGrid.TabIndex = 0;
+            this.usersDataGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.usersDataGrid_DataBindingComplete);
+            this.usersDataGrid.SelectionChanged += new System.EventHandler(this.usersDataGrid_SelectionChanged);
             // 
             // panel1
             // 
@@ -159,6 +164,7 @@
             this.delete_user_button.TabIndex = 6;
             this.delete_user_button.Text = "Delete";
             this.delete_user_button.UseVisualStyleBackColor = false;
+            this.delete_user_button.Click += new System.EventHandler(this.delete_user_button_Click);
             // 
             // edit_user_button
             // 
