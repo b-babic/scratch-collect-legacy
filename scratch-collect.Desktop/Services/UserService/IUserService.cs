@@ -7,5 +7,7 @@ namespace scratch_collect.Desktop.Services
     public interface IUserService
     {
         public Task<List<UserVM>> GetAllUsers(string emailQuery = null, string usernameQuery = null);
+
+        public Task<UserVM> CreateUser(UserCreateVM user);
     }
 }

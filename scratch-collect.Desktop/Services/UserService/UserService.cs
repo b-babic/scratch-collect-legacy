@@ -39,5 +39,19 @@ namespace scratch_collect.Desktop.Services
                 throw;
             }
         }
+
+        public async Task<UserVM> CreateUser(UserCreateVM user)
+        {
+            try
+            {
+                var createdUser = await HttpHelper.PostAsync<User, UserCreateVM>(_baseUrl, user);
+
+                return _mapper.Map<UserVM>(createdUser);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

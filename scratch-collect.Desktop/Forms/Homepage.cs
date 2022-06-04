@@ -34,7 +34,7 @@ namespace scratch_collect.Desktop.Forms
             AuthenticationService.FakeAuthentication();
         }
 
-        private async Task FetchUsersPageData()
+        public async Task FetchUsersPageData()
         {
             UseWaitCursor = true;
 
