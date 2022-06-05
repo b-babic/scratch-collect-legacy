@@ -3,13 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace scratch_collect.API.Database
 {
-    public sealed partial class Role
+    public partial class Role
     {
-        public Role()
-        {
-            UserRoles = new HashSet<UserRole>();
-        }
-
         public int Id { get; set; }
 
         [Required]
@@ -19,6 +14,6 @@ namespace scratch_collect.API.Database
         [MaxLength(200, ErrorMessage = "Description must have max 30 characters.")]
         public string Description { get; set; }
 
-        private ICollection<UserRole> UserRoles { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

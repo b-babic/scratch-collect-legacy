@@ -1,4 +1,4 @@
-﻿namespace scratch_collect.Model.Coupon
+﻿namespace scratch_collect.Model.Requests
 {
     public class CouponSearchRequest
     {

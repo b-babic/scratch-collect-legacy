@@ -1,4 +1,4 @@
-﻿using scratch_collect.Model.Role;
+﻿using scratch_collect.Model;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,12 +9,12 @@ namespace scratch_collect.Desktop.Services
     {
         private static string _baseUrl = System.Configuration.ConfigurationManager.AppSettings["BASE_API_URL"] + "role";
 
-        public async Task<List<Role>> GetAllRoles()
+        public async Task<List<RoleDTO>> GetAllRoles()
         {
             // get all roles
             try
             {
-                var roles = await HttpHelper.GetAsync<List<Role>>(_baseUrl);
+                var roles = await HttpHelper.GetAsync<List<RoleDTO>>(_baseUrl + "/all");
 
                 return roles;
             }

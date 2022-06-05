@@ -1,9 +1,8 @@
 using System;
-using System.Collections.Generic;
 
-namespace scratch_collect.Model.User
+namespace scratch_collect.Model
 {
-    public class User
+    public class UserDTO
     {
         public int Id { get; set; }
         public string Username { get; set; }
@@ -11,9 +10,11 @@ namespace scratch_collect.Model.User
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
-        public DateTime? RegisteredAt { get; set; }
-        public byte[] UserPhoto { get; set; }
+        public RoleDTO Role { get; set; }
 
-        public ICollection<UserRole.UserRole> UserRoles { get; set; }
+#nullable enable
+        public DateTime? RegisteredAt { get; set; }
+        public byte[]? UserPhoto { get; set; }
+#nullable disable
     }
 }

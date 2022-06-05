@@ -1,4 +1,4 @@
-namespace scratch_collect.Model.User
+namespace scratch_collect.Model.Requests
 {
     public class UserSearchRequest
     {

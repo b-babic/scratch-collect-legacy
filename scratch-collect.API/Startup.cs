@@ -13,13 +13,9 @@ using scratch_collect.API.Database;
 using scratch_collect.API.Filters;
 using scratch_collect.API.Helper;
 using scratch_collect.API.Services;
-using scratch_collect.API.Services.Base;
-using scratch_collect.API.Services.Coupon;
-using scratch_collect.Model.Requests;
 using System.Text;
 using AuthenticationService = scratch_collect.API.Services.AuthenticationService;
 using IAuthenticationService = scratch_collect.API.Services.IAuthenticationService;
-using Role = scratch_collect.Model.Role.Role;
 
 namespace scratch_collect.API
 {
@@ -85,7 +81,7 @@ namespace scratch_collect.API
 
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IService<Role, RoleSearchRequest>, RoleService>();
+            services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<ICouponService, CouponService>();
 
             services.AddAutoMapper(typeof(Startup));

@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using scratch_collect.API.Services;
-using scratch_collect.Model.Coupon;
+using scratch_collect.Model;
+using scratch_collect.Model.Requests;
 using System.Collections.Generic;
 
 namespace scratch_collect.API.Controllers
@@ -20,7 +21,7 @@ namespace scratch_collect.API.Controllers
         [Authorize(Roles = "Administrator")]
         [HttpGet]
         [Route("all")]
-        public ICollection<CouponModel> Get([FromQuery] CouponSearchRequest request)
+        public ICollection<CouponDTO> Get([FromQuery] CouponSearchRequest request)
         {
             // Return all coupons
             // Optionally include filter and filter for used ones ?

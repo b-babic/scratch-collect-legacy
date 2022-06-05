@@ -1,4 +1,5 @@
-﻿using scratch_collect.Model.Auth;
+﻿using scratch_collect.Model;
+using scratch_collect.Model.Requests;
 using System;
 using System.Threading.Tasks;
 
@@ -23,7 +24,7 @@ namespace scratch_collect.Desktop.Services.Authentication
 
             try
             {
-                var user = await HttpHelper.PostAsync<SignedUser, SigninRequest>(_baseUrl + "/signin", request);
+                var user = await HttpHelper.PostAsync<SignedUserDTO, SigninRequest>(_baseUrl + "/signin", request);
 
                 // Save auth token
                 if (!string.IsNullOrEmpty(user.Token))

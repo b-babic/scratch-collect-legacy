@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace scratch_collect.Model.Auth
+﻿namespace scratch_collect.Model
 {
-    public class SignedUser
+    public class SignedUserDTO
     {
         public int Id { get; set; }
         public string Email { get; set; }

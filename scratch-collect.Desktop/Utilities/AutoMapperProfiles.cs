@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using scratch_collect.Model.User;
-using scratch_collect.Model.User.Desktop;
-using System.Linq;
+using scratch_collect.Model;
+using scratch_collect.Model.Desktop;
 
 namespace scratch_collect.Desktop.Utilities
 {
@@ -9,10 +8,9 @@ namespace scratch_collect.Desktop.Utilities
     {
         public AutoMapperProfiles()
         {
-            CreateMap<User, UserVM>()
+            CreateMap<UserDTO, UserVM>()
                 // Get only first role since user cannot have multiple roles for Desktop.
-                .ForMember(dest => dest.UserRole, opt => opt.MapFrom(src => src.UserRoles.FirstOrDefault().Role.Name))
-                .ForMember(dest => dest.UserPhoto, opt => opt.Condition(src => (src.UserPhoto.Length > 0)));
+                .ForMember(dest => dest.UserPhoto, opt => opt.Condition(src => (src.UserPhoto != null && src.UserPhoto.Length > 0)));
         }
     }
 }

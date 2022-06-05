@@ -1,21 +1,18 @@
 using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using scratch_collect.API.Database;
 using scratch_collect.API.Exceptions;
 using scratch_collect.API.Helper;
-using scratch_collect.Model.Auth;
-using scratch_collect.Model.Enums;
+using scratch_collect.Model;
+using scratch_collect.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Net;
 using System.Security.Claims;
 using System.Text;
-using User = scratch_collect.Model.User.User;
 
 namespace scratch_collect.API.Services
 {
@@ -32,12 +29,12 @@ namespace scratch_collect.API.Services
             _appSettings = appSettings.Value;
         }
 
-        public User Signup(SignupRequest request)
+        public UserDTO Signup(SignupRequest request)
         {
             // Default columns
             request.RegisteredAt = DateTime.UtcNow;
 
-            var entity = _mapper.Map<Database.User>(request);
+            var entity = _mapper.Map<User>(request);
 
             // check if user is unique (already have an account ? )
             var accountAlreadyExist =
@@ -54,24 +51,16 @@ namespace scratch_collect.API.Services
             entity.PasswordSalt = Password.GenerateSalt();
             entity.PasswordHash = Password.GenerateHash(entity.PasswordSalt, request.Password);
 
+            // Assign default user role (client)
+            entity.RoleId = 2;
+
             _context.Users.Add(entity);
             _context.SaveChanges();
 
-            // Assign default user role when signin up
-            var userRole = new UserRole()
-            {
-                UserId = entity.Id,
-                RoleId = (int)Roles.Client,
-                UpdatedAt = DateTime.Now
-            };
-
-            _context.UserRoles.Add(userRole);
-            _context.SaveChanges();
-
-            return _mapper.Map<User>(entity);
+            return _mapper.Map<UserDTO>(entity);
         }
 
-        public SignedUser Signin(SigninRequest request)
+        public SignedUserDTO Signin(SigninRequest request)
         {
             if (string.IsNullOrEmpty(request.Email))
                 throw new ArgumentNullException(request.Email, "You must provide email !");
@@ -80,8 +69,7 @@ namespace scratch_collect.API.Services
                 throw new ArgumentNullException(request.Password, "You must provide password !");
 
             var user = _context.Users
-                .Include(i => i.UserRoles)
-                .ThenInclude(j => j.Role)
+                .Include(i => i.Role)
                 .FirstOrDefault(x => x.Email == request.Email);
 
             if (user == null)
@@ -101,7 +89,7 @@ namespace scratch_collect.API.Services
                 new Claim(ClaimTypes.Name, user.Email),
             };
 
-            customClaims.AddRange(user.UserRoles.Select(role => new Claim(ClaimTypes.Role, role.Role.Name)));
+            customClaims.Add(new Claim(ClaimTypes.Role, user.Role.Name));
 
             var token = new JwtSecurityToken
             (issuer: null,
@@ -114,7 +102,7 @@ namespace scratch_collect.API.Services
 
             user.Token = new JwtSecurityTokenHandler().WriteToken(token);
 
-            return _mapper.Map<SignedUser>(user);
+            return _mapper.Map<SignedUserDTO>(user);
         }
     }
 }

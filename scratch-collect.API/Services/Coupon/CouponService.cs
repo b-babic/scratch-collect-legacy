@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using scratch_collect.API.Database;
-using scratch_collect.Model.Coupon;
+using scratch_collect.Model;
+using scratch_collect.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace scratch_collect.API.Services.Coupon
+namespace scratch_collect.API.Services
 {
     public class CouponService : ICouponService
     {
@@ -23,12 +24,12 @@ namespace scratch_collect.API.Services.Coupon
             throw new NotImplementedException();
         }
 
-        public CouponModel Generate(int numberOfItems)
+        public CouponDTO Generate(int numberOfItems)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<CouponModel> GetAll(CouponSearchRequest request)
+        public ICollection<CouponDTO> GetAll(CouponSearchRequest request)
         {
             var query = _context.Coupons.AsQueryable();
 
@@ -39,15 +40,15 @@ namespace scratch_collect.API.Services.Coupon
 
             var list = query.ToList();
 
-            return _mapper.Map<List<CouponModel>>(list);
+            return _mapper.Map<List<CouponDTO>>(list);
         }
 
-        public CouponModel GetById(int id)
+        public CouponDTO GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public CouponModel Update(int id)
+        public CouponDTO Update(int id)
         {
             throw new NotImplementedException();
         }

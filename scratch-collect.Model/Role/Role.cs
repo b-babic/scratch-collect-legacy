@@ -1,6 +1,6 @@
-namespace scratch_collect.Model.Role
+namespace scratch_collect.Model
 {
-    public class Role
+    public class RoleDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }

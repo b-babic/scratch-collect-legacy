@@ -1,5 +1,5 @@
 ﻿using scratch_collect.Desktop.Services;
-using scratch_collect.Model.User.Desktop;
+using scratch_collect.Model.Desktop;
 using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
@@ -288,7 +288,7 @@ namespace scratch_collect.Desktop.Forms.Users
                     Password = password_input.Text,
                     Username = username_input.Text,
                     Address = address_input.Text,
-                    Role = (int)role_combobox.SelectedValue,
+                    RoleId = (int)role_combobox.SelectedValue,
                     RegisteredAt = DateTime.Now,
                     //UserPhoto = [] // TODO: generate base64 from uploaded Bitmap
                 };

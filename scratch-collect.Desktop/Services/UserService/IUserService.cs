@@ -1,4 +1,4 @@
-﻿using scratch_collect.Model.User.Desktop;
+﻿using scratch_collect.Model.Desktop;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

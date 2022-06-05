@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
-namespace scratch_collect.Model.User.Desktop
+namespace scratch_collect.Model.Desktop
 {
     public class UserVM
     {
@@ -12,9 +10,11 @@ namespace scratch_collect.Model.User.Desktop
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
-        public DateTime? RegisteredAt { get; set; }
-        public byte[] UserPhoto { get; set; }
+        public string Role { get; set; }
 
-        public string UserRole { get; set; }
+#nullable enable
+        public DateTime? RegisteredAt { get; set; }
+        public byte[]? UserPhoto { get; set; }
+#nullable disable
     }
 }

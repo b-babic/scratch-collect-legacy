@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace scratch_collect.Model.Coupon
+namespace scratch_collect.Model
 {
-    public class CouponModel
+    public class CouponDTO
     {
         public int Id { get; set; }
         public string Text { get; set; }

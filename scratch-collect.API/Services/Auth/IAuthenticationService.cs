@@ -1,12 +1,12 @@
-using scratch_collect.Model.Auth;
-using scratch_collect.Model.User;
+using scratch_collect.Model;
+using scratch_collect.Model.Requests;
 
 namespace scratch_collect.API.Services
 {
     public interface IAuthenticationService
     {
-        User Signup(SignupRequest request);
+        UserDTO Signup(SignupRequest request);
 
-        SignedUser Signin(SigninRequest request);
+        SignedUserDTO Signin(SigninRequest request);
     }
 }

@@ -1,42 +1,46 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-	<TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>scratch_collect.API</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>scratch_collect.API</RootNamespace>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Controllers\" />
-    <None Remove="NSwag.AspNetCore" />
-    <None Remove="Microsoft.EntityFrameworkCore" />
-    <None Remove="Database\" />
-    <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
-    <None Remove="Database\Seed\" />
-    <None Remove="Helper\" />
-    <None Remove="Microsoft.EntityFrameworkCore.Design" />
-    <None Remove="Swashbuckle.AspNetCore.Swagger" />
-    <None Remove="Swashbuckle.AspNetCore.Newtonsoft" />
-    <None Remove="Swashbuckle.AspNetCore.SwaggerUI" />
-    <None Remove="Infra\" />
-    <None Remove="Services\" />
-    <None Remove="Services\Default\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infra\" />
-    <Folder Include="Migrations" />
-    <Folder Include="Services\Base\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.3.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.3.1" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.18.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\scratch-collect.Model\scratch-collect.Model.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Controllers\" />
+		<None Remove="NSwag.AspNetCore" />
+		<None Remove="Microsoft.EntityFrameworkCore" />
+		<None Remove="Database\" />
+		<None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+		<None Remove="Database\Seed\" />
+		<None Remove="Helper\" />
+		<None Remove="Microsoft.EntityFrameworkCore.Design" />
+		<None Remove="Swashbuckle.AspNetCore.Swagger" />
+		<None Remove="Swashbuckle.AspNetCore.Newtonsoft" />
+		<None Remove="Swashbuckle.AspNetCore.SwaggerUI" />
+		<None Remove="Infra\" />
+		<None Remove="Services\" />
+		<None Remove="Services\Default\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Infra\" />
+		<Folder Include="Migrations\" />
+		<Folder Include="Services\Base\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.3.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.3.1" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.18.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\scratch-collect.Model\scratch-collect.Model.csproj" />
+	</ItemGroup>
 </Project>

@@ -1,9 +1,6 @@
 using AutoMapper;
-using scratch_collect.Model.Auth;
-using scratch_collect.Model.Coupon;
-using scratch_collect.Model.Role;
-using scratch_collect.Model.User;
-using scratch_collect.Model.UserRole;
+using scratch_collect.Model;
+using scratch_collect.Model.Requests;
 
 namespace scratch_collect.API.Infra
 {
@@ -11,22 +8,19 @@ namespace scratch_collect.API.Infra
     {
         public Mapper()
         {
-            // auth
-            CreateMap<Database.User, SignedUser>();
+            // Auth
+            CreateMap<Database.User, SignedUserDTO>();
             CreateMap<Database.User, SignupRequest>().ReverseMap();
 
-            // user
-            CreateMap<Database.User, User>();
+            // User
+            CreateMap<Database.User, UserDTO>();
             CreateMap<Database.User, UserUpsertRequest>().ReverseMap();
 
-            // user role
-            CreateMap<Database.UserRole, UserRole>().ReverseMap();
+            // Role
+            CreateMap<Database.Role, RoleDTO>();
 
-            // role
-            CreateMap<Database.Role, Role>();
-
-            // coupons
-            CreateMap<Database.Coupon, CouponModel>();
+            // Coupon
+            CreateMap<Database.Coupon, CouponDTO>();
         }
     }
 }

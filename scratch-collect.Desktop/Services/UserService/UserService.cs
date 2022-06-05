@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using scratch_collect.Model.User;
-using scratch_collect.Model.User.Desktop;
+using scratch_collect.Model;
+using scratch_collect.Model.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -29,7 +29,7 @@ namespace scratch_collect.Desktop.Services
 
             try
             {
-                List<User> users = await HttpHelper.GetAsync<List<User>>(_baseUrl + "/all", parameters);
+                List<UserDTO> users = await HttpHelper.GetAsync<List<UserDTO>>(_baseUrl + "/all", parameters);
 
                 // Map to VM
                 return _mapper.Map<List<UserVM>>(users);
@@ -44,7 +44,7 @@ namespace scratch_collect.Desktop.Services
         {
             try
             {
-                var createdUser = await HttpHelper.PostAsync<User, UserCreateVM>(_baseUrl, user);
+                var createdUser = await HttpHelper.PostAsync<UserDTO, UserCreateVM>(_baseUrl, user);
 
                 return _mapper.Map<UserVM>(createdUser);
             }
@@ -58,7 +58,7 @@ namespace scratch_collect.Desktop.Services
         {
             try
             {
-                var response = await HttpHelper.DeleteAsync(_baseUrl + String.Format("/{0}", id));
+                var response = await HttpHelper.DeleteAsync(_baseUrl + string.Format("/{0}", id));
 
                 return response;
             }

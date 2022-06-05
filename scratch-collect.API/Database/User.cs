@@ -4,13 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace scratch_collect.API.Database
 {
-    public sealed partial class User
+    public partial class User
     {
-        public User()
-        {
-            UserRoles = new HashSet<UserRole>();
-        }
-
         public int Id { get; set; }
 
         [Required]
@@ -48,7 +43,9 @@ namespace scratch_collect.API.Database
         public byte[] UserPhoto { get; set; }
 
         // relationships
-        public ICollection<UserRole> UserRoles { get; set; }
+        public int RoleId { get; set; }
+
+        public virtual Role Role { get; set; }
 
         public ICollection<Coupon> UsedCoupons { get; set; }
     }

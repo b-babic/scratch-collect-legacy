@@ -19,7 +19,6 @@ namespace scratch_collect.API.Database
         public virtual DbSet<User> Users { get; set; }
 
         public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -41,31 +40,30 @@ namespace scratch_collect.API.Database
             base.OnModelCreating(modelBuilder);
 
             // relations
-            modelBuilder.Entity<UserRole>(entity =>
-            {
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.UserRoles)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-
-                entity.HasOne(d => d.Role)
-                    .WithMany()
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-            });
-
             modelBuilder.Entity<User>(entity =>
             {
-                entity.HasMany(d => d.UsedCoupons)
+                entity
+                    .HasMany(d => d.UsedCoupons)
                     .WithOne(p => p.UsedBy);
             });
 
-            modelBuilder.Entity<Coupon>()
-                .Property(b => b.CreatedAt)
-                .HasDefaultValueSql("getdate()");
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity
+                    .HasMany(a => a.Users)
+                    .WithOne(b => b.Role);
+            });
 
-            modelBuilder.Entity<Coupon>()
-                .Property(b => b.UsedAt)
-                .HasDefaultValueSql("getdate()");
+            modelBuilder.Entity<Coupon>(entity =>
+            {
+                entity
+                    .Property(b => b.CreatedAt)
+                    .HasDefaultValueSql("getdate()");
+
+                entity
+                    .Property(b => b.UsedAt)
+                    .HasDefaultValueSql("getdate()");
+            });
 
             // custom partial for setting seed data
             OnModelCreatingPartial(modelBuilder);

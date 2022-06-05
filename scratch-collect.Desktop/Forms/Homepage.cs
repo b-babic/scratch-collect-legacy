@@ -1,7 +1,7 @@
 ﻿using scratch_collect.Desktop.Forms.Users;
 using scratch_collect.Desktop.Services;
 using scratch_collect.Desktop.Services.Authentication;
-using scratch_collect.Model.User.Desktop;
+using scratch_collect.Model.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -117,7 +117,7 @@ namespace scratch_collect.Desktop.Forms
             usersDataGrid.Columns["FirstName"].HeaderText = "First Name";
             usersDataGrid.Columns["LastName"].HeaderText = "Last Name";
             usersDataGrid.Columns["RegisteredAt"].HeaderText = "Registration Date";
-            usersDataGrid.Columns["UserRole"].HeaderText = "User Role";
+            usersDataGrid.Columns["Role"].HeaderText = "Role";
             // Override specific columns
             usersDataGrid.Columns["UserPhoto"].Visible = false;
 
