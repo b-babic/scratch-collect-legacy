@@ -64,6 +64,8 @@ namespace scratch_collect.Desktop.Forms.Users
             this.Close();
 
             await _parentForm.FetchUsersPageData();
+
+            _parentForm.Location = this.Location;
             _parentForm.Show();
         }
 

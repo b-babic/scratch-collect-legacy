@@ -142,6 +142,7 @@ namespace scratch_collect.Desktop.Forms
         private void new_user_button_Click(object sender, EventArgs e)
         {
             var newUserForm = new NewUserForm(this);
+            newUserForm.Location = this.Location;
 
             newUserForm.Show();
             Hide();
