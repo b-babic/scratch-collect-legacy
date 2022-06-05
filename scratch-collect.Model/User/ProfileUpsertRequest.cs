@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace scratch_collect.Model.Requests
 {
-    public class UserUpsertRequest
+    public class ProfileUpsertRequest
     {
         [Required(AllowEmptyStrings = false)]
         public string Email { get; set; }
@@ -11,24 +11,22 @@ namespace scratch_collect.Model.Requests
         [Required(AllowEmptyStrings = false)]
         public string Username { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
+        [Required]
         public string FirstName { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
+        [Required]
         public string LastName { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
+        [Required]
         public string Address { get; set; }
 
-        [Required]
-        public int RoleId { get; set; }
-
-#nullable enable
-        public string? Password { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        public string Password { get; set; }
 
         public DateTime? RegisteredAt { get; set; }
 
-        public byte[]? UserPhoto { get; set; }
-#nullable disable
+        public byte[] UserPhoto { get; set; }
+
+        public int RoleId { get; set; }
     }
 }

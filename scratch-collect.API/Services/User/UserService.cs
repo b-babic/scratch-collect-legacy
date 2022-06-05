@@ -75,6 +75,37 @@ namespace scratch_collect.API.Services
             return _mapper.Map<UserDTO>(result);
         }
 
+        //TODO: Edit profile (client)
+        //[HttpPut]
+        //public UserDTO Update(int id, ProfileUpsertReuqest request)
+        //{
+        //    var entity = _context.Users.Find(id);
+
+        //    if (entity == null)
+        //        throw new BadRequestException("User does not exist !");
+
+        //    var emailEntity = _context.Users.FirstOrDefault(x => x.Email == request.Email);
+
+        //    // if there is another user in the system with email value passed in request
+        //    if (emailEntity != null && entity.Email != emailEntity.Email)
+        //        throw new BadRequestException("There is another user with provided email address !");
+
+        //    _context.Users.Attach(entity);
+        //    _context.Users.Update(entity);
+        //    _mapper.Map(request, entity);
+
+        //    if (!string.IsNullOrWhiteSpace(request.Password))
+        //    {
+        //        entity.PasswordSalt = Password.GenerateSalt();
+        //        entity.PasswordHash = Password.GenerateHash(entity.PasswordSalt, request.Password);
+        //    }
+
+        //    _context.SaveChanges();
+
+        //    _context.SaveChanges();
+        //    return _mapper.Map<UserDTO>(entity);
+        //}
+
         [Authorize("Administrator")]
         [HttpPut]
         public UserDTO Update(int id, UserUpsertRequest request)
@@ -84,25 +115,12 @@ namespace scratch_collect.API.Services
             if (entity == null)
                 throw new BadRequestException("User does not exist !");
 
-            var emailEntity = _context.Users.FirstOrDefault(x => x.Email == request.Email);
-
-            // if there is another user in the system with email value passed in request
-            if (emailEntity != null && entity.Email != emailEntity.Email)
-                throw new BadRequestException("There is another user with provided email address !");
-
             _context.Users.Attach(entity);
             _context.Users.Update(entity);
             _mapper.Map(request, entity);
 
-            if (!string.IsNullOrWhiteSpace(request.Password))
-            {
-                entity.PasswordSalt = Password.GenerateSalt();
-                entity.PasswordHash = Password.GenerateHash(entity.PasswordSalt, request.Password);
-            }
-
             _context.SaveChanges();
 
-            _context.SaveChanges();
             return _mapper.Map<UserDTO>(entity);
         }
 
