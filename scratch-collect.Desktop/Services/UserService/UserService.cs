@@ -40,6 +40,21 @@ namespace scratch_collect.Desktop.Services
             }
         }
 
+        public async Task<UserVM> GetUserById(string userID)
+        {
+            try
+            {
+                UserDTO user = await HttpHelper.GetAsync<UserDTO>(_baseUrl + string.Format("/{0}", userID));
+
+                // Map to VM
+                return _mapper.Map<UserVM>(user);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public async Task<UserVM> CreateUser(UserCreateVM user)
         {
             try
@@ -47,6 +62,20 @@ namespace scratch_collect.Desktop.Services
                 var createdUser = await HttpHelper.PostAsync<UserDTO, UserCreateVM>(_baseUrl, user);
 
                 return _mapper.Map<UserVM>(createdUser);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<UserVM> UpdateUser(UserUpdateVM user)
+        {
+            try
+            {
+                var updatedUser = await HttpHelper.PutAsync<UserVM, UserUpdateVM>(_baseUrl + string.Format("/{0}", user.Id), user);
+
+                return _mapper.Map<UserVM>(updatedUser);
             }
             catch (Exception)
             {

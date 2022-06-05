@@ -175,6 +175,7 @@
             this.edit_user_button.TabIndex = 5;
             this.edit_user_button.Text = "Edit";
             this.edit_user_button.UseVisualStyleBackColor = true;
+            this.edit_user_button.Click += new System.EventHandler(this.edit_user_button_Click);
             // 
             // new_user_button
             // 

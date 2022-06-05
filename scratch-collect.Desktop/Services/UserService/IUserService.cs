@@ -8,7 +8,11 @@ namespace scratch_collect.Desktop.Services
     {
         public Task<List<UserVM>> GetAllUsers(string emailQuery = null, string usernameQuery = null);
 
+        public Task<UserVM> GetUserById(string userID);
+
         public Task<UserVM> CreateUser(UserCreateVM user);
+
+        public Task<UserVM> UpdateUser(UserUpdateVM user);
 
         public Task<bool> DeleteUser(int id);
     }

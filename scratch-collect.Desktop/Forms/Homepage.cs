@@ -215,5 +215,18 @@ namespace scratch_collect.Desktop.Forms
             delete_user_button.Enabled = true;
             delete_user_button.Visible = true;
         }
+
+        private void edit_user_button_Click(object sender, EventArgs e)
+        {
+            var selectedUserID = usersDataGrid.SelectedRows[0].Cells[0].Value;
+
+            if (selectedUserID == null) return;
+
+            var editUserForm = new EditUser(this, selectedUserID.ToString());
+            editUserForm.Location = this.Location;
+
+            editUserForm.Show();
+            Hide();
+        }
     }
 }
