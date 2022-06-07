@@ -72,7 +72,7 @@ namespace scratch_collect.Desktop
 
         private void RedirectToHomepage()
         {
-            Form homepage = new Homepage();
+            Form homepage = new MainForm();
             homepage.Show();
 
             // Close login form

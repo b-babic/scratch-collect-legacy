@@ -12,9 +12,9 @@ namespace scratch_collect.Desktop.Forms.Users
     {
         private readonly IUserService _userService;
         private readonly IRoleService _roleService;
-        private Homepage _parentForm;
+        private AllUsers _parentForm;
 
-        public NewUserForm(Homepage parentForm)
+        public NewUserForm(AllUsers parentForm)
         {
             InitializeComponent();
 
@@ -62,10 +62,11 @@ namespace scratch_collect.Desktop.Forms.Users
 
         private async void go_back_button_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // Data
+            await _parentForm.FetchUsersData();
 
-            await _parentForm.FetchUsersPageData();
-
+            // Show
+            Close();
             _parentForm.Show();
         }
 

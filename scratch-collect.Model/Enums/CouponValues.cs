@@ -2,8 +2,8 @@
 {
     public enum CouponValues
     {
-        Small = 10,
-        Medium = 15,
-        Large = 30
+        Small = 15,
+        Medium = 30,
+        Large = 50
     }
 }

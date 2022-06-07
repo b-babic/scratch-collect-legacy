@@ -3,7 +3,6 @@ using scratch_collect.Desktop.Utilities;
 using scratch_collect.Model.Desktop;
 using System;
 using System.Drawing;
-using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -11,12 +10,12 @@ namespace scratch_collect.Desktop.Forms.Users
 {
     public partial class EditUser : Form
     {
-        private Homepage _parentForm;
+        private AllUsers _parentForm;
         private readonly IUserService _userService;
         private readonly IRoleService _roleService;
         private string _userID;
 
-        public EditUser(Homepage parentForm, string userID)
+        public EditUser(AllUsers parentForm, string userID)
         {
             // DI
             _userService = (IUserService)Program.ServiceProvider.GetService(typeof(IUserService));
@@ -137,10 +136,11 @@ namespace scratch_collect.Desktop.Forms.Users
 
         private async void go_back_button_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // Data
+            await _parentForm.FetchUsersData();
 
-            await _parentForm.FetchUsersPageData();
-
+            // Show
+            Close();
             _parentForm.Show();
         }
 
