@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using scratch_collect.API.Database;
+using scratch_collect.API.Exceptions;
 using scratch_collect.Model;
 using scratch_collect.Model.Requests;
 using System;
@@ -17,11 +18,6 @@ namespace scratch_collect.API.Services
         {
             _context = context;
             _mapper = mapper;
-        }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public CouponDTO Generate(int numberOfItems)
@@ -51,6 +47,19 @@ namespace scratch_collect.API.Services
         public CouponDTO Update(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            var entity = _context.Coupons.Find(id);
+
+            if (entity == null)
+            {
+                throw new BadRequestException("There is no coupon with provided text !");
+            }
+
+            _context.Coupons.Remove(entity);
+            _context.SaveChanges();
         }
     }
 }

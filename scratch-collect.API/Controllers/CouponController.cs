@@ -29,12 +29,11 @@ namespace scratch_collect.API.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        [HttpDelete]
+        [HttpDelete("{id:int}")]
         [Route("delete")]
-        public OkResult Delete([FromQuery] CouponSearchRequest request)
+        public void Delete(int id)
         {
-            // Delete single coupon by id
-            return Ok();
+            _couponService.Delete(id);
         }
 
         [Authorize(Roles = "Administrator")]
