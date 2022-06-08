@@ -69,7 +69,7 @@
             this.logo_title.ForeColor = System.Drawing.SystemColors.InfoText;
             this.logo_title.Location = new System.Drawing.Point(1297, 0);
             this.logo_title.Name = "logo_title";
-            this.logo_title.Size = new System.Drawing.Size(276, 87);
+            this.logo_title.Size = new System.Drawing.Size(276, 86);
             this.logo_title.TabIndex = 2;
             this.logo_title.Text = "Scratch && Collect";
             this.logo_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -80,12 +80,12 @@
             this.main_layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.main_layout.Controls.Add(this.toolStrip1, 0, 0);
             this.main_layout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.main_layout.Location = new System.Drawing.Point(3, 90);
+            this.main_layout.Location = new System.Drawing.Point(3, 89);
             this.main_layout.Name = "main_layout";
             this.main_layout.RowCount = 2;
             this.main_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.main_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.66666F));
-            this.main_layout.Size = new System.Drawing.Size(1570, 819);
+            this.main_layout.Size = new System.Drawing.Size(1570, 820);
             this.main_layout.TabIndex = 3;
             // 
             // toolStrip1
@@ -129,6 +129,7 @@
             this.vouchers_control_menu.Size = new System.Drawing.Size(84, 63);
             this.vouchers_control_menu.Text = "Vouchers";
             this.vouchers_control_menu.ToolTipText = "Go to vouchers  page";
+            this.vouchers_control_menu.Click += new System.EventHandler(this.vouchers_control_menu_Click);
             // 
             // toolStripSeparator2
             // 
@@ -188,7 +189,6 @@
         #endregion
         private System.Windows.Forms.TableLayoutPanel table_layout_main;
         private System.Windows.Forms.Label logo_title;
-        private Controls.VoucherPage voucherPage1;
         private System.Windows.Forms.TableLayoutPanel main_layout;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel users_control_menu;

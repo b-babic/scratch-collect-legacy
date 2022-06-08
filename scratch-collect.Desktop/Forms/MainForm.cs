@@ -1,4 +1,5 @@
-﻿using scratch_collect.Desktop.Forms.Users;
+﻿using scratch_collect.Desktop.Forms.Coupons;
+using scratch_collect.Desktop.Forms.Users;
 using scratch_collect.Desktop.Services;
 using scratch_collect.Desktop.Services.Authentication;
 using System;
@@ -26,6 +27,13 @@ namespace scratch_collect.Desktop.Forms
             var homepage = new AllUsers();
 
             homepage.ShowDialog();
+        }
+
+        private void vouchers_control_menu_Click(object sender, EventArgs e)
+        {
+            var vouchers = new AllCoupons();
+
+            vouchers.ShowDialog();
         }
 
         // Helpers
