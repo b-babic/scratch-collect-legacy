@@ -112,6 +112,7 @@
             this.vouchers_generate_button.TabIndex = 4;
             this.vouchers_generate_button.Text = "Generate new";
             this.vouchers_generate_button.UseVisualStyleBackColor = true;
+            this.vouchers_generate_button.Click += new System.EventHandler(this.vouchers_generate_button_Click);
             // 
             // vouchers_filter_button
             // 

@@ -65,6 +65,14 @@ namespace scratch_collect.Desktop.Forms.Coupons
             }
         }
 
+        private void vouchers_generate_button_Click(object sender, EventArgs e)
+        {
+            var generateCoupons = new GenerateCoupons(this);
+
+            generateCoupons.Show();
+            Hide();
+        }
+
         private int? ValidateRowSelection(string title)
         {
             // Validation
