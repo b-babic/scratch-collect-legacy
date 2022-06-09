@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using scratch_collect.API.Database;
 using scratch_collect.API.Exceptions;
+using scratch_collect.API.Helper;
 using scratch_collect.Model;
 using scratch_collect.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace scratch_collect.API.Services
 {
@@ -20,12 +22,34 @@ namespace scratch_collect.API.Services
             _mapper = mapper;
         }
 
-        public CouponDTO Generate(int numberOfItems)
+        public async Task<bool> Generate(CouponGenerateRequest request)
         {
-            throw new NotImplementedException();
+            var generator = new RandomTokenGenerator();
+
+            for (var i = 0; i < request.CountToGenerate; i++)
+            {
+                var firstPart = generator.GetUniqueKey(4);
+                var secondPart = generator.GetUniqueKey(4);
+
+                var token = String.Format("{0}-{1}", firstPart, secondPart);
+                var value = generator.GetRandomCouponValue();
+
+                var coupon = new Coupon
+                {
+                    Text = token,
+                    Value = value,
+                    CreatedAt = DateTime.Now
+                };
+
+                await _context.Coupons.AddAsync(coupon);
+            }
+
+            var saved = await _context.SaveChangesAsync();
+
+            return saved > 0;
         }
 
-        public ICollection<CouponDTO> GetAll(CouponSearchRequest request)
+        public List<CouponDTO> GetAll(CouponSearchRequest request)
         {
             var query = _context.Coupons.AsQueryable();
 
