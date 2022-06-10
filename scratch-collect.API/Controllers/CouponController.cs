@@ -22,7 +22,7 @@ namespace scratch_collect.API.Controllers
         [Authorize(Roles = "Administrator")]
         [HttpGet]
         [Route("all")]
-        public ICollection<CouponDTO> Get([FromQuery] CouponSearchRequest request)
+        public ICollection<MerchantDTO> Get([FromQuery] CouponSearchRequest request)
         {
             return _couponService.GetAll(request);
         }

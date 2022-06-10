@@ -7,13 +7,13 @@ namespace scratch_collect.API.Services
 {
     public interface ICouponService
     {
-        List<CouponDTO> GetAll(CouponSearchRequest request);
+        List<MerchantDTO> GetAll(CouponSearchRequest request);
 
-        CouponDTO GetById(int id);
+        MerchantDTO GetById(int id);
 
         Task<bool> Generate(CouponGenerateRequest request);
 
-        CouponDTO Update(int id);
+        MerchantDTO Update(int id);
 
         void Delete(int id);
     }

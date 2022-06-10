@@ -49,7 +49,7 @@ namespace scratch_collect.API.Services
             return saved > 0;
         }
 
-        public List<CouponDTO> GetAll(CouponSearchRequest request)
+        public List<MerchantDTO> GetAll(CouponSearchRequest request)
         {
             var query = _context.Coupons.AsQueryable();
 
@@ -60,15 +60,15 @@ namespace scratch_collect.API.Services
 
             var list = query.ToList();
 
-            return _mapper.Map<List<CouponDTO>>(list);
+            return _mapper.Map<List<MerchantDTO>>(list);
         }
 
-        public CouponDTO GetById(int id)
+        public MerchantDTO GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public CouponDTO Update(int id)
+        public MerchantDTO Update(int id)
         {
             throw new NotImplementedException();
         }

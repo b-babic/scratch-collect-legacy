@@ -20,7 +20,13 @@ namespace scratch_collect.API.Infra
             CreateMap<Database.Role, RoleDTO>();
 
             // Coupon
-            CreateMap<Database.Coupon, CouponDTO>();
+            CreateMap<Database.Coupon, MerchantDTO>();
+
+            // Merchant
+            CreateMap<Database.Merchant, MerchantDTO>();
+
+            // Country
+            CreateMap<Database.Country, CountryDTO>();
         }
     }
 }
