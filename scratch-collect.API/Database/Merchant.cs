@@ -13,5 +13,10 @@ namespace scratch_collect.API.Database
         public string Telephone { get; set; }
 
         public DateTime CreatedAt { get; set; }
+
+        // Relations
+        public int CountryId { get; set; }
+
+        public virtual Country Country { get; set; }
     }
 }

@@ -21,6 +21,7 @@ namespace scratch_collect.API.Database
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
         public virtual DbSet<Merchant> Merchants { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -60,6 +61,14 @@ namespace scratch_collect.API.Database
                 entity
                     .Property(b => b.CreatedAt)
                     .HasDefaultValueSql("getdate()");
+            });
+
+            modelBuilder.Entity<Merchant>(entity =>
+            {
+                entity
+                    .HasOne(a => a.Country)
+                    .WithMany(b => b.Merchants)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
             // custom partial for setting seed data
