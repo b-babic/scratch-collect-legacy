@@ -6,7 +6,7 @@ namespace scratch_collect.Desktop.Services
 {
     public interface ICouponService
     {
-        public Task<List<CouponDTO>> GetAllVouchers(string textQuery = null);
+        public Task<List<MerchantDTO>> GetAllVouchers(string textQuery = null);
 
         public Task<bool> Generate(int amount);
 

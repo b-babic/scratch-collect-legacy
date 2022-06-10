@@ -19,6 +19,8 @@ namespace scratch_collect.Desktop
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<ICouponService, CouponService>();
+            services.AddTransient<IMerchantService, MerchantService>();
+
             services.AddAutoMapper(typeof(AutoMapperProfiles));
 
             ServiceProvider = services.BuildServiceProvider();

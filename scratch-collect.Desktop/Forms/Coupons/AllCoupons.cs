@@ -119,7 +119,7 @@ namespace scratch_collect.Desktop.Forms.Coupons
             }
         }
 
-        private void HandleDataSuccess(List<CouponDTO> coupons)
+        private void HandleDataSuccess(List<MerchantDTO> coupons)
         {
             // Populate the grid and resize columns
             vouchers_datagrid.DataSource = coupons;
@@ -175,7 +175,7 @@ namespace scratch_collect.Desktop.Forms.Coupons
             }
         }
 
-        private void HandleFilterSuccess(List<CouponDTO> users)
+        private void HandleFilterSuccess(List<MerchantDTO> users)
         {
             // Data
             vouchers_datagrid.DataSource = users;

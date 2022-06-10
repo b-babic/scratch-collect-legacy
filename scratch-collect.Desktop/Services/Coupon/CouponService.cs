@@ -10,7 +10,7 @@ namespace scratch_collect.Desktop.Services
     {
         private static string _baseUrl = System.Configuration.ConfigurationManager.AppSettings["BASE_API_URL"] + "coupon";
 
-        public async Task<List<CouponDTO>> GetAllVouchers(string textQuery)
+        public async Task<List<MerchantDTO>> GetAllVouchers(string textQuery)
         {
             Dictionary<string, string> parameters = new();
 
@@ -19,7 +19,7 @@ namespace scratch_collect.Desktop.Services
 
             try
             {
-                var vouchers = await HttpHelper.GetAsync<List<CouponDTO>>(_baseUrl + "/all", parameters);
+                var vouchers = await HttpHelper.GetAsync<List<MerchantDTO>>(_baseUrl + "/all", parameters);
 
                 return vouchers;
             }

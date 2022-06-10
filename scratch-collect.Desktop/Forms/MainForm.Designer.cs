@@ -142,6 +142,7 @@
             this.merchants_control_menu.Size = new System.Drawing.Size(94, 63);
             this.merchants_control_menu.Text = "Merchants";
             this.merchants_control_menu.ToolTipText = "Go to merchants page";
+            this.merchants_control_menu.Click += new System.EventHandler(this.merchants_control_menu_Click);
             // 
             // toolStripSeparator3
             // 
