@@ -17,15 +17,15 @@ namespace scratch_collect.Desktop.Services
             _mapper = mapper;
         }
 
-        public async Task<List<MerchantVM>> GetAll(string textQuery = null, string countryId = null)
+        public async Task<List<MerchantVM>> GetAll(string textQuery = null, string countryQuery = null)
         {
             Dictionary<string, string> parameters = new();
 
             if (!string.IsNullOrEmpty(textQuery))
                 parameters["Text"] = textQuery;
 
-            if (!string.IsNullOrEmpty(countryId))
-                parameters["CountryId"] = countryId;
+            if (!string.IsNullOrEmpty(countryQuery))
+                parameters["Country"] = countryQuery;
 
             try
             {

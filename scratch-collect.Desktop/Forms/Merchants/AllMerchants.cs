@@ -164,6 +164,7 @@ namespace scratch_collect.Desktop.Forms.Merchants
         {
             // Prepare data
             var textQuery = merchants_text_filter.Text.Trim();
+            var countryQuery = merchants_country_filter.Text.Trim();
 
             // Disabled states
             StartLoading();
@@ -171,7 +172,7 @@ namespace scratch_collect.Desktop.Forms.Merchants
 
             try
             {
-                var merchants = await _merchantService.GetAll(textQuery);
+                var merchants = await _merchantService.GetAll(textQuery, countryQuery);
 
                 if (merchants != null && merchants.Count > 0) HandleFilterSuccess(merchants);
                 else MessageBox.Show("No merchants matching search criteria!", "Filter merchants", MessageBoxButtons.OK, MessageBoxIcon.Information);
