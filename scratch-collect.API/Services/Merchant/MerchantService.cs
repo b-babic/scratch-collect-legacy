@@ -4,6 +4,7 @@ using scratch_collect.API.Database;
 using scratch_collect.API.Exceptions;
 using scratch_collect.Model;
 using scratch_collect.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,19 +23,19 @@ namespace scratch_collect.API.Services
 
         public List<MerchantDTO> GetAll(MerchantSearchRequest request)
         {
-            var query = _context.Merchants.AsQueryable();
+            var query = _context.Merchants.Include(a => a.Country).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(request?.Text))
             {
                 query = query.Where(x => x.Name.StartsWith(request.Text));
             }
 
-            if (!string.IsNullOrWhiteSpace(request?.CountryId))
+            if (!string.IsNullOrWhiteSpace(request?.Country))
             {
-                query = query.Where(x => x.Country.Name.StartsWith(request.Text));
+                query = query.Where(x => x.Country.Name.Contains(request.Country));
             }
 
-            var list = query.Include(a => a.Country).ToList();
+            var list = query.ToList();
 
             return _mapper.Map<List<MerchantDTO>>(list);
         }
