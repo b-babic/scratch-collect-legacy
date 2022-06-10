@@ -15,6 +15,9 @@ namespace scratch_collect.API.Database
 
             modelBuilder.Entity<Coupon>().HasData(Helper.Json.LoadFromFile<Coupon>
                 ("Coupon.json"));
+
+            modelBuilder.Entity<Merchant>().HasData(Helper.Json.LoadFromFile<Merchant>
+                ("Merchant.json"));
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace scratch_collect.API.Migrations
 {
-    public partial class UserRolesCoupons : Migration
+    public partial class UserRoleCoupons : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,8 +61,8 @@ namespace scratch_collect.API.Migrations
                     Text = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
                     Value = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()"),
-                    UsedById = table.Column<int>(type: "int", nullable: true),
-                    UsedAt = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "getdate()")
+                    UsedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UsedById = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -76,12 +76,12 @@ namespace scratch_collect.API.Migrations
 
             migrationBuilder.InsertData(
                 table: "Coupons",
-                columns: new[] { "Id", "Text", "UsedById", "Value" },
+                columns: new[] { "Id", "CreatedAt", "Text", "UsedAt", "UsedById", "Value" },
                 values: new object[,]
                 {
-                    { 1, "804C-4D13", null, 10 },
-                    { 2, "4422-83E8", null, 15 },
-                    { 3, "4492-BD28", null, 10 }
+                    { 1, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "804C-4D13", null, null, 15 },
+                    { 2, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "4422-83E8", null, null, 15 },
+                    { 3, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "4492-BD28", null, null, 30 }
                 });
 
             migrationBuilder.InsertData(
@@ -105,13 +105,13 @@ namespace scratch_collect.API.Migrations
 
             migrationBuilder.InsertData(
                 table: "Coupons",
-                columns: new[] { "Id", "Text", "UsedById", "Value" },
-                values: new object[] { 4, "497D-A613", 2, 30 });
+                columns: new[] { "Id", "CreatedAt", "Text", "UsedAt", "UsedById", "Value" },
+                values: new object[] { 4, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "497D-A613", null, 2, 30 });
 
             migrationBuilder.InsertData(
                 table: "Coupons",
-                columns: new[] { "Id", "Text", "UsedById", "Value" },
-                values: new object[] { 5, "47E7-9714", 2, 30 });
+                columns: new[] { "Id", "CreatedAt", "Text", "UsedAt", "UsedById", "Value" },
+                values: new object[] { 5, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "47E7-9714", null, 2, 50 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Coupons_UsedById",

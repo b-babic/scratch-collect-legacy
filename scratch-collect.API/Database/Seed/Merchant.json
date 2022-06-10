@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "name": "Altria Group",
+    "address": "3899 Forest Avenue",
+    "telephone": "646-836-5972",
+    "createdAt": "2022-06-09 22:50:36.0406503"
+  },
+  {
+    "id": "2",
+    "name": "Halliburton",
+    "address": "2610 Apple Lane",
+    "telephone": "309-343-8619",
+    "createdAt": "2022-06-09 22:50:36.0406503"
+  },
+  {
+    "id": "3",
+    "name": "Aramark",
+    "address": "2833 Winifred Way",
+    "telephone": "765-676-8245",
+    "createdAt": "2022-06-09 22:50:36.0406503"
+  },
+  {
+    "id": "4",
+    "name": "DISH Network",
+    "address": "189 Desert Broom Court",
+    "telephone": "201-705-6273",
+    "createdAt": "2022-06-09 22:50:36.0406503"
+  }
+]

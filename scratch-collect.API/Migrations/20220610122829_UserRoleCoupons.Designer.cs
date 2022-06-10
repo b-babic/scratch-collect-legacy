@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using scratch_collect.API.Database;
 
@@ -11,9 +12,10 @@ using scratch_collect.API.Database;
 namespace scratch_collect.API.Migrations
 {
     [DbContext(typeof(ScratchCollectContext))]
-    partial class ScratchCollectContextModelSnapshot : ModelSnapshot
+    [Migration("20220610122829_UserRoleCoupons")]
+    partial class UserRoleCoupons
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,65 +95,6 @@ namespace scratch_collect.API.Migrations
                             Text = "47E7-9714",
                             UsedById = 2,
                             Value = 50
-                        });
-                });
-
-            modelBuilder.Entity("scratch_collect.API.Database.Merchant", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telephone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Merchants");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "3899 Forest Avenue",
-                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
-                            Name = "Altria Group",
-                            Telephone = "646-836-5972"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "2610 Apple Lane",
-                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
-                            Name = "Halliburton",
-                            Telephone = "309-343-8619"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Address = "2833 Winifred Way",
-                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
-                            Name = "Aramark",
-                            Telephone = "765-676-8245"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Address = "189 Desert Broom Court",
-                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
-                            Name = "DISH Network",
-                            Telephone = "201-705-6273"
                         });
                 });
 

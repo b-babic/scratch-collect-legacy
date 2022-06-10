@@ -20,6 +20,7 @@ namespace scratch_collect.API.Database
 
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
+        public virtual DbSet<Merchant> Merchants { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -58,10 +59,6 @@ namespace scratch_collect.API.Database
             {
                 entity
                     .Property(b => b.CreatedAt)
-                    .HasDefaultValueSql("getdate()");
-
-                entity
-                    .Property(b => b.UsedAt)
                     .HasDefaultValueSql("getdate()");
             });
 

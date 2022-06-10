@@ -2,17 +2,20 @@
   {
     "id": 1,
     "text": "804C-4D13",
-    "value": "10"
+    "value": "15",
+    "createdAt": "2022-06-09 22:50:36.0406503"
   },
   {
     "id": 2,
     "text": "4422-83E8",
-    "value": "15"
+    "value": "15",
+    "createdAt": "2022-06-09 22:50:36.0406503"
   },
   {
     "id": 3,
     "text": "4492-BD28",
-    "value": "10"
+    "value": "30",
+    "createdAt": "2022-06-09 22:50:36.0406503"
   },
   // Mobile user used coupons
   {
@@ -20,13 +23,15 @@
     "text": "497D-A613",
     "value": "30",
     // optional fields
-    "usedById": "2"
+    "usedById": "2",
+    "createdAt": "2022-06-09 22:50:36.0406503"
   },
   {
     "id": 5,
     "text": "47E7-9714",
-    "value": "30",
+    "value": "50",
     // optional fields
-    "usedById": "2"
+    "usedById": "2",
+    "createdAt": "2022-06-09 22:50:36.0406503"
   }
 ]

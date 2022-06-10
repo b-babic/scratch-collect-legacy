@@ -9,6 +9,6 @@ namespace scratch_collect.Model
         public string Value { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        // used by and used at relationship ?
+        public DateTime? UsedAt { get; set; }
     }
 }

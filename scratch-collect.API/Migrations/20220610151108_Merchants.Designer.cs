@@ -12,8 +12,8 @@ using scratch_collect.API.Database;
 namespace scratch_collect.API.Migrations
 {
     [DbContext(typeof(ScratchCollectContext))]
-    [Migration("20220605135714_UserRolesCoupons")]
-    partial class UserRolesCoupons
+    [Migration("20220610151108_Merchants")]
+    partial class Merchants
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,9 +44,7 @@ namespace scratch_collect.API.Migrations
                         .HasColumnType("nvarchar(9)");
 
                     b.Property<DateTime?>("UsedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("getdate()");
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("UsedById")
                         .HasColumnType("int");
@@ -64,28 +62,28 @@ namespace scratch_collect.API.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
                             Text = "804C-4D13",
-                            Value = 10
+                            Value = 15
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
                             Text = "4422-83E8",
                             Value = 15
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
                             Text = "4492-BD28",
-                            Value = 10
+                            Value = 30
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
                             Text = "497D-A613",
                             UsedById = 2,
                             Value = 30
@@ -93,10 +91,69 @@ namespace scratch_collect.API.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
                             Text = "47E7-9714",
                             UsedById = 2,
-                            Value = 30
+                            Value = 50
+                        });
+                });
+
+            modelBuilder.Entity("scratch_collect.API.Database.Merchant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telephone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Merchants");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "3899 Forest Avenue",
+                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
+                            Name = "Altria Group",
+                            Telephone = "646-836-5972"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "2610 Apple Lane",
+                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
+                            Name = "Halliburton",
+                            Telephone = "309-343-8619"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "2833 Winifred Way",
+                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
+                            Name = "Aramark",
+                            Telephone = "765-676-8245"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "189 Desert Broom Court",
+                            CreatedAt = new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503),
+                            Name = "DISH Network",
+                            Telephone = "201-705-6273"
                         });
                 });
 

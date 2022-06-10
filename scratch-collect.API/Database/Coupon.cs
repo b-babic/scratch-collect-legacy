@@ -17,12 +17,12 @@ namespace scratch_collect.API.Database
         [Required]
         public DateTime CreatedAt { get; set; }
 
-        // Relationship
+        // Optional
+        public DateTime? UsedAt { get; set; }
 
-        // User can use coupon once and only once
+        // Relationship
         public int? UsedById { get; set; }
 
         public virtual User UsedBy { get; set; }
-        public DateTime? UsedAt { get; set; }
     }
 }
