@@ -13,7 +13,7 @@ namespace scratch_collect.API.Services
         public MerchantDTO Insert(MerchantUpsertRequest request);
 
         public MerchantDTO Update(int id, MerchantUpsertRequest request);
-        
+
         void Delete(int id);
     }
 }

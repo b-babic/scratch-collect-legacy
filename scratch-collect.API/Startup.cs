@@ -13,8 +13,6 @@ using scratch_collect.API.Database;
 using scratch_collect.API.Filters;
 using scratch_collect.API.Helper;
 using scratch_collect.API.Services;
-using scratch_collect.API.Services.Base;
-using scratch_collect.Model;
 using System.Text;
 using AuthenticationService = scratch_collect.API.Services.AuthenticationService;
 using IAuthenticationService = scratch_collect.API.Services.IAuthenticationService;

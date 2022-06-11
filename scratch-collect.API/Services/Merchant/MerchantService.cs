@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using scratch_collect.API.Database;
 using scratch_collect.API.Exceptions;
 using scratch_collect.Model;
-using scratch_collect.Model.Desktop;
 using scratch_collect.Model.Requests;
 using System;
 using System.Collections.Generic;

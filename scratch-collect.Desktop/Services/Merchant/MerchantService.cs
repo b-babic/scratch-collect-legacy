@@ -68,8 +68,9 @@ namespace scratch_collect.Desktop.Services
             }
         }
 
-        public async Task<MerchantVM> Update(MerchantUpsertRequest request) {
-             try
+        public async Task<MerchantVM> Update(MerchantUpsertRequest request)
+        {
+            try
             {
                 var updated = await HttpHelper.PutAsync<MerchantVM, MerchantUpsertRequest>(_baseUrl + string.Format("/{0}", request.Id), request);
 

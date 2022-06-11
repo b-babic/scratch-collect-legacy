@@ -1,7 +1,6 @@
 using AutoMapper;
 using scratch_collect.API.Database;
 using scratch_collect.Model;
-using scratch_collect.Model.Requests;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,6 +25,5 @@ namespace scratch_collect.API.Services
 
             return _mapper.Map<List<CategoryDTO>>(entity);
         }
-       
     }
 }

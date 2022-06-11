@@ -1,5 +1,4 @@
 ﻿using scratch_collect.Desktop.Services;
-using scratch_collect.Model;
 using scratch_collect.Model.Desktop;
 using System;
 using System.Collections.Generic;
