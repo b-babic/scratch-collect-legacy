@@ -106,8 +106,6 @@ namespace scratch_collect.API.Services
         //    return _mapper.Map<UserDTO>(entity);
         //}
 
-        [Authorize("Administrator")]
-        [HttpPut]
         public UserDTO Update(int id, UserUpsertRequest request)
         {
             var entity = _context.Users.Find(id);

@@ -15,6 +15,6 @@ namespace scratch_collect.Model.Desktop
         public DateTime CreatedAt { get; set; }
 
         // Relations
-        public string Country { get; set; }
+        public CountryDTO Country { get; set; }
     }
 }

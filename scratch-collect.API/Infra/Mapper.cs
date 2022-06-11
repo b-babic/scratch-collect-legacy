@@ -24,9 +24,11 @@ namespace scratch_collect.API.Infra
 
             // Merchant
             CreateMap<Database.Merchant, MerchantDTO>();
+            CreateMap<Database.Merchant, MerchantUpsertRequest>().ReverseMap();
 
             // Country
             CreateMap<Database.Country, CountryDTO>();
+            CreateMap<CountryDTO, Database.Country>();
         }
     }
 }

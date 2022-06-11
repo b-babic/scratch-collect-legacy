@@ -4,7 +4,6 @@ using scratch_collect.API.Services;
 using scratch_collect.Model;
 using scratch_collect.Model.Requests;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace scratch_collect.API.Controllers
 {
@@ -24,6 +23,27 @@ namespace scratch_collect.API.Controllers
         public List<MerchantDTO> Get([FromQuery] MerchantSearchRequest request)
         {
             return _merchantService.GetAll(request);
+        }
+
+        [Authorize(Roles = "Administrator, Client")]
+        [HttpGet("{id:int}")]
+        public MerchantDTO GetById(int id)
+        {
+            return _merchantService.GetById(id);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public MerchantDTO Insert(MerchantUpsertRequest request)
+        {
+            return _merchantService.Insert(request);
+        }
+
+        [AllowAnonymous]
+        [HttpPut("{id:int}")]
+        public MerchantDTO Update(int id, MerchantUpsertRequest request)
+        {
+            return _merchantService.Update(id, request);
         }
 
         [Authorize(Roles = "Administrator")]
