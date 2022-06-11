@@ -30,6 +30,7 @@
         {
             this.all_users_main_layout = new System.Windows.Forms.TableLayoutPanel();
             this.all_users_panel = new System.Windows.Forms.Panel();
+            this.merchants_country_filter = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.merchants_delete_button = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.merchants_filter_button = new System.Windows.Forms.Button();
             this.users_layout_content_panel = new System.Windows.Forms.Panel();
             this.merchants_datagrid = new System.Windows.Forms.DataGridView();
-            this.merchants_country_filter = new System.Windows.Forms.TextBox();
             this.all_users_main_layout.SuspendLayout();
             this.all_users_panel.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -74,6 +74,15 @@
             this.all_users_panel.Name = "all_users_panel";
             this.all_users_panel.Size = new System.Drawing.Size(1570, 98);
             this.all_users_panel.TabIndex = 2;
+            // 
+            // merchants_country_filter
+            // 
+            this.merchants_country_filter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.merchants_country_filter.Location = new System.Drawing.Point(309, 31);
+            this.merchants_country_filter.Name = "merchants_country_filter";
+            this.merchants_country_filter.PlaceholderText = "Filter by country...";
+            this.merchants_country_filter.Size = new System.Drawing.Size(242, 39);
+            this.merchants_country_filter.TabIndex = 5;
             // 
             // panel2
             // 
@@ -127,7 +136,7 @@
             this.merchants_new_button.TabIndex = 4;
             this.merchants_new_button.Text = "New";
             this.merchants_new_button.UseVisualStyleBackColor = true;
-            this.merchants_new_button.Click += new System.EventHandler(this.merchants_edit_button_Click);
+            this.merchants_new_button.Click += new System.EventHandler(this.merchants_new_button_Click);
             // 
             // merchants_text_filter
             // 
@@ -176,15 +185,6 @@
             this.merchants_datagrid.TabIndex = 0;
             this.merchants_datagrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.merchants_datagrid_DataBindingComplete);
             this.merchants_datagrid.SelectionChanged += new System.EventHandler(this.merchants_datagrid_SelectionChanged);
-            // 
-            // merchants_country_filter
-            // 
-            this.merchants_country_filter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.merchants_country_filter.Location = new System.Drawing.Point(309, 31);
-            this.merchants_country_filter.Name = "merchants_country_filter";
-            this.merchants_country_filter.PlaceholderText = "Filter by country...";
-            this.merchants_country_filter.Size = new System.Drawing.Size(242, 39);
-            this.merchants_country_filter.TabIndex = 5;
             // 
             // AllMerchants
             // 

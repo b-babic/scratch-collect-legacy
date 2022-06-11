@@ -30,29 +30,29 @@ namespace scratch_collect.Desktop.Forms.Merchants
         // User events
         private void merchants_new_button_Click(object sender, EventArgs e)
         {
-            //var newPage = new NewUserForm(this);
+            var newPage = new NewMerchant(this);
 
-            //// Override styles
-            //newPage.Location = Location;
+            // Override styles
+            newPage.Location = Location;
 
-            //// Show
-            //newPage.Show();
-            //Hide();
+            // Show
+            newPage.ShowDialog();
+            Hide();
         }
 
         private void merchants_edit_button_Click(object sender, EventArgs e)
         {
-            //// Validation
-            //var selectedID = ValidateRowSelection("Edit User");
-            //if (selectedID == null) return;
+            // Validation
+            var selectedID = ValidateRowSelection("Edit Merchant");
+            if (selectedID == null) return;
 
-            //// Override styles
-            //var editForm = new EditUser(this, selectedID.ToString());
-            //editForm.Location = Location;
+            // Override styles
+            var editForm = new EditMerchant(this, selectedID.ToString());
+            editForm.Location = Location;
 
-            //// Show
-            //editForm.Show();
-            //Hide();
+            // Show
+            editForm.ShowDialog();
+            Hide();
         }
 
         private async void merchants_delete_button_Click(object sender, EventArgs e)

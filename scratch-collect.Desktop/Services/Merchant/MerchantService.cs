@@ -39,6 +39,48 @@ namespace scratch_collect.Desktop.Services
             }
         }
 
+        public async Task<MerchantVM> GetById(string merchantID)
+        {
+            try
+            {
+                MerchantDTO merchant = await HttpHelper.GetAsync<MerchantDTO>(_baseUrl + string.Format("/{0}", merchantID));
+
+                // Map to VM
+                return _mapper.Map<MerchantVM>(merchant);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<MerchantVM> Insert(MerchantUpsertRequest request)
+        {
+            try
+            {
+                var created = await HttpHelper.PostAsync<MerchantDTO, MerchantUpsertRequest>(_baseUrl, request);
+
+                return _mapper.Map<MerchantVM>(created);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<MerchantVM> Update(MerchantUpsertRequest request) {
+             try
+            {
+                var updated = await HttpHelper.PutAsync<MerchantVM, MerchantUpsertRequest>(_baseUrl + string.Format("/{0}", request.Id), request);
+
+                return _mapper.Map<MerchantVM>(updated);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public async Task<bool> Delete(int id)
         {
             try
