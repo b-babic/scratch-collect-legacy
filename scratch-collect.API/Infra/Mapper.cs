@@ -28,7 +28,9 @@ namespace scratch_collect.API.Infra
 
             // Country
             CreateMap<Database.Country, CountryDTO>();
-            CreateMap<CountryDTO, Database.Country>();
+
+            // Category
+            CreateMap<Database.Category, CategoryDTO>();
         }
     }
 }

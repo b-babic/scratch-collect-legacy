@@ -21,6 +21,9 @@ namespace scratch_collect.API.Database
 
             modelBuilder.Entity<Country>().HasData(Helper.Json.LoadFromFile<Country>
                 ("Country.json"));
+
+            modelBuilder.Entity<Category>().HasData(Helper.Json.LoadFromFile<Category>
+                ("Category.json"));
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using scratch_collect.API.Database;
 
@@ -11,9 +12,10 @@ using scratch_collect.API.Database;
 namespace scratch_collect.API.Migrations
 {
     [DbContext(typeof(ScratchCollectContext))]
-    partial class ScratchCollectContextModelSnapshot : ModelSnapshot
+    [Migration("20220611150952_MerchantsValidation")]
+    partial class MerchantsValidation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,64 +24,6 @@ namespace scratch_collect.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("scratch_collect.API.Database.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("GradientStart")
-                        .IsRequired()
-                        .HasMaxLength(7)
-                        .HasColumnType("nvarchar(7)");
-
-                    b.Property<string>("GradientStop")
-                        .IsRequired()
-                        .HasMaxLength(7)
-                        .HasColumnType("nvarchar(7)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GradientStart = "#BDC3C7",
-                            GradientStop = "#2C3E50",
-                            Name = "Luxury"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            GradientStart = "#36D1DC",
-                            GradientStop = "#5B86E5",
-                            Name = "Sports"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            GradientStart = "#DAD299",
-                            GradientStop = "#B0DAB9",
-                            Name = "Food"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            GradientStart = "#E1EEC3",
-                            GradientStop = "#F05053",
-                            Name = "Travel"
-                        });
-                });
 
             modelBuilder.Entity("scratch_collect.API.Database.Country", b =>
                 {
@@ -90,14 +34,10 @@ namespace scratch_collect.API.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

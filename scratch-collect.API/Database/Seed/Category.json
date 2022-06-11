@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Luxury",
+        "gradientStart": "#BDC3C7",
+        "gradientStop": "#2C3E50"
+    },
+    {
+        "id": 2,
+        "name": "Sports",
+        "gradientStart": "#36D1DC",
+        "gradientStop": "#5B86E5"
+    },
+    {
+        "id": 3,
+        "name": "Food",
+        "gradientStart": "#DAD299",
+        "gradientStop": "#B0DAB9"
+    },
+    {
+        "id": 4,
+        "name": "Travel",
+        "gradientStart": "#E1EEC3",
+        "gradientStop": "#F05053"
+    }
+]
