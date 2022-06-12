@@ -65,6 +65,8 @@ namespace scratch_collect.API.Services
             if (userAlreadyExist)
                 throw new BadRequestException("User with provided email already exist in the system !");
 
+            if(request.RegisteredAt == null) entity.RegisteredAt = DateTime.Now;
+
             entity.PasswordSalt = Password.GenerateSalt();
             entity.PasswordHash = Password.GenerateHash(entity.PasswordSalt, request.Password);
 
