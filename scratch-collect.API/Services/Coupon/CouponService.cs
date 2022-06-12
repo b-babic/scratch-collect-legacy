@@ -15,11 +15,13 @@ namespace scratch_collect.API.Services
     {
         private readonly ScratchCollectContext _context;
         private readonly IMapper _mapper;
+        private readonly IWalletService _walletService;
 
-        public CouponService(ScratchCollectContext context, IMapper mapper)
+        public CouponService(ScratchCollectContext context, IMapper mapper, IWalletService walletService)
         {
             _context = context;
             _mapper = mapper;
+            _walletService = walletService;
         }
 
         public async Task<bool> Generate(CouponGenerateRequest request)
@@ -84,6 +86,25 @@ namespace scratch_collect.API.Services
 
             _context.Coupons.Remove(entity);
             _context.SaveChanges();
+        }
+    
+
+        // Coupons and wallets
+        public WalletDTO Use (CouponUseRequest request) {
+            // find coupon
+            var coupon = _context.Coupons.Find(request.CouponId);
+
+            if(coupon == null)
+                throw new BadRequestException("Coupon not found / valid !");
+
+
+            coupon.UsedAt = DateTime.Now;
+            coupon.UsedById = request.UserId;
+
+            _context.Coupons.Update(coupon);
+            _context.SaveChanges();
+
+            return _walletService.AddBalance(request.WalletId, coupon.Value);
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public class CouponGenerateRequest
     {
-        public int CountToGenerate { get; set; }
+        public int? CountToGenerate { get; set; }
     }
 }

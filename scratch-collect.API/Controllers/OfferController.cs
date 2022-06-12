@@ -50,5 +50,24 @@ namespace scratch_collect.API.Controllers
         {
             _offerService.Delete(id);
         }
+
+        // User offers
+        [Authorize(Roles = "Administrator, Client")]
+        [HttpPost("buy/{id:int}")]
+        public UserOfferDTO Buy(int id, UserOfferUpsertRequest request)
+        {
+            request.OfferId = id;
+
+            return _offerService.BuyOffer(request);
+        }
+
+        [Authorize(Roles = "Administrator, Client")]
+        [HttpPost("archive/{id:int}")]
+        public UserOfferDTO Archive(int id, UserOfferUpsertRequest request)
+        {
+            request.OfferId = id;
+
+            return _offerService.ArchiveOffer(request);
+        }
     }
 }

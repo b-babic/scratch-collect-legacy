@@ -167,5 +167,21 @@ namespace scratch_collect.API.Services
             _context.Users.Remove(entity);
             _context.SaveChanges();
         }
+
+        // Get used coupons
+        public List<CouponDTO> GetUsersCoupons(int id) {
+            var user = _context
+                        .Users
+                        .Include(a => a.Role)
+                        .Include(a => a.UsedCoupons)
+                        .SingleOrDefault(b => b.Id == id);
+
+            if (user == null)
+                throw new BadRequestException("No user found !");
+
+            var coupons = user.UsedCoupons;
+
+            return _mapper.Map<List<CouponDTO>>(coupons);
+        }
     }
 }

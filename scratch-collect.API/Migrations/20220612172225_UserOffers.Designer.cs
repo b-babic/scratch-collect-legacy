@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using scratch_collect.API.Database;
 
@@ -11,9 +12,10 @@ using scratch_collect.API.Database;
 namespace scratch_collect.API.Migrations
 {
     [DbContext(typeof(ScratchCollectContext))]
-    partial class ScratchCollectContextModelSnapshot : ModelSnapshot
+    [Migration("20220612172225_UserOffers")]
+    partial class UserOffers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2130,56 +2132,6 @@ namespace scratch_collect.API.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserOffers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BoughtOn = new DateTime(2021, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OfferId = 2,
-                            Played = false,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BoughtOn = new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OfferId = 6,
-                            Played = false,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BoughtOn = new DateTime(2021, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OfferId = 4,
-                            Played = false,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BoughtOn = new DateTime(2021, 6, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OfferId = 15,
-                            Played = false,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BoughtOn = new DateTime(2021, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OfferId = 14,
-                            Played = false,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 6,
-                            BoughtOn = new DateTime(2021, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OfferId = 5,
-                            Played = false,
-                            UserId = 2
-                        });
                 });
 
             modelBuilder.Entity("scratch_collect.API.Database.Wallet", b =>

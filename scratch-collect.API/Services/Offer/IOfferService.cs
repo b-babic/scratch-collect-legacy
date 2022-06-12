@@ -15,5 +15,12 @@ namespace scratch_collect.API.Services
         public OfferDTO Update(int id, OfferUpsertRequest request);
 
         public void Delete(int id);
+
+        // User Offers
+        public UserOfferDTO BuyOffer(UserOfferUpsertRequest request);
+
+        public UserOfferDTO ArchiveOffer(UserOfferUpsertRequest request);
+
+        public List<UserOfferDTO> GetUserOffers(UsserOfferSearchRequest request);
     }
 }

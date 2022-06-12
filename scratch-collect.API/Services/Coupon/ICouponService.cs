@@ -16,5 +16,8 @@ namespace scratch_collect.API.Services
         MerchantDTO Update(int id);
 
         void Delete(int id);
+
+        // Use Coupon
+        public WalletDTO Use (CouponUseRequest request);
     }
 }

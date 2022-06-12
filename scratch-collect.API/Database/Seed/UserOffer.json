@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "played": false,
+        "boughtOn": "6/5/2021",
+        "userId": 2,
+        "offerId": 2
+    },
+    {
+        "id": 2,
+        "played": false,
+        "boughtOn": "2/27/2022",
+        "userId": 2,
+        "offerId": 6
+    },
+    {
+        "id": 3,
+        "played": false,
+        "boughtOn": "11/5/2021",
+        "userId": 2,
+        "offerId": 4
+    },
+    {
+        "id": 4,
+        "played": false,
+        "boughtOn": "6/29/2021",
+        "userId": 2,
+        "offerId": 15
+    },
+    {
+        "id": 5,
+        "played": false,
+        "boughtOn": "8/28/2021",
+        "userId": 2,
+        "offerId": 14
+    },
+    {
+        "id": 6,
+        "played": false,
+        "boughtOn": "9/14/2021",
+        "userId": 2,
+        "offerId": 5
+    }
+]

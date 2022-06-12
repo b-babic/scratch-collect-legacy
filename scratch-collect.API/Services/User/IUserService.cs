@@ -16,6 +16,7 @@ namespace scratch_collect.API.Services
 
         void Delete(int id);
 
-        // TODO: add user profile edit action
+        // User coupons
+        public List<CouponDTO> GetUsersCoupons(int id);
     }
 }

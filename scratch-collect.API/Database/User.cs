@@ -54,5 +54,8 @@ namespace scratch_collect.API.Database
 
         // Users used coupons
         public ICollection<Coupon> UsedCoupons { get; set; }
+
+        // Users offers
+        public ICollection<UserOffer> BoughtOffers { get; set; }
     }
 }

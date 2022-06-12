@@ -107,5 +107,106 @@ namespace scratch_collect.API.Services
             _context.Offers.Remove(entity);
             _context.SaveChanges();
         }
+
+        // User offers
+        public UserOfferDTO BuyOffer(UserOfferUpsertRequest request)
+        {
+            // validate if user has money
+            var user = _context.Users
+                .Include(w => w.Wallet)
+                .FirstOrDefault(a => a.Id == request.UserId);
+            var offer = _context.Offers.Find(request.OfferId);
+
+            // If by any chance request is not constructed properly
+            if (user == null || offer == null)
+                throw new BadRequestException("Either user or offer not found !");
+
+            // If offer is expired
+            if (offer.Quantity == 0)
+                throw new BadRequestException("This offer expired !");
+
+            // If user have enough money to buy
+            var enoughMoney = user.Wallet.Balance >= offer.RequiredPrice;
+
+            if (!enoughMoney)
+                throw new BadRequestException("You don't have enough money to buy this item !");
+
+            // Add offer to user offers
+            var model = new UserOffer
+            {
+                Played = request?.Played ?? false,
+                BoughtOn = DateTime.Now,
+                UserId = request.UserId,
+                OfferId = request.OfferId
+            };
+
+            _context.UserOffers.Add(model);
+
+            var bought = _mapper.Map<UserOfferDTO>(model);
+
+            // Decrement offer quantity and update user wallet balance
+            if (bought != null)
+            {
+                // Remove user money
+                user.Wallet.Balance -= offer.RequiredPrice;
+
+                // Remove offer quantity
+                offer.Quantity -= 1;
+
+                _context.Users.Update(user);
+                _context.Offers.Update(offer);
+
+                _context.SaveChanges();
+            }
+
+            // Return new offer
+            return bought;
+        }
+
+        public UserOfferDTO ArchiveOffer(UserOfferUpsertRequest request)
+        {
+            var offer = _context.UserOffers.Find(request.OfferId);
+
+            if (offer == null)
+                throw new BadRequestException("Offer does not exist !");
+
+            // After successfull scratch / play, we can archive currently played offer and hide it from the original list
+            offer.Played = true;
+
+            _context.UserOffers.Update(offer);
+            _context.SaveChanges();
+
+            return _mapper.Map<UserOfferDTO>(offer);
+        }
+
+        public List<UserOfferDTO> GetUserOffers(UsserOfferSearchRequest request)
+        {
+            var query = _context.UserOffers
+                .Include(a => a.Offer)
+                .ThenInclude(c => c.Category)
+                .AsQueryable();
+
+            if (request?.UserId == null)
+                throw new BadRequestException("You have to pass specific user ID !");
+
+            if (request?.UserId != null)
+            {
+                query = query.Where(x => x.UserId == request.UserId);
+            }
+
+            if (request?.CategoryId != null)
+            {
+                query = query.Where(x => x.Offer.Category.Id == request.CategoryId);
+            }
+
+            // Return only not played offers
+            // Default sort by bougt on date
+            var list = query
+                .Where(a => a.Played == false)
+                .OrderByDescending(x => x.BoughtOn)
+                .ToList();
+
+            return _mapper.Map<List<UserOfferDTO>>(list);
+        }
     }
 }

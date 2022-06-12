@@ -12,10 +12,12 @@ namespace scratch_collect.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IOfferService _offerService;
 
-        public UserController(IUserService service)
+        public UserController(IUserService userService, IOfferService offerService)
         {
-            _userService = service;
+            _userService = userService;
+            _offerService = offerService;
         }
 
         [Authorize(Roles = "Administrator")]
@@ -66,6 +68,22 @@ namespace scratch_collect.API.Controllers
         public void Delete(int id)
         {
             _userService.Delete(id);
+        }
+
+        // User offers
+        [Authorize(Roles = "Administrator, Client")]
+        [HttpGet("{id:int}/offers")]
+        public List<UserOfferDTO> Offers([FromBody] UsserOfferSearchRequest request)
+        {
+            return _offerService.GetUserOffers(request);
+        }
+
+        // User coupons
+        [Authorize(Roles = "Administrator, Client")]
+        [HttpGet("{id:int}/coupons")]
+        public List<CouponDTO> Coupons(int id)
+        {
+            return _userService.GetUsersCoupons(id);
         }
     }
 }
