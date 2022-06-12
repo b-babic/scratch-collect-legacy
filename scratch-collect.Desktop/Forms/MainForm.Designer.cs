@@ -155,6 +155,7 @@
             this.offers_control_menu.Size = new System.Drawing.Size(61, 63);
             this.offers_control_menu.Text = "Offers";
             this.offers_control_menu.ToolTipText = "Go to offers page";
+            this.offers_control_menu.Click += new System.EventHandler(this.offers_control_menu_Click);
             // 
             // toolStripSeparator4
             // 

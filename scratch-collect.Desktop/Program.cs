@@ -21,6 +21,7 @@ namespace scratch_collect.Desktop
             services.AddTransient<ICouponService, CouponService>();
             services.AddTransient<IMerchantService, MerchantService>();
             services.AddTransient<ICountryService, CountryService>();
+            services.AddTransient<IOfferService, OfferService>();
             services.AddTransient<ICategoryService, CategoryService>();
 
             services.AddAutoMapper(typeof(AutoMapperProfiles));

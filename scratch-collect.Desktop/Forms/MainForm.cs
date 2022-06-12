@@ -44,6 +44,13 @@ namespace scratch_collect.Desktop.Forms
             merchants.ShowDialog();
         }
 
+        private void offers_control_menu_Click(object sender, EventArgs e)
+        {
+            var offers = new AllOffers();
+
+            offers.ShowDialog();
+        }
+
         // Helpers
         private static void FakeAuthentication()
         {
