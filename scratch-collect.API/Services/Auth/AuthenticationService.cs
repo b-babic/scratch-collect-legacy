@@ -57,6 +57,19 @@ namespace scratch_collect.API.Services
             _context.Users.Add(entity);
             _context.SaveChanges();
 
+            // Create new user wallet
+            var wallet = new WalletUpsertRequest {
+                Balance = 50,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                UserId = entity.Id
+            };
+
+            var walletModel = _mapper.Map<Wallet>(wallet);
+
+            _context.Wallets.Add(walletModel);
+            _context.SaveChanges();
+
             return _mapper.Map<UserDTO>(entity);
         }
 

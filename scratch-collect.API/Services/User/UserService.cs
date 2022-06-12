@@ -5,6 +5,7 @@ using scratch_collect.API.Exceptions;
 using scratch_collect.API.Helper;
 using scratch_collect.Model;
 using scratch_collect.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -36,7 +37,10 @@ namespace scratch_collect.API.Services
                 query = query.Where(x => x.Username.StartsWith(request.Username));
             }
 
-            var list = query.Include(x => x.Role).ToList();
+            var list = query
+            .Include(x => x.Role)
+            .Include(u => u.Wallet)
+            .ToList();
 
             return _mapper.Map<List<UserDTO>>(list);
         }
@@ -45,6 +49,7 @@ namespace scratch_collect.API.Services
         {
             var entity = _context.Users
                 .Include(x => x.Role)
+                .Include(y => y.Wallet)
                 .SingleOrDefault(x => x.Id == id);
 
             return _mapper.Map<UserDTO>(entity);
@@ -66,9 +71,24 @@ namespace scratch_collect.API.Services
             _context.Users.Add(entity);
             _context.SaveChanges();
 
+            // Create new user wallet
+            var wallet = new WalletUpsertRequest {
+                Balance = 50,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                UserId = entity.Id
+            };
+
+            var walletModel = _mapper.Map<Wallet>(wallet);
+
+            _context.Wallets.Add(walletModel);
             _context.SaveChanges();
 
-            var result = _context.Users.Include(a => a.Role).FirstOrDefault(x => x.Id == entity.Id);
+            var result = _context
+                .Users
+                .Include(a => a.Role)
+                .Include(w => w.Wallet)
+                .FirstOrDefault(x => x.Id == entity.Id);
 
             return _mapper.Map<UserDTO>(result);
         }

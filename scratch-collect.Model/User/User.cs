@@ -11,6 +11,7 @@ namespace scratch_collect.Model
         public string LastName { get; set; }
         public string Address { get; set; }
         public RoleDTO Role { get; set; }
+        public WalletDTO Wallet { get; set; }
 
 #nullable enable
         public DateTime? RegisteredAt { get; set; }

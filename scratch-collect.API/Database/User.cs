@@ -43,10 +43,16 @@ namespace scratch_collect.API.Database
         public byte[] UserPhoto { get; set; }
 
         // relationships
-        public int RoleId { get; set; }
 
+        // User roles
+        public int RoleId { get; set; }
         public virtual Role Role { get; set; }
 
+        // User wallet
+        public int? WalletId { get; set; }
+        public virtual Wallet Wallet { get; set; }
+
+        // Users used coupons
         public ICollection<Coupon> UsedCoupons { get; set; }
     }
 }

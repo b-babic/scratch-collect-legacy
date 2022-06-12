@@ -23,6 +23,9 @@ namespace scratch_collect.Model.Requests
         [Required]
         public int RoleId { get; set; }
 
+        [Required]
+        public int WalletId { get; set; }
+
 #nullable enable
         public string? Password { get; set; }
 

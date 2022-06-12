@@ -82,6 +82,7 @@ namespace scratch_collect.API
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IWalletService, WalletService>();
             services.AddScoped<ICouponService, CouponService>();
             services.AddScoped<IMerchantService, MerchantService>();
             services.AddScoped<ICountryService, CountryService>();

@@ -19,6 +19,10 @@ namespace scratch_collect.API.Infra
             // Role
             CreateMap<Database.Role, RoleDTO>();
 
+            // Wallet
+            CreateMap<Database.Wallet, WalletDTO>();
+            CreateMap<Database.Wallet, WalletUpsertRequest>().ReverseMap();
+
             // Coupon
             CreateMap<Database.Coupon, MerchantDTO>();
 

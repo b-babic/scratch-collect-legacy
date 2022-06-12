@@ -18,6 +18,7 @@ namespace scratch_collect.API.Database
         // define db sets
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Wallet> Wallets { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
         public virtual DbSet<Merchant> Merchants { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
@@ -53,11 +54,17 @@ namespace scratch_collect.API.Database
             });
             
             // Users and coupons
+            // Users and wallets
             modelBuilder.Entity<User>(entity =>
             {
                 entity
                     .HasMany(d => d.UsedCoupons)
                     .WithOne(p => p.UsedBy);
+
+                entity
+                    .HasOne(u => u.Wallet)
+                    .WithOne(w => w.User)
+                    .HasForeignKey<Wallet>(b => b.UserId);
             });
 
             modelBuilder.Entity<Coupon>(entity =>
