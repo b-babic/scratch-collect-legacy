@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace scratch_collect.API.Database
@@ -18,5 +19,8 @@ namespace scratch_collect.API.Database
         [Required]
         [MaxLength(7, ErrorMessage = "Category gradient stop color must have max 7 characters (including # sign).")]
         public string GradientStop { get; set; }
+
+        // Relations
+        public virtual ICollection<Offer> Offers { get; set; }
     }
 }

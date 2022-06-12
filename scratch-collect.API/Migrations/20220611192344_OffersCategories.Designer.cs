@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using scratch_collect.API.Database;
 
@@ -11,9 +12,10 @@ using scratch_collect.API.Database;
 namespace scratch_collect.API.Migrations
 {
     [DbContext(typeof(ScratchCollectContext))]
-    partial class ScratchCollectContextModelSnapshot : ModelSnapshot
+    [Migration("20220611192344_OffersCategories")]
+    partial class OffersCategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

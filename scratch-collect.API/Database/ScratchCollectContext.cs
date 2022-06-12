@@ -17,11 +17,11 @@ namespace scratch_collect.API.Database
 
         // define db sets
         public virtual DbSet<User> Users { get; set; }
-
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
         public virtual DbSet<Merchant> Merchants { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<Offer> Offers { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -42,19 +42,22 @@ namespace scratch_collect.API.Database
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
             base.OnModelCreating(modelBuilder);
 
-            // relations
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity
-                    .HasMany(d => d.UsedCoupons)
-                    .WithOne(p => p.UsedBy);
-            });
+            // Relations
 
+            // Users and roles
             modelBuilder.Entity<Role>(entity =>
             {
                 entity
                     .HasMany(a => a.Users)
                     .WithOne(b => b.Role);
+            });
+            
+            // Users and coupons
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity
+                    .HasMany(d => d.UsedCoupons)
+                    .WithOne(p => p.UsedBy);
             });
 
             modelBuilder.Entity<Coupon>(entity =>
@@ -64,12 +67,21 @@ namespace scratch_collect.API.Database
                     .HasDefaultValueSql("getdate()");
             });
 
+            // Merchants and countries
             modelBuilder.Entity<Merchant>(entity =>
             {
                 entity
                     .HasOne(a => a.Country)
                     .WithMany(b => b.Merchants)
                     .OnDelete(DeleteBehavior.ClientSetNull);
+            });
+
+            // Offers and categories
+            modelBuilder.Entity<Category>(entity =>
+            {
+                entity
+                    .HasMany(e => e.Offers)
+                    .WithOne(e => e.Category);
             });
 
             // custom partial for setting seed data

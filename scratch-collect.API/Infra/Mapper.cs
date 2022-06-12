@@ -29,6 +29,10 @@ namespace scratch_collect.API.Infra
             // Country
             CreateMap<Database.Country, CountryDTO>();
 
+            // Offer
+            CreateMap<Database.Offer, OfferDTO>();
+            CreateMap<Database.Offer, OfferUpsertRequest>().ReverseMap();
+
             // Category
             CreateMap<Database.Category, CategoryDTO>();
         }
