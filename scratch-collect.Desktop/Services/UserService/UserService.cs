@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using scratch_collect.Model;
 using scratch_collect.Model.Desktop;
+using scratch_collect.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -90,6 +91,30 @@ namespace scratch_collect.Desktop.Services
                 var response = await HttpHelper.DeleteAsync(_baseUrl + string.Format("/{0}", id));
 
                 return response;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // Won items
+        public async Task<List<UserOfferDTO>> AllWonOffers(DateTime? dateFrom, DateTime? dateTo)
+        {
+            Dictionary<string, string> parameters = new();
+
+            if (dateFrom != null)
+                parameters["TimeFrom"] = dateFrom.ToString();
+
+            if (dateTo != null)
+                parameters["TimeTo"] = dateTo.ToString();
+
+            try
+            {
+                var items = await HttpHelper.GetAsync<List<UserOfferDTO>>(_baseUrl + "/won/all", parameters);
+
+                // Map to VM
+                return _mapper.Map<List<UserOfferDTO>>(items);
             }
             catch (Exception)
             {

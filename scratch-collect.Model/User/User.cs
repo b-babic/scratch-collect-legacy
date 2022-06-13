@@ -17,5 +17,10 @@ namespace scratch_collect.Model
         public DateTime? RegisteredAt { get; set; }
         public byte[]? UserPhoto { get; set; }
 #nullable disable
+
+        public override string ToString()
+        {
+            return string.Format("{0} {1}", FirstName, LastName);
+        }
     }
 }

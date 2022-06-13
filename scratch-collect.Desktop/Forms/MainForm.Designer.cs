@@ -168,6 +168,7 @@
             this.winnings_control_menu.Size = new System.Drawing.Size(86, 63);
             this.winnings_control_menu.Text = "Winnings";
             this.winnings_control_menu.ToolTipText = "Go to winnings page";
+            this.winnings_control_menu.Click += new System.EventHandler(this.winnings_control_menu_Click);
             // 
             // MainForm
             // 

@@ -20,5 +20,10 @@ namespace scratch_collect.Model
 
         // Relationship
         public CategoryDTO Category { get; set; }
+
+        // Override string representation
+        public override string ToString() {
+            return Title;
+        }
     }
 }

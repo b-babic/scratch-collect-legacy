@@ -1,5 +1,7 @@
 ﻿using scratch_collect.Model;
 using scratch_collect.Model.Desktop;
+using scratch_collect.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,5 +18,8 @@ namespace scratch_collect.Desktop.Services
         public Task<UserVM> UpdateUser(UserUpdateVM user);
 
         public Task<bool> DeleteUser(int id);
+
+        // Won items
+        public Task<List<UserOfferDTO>> AllWonOffers(DateTime? dateFrom = null, DateTime? dateTo = null);
     }
 }

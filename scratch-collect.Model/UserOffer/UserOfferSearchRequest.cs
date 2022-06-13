@@ -9,7 +9,7 @@ namespace scratch_collect.Model.Requests
         public bool? Played { get; set; }
 
         // Time range filter
-        public DateTime? TimeFrom { get; set;}
-        public DateTime? TimeTo { get; set;}
+        public string? TimeFrom { get; set;}
+        public string? TimeTo { get; set;}
     }
 }

@@ -96,7 +96,7 @@ namespace scratch_collect.API.Controllers
 
         [Authorize(Roles = "Administrator")]
         [HttpGet("won/all")]
-        public List<UserOfferDTO> AllWonItems([FromBody] UsserOfferSearchRequest request)
+        public List<UserOfferDTO> AllWonItems([FromQuery] UsserOfferSearchRequest request)
         {
             return _userService.AllWonItems(request);
         }

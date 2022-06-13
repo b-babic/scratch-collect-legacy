@@ -51,6 +51,13 @@ namespace scratch_collect.Desktop.Forms
             offers.ShowDialog();
         }
 
+        private void winnings_control_menu_Click(object sender, EventArgs e)
+        {
+            var winnings = new AllWinnings();
+
+            winnings.ShowDialog();
+        }
+
         // Helpers
         private static void FakeAuthentication()
         {
