@@ -18,5 +18,10 @@ namespace scratch_collect.API.Services
 
         // User coupons
         public List<CouponDTO> GetUsersCoupons(int id);
+
+        // Won items
+        public List<UserOfferDTO> UserWonItems(UsserOfferSearchRequest request);
+
+        public List<UserOfferDTO> AllWonItems(UsserOfferSearchRequest request);
     }
 }

@@ -183,5 +183,69 @@ namespace scratch_collect.API.Services
 
             return _mapper.Map<List<CouponDTO>>(coupons);
         }
+
+        // Won items
+
+        public List<UserOfferDTO> UserWonItems(UsserOfferSearchRequest request) {
+            var wonItems = _context
+                .UserOffers
+                .Include(a => a.Offer)
+                .ThenInclude(b => b.Category)
+                .Where(x => x.UserId == request.UserId && x.Won == true)
+                .OrderByDescending(a => a.PlayedOn)
+                .ToList();
+            
+            
+            if (wonItems == null)
+                throw new BadRequestException("No items found !");
+
+            return _mapper.Map<List<UserOfferDTO>>(wonItems);
+        }
+
+        public List<UserOfferDTO> AllWonItems(UsserOfferSearchRequest request) {
+            var query = _context
+                .UserOffers
+                .Include(a => a.Offer)
+                .ThenInclude(b => b.Category)
+                .Where(x => x.Won == true)
+                .OrderByDescending(a => a.PlayedOn)
+                .AsQueryable();
+
+            if (request?.TimeFrom != null && request?.TimeTo == null)
+            {
+                DateTime from = request.TimeFrom.Value;
+
+                query = query.Where(s => s.PlayedOn >= from);
+            } 
+            else if (request?.TimeFrom == null && request?.TimeTo != null)
+            {
+                DateTime to = request.TimeTo.Value;
+
+                query = query.Where(s => s.PlayedOn <= to);
+            }
+            else if (request?.TimeFrom != null && request?.TimeTo != null) 
+            {
+                DateTime from = request.TimeFrom.Value;
+                DateTime to = request.TimeTo.Value;
+
+                query = query.Where(s => s.PlayedOn >= from && s.PlayedOn <= to);
+            }
+
+            var list = query.ToList();
+
+            // var wonItems = _context
+            //     .UserOffers
+            //     .Include(a => a.Offer)
+            //     .ThenInclude(b => b.Category)
+            //     .Where(x => x.Won == true)
+            //     .OrderByDescending(a => a.PlayedOn)
+            //     .ToList();
+            
+            
+            if (list == null)
+                throw new BadRequestException("No items found !");
+
+            return _mapper.Map<List<UserOfferDTO>>(list);
+        }
     }
 }

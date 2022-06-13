@@ -5,10 +5,12 @@ namespace scratch_collect.Model
     public class UserOfferDTO
     {
         public int Id { get; set; }
+        public DateTime BoughtOn { get; set; }
 
         public bool Played { get; set; }
+        public DateTime? PlayedOn { get; set; }
 
-        public DateTime BoughtOn { get; set; }
+        public bool Won { get; set; }
 
         // relations
         public int UserId { get; set; }

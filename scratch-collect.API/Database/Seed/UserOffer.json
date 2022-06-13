@@ -1,43 +1,73 @@
 [
     {
         "id": 1,
-        "played": false,
         "boughtOn": "6/5/2021",
+        "played": false,
+        "playedOn": null,
+        "won": false,
         "userId": 2,
         "offerId": 2
     },
     {
         "id": 2,
-        "played": false,
         "boughtOn": "2/27/2022",
+        "played": false,
+        "playedOn": null,
+        "won": false,
         "userId": 2,
         "offerId": 6
     },
     {
         "id": 3,
-        "played": false,
         "boughtOn": "11/5/2021",
+        "played": false,
+        "playedOn": null,
+        "won": false,
         "userId": 2,
         "offerId": 4
     },
     {
         "id": 4,
-        "played": false,
         "boughtOn": "6/29/2021",
+        "played": false,
+        "playedOn": null,
+        "won": false,
         "userId": 2,
         "offerId": 15
     },
     {
         "id": 5,
-        "played": false,
         "boughtOn": "8/28/2021",
+        "played": false,
+        "playedOn": null,
+        "won": false,
         "userId": 2,
         "offerId": 14
     },
     {
         "id": 6,
-        "played": false,
         "boughtOn": "9/14/2021",
+        "played": false,
+        "playedOn": null,
+        "won": false,
+        "userId": 2,
+        "offerId": 5
+    },
+    {
+        "id": 7,
+        "boughtOn": "9/14/2021",
+        "played": true,
+        "playedOn": "9/14/2021",
+        "won": false,
+        "userId": 2,
+        "offerId": 6
+    },
+    {
+        "id": 8,
+        "boughtOn": "9/14/2021",
+        "played": true,
+        "playedOn": "9/14/2021",
+        "won": true,
         "userId": 2,
         "offerId": 5
     }

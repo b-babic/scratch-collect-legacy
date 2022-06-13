@@ -85,5 +85,20 @@ namespace scratch_collect.API.Controllers
         {
             return _userService.GetUsersCoupons(id);
         }
+
+        // User won items
+        [Authorize(Roles = "Administrator, Client")]
+        [HttpGet("{id:int}/won")]
+        public List<UserOfferDTO> WonItems([FromBody] UsserOfferSearchRequest request)
+        {
+            return _userService.UserWonItems(request);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpGet("won/all")]
+        public List<UserOfferDTO> AllWonItems([FromBody] UsserOfferSearchRequest request)
+        {
+            return _userService.AllWonItems(request);
+        }
     }
 }

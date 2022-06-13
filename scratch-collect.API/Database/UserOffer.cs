@@ -15,6 +15,11 @@ namespace scratch_collect.API.Database
         [Required]
         public DateTime BoughtOn { get; set; }
 
+        public DateTime? PlayedOn { get; set; }
+
+        [Required]
+        public bool Won { get; set; }
+
         // relations
         [Required]
         public int UserId { get; set; }
