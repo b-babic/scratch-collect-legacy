@@ -1,66 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:scratch_collect_mobile/modules/auth/Login.page.dart';
+import 'package:scratch_collect_mobile/modules/auth/Register.page.dart';
+import 'package:scratch_collect_mobile/modules/home/Home.page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const ScratchCollect());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+final routes = <String, WidgetBuilder>{
+  LoginPage.tag: (context) => const LoginPage(),
+  RegisterPage.tag: (context) => const RegisterPage(),
+  HomePage.tag: (context) => const HomePage(),
+};
+
+class ScratchCollect extends StatelessWidget {
+  const ScratchCollect({Key? key}) : super(key: key);
+
+  static const String _title = 'Scratch&Collect';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+      title: _title,
+      home: const Scaffold(
+        body: LoginPage(),
       ),
-      home: MyHomePage(title: 'Scratch & Collect'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), 
+      routes: routes,
     );
   }
 }
