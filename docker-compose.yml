@@ -17,7 +17,7 @@ services:
     build:
       context: .
     environment:
-      - ConnectionStrings:collect=Server=collect-sql,1433;Database=IB210370;User=sa;Password=Test123!;ConnectRetryCount=0;Trusted_Connection=false;
+      - ConnectionStrings:collect=Server=collect-sql,1433;Database=210370;User=sa;Password=Test123!;ConnectRetryCount=0;Trusted_Connection=false;
     ports:
       - 5010:5010
     networks:
