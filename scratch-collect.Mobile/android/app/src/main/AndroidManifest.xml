@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.scratch_collect_mobile">
+    package="com.example.scratch_collect">
    <application
-        android:label="scratch_collect_mobile"
+        android:label="scratch_collect"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

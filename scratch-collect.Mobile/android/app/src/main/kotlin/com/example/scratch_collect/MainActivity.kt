@@ -1,4 +1,4 @@
-package com.example.scratch_collect_mobile
+package com.example.scratch_collect
 
 import io.flutter.embedding.android.FlutterActivity
 

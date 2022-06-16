@@ -1,4 +1,4 @@
-# scratch_collect_mobile
+# scratch_collect
 
 A new Flutter project.
 
