@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/auth/login.screen.dart';
+import 'package:scratch_collect/modules/auth/signup.screen.dart';
+import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/routes.dart';
 
 void main() {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       // theme: theme(), TODO: Add custom theme
       // home: SplashScreen(), TODO: Set splash as root once finished
-      initialRoute: LoginScreen.routeName,
+      initialRoute: HomeScreen.routeName,
       routes: routes,
     );
   }

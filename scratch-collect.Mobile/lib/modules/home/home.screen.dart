@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:scratch_collect/modules/shared/enums.dart';
+import 'package:scratch_collect/modules/shared/widgets/navigation.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,10 +14,8 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Home"),
-        ),
-        body: const Center(child: Text("Body")));
+    return const Scaffold(
+        bottomNavigationBar: BottomNavigation(selectedMenu: MenuState.offers),
+        body: Center(child: Text("Body")));
   }
 }
