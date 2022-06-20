@@ -58,8 +58,16 @@ class SigninFormState extends State<SigninForm> {
 
                     KeyboardUtil.hideKeyboard(context);
 
+                    // TODO: Create model class for signin / signup
+                    final state = {
+                      email,
+                      password,
+                    };
+
+                    print("state: $state");
+
                     // TODO: Implement API service and redirect after login network call
-                    Navigator.pushNamed(context, HomeScreen.routeName);
+                    // Navigator.pushNamed(context, HomeScreen.routeName);
                   }
                 })
           ],

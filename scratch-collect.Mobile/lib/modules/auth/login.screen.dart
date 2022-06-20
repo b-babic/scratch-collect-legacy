@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/auth/widgets/intro.dart';
 import 'package:scratch_collect/modules/auth/widgets/signin_form.dart';
+import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/widgets/logo.dart';
@@ -22,7 +23,7 @@ class LoginScreenState extends State<LoginScreen> {
     SizeConfig().init(context);
 
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: whiteColor,
         body: SafeArea(
           child: SizedBox(
               width: double.infinity,
