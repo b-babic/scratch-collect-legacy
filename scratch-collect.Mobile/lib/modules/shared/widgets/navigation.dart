@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/items/items.screen.dart';
@@ -32,56 +31,112 @@ class BottomNavigation extends StatelessWidget {
             topRight: Radius.circular(40),
           ),
         ),
-        child: SafeArea(
-            top: false,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                // Home screen / Offers
-                IconButton(
-                  icon: SvgPicture.asset(
-                    "lib/modules/shared/assets/icons/cart.svg",
-                    color: MenuState.offers == selectedMenu
-                        ? primaryColor
-                        : tertiaryColor,
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              // Home screen / Offers
+              Column(
+                children: [
+                  IconButton(
+                    icon: SvgPicture.asset(
+                      "lib/modules/shared/assets/icons/cart.svg",
+                      color: MenuState.offers == selectedMenu
+                          ? primaryColor
+                          : tertiaryColor,
+                    ),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, HomeScreen.routeName),
                   ),
-                  onPressed: () =>
-                      Navigator.pushNamed(context, HomeScreen.routeName),
-                ),
-                // My items screen
-                IconButton(
-                  icon: SvgPicture.asset(
-                    "lib/modules/shared/assets/icons/grid.svg",
-                    color: MenuState.items == selectedMenu
-                        ? primaryColor
-                        : tertiaryColor,
+                  Text(
+                    'Offers',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: MenuState.offers == selectedMenu
+                          ? primaryColor
+                          : tertiaryColor,
+                    ),
                   ),
-                  onPressed: () =>
-                      Navigator.pushNamed(context, ItemsScreen.routeName),
-                ),
-                // Winnings screen
-                IconButton(
-                  icon: SvgPicture.asset(
-                    "lib/modules/shared/assets/icons/truck.svg",
-                    color: MenuState.winnings == selectedMenu
-                        ? primaryColor
-                        : tertiaryColor,
+                ],
+              ),
+              // My items screen
+              Column(
+                children: [
+                  IconButton(
+                    icon: SvgPicture.asset(
+                      "lib/modules/shared/assets/icons/grid.svg",
+                      color: MenuState.items == selectedMenu
+                          ? primaryColor
+                          : tertiaryColor,
+                    ),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, ItemsScreen.routeName),
                   ),
-                  onPressed: () =>
-                      Navigator.pushNamed(context, WinningsScreen.routeName),
-                ),
-                // Profile screen
-                IconButton(
-                  icon: SvgPicture.asset(
-                    "lib/modules/shared/assets/icons/user.svg",
-                    color: MenuState.profile == selectedMenu
-                        ? primaryColor
-                        : tertiaryColor,
+                  Text(
+                    'My items',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: MenuState.items == selectedMenu
+                          ? primaryColor
+                          : tertiaryColor,
+                    ),
                   ),
-                  onPressed: () =>
-                      Navigator.pushNamed(context, ProfileScreen.routeName),
-                ),
-              ],
-            )));
+                ],
+              ),
+              // Winnings screen
+              Column(
+                children: [
+                  IconButton(
+                    icon: SvgPicture.asset(
+                      "lib/modules/shared/assets/icons/truck.svg",
+                      color: MenuState.winnings == selectedMenu
+                          ? primaryColor
+                          : tertiaryColor,
+                    ),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, WinningsScreen.routeName),
+                  ),
+                  Text(
+                    'Winnings',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: MenuState.winnings == selectedMenu
+                          ? primaryColor
+                          : tertiaryColor,
+                    ),
+                  ),
+                ],
+              ),
+              // Profile screen
+              Column(
+                children: [
+                  IconButton(
+                    icon: SvgPicture.asset(
+                      "lib/modules/shared/assets/icons/user.svg",
+                      color: MenuState.profile == selectedMenu
+                          ? primaryColor
+                          : tertiaryColor,
+                    ),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, ProfileScreen.routeName),
+                  ),
+                  Text(
+                    'Profile',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: MenuState.profile == selectedMenu
+                          ? primaryColor
+                          : tertiaryColor,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          )
+        ]));
   }
 }

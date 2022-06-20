@@ -17,7 +17,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      // theme: theme(), TODO: Add custom theme
+      theme: ThemeData(
+        pageTransitionsTheme: const PageTransitionsTheme(builders: {
+          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+        }),
+      ),
       // home: SplashScreen(), TODO: Set splash as root once finished
       initialRoute: HomeScreen.routeName,
       routes: routes,
