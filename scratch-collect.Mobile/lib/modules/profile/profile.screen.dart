@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scratch_collect/modules/profile/widgets/profile_body.dart';
 import 'package:scratch_collect/modules/shared/enums.dart';
 import 'package:scratch_collect/modules/shared/widgets/navigation.dart';
 
@@ -16,6 +17,6 @@ class ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
         bottomNavigationBar: BottomNavigation(selectedMenu: MenuState.profile),
-        body: Center(child: Text("Body of profile")));
+        body: ProfileBody());
   }
 }
