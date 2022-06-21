@@ -20,6 +20,7 @@ class SignupScreenState extends State<SignupScreen> {
     SizeConfig().init(context);
 
     return Scaffold(
+        appBar: AppBar(title: const Text("Registration")),
         backgroundColor: whiteColor,
         body: SafeArea(
           child: SizedBox(
