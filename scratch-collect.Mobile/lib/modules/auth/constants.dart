@@ -10,13 +10,24 @@ const String usernameLengthError = "Username can have max 20 characters";
 
 // Password
 const String passwordRequiredError = "Please enter your password";
+const String oldPasswordRequiredError = "Please enter your old password";
+const String newPasswordRequiredError = "Please enter your new password";
+
 const String passwordLengthError =
     "Password needs to have minimum 4 characters";
+const String oldPasswordLengthError =
+    "Old Password needs to have minimum 4 characters";
+const String newPasswordLengthError =
+    "New Password needs to have minimum 4 characters";
+
 const String passwordConfirmRequiredError =
     "Please enter your password confirmation";
 const String passwordConfirmLengthError =
     "Password Confirm needs to have minimum 4 characters";
 const String passwordConfirmMatchError = "Your passwords needs to match";
+
+const String oldNewPasswordMatchError =
+    "Your new password cannot be the same as the old one";
 
 // First Name
 const String firstNameRequiredError = "Please enter first name";

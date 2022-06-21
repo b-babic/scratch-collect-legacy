@@ -3,6 +3,7 @@ import 'package:scratch_collect/modules/auth/login.screen.dart';
 import 'package:scratch_collect/modules/auth/signup.screen.dart';
 import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/items/items.screen.dart';
+import 'package:scratch_collect/modules/profile/change_password.screen.dart';
 import 'package:scratch_collect/modules/profile/profile.screen.dart';
 import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
 import 'package:scratch_collect/modules/winnings/winnings.screen.dart';
@@ -20,5 +21,6 @@ final Map<String, WidgetBuilder> routes = {
   WinningsScreen.routeName: (context) => const WinningsScreen(),
   // Profile
   ProfileScreen.routeName: (context) => const ProfileScreen(),
-  ProfileEditScreen.routeName: (context) => const ProfileEditScreen()
+  ProfileEditScreen.routeName: (context) => const ProfileEditScreen(),
+  ChangePasswordScreen.routeName: (context) => const ChangePasswordScreen()
 };

@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:scratch_collect/modules/profile/change_password.screen.dart';
 import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_menu.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_pic.dart';
@@ -20,10 +21,15 @@ class ProfileBodyState extends State<ProfileBody> {
             const ProfilePic(),
             const SizedBox(height: 30),
             ProfileMenu(
-                text: "Update Profile",
+                text: "Edit Profile",
                 icon: "lib/modules/shared/assets/icons/user.svg",
                 press: () =>
                     Navigator.pushNamed(context, ProfileEditScreen.routeName)),
+            ProfileMenu(
+                text: "Change Password",
+                icon: "lib/modules/shared/assets/icons/lock.svg",
+                press: () => Navigator.pushNamed(
+                    context, ChangePasswordScreen.routeName)),
             ProfileMenu(
               text: "Log Out",
               icon: "lib/modules/shared/assets/icons/logout.svg",
