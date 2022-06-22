@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:scratch_collect/modules/auth/login.screen.dart';
 import 'package:scratch_collect/modules/profile/change_password.screen.dart';
 import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_menu.dart';
@@ -33,7 +34,10 @@ class ProfileBodyState extends State<ProfileBody> {
             ProfileMenu(
               text: "Log Out",
               icon: "lib/modules/shared/assets/icons/logout.svg",
-              press: () => print("Log out called"),
+              press: () => {
+                // TODO: Add logout logic
+                Navigator.pushNamed(context, LoginScreen.routeName)
+              },
             ),
           ],
         ));
