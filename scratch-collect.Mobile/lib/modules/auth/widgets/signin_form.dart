@@ -1,11 +1,17 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/auth/constants.dart';
+import 'package:scratch_collect/modules/auth/models/signin_request.model.dart';
+import 'package:scratch_collect/modules/auth/services/auth.service.dart';
 import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/utils/keyboard.dart';
+import 'package:scratch_collect/modules/shared/utils/storage.dart';
 import 'package:scratch_collect/modules/shared/widgets/button.dart';
 import 'package:scratch_collect/modules/shared/widgets/form_error.dart';
+import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
 
 class SigninForm extends StatefulWidget {
   const SigninForm({Key? key}) : super(key: key);
@@ -16,8 +22,10 @@ class SigninForm extends StatefulWidget {
 
 class SigninFormState extends State<SigninForm> {
   final _formKey = GlobalKey<FormState>();
+
   String? email;
   String? password;
+
   final List<String?> errors = [];
 
   void addError({String? error}) {
@@ -52,22 +60,37 @@ class SigninFormState extends State<SigninForm> {
             SizedBox(height: getProportionateScreenHeight(60)),
             Button(
                 text: "Continue",
-                press: () {
+                press: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
 
                     KeyboardUtil.hideKeyboard(context);
 
-                    // TODO: Create model class for signin / signup
-                    final state = {
-                      email,
-                      password,
-                    };
+                    var model = SigninRequest(email: email, password: password);
 
-                    print("state: $state");
+                    try {
+                      var response = await AuthService().signin(model);
+                      var token = response.token;
 
-                    // TODO: Implement API service and redirect after login network call
-                    // Navigator.pushNamed(context, HomeScreen.routeName);
+                      if (token != null) {
+                        await Storage().write("token", token);
+
+                        var savedToken = await Storage().read("token");
+
+                        if (savedToken != null) {
+                          Snackbar.showSuccess(
+                              context, "Successfully logged in!");
+
+                          // TODO: Fetch user profile and persist to storage
+
+                          Navigator.pushNamed(context, HomeScreen.routeName);
+                        } else {
+                          Snackbar.showError(context, "Something went wrong!");
+                        }
+                      }
+                    } on Exception catch (e) {
+                      Snackbar.showError(context, e.toString());
+                    }
                   }
                 })
           ],

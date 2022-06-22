@@ -1,10 +1,15 @@
 import 'package:dio/dio.dart';
 
 class BadRequestException extends DioError {
-  BadRequestException(RequestOptions r) : super(requestOptions: r);
+  BadRequestException(RequestOptions options, Response? response)
+      : super(requestOptions: options, response: response);
 
   @override
   String toString() {
-    return 'Invalid request';
+    if (response?.data != null) {
+      return response?.data['Errors'][0];
+    } else {
+      return 'Invalid request';
+    }
   }
 }

@@ -37,7 +37,7 @@ class AppInterceptors extends Interceptor {
       case DioErrorType.response:
         switch (err.response?.statusCode) {
           case 400:
-            throw BadRequestException(err.requestOptions);
+            throw BadRequestException(err.requestOptions, err.response);
           case 401:
             throw UnauthorizedException(err.requestOptions);
           case 404:
