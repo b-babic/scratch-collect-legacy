@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/auth/constants.dart';
 import 'package:scratch_collect/modules/auth/models/signin_request.model.dart';
@@ -70,18 +72,19 @@ class SigninFormState extends State<SigninForm> {
 
                     try {
                       var response = await AuthService().signin(model);
+
                       var token = response.token;
 
                       if (token != null) {
-                        await Storage().write("token", token);
+                        await Storage()
+                            .write("user", json.encode(response.toJson()));
 
-                        var savedToken = await Storage().read("token");
+                        var persisted = await AuthService().getPersistedUser();
+                        var savedToken = persisted.token;
 
                         if (savedToken != null) {
                           Snackbar.showSuccess(
                               context, "Successfully logged in!");
-
-                          // TODO: Fetch user profile and persist to storage
 
                           Navigator.pushNamed(context, HomeScreen.routeName);
                         } else {

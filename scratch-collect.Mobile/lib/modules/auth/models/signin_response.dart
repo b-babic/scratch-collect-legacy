@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class SigninResponse {
   int? id;
   String? email;

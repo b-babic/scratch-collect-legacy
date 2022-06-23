@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
+import 'package:scratch_collect/modules/auth/services/auth.service.dart';
 import 'package:scratch_collect/modules/shared/utils/api/errors/bad_request.dart';
 import 'package:scratch_collect/modules/shared/utils/api/errors/conflict_exception.dart';
 import 'package:scratch_collect/modules/shared/utils/api/errors/deadline_exception.dart';
@@ -17,7 +20,8 @@ class AppInterceptors extends Interceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    var token = await Storage().read("token");
+    var user = await AuthService().getPersistedUser();
+    var token = user.token;
 
     if (token != null) {
       options.headers['Authorization'] = 'Bearer $token';

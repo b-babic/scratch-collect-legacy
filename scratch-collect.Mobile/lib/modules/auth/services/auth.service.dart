@@ -23,4 +23,10 @@ class AuthService {
   Future<void> logout() async {
     return await Storage().flush();
   }
+
+  Future<SigninResponse> getPersistedUser() async {
+    var persisted = await Storage().read("user");
+
+    return SigninResponse.fromJson(json.decode(persisted ?? "{}"));
+  }
 }
