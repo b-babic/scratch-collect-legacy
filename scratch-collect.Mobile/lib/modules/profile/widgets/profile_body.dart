@@ -1,24 +1,19 @@
-import 'dart:convert';
+// ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scratch_collect/modules/auth/login.screen.dart';
 import 'package:scratch_collect/modules/auth/services/auth.service.dart';
 import 'package:scratch_collect/modules/profile/change_password.screen.dart';
+import 'package:scratch_collect/modules/profile/models/profile.model.dart';
 import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
 import 'package:scratch_collect/modules/profile/models/profile_request.model.dart';
 import 'package:scratch_collect/modules/profile/services/profile.service.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_body_loading.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_menu.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_pic.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/styles.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/utils/storage.dart';
 import 'package:scratch_collect/modules/shared/widgets/no_data.dart';
 import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
-import 'package:skeletons/skeletons.dart';
 
 class ProfileBody extends StatefulWidget {
   const ProfileBody({Key? key}) : super(key: key);
@@ -28,13 +23,14 @@ class ProfileBody extends StatefulWidget {
 }
 
 class ProfileBodyState extends State<ProfileBody> {
-  late Future<dynamic> userProfile;
+  late Future<dynamic> profileFuture;
+  late final ProfileResponse userProfile;
 
   @override
   void initState() {
     super.initState();
 
-    userProfile = loadProfileData();
+    profileFuture = loadProfileData();
   }
 
   // Custom handlers
@@ -42,16 +38,16 @@ class ProfileBodyState extends State<ProfileBody> {
     var persisted = await AuthService().getPersistedUser();
     var request = ProfileRequest(id: persisted.id);
 
-    if (!mounted) return;
-
     try {
       var user = await ProfileService().getUserProfile(request);
 
-      if (!mounted) return;
+      setState(() {
+        userProfile = user;
+      });
 
-      // TODO: Persist to storage ?
       Snackbar.showSuccess(context, "Profile loaded!");
-    } on Exception catch (e) {
+      // TODO: Persist to storage ?
+    } on Exception catch (_) {
       Snackbar.showError(context, "Someting went wrong!");
     }
   }
@@ -61,7 +57,7 @@ class ProfileBodyState extends State<ProfileBody> {
     SizeConfig().init(context);
 
     return FutureBuilder(
-      future: userProfile,
+      future: profileFuture,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return const NoData();
@@ -72,7 +68,9 @@ class ProfileBodyState extends State<ProfileBody> {
               padding: const EdgeInsets.symmetric(vertical: 40),
               child: Column(
                 children: <Widget>[
-                  const ProfilePic(),
+                  ProfilePic(
+                    profilePhoto: userProfile.userPhoto,
+                  ),
                   const SizedBox(height: 30),
                   ProfileMenu(
                       text: "Edit Profile",

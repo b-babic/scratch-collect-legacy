@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
@@ -5,9 +7,9 @@ import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 
 class ProfilePic extends StatelessWidget {
-  const ProfilePic({
-    Key? key,
-  }) : super(key: key);
+  final String? profilePhoto;
+
+  const ProfilePic({Key? key, this.profilePhoto}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +22,10 @@ class ProfilePic extends StatelessWidget {
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
-          const CircleAvatar(
-            backgroundColor: tertiaryColor,
-            // TODO: Add Network Image
-            // backgroundImage: AssetImage("assets/images/Profile Image.png"),
-          ),
+          CircleAvatar(
+              backgroundColor: tertiaryColor,
+              child: ClipOval(
+                  child: Image.memory(base64.decode(profilePhoto ?? "")))),
           Positioned(
             right: 18,
             bottom: 20,
