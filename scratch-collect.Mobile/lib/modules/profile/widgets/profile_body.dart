@@ -1,9 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:scratch_collect/modules/auth/login.screen.dart';
+import 'package:scratch_collect/modules/auth/services/auth.service.dart';
 import 'package:scratch_collect/modules/profile/change_password.screen.dart';
 import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_menu.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_pic.dart';
+import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
 
 class ProfileBody extends StatefulWidget {
   const ProfileBody({Key? key}) : super(key: key);
@@ -34,9 +36,13 @@ class ProfileBodyState extends State<ProfileBody> {
             ProfileMenu(
               text: "Log Out",
               icon: "lib/modules/shared/assets/icons/logout.svg",
-              press: () => {
-                // TODO: Add logout logic
-                Navigator.pushNamed(context, LoginScreen.routeName)
+              press: () async {
+                await AuthService().logout();
+
+                if (!mounted) return;
+
+                Snackbar.showSuccess(context, "Successfully logged out");
+                Navigator.pushNamed(context, LoginScreen.routeName);
               },
             ),
           ],
