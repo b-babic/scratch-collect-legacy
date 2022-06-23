@@ -6,6 +6,7 @@ import 'package:scratch_collect/modules/shared/utils/api/errors/internal_server.
 import 'package:scratch_collect/modules/shared/utils/api/errors/no_internet_exception.dart';
 import 'package:scratch_collect/modules/shared/utils/api/errors/not_found_exception.dart';
 import 'package:scratch_collect/modules/shared/utils/api/errors/unauthorized_exception.dart';
+import 'package:scratch_collect/modules/shared/utils/storage.dart';
 
 class AppInterceptors extends Interceptor {
   final Dio dio;
@@ -16,11 +17,10 @@ class AppInterceptors extends Interceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    // TODO: Get from secure storage
-    var accessToken = '';
+    var token = await Storage().read("token");
 
-    if (accessToken != null) {
-      options.headers['Authorization'] = 'Bearer $accessToken';
+    if (token != null) {
+      options.headers['Authorization'] = 'Bearer $token';
     }
 
     return handler.next(options);
