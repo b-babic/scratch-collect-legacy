@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:scratch_collect/modules/auth/models/signin_request.model.dart';
 import 'package:scratch_collect/modules/auth/models/signin_response.dart';
 import 'package:scratch_collect/modules/shared/utils/api/api.dart';
-import 'package:scratch_collect/modules/shared/utils/storage.dart';
+import 'package:scratch_collect/modules/shared/utils/secure_storage.dart';
 
 class AuthService {
   static AuthService? _instance;
@@ -21,11 +21,11 @@ class AuthService {
   }
 
   Future<void> logout() async {
-    return await Storage().flush();
+    return await SecureStorage().flush();
   }
 
   Future<SigninResponse> getPersistedUser() async {
-    var persisted = await Storage().read("user");
+    var persisted = await SecureStorage().read("user");
 
     return SigninResponse.fromJson(json.decode(persisted ?? "{}"));
   }

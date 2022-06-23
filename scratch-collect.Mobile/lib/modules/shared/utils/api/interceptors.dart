@@ -9,7 +9,7 @@ import 'package:scratch_collect/modules/shared/utils/api/errors/internal_server.
 import 'package:scratch_collect/modules/shared/utils/api/errors/no_internet_exception.dart';
 import 'package:scratch_collect/modules/shared/utils/api/errors/not_found_exception.dart';
 import 'package:scratch_collect/modules/shared/utils/api/errors/unauthorized_exception.dart';
-import 'package:scratch_collect/modules/shared/utils/storage.dart';
+import 'package:scratch_collect/modules/shared/utils/secure_storage.dart';
 
 class AppInterceptors extends Interceptor {
   final Dio dio;

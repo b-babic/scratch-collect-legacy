@@ -10,7 +10,7 @@ import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/utils/keyboard.dart';
-import 'package:scratch_collect/modules/shared/utils/storage.dart';
+import 'package:scratch_collect/modules/shared/utils/secure_storage.dart';
 import 'package:scratch_collect/modules/shared/widgets/button.dart';
 import 'package:scratch_collect/modules/shared/widgets/form_error.dart';
 import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
@@ -76,7 +76,7 @@ class SigninFormState extends State<SigninForm> {
                       var token = response.token;
 
                       if (token != null) {
-                        await Storage()
+                        await SecureStorage()
                             .write("user", json.encode(response.toJson()));
 
                         var persisted = await AuthService().getPersistedUser();
