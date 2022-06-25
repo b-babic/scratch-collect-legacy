@@ -126,6 +126,38 @@ namespace scratch_collect.API.Services
         //    return _mapper.Map<UserDTO>(entity);
         //}
 
+        public UserDTO EditProfile(int id, EditProfileRequest request)
+        {
+            var entity = _context.Users.Find(id);
+
+            if (entity == null)
+                throw new BadRequestException("User does not exist !");
+
+
+            if(request.Username != null)
+                entity.Username = request.Username;
+
+            if(request.Email != null)
+                entity.Email = request.Email;
+
+            if(request.FirstName != null)
+                entity.FirstName = request.FirstName;
+
+            if(request.LastName != null)
+                entity.LastName = request.LastName;
+
+            if(request.Address != null)
+                entity.Address = request.Address;
+
+            _context.Users.Attach(entity);
+            _context.Users.Update(entity); 
+
+            _context.SaveChanges();
+
+            return _mapper.Map<UserDTO>(entity);
+        }
+
+
         public UserDTO Update(int id, UserUpsertRequest request)
         {
             var entity = _context.Users.Find(id);

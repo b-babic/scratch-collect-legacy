@@ -50,10 +50,10 @@ namespace scratch_collect.API.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPut("profile/{id:int}")]
-        public UserDTO EditProfile(int id, UserUpsertRequest request)
+        [HttpPatch("profile/{id:int}")]
+        public UserDTO EditProfile(int id, EditProfileRequest request)
         {
-            return _userService.Update(id, request);
+            return _userService.EditProfile(id, request);
         }
 
         [AllowAnonymous]

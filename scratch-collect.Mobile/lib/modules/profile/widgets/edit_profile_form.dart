@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/auth/constants.dart';
+import 'package:scratch_collect/modules/home/home.screen.dart';
+import 'package:scratch_collect/modules/profile/models/edit_profile_arguments.model.dart';
+import 'package:scratch_collect/modules/profile/models/edit_profile_request.dart';
+import 'package:scratch_collect/modules/profile/services/profile.service.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/utils/keyboard.dart';
 import 'package:scratch_collect/modules/shared/widgets/button.dart';
 import 'package:scratch_collect/modules/shared/widgets/form_error.dart';
+import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
 
 class EditProfileForm extends StatefulWidget {
-  const EditProfileForm({Key? key}) : super(key: key);
+  final EditProfileArguments initialValues;
+
+  const EditProfileForm({Key? key, required this.initialValues})
+      : super(key: key);
 
   @override
   EditProfileFormState createState() => EditProfileFormState();
@@ -19,13 +27,33 @@ class EditProfileFormState extends State<EditProfileForm> {
   // Fields
   String? email;
   String? username;
-  String? password;
-  String? passwordConfirm;
   String? firstName;
   String? lastName;
   String? address;
 
+  // Controllers
+  late TextEditingController _emailController;
+  late TextEditingController _usernameController;
+  late TextEditingController _firstNameController;
+  late TextEditingController _lastNameController;
+  late TextEditingController _addressController;
+
   final List<String?> errors = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _emailController = TextEditingController(text: widget.initialValues.email);
+    _usernameController =
+        TextEditingController(text: widget.initialValues.username);
+    _firstNameController =
+        TextEditingController(text: widget.initialValues.firstName);
+    _lastNameController =
+        TextEditingController(text: widget.initialValues.lastName);
+    _addressController =
+        TextEditingController(text: widget.initialValues.address);
+  }
 
   void addError({String? error}) {
     if (!errors.contains(error)) {
@@ -63,25 +91,33 @@ class EditProfileFormState extends State<EditProfileForm> {
             SizedBox(height: getProportionateScreenHeight(60)),
             Button(
                 text: "Update Profile",
-                press: () {
+                press: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
 
                     KeyboardUtil.hideKeyboard(context);
 
-                    // TODO: Create model class for signin / signup
-                    final state = {
-                      email,
-                      username,
-                      firstName,
-                      lastName,
-                      address
-                    };
+                    var request = EditProfileRequest(
+                        id: widget.initialValues.id,
+                        email: email,
+                        username: username,
+                        firstName: firstName,
+                        lastName: lastName,
+                        address: address);
 
-                    print("state: $state");
+                    try {
+                      var updated =
+                          await ProfileService().updateProfile(request);
 
-                    // TODO: Implement API service and redirect network call
-                    // Navigator.pushNamed(context, HomeScreen.routeName);
+                      if (!mounted) return;
+
+                      if (updated.id != null) {
+                        Snackbar.showSuccess(context, "Profile updated!");
+                        Navigator.pushNamed(context, HomeScreen.routeName);
+                      }
+                    } on Exception catch (e) {
+                      Snackbar.showError(context, e.toString());
+                    }
                   }
                 })
           ],
@@ -91,6 +127,7 @@ class EditProfileFormState extends State<EditProfileForm> {
   // Builders
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: _emailController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
@@ -121,6 +158,7 @@ class EditProfileFormState extends State<EditProfileForm> {
 
   TextFormField buildUsernameFormField() {
     return TextFormField(
+      controller: _usernameController,
       keyboardType: TextInputType.text,
       onSaved: (newValue) => username = newValue,
       onChanged: (value) {
@@ -151,6 +189,7 @@ class EditProfileFormState extends State<EditProfileForm> {
 
   TextFormField buildFirstNameFormField() {
     return TextFormField(
+      controller: _firstNameController,
       keyboardType: TextInputType.text,
       onSaved: (newValue) => firstName = newValue,
       onChanged: (value) {
@@ -181,6 +220,7 @@ class EditProfileFormState extends State<EditProfileForm> {
 
   TextFormField buildLastNameFormField() {
     return TextFormField(
+      controller: _lastNameController,
       keyboardType: TextInputType.text,
       onSaved: (newValue) => lastName = newValue,
       onChanged: (value) {
@@ -211,6 +251,7 @@ class EditProfileFormState extends State<EditProfileForm> {
 
   TextFormField buildAddressFormField() {
     return TextFormField(
+      controller: _addressController,
       keyboardType: TextInputType.text,
       onSaved: (newValue) => address = newValue,
       onChanged: (value) {

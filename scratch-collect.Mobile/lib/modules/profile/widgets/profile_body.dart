@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:scratch_collect/modules/auth/login.screen.dart';
 import 'package:scratch_collect/modules/auth/services/auth.service.dart';
 import 'package:scratch_collect/modules/profile/change_password.screen.dart';
+import 'package:scratch_collect/modules/profile/models/edit_profile_arguments.model.dart';
 import 'package:scratch_collect/modules/profile/models/profile.model.dart';
 import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
 import 'package:scratch_collect/modules/profile/models/profile_request.model.dart';
@@ -76,7 +77,14 @@ class ProfileBodyState extends State<ProfileBody> {
                       text: "Edit Profile",
                       icon: "lib/modules/shared/assets/icons/user.svg",
                       press: () => Navigator.pushNamed(
-                          context, ProfileEditScreen.routeName)),
+                          context, ProfileEditScreen.routeName,
+                          arguments: EditProfileArguments(
+                              userProfile.id,
+                              userProfile.email,
+                              userProfile.username,
+                              userProfile.firstName,
+                              userProfile.lastName,
+                              userProfile.address))),
                   ProfileMenu(
                       text: "Change Password",
                       icon: "lib/modules/shared/assets/icons/lock.svg",
