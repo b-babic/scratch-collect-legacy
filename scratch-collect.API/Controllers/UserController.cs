@@ -57,6 +57,12 @@ namespace scratch_collect.API.Controllers
         }
 
         [AllowAnonymous]
+        [HttpPatch("profile/{id:int}/password")]
+        public UserDTO EditPassword(int id, EditPasswordRequest request) {
+            return _userService.EditPassword(id, request);
+        }
+
+        [AllowAnonymous]
         [HttpGet("profile/{id:int}")]
         public UserDTO Profile(int id)
         {

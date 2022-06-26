@@ -16,6 +16,8 @@ namespace scratch_collect.API.Services
         
         UserDTO EditProfile(int id, EditProfileRequest request);
 
+        UserDTO EditPassword(int id, EditPasswordRequest request);
+
 
         void Delete(int id);
 
