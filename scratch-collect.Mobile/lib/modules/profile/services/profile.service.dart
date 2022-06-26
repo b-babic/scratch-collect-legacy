@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:scratch_collect/modules/profile/models/edit_password.request.dart';
 import 'package:scratch_collect/modules/profile/models/edit_profile_request.dart';
 import 'package:scratch_collect/modules/profile/models/profile.model.dart';
 import 'package:scratch_collect/modules/profile/models/profile_request.model.dart';
@@ -26,6 +27,15 @@ class ProfileService {
     var response = await Api()
         .dio
         .patch('/user/profile/$id', data: jsonEncode(request.toJson()));
+
+    return ProfileResponse.fromJson(response.data);
+  }
+
+  Future<ProfileResponse> updatePassword(EditPasswordRequest request) async {
+    var id = request.id;
+
+    var response = await Api().dio.patch('/user/profile/$id/password',
+        data: jsonEncode(request.toJson()));
 
     return ProfileResponse.fromJson(response.data);
   }

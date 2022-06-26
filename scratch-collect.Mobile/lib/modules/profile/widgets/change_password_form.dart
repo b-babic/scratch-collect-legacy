@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/auth/constants.dart';
+import 'package:scratch_collect/modules/auth/login.screen.dart';
+import 'package:scratch_collect/modules/profile/models/edit_password.request.dart';
+import 'package:scratch_collect/modules/profile/models/edit_password_arguments.dart';
+import 'package:scratch_collect/modules/profile/services/profile.service.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/utils/keyboard.dart';
 import 'package:scratch_collect/modules/shared/widgets/button.dart';
 import 'package:scratch_collect/modules/shared/widgets/form_error.dart';
+import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
 
 class ChangePasswordForm extends StatefulWidget {
-  const ChangePasswordForm({Key? key}) : super(key: key);
+  final EditPasswordArguments arguments;
+
+  const ChangePasswordForm({Key? key, required this.arguments})
+      : super(key: key);
 
   @override
   ChangePasswordFormState createState() => ChangePasswordFormState();
@@ -56,22 +64,31 @@ class ChangePasswordFormState extends State<ChangePasswordForm> {
             SizedBox(height: getProportionateScreenHeight(60)),
             Button(
                 text: "Change Password",
-                press: () {
+                press: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
 
                     KeyboardUtil.hideKeyboard(context);
 
                     // TODO: Create model class for signin / signup
-                    final state = {
-                      oldPassword,
-                      newPassword,
-                    };
+                    final request = EditPasswordRequest(
+                        id: widget.arguments.id,
+                        oldPassword: oldPassword,
+                        newPassword: newPassword);
 
-                    print("state: $state");
+                    try {
+                      var updated =
+                          await ProfileService().updatePassword(request);
 
-                    // TODO: Implement API service and redirect network call
-                    // Navigator.pushNamed(context, HomeScreen.routeName);
+                      if (!mounted) return;
+
+                      if (updated.id != null) {
+                        Snackbar.showSuccess(context, "Password changed !");
+                        Navigator.pushNamed(context, LoginScreen.routeName);
+                      }
+                    } on Exception catch (e) {
+                      Snackbar.showError(context, e.toString());
+                    }
                   }
                 })
           ],

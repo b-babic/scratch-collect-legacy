@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scratch_collect/modules/profile/models/edit_password_arguments.dart';
 import 'package:scratch_collect/modules/profile/widgets/change_password_form.dart';
 import 'package:scratch_collect/modules/shared/theme/styles.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
@@ -12,6 +13,9 @@ class ChangePasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final routeArguments =
+        ModalRoute.of(context)!.settings.arguments as EditPasswordArguments;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Profile"),
@@ -32,7 +36,7 @@ class ChangePasswordScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.06),
-                  const ChangePasswordForm(),
+                  ChangePasswordForm(arguments: routeArguments),
                   SizedBox(height: getProportionateScreenHeight(30)),
                 ],
               ),

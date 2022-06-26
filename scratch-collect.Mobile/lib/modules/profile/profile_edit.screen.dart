@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:scratch_collect/modules/profile/models/edit_profile_arguments.model.dart';
 import 'package:scratch_collect/modules/profile/widgets/edit_profile_form.dart';
 import 'package:scratch_collect/modules/shared/theme/styles.dart';

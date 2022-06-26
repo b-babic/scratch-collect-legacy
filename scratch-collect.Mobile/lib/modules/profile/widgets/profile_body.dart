@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:scratch_collect/modules/auth/login.screen.dart';
 import 'package:scratch_collect/modules/auth/services/auth.service.dart';
 import 'package:scratch_collect/modules/profile/change_password.screen.dart';
+import 'package:scratch_collect/modules/profile/models/edit_password_arguments.dart';
 import 'package:scratch_collect/modules/profile/models/edit_profile_arguments.model.dart';
 import 'package:scratch_collect/modules/profile/models/profile.model.dart';
 import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
@@ -89,7 +90,8 @@ class ProfileBodyState extends State<ProfileBody> {
                       text: "Change Password",
                       icon: "lib/modules/shared/assets/icons/lock.svg",
                       press: () => Navigator.pushNamed(
-                          context, ChangePasswordScreen.routeName)),
+                          context, ChangePasswordScreen.routeName,
+                          arguments: EditPasswordArguments(userProfile.id))),
                   ProfileMenu(
                     text: "Log Out",
                     icon: "lib/modules/shared/assets/icons/logout.svg",
