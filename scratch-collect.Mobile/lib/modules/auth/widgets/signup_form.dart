@@ -2,12 +2,16 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/auth/constants.dart';
+import 'package:scratch_collect/modules/auth/login.screen.dart';
+import 'package:scratch_collect/modules/auth/models/signup_request.model.dart';
+import 'package:scratch_collect/modules/auth/services/auth.service.dart';
 import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/utils/keyboard.dart';
 import 'package:scratch_collect/modules/shared/widgets/button.dart';
 import 'package:scratch_collect/modules/shared/widgets/form_error.dart';
+import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({Key? key}) : super(key: key);
@@ -59,6 +63,8 @@ class SignupFormState extends State<SignupForm> {
           children: [
             buildEmailFormField(),
             SizedBox(height: getProportionateScreenHeight(30)),
+            buildUsernameFormField(),
+            SizedBox(height: getProportionateScreenHeight(30)),
             buildPasswordFormField(),
             SizedBox(height: getProportionateScreenHeight(30)),
             buildPasswordConfirmFormField(),
@@ -73,27 +79,36 @@ class SignupFormState extends State<SignupForm> {
             SizedBox(height: getProportionateScreenHeight(60)),
             Button(
                 text: "Create Account",
-                press: () {
+                press: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
 
                     KeyboardUtil.hideKeyboard(context);
 
-                    // TODO: Create model class for signin / signup
-                    final state = {
-                      email,
-                      username,
-                      password,
-                      passwordConfirm,
-                      firstName,
-                      lastName,
-                      address
-                    };
+                    final request = SignupRequest(
+                        email: email,
+                        password: password,
+                        passwordConfirm: passwordConfirm,
+                        username: username,
+                        firstName: firstName,
+                        lastName: lastName,
+                        address: address);
 
-                    print("state: $state");
+                    try {
+                      var loggedIn = await AuthService().signup(request);
 
-                    // TODO: Implement API service and redirect after login network call
-                    // Navigator.pushNamed(context, HomeScreen.routeName);
+                      if (!mounted) return;
+
+                      if (loggedIn.id != null) {
+                        Snackbar.showSuccess(context, "User created!");
+
+                        Navigator.pushNamed(context, LoginScreen.routeName);
+                      } else {
+                        Snackbar.showError(context, "Something went wrong!");
+                      }
+                    } on Exception catch (e) {
+                      Snackbar.showError(context, e.toString());
+                    }
                   }
                 })
           ],

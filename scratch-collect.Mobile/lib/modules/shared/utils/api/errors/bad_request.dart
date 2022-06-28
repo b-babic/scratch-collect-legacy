@@ -7,7 +7,11 @@ class BadRequestException extends DioError {
   @override
   String toString() {
     if (response?.data != null) {
-      return response?.data['Errors'][0];
+      if (response?.data.length > 0) {
+        return response?.data['Errors'][0];
+      } else {
+        return response?.data["title"];
+      }
     } else {
       return 'Invalid request';
     }
