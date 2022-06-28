@@ -54,6 +54,11 @@ namespace scratch_collect.API.Services
             // Assign default user role (client)
             entity.RoleId = 2;
 
+            // Assign default image
+            if(request.UserPhoto == null) {
+                entity.UserPhoto = new ImageHelper().GetDefaultImageByte();
+            }
+
             _context.Users.Add(entity);
             _context.SaveChanges();
 
