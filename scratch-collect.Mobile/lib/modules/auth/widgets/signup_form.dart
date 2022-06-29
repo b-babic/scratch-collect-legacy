@@ -1,11 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/auth/constants.dart';
 import 'package:scratch_collect/modules/auth/login.screen.dart';
 import 'package:scratch_collect/modules/auth/models/signup_request.model.dart';
 import 'package:scratch_collect/modules/auth/services/auth.service.dart';
-import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/utils/keyboard.dart';

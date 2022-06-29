@@ -18,6 +18,7 @@ import 'package:scratch_collect/modules/profile/widgets/profile_pic.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/widgets/no_data.dart';
 import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
+import 'package:scratch_collect/modules/wallet/wallet_voucher.screen.dart';
 
 class ProfileBody extends StatefulWidget {
   const ProfileBody({Key? key}) : super(key: key);
@@ -83,8 +84,7 @@ class ProfileBodyState extends State<ProfileBody> {
                   icon: "lib/modules/shared/assets/icons/dollar.svg",
                   press: () => Navigator.pushNamed(
                     context,
-                    ChangePasswordScreen.routeName,
-                    arguments: EditPasswordArguments(userProfile.id),
+                    WalletVoucherScreen.routeName,
                   ),
                 ),
                 const SizedBox(height: 40),
