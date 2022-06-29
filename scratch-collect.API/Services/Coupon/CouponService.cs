@@ -51,9 +51,21 @@ namespace scratch_collect.API.Services
             return saved > 0;
         }
 
-        public List<MerchantDTO> GetAll(CouponSearchRequest request)
+        public List<CouponDTO> GetAll(CouponSearchRequest request)
         {
             var query = _context.Coupons.AsQueryable();
+
+            if (request.Used != null)
+            {
+                if (request.Used == true)
+                {
+                    query = query.Where(x => x.UsedAt.HasValue);
+                }
+                else
+                {
+                    query = query.Where(x => !x.UsedAt.HasValue);
+                }
+            }
 
             if (!string.IsNullOrWhiteSpace(request?.Text))
             {
@@ -62,7 +74,7 @@ namespace scratch_collect.API.Services
 
             var list = query.ToList();
 
-            return _mapper.Map<List<MerchantDTO>>(list);
+            return _mapper.Map<List<CouponDTO>>(list);
         }
 
         public MerchantDTO GetById(int id)
@@ -87,14 +99,18 @@ namespace scratch_collect.API.Services
             _context.Coupons.Remove(entity);
             _context.SaveChanges();
         }
-    
+
 
         // Coupons and wallets
-        public WalletDTO Use (CouponUseRequest request) {
-            // find coupon
-            var coupon = _context.Coupons.Find(request.CouponId);
+        public WalletDTO Use(CouponUseRequest request)
+        {
+            // find coupon by text
+            var coupon = _context
+                .Coupons
+                .Where(x => !x.UsedAt.HasValue && x.Text == request.Coupon)
+                .FirstOrDefault();
 
-            if(coupon == null)
+            if (coupon == null)
                 throw new BadRequestException("Coupon not found / valid !");
 
 

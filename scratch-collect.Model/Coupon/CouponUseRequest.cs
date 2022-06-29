@@ -11,6 +11,6 @@ namespace scratch_collect.Model.Requests
         public int WalletId { get; set; }
 
         [Required]
-        public int CouponId { get; set; }
+        public string Coupon { get; set; }
     }
 }
