@@ -65,13 +65,15 @@ namespace scratch_collect.API.Controllers
         {
             var processedPayment = _paymentService.ProcessPayment(request);
 
-            if(processedPayment != null) {
+            if (processedPayment != null)
+            {
                 // Convert to Euros / tokens
                 var amount = (double)processedPayment.PaymentAmount / 100;
 
                 var user = _userService.GetById(request.UserId);
 
-                if(user != null) {
+                if (user != null)
+                {
                     return _walletService.AddBalance(user.Wallet.Id, amount);
                 }
             }

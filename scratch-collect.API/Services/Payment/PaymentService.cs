@@ -29,6 +29,9 @@ namespace scratch_collect.API.Services
 
         public PaymentDetailsDTO ProcessPayment(PaymentBuyRequest request)
         {
+            if (request.UserId == null)
+                throw new BadRequestException("User id is required !");
+
             StripeConfiguration.ApiKey = _stripeKey;
 
             PaymentMethod paymentMethod = CreatePaymentMethod(request);
