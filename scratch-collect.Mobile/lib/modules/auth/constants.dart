@@ -40,3 +40,7 @@ const String lastNameLengthError = "Last Name can have max 20 characters";
 // Address
 const String addressRequiredError = "Please enter address";
 const String addressLengthError = "Address can have max 30 characters";
+
+// Voucher
+const String voucherRequiredError = "Please enter voucher code";
+const String voucherLengthError = "Voucher code should be 9 characters long";

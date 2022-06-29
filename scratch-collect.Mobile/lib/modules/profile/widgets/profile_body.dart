@@ -1,5 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:scratch_collect/modules/auth/login.screen.dart';
 import 'package:scratch_collect/modules/auth/services/auth.service.dart';
@@ -16,6 +19,7 @@ import 'package:scratch_collect/modules/profile/widgets/profile_info.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_menu.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_pic.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
+import 'package:scratch_collect/modules/shared/utils/secure_storage.dart';
 import 'package:scratch_collect/modules/shared/widgets/no_data.dart';
 import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
 import 'package:scratch_collect/modules/wallet/wallet_voucher.screen.dart';
@@ -50,8 +54,7 @@ class ProfileBodyState extends State<ProfileBody> {
         userProfile = user;
       });
 
-      Snackbar.showSuccess(context, "Profile loaded!");
-      // TODO: Persist to storage ?
+      await SecureStorage().write("profile", json.encode(user.toJson()));
     } on Exception catch (_) {
       Snackbar.showError(context, "Someting went wrong!");
     }
@@ -83,9 +86,7 @@ class ProfileBodyState extends State<ProfileBody> {
                   text: "Wallet - payments",
                   icon: "lib/modules/shared/assets/icons/dollar.svg",
                   press: () => Navigator.pushNamed(
-                    context,
-                    WalletVoucherScreen.routeName,
-                  ),
+                      context, WalletVoucherScreen.routeName),
                 ),
                 const SizedBox(height: 40),
                 ProfileInfo(

@@ -6,6 +6,8 @@ import 'package:scratch_collect/modules/items/items.screen.dart';
 import 'package:scratch_collect/modules/profile/change_password.screen.dart';
 import 'package:scratch_collect/modules/profile/profile.screen.dart';
 import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
+import 'package:scratch_collect/modules/wallet/wallet_options.screen.dart';
+import 'package:scratch_collect/modules/wallet/wallet_voucher.screen.dart';
 import 'package:scratch_collect/modules/winnings/winnings.screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
@@ -22,5 +24,8 @@ final Map<String, WidgetBuilder> routes = {
   // Profile
   ProfileScreen.routeName: (context) => const ProfileScreen(),
   ProfileEditScreen.routeName: (context) => const ProfileEditScreen(),
-  ChangePasswordScreen.routeName: (context) => const ChangePasswordScreen()
+  ChangePasswordScreen.routeName: (context) => const ChangePasswordScreen(),
+  // Wallet
+  WalletVoucherScreen.routeName: (context) => const WalletVoucherScreen(),
+  WalletOptionsScreen.routeName: (context) => const WalletOptionsScreen(),
 };
