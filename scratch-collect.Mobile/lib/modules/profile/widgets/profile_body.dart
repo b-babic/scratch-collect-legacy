@@ -10,6 +10,7 @@ import 'package:scratch_collect/modules/profile/models/profile.model.dart';
 import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
 import 'package:scratch_collect/modules/profile/models/profile_request.model.dart';
 import 'package:scratch_collect/modules/profile/services/profile.service.dart';
+import 'package:scratch_collect/modules/profile/widgets/profile_balance.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_body_loading.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_info.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_menu.dart';
@@ -68,54 +69,73 @@ class ProfileBodyState extends State<ProfileBody> {
           return const ProfileBodyLoading();
         } else {
           return SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(vertical: 40),
-              child: Column(
-                children: <Widget>[
-                  ProfilePic(
-                    profilePhoto: userProfile.userPhoto,
+            padding: const EdgeInsets.symmetric(vertical: 40),
+            child: Column(
+              children: <Widget>[
+                ProfilePic(
+                  profilePhoto: userProfile.userPhoto,
+                ),
+                const SizedBox(height: 15),
+                ProfileBalance(balance: "${userProfile.wallet?.balance}\$"),
+                const SizedBox(height: 15),
+                ProfileMenu(
+                  text: "Wallet - payments",
+                  icon: "lib/modules/shared/assets/icons/dollar.svg",
+                  press: () => Navigator.pushNamed(
+                    context,
+                    ChangePasswordScreen.routeName,
+                    arguments: EditPasswordArguments(userProfile.id),
                   ),
-                  const SizedBox(height: 30),
-                  ProfileInfo(
-                    name: (userProfile.firstName!.isNotEmpty &&
-                            userProfile.lastName!.isNotEmpty)
-                        ? "${userProfile.firstName} ${userProfile.lastName}"
-                        : "",
-                    username: "${userProfile.username}",
-                    balance: "${userProfile.wallet?.balance}\$",
+                ),
+                const SizedBox(height: 40),
+                ProfileInfo(
+                  name: (userProfile.firstName!.isNotEmpty &&
+                          userProfile.lastName!.isNotEmpty)
+                      ? "${userProfile.firstName} ${userProfile.lastName}"
+                      : "",
+                  username: "${userProfile.username}",
+                ),
+                const SizedBox(height: 20),
+                ProfileMenu(
+                  text: "Edit Profile",
+                  icon: "lib/modules/shared/assets/icons/user.svg",
+                  press: () => Navigator.pushNamed(
+                    context,
+                    ProfileEditScreen.routeName,
+                    arguments: EditProfileArguments(
+                      userProfile.id,
+                      userProfile.email,
+                      userProfile.username,
+                      userProfile.firstName,
+                      userProfile.lastName,
+                      userProfile.address,
+                    ),
                   ),
-                  const SizedBox(height: 30),
-                  ProfileMenu(
-                      text: "Edit Profile",
-                      icon: "lib/modules/shared/assets/icons/user.svg",
-                      press: () => Navigator.pushNamed(
-                          context, ProfileEditScreen.routeName,
-                          arguments: EditProfileArguments(
-                              userProfile.id,
-                              userProfile.email,
-                              userProfile.username,
-                              userProfile.firstName,
-                              userProfile.lastName,
-                              userProfile.address))),
-                  ProfileMenu(
-                      text: "Change Password",
-                      icon: "lib/modules/shared/assets/icons/lock.svg",
-                      press: () => Navigator.pushNamed(
-                          context, ChangePasswordScreen.routeName,
-                          arguments: EditPasswordArguments(userProfile.id))),
-                  ProfileMenu(
-                    text: "Log Out",
-                    icon: "lib/modules/shared/assets/icons/logout.svg",
-                    press: () async {
-                      await AuthService().logout();
+                ),
+                ProfileMenu(
+                  text: "Change Password",
+                  icon: "lib/modules/shared/assets/icons/lock.svg",
+                  press: () => Navigator.pushNamed(
+                    context,
+                    ChangePasswordScreen.routeName,
+                    arguments: EditPasswordArguments(userProfile.id),
+                  ),
+                ),
+                ProfileMenu(
+                  text: "Log Out",
+                  icon: "lib/modules/shared/assets/icons/logout.svg",
+                  press: () async {
+                    await AuthService().logout();
 
-                      if (!mounted) return;
+                    if (!mounted) return;
 
-                      Snackbar.showSuccess(context, "Successfully logged out");
-                      Navigator.pushNamed(context, LoginScreen.routeName);
-                    },
-                  ),
-                ],
-              ));
+                    Snackbar.showSuccess(context, "Successfully logged out");
+                    Navigator.pushNamed(context, LoginScreen.routeName);
+                  },
+                ),
+              ],
+            ),
+          );
         }
       },
     );

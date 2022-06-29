@@ -16,49 +16,32 @@ final infoTextStyle = TextStyle(
   height: 1.5,
 );
 
-class ProfileInfo extends StatelessWidget {
-  final String name;
-  final String username;
+class ProfileBalance extends StatelessWidget {
+  final String balance;
 
-  const ProfileInfo({
+  const ProfileBalance({
     Key? key,
-    required this.name,
-    required this.username,
+    required this.balance,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              "NAME",
+              "BALANCE",
               style: infoLabelStyle,
             ),
             Text(
-              name,
+              balance,
               style: infoTextStyle,
             )
           ],
-        ),
-        SizedBox(width: getProportionateScreenWidth(20)),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "USERNAME",
-              style: infoLabelStyle,
-            ),
-            Text(
-              username,
-              style: infoTextStyle,
-            )
-          ],
-        ),
+        )
       ],
     );
   }
