@@ -2,6 +2,20 @@ import 'package:flutter/widgets.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 
+// Shared styles
+final infoLabelStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(16),
+  fontWeight: FontWeight.bold,
+  color: textColor,
+  height: 1.5,
+);
+
+final infoTextStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(14),
+  color: textColor,
+  height: 1.5,
+);
+
 class ProfileInfo extends StatelessWidget {
   final String name;
   final String username;
@@ -22,19 +36,13 @@ class ProfileInfo extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
+            Text(
               "NAME",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: primaryColor,
-                fontSize: 14,
-              ),
+              style: infoLabelStyle,
             ),
             Text(
               name,
-              style: const TextStyle(
-                fontSize: 18,
-              ),
+              style: infoTextStyle,
             )
           ],
         ),
@@ -42,19 +50,13 @@ class ProfileInfo extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
+            Text(
               "USERNAME",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: primaryColor,
-                fontSize: 14,
-              ),
+              style: infoLabelStyle,
             ),
             Text(
               username,
-              style: const TextStyle(
-                fontSize: 18,
-              ),
+              style: infoTextStyle,
             )
           ],
         ),
@@ -62,17 +64,13 @@ class ProfileInfo extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text("BALANCE",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: primaryColor,
-                  fontSize: 14,
-                )),
+            Text(
+              "BALANCE",
+              style: infoLabelStyle,
+            ),
             Text(
               balance,
-              style: const TextStyle(
-                fontSize: 18,
-              ),
+              style: infoTextStyle,
             )
           ],
         )
