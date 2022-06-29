@@ -25,6 +25,10 @@ class ProfileBodyLoading extends StatelessWidget {
             const SizedBox(height: 30),
             SkeletonLine(
                 style: SkeletonLineStyle(
+                    height: getProportionateScreenHeight(40))),
+            const SizedBox(height: 30),
+            SkeletonLine(
+                style: SkeletonLineStyle(
                     height: getProportionateScreenHeight(60))),
             const SizedBox(height: 20),
             SkeletonLine(

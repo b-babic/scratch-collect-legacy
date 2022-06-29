@@ -11,6 +11,7 @@ import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
 import 'package:scratch_collect/modules/profile/models/profile_request.model.dart';
 import 'package:scratch_collect/modules/profile/services/profile.service.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_body_loading.dart';
+import 'package:scratch_collect/modules/profile/widgets/profile_info.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_menu.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_pic.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
@@ -72,6 +73,15 @@ class ProfileBodyState extends State<ProfileBody> {
                 children: <Widget>[
                   ProfilePic(
                     profilePhoto: userProfile.userPhoto,
+                  ),
+                  const SizedBox(height: 30),
+                  ProfileInfo(
+                    name: (userProfile.firstName!.isNotEmpty &&
+                            userProfile.lastName!.isNotEmpty)
+                        ? "${userProfile.firstName} ${userProfile.lastName}"
+                        : "",
+                    username: "${userProfile.username}",
+                    balance: "${userProfile.wallet?.balance}\$",
                   ),
                   const SizedBox(height: 30),
                   ProfileMenu(

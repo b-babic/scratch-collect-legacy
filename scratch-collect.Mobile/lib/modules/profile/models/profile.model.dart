@@ -1,3 +1,5 @@
+import 'package:scratch_collect/modules/profile/models/wallet.model.dart';
+
 class ProfileResponse {
   int? id;
   String? username;
@@ -7,6 +9,7 @@ class ProfileResponse {
   String? address;
   String? registeredAt;
   String? userPhoto;
+  Wallet? wallet;
 
   ProfileResponse(
       {this.id,
@@ -15,6 +18,7 @@ class ProfileResponse {
       this.firstName,
       this.lastName,
       this.address,
+      this.wallet,
       this.registeredAt,
       this.userPhoto});
 
@@ -25,6 +29,7 @@ class ProfileResponse {
     firstName = json['firstName'];
     lastName = json['lastName'];
     address = json['address'];
+    wallet = Wallet.fromJson(json['wallet']);
     registeredAt = json['registeredAt'];
     userPhoto = json['userPhoto'];
   }
@@ -38,6 +43,7 @@ class ProfileResponse {
     data['firstName'] = firstName;
     data['lastName'] = lastName;
     data['address'] = address;
+    data['wallet'] = wallet;
     data['registeredAt'] = registeredAt;
     data['userPhoto'] = userPhoto;
 
