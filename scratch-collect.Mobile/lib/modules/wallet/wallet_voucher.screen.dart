@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/profile/profile.screen.dart';
+import 'package:scratch_collect/modules/wallet/widgets/purchase_voucher.dart';
 import 'package:scratch_collect/modules/wallet/widgets/voucher_intro.dart';
 import 'package:scratch_collect/modules/shared/enums.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
@@ -55,6 +56,8 @@ class WalletVoucherScreenState extends State<WalletVoucherScreen> {
                   const VoucherIntro(),
                   SizedBox(height: getProportionateScreenHeight(40)),
                   const VoucherUseForm(),
+                  SizedBox(height: getProportionateScreenHeight(120)),
+                  const PurchaseVoucher(),
                 ],
               ),
             ),

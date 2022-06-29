@@ -1,7 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/auth/constants.dart';
 import 'package:scratch_collect/modules/profile/services/profile.service.dart';

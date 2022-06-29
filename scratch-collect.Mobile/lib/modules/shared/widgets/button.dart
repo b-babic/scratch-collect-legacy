@@ -2,11 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 
-class Button extends StatelessWidget {
-  const Button({Key? key, this.text, this.press}) : super(key: key);
+enum ButtonVariants { primary, secondary }
 
+class Button extends StatelessWidget {
+  const Button({
+    Key? key,
+    this.text,
+    this.variant = ButtonVariants.primary,
+    this.disabled = false,
+    this.press,
+  }) : super(key: key);
+
+  final ButtonVariants variant;
   final String? text;
+  final bool disabled;
   final Function? press;
+
+  Color _buildVariantBackgroundColor() {
+    switch (variant) {
+      case ButtonVariants.primary:
+        return primaryColor;
+      case ButtonVariants.secondary:
+        return textColor;
+      default:
+        return primaryColor;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +36,14 @@ class Button extends StatelessWidget {
       height: getProportionateScreenHeight(56),
       child: TextButton(
         style: TextButton.styleFrom(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          primary: Colors.white,
-          backgroundColor: primaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          primary: disabled ? tertiaryColor : _buildVariantBackgroundColor(),
+          backgroundColor:
+              disabled ? tertiaryColor : _buildVariantBackgroundColor(),
         ),
-        onPressed: press as void Function()?,
+        onPressed: !disabled ? press as void Function()? : null,
         child: Text(
           text!,
           style: TextStyle(

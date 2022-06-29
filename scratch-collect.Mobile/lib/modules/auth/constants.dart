@@ -44,3 +44,13 @@ const String addressLengthError = "Address can have max 30 characters";
 // Voucher
 const String voucherRequiredError = "Please enter voucher code";
 const String voucherLengthError = "Voucher code should be 9 characters long";
+
+// Card
+const String cardNumberRequiredError = "Please enter card number";
+const String cardNumberLengthError = "Card number should contain 16 digits";
+
+const String cvvRequiredError = "Please enter cvv number";
+const String cvvLengthError = "CVV number should contain 3 digits";
+
+const String expiryDateMonthRequiredError = "Please enter expiry month date";
+const String expiryDateYearRequiredError = "Please enter expiry year date";
