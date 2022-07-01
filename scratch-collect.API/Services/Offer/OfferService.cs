@@ -25,6 +25,10 @@ namespace scratch_collect.API.Services
         {
             var query = _context.Offers.Include(a => a.Category).AsQueryable();
 
+            if(!string.IsNullOrWhiteSpace(request.Query)) {
+                query = query.Where(a => a.Title.Contains(request.Query));
+            }
+
             if (request?.CategoryId != null)
             {
                 query = query.Where(x => x.Category.Id == request.CategoryId);
