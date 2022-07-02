@@ -20,7 +20,7 @@ import 'package:scratch_collect/modules/profile/widgets/profile_menu.dart';
 import 'package:scratch_collect/modules/profile/widgets/profile_pic.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/utils/secure_storage.dart';
-import 'package:scratch_collect/modules/shared/widgets/no_data.dart';
+import 'package:scratch_collect/modules/shared/widgets/error_data.dart';
 import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
 import 'package:scratch_collect/modules/wallet/wallet_voucher.screen.dart';
 
@@ -68,7 +68,7 @@ class ProfileBodyState extends State<ProfileBody> {
       future: profileFuture,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return const NoData();
+          return const ErrorData();
         } else if (snapshot.connectionState != ConnectionState.done) {
           return const ProfileBodyLoading();
         } else {

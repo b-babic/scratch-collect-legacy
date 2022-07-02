@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:scratch_collect/modules/auth/login.screen.dart';
 import 'package:scratch_collect/modules/auth/signup.screen.dart';
+import 'package:scratch_collect/modules/home/details.screen.dart';
 import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/items/items.screen.dart';
 import 'package:scratch_collect/modules/profile/change_password.screen.dart';
@@ -18,6 +19,7 @@ final Map<String, WidgetBuilder> routes = {
   SignupScreen.routeName: (context) => const SignupScreen(),
   // Home / Offers
   HomeScreen.routeName: (context) => const HomeScreen(),
+  DetailsScreen.routeName: (context) => const DetailsScreen(),
   // My items
   ItemsScreen.routeName: (context) => const ItemsScreen(),
   // Winnings

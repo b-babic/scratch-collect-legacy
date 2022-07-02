@@ -7,10 +7,9 @@ import 'package:scratch_collect/modules/home/widgets/offers_body_loading.dart';
 import 'package:scratch_collect/modules/home/widgets/offers_intro.dart';
 import 'package:scratch_collect/modules/home/widgets/offers_list.dart';
 import 'package:scratch_collect/modules/home/widgets/search.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/styles.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
+import 'package:scratch_collect/modules/shared/widgets/error_data.dart';
 import 'package:scratch_collect/modules/shared/widgets/no_data.dart';
 import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
 
@@ -81,9 +80,7 @@ class OffersBodyState extends State<OffersBody> {
       future: offersFuture,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          // TODO: Rename to ErrorData
-          // TODO: Add No data widget and use when list is empty (on filter for example)
-          return const NoData();
+          return const ErrorData();
         } else if (snapshot.connectionState != ConnectionState.done) {
           return const OffersBodyLoading();
         } else {
@@ -108,17 +105,7 @@ class OffersBodyState extends State<OffersBody> {
                 SizedBox(
                   height: getProportionateScreenHeight(45),
                 ),
-                offers.isNotEmpty
-                    ? OffersList(offers: offers)
-                    : Center(
-                        heightFactor: 10,
-                        child: Text(
-                          "No results found.",
-                          style: TextStyle(
-                            fontSize: getProportionateScreenWidth(18),
-                            color: secondaryColor,
-                          ),
-                        ))
+                offers.isNotEmpty ? OffersList(offers: offers) : const NoData()
               ],
             ),
           );

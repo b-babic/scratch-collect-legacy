@@ -1,4 +1,5 @@
 import 'package:scratch_collect/modules/home/models/offer.model.dart';
+import 'package:scratch_collect/modules/home/models/offer_details_request.model.dart';
 import 'package:scratch_collect/modules/home/models/offer_search_request.model.dart';
 import 'package:scratch_collect/modules/shared/utils/api/api.dart';
 
@@ -31,5 +32,13 @@ class OfferService {
         (model) => Offer.fromJson(model),
       ),
     );
+  }
+
+  Future<Offer> getOfferDetails(OfferDetailsRequest request) async {
+    var id = request.id;
+
+    var response = await Api().dio.get('/offer/$id');
+
+    return Offer.fromJson(response.data);
   }
 }

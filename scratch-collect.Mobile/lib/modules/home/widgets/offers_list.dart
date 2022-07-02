@@ -17,7 +17,7 @@ class OffersList extends StatelessWidget {
         ...List.generate(
           offers.length,
           (index) {
-            return OfferCard(offer: offers[index]);
+            return OfferCard(offer: offers[index], keyPrefix: "main-offers");
           },
         )
       ],

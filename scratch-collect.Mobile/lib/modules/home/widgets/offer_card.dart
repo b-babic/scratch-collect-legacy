@@ -1,30 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/home/home.screen.dart';
+import 'package:scratch_collect/modules/home/details.screen.dart';
 import 'package:scratch_collect/modules/home/models/offer.model.dart';
+import 'package:scratch_collect/modules/home/models/offer_details_arguments.model.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/utils/colors.dart';
 
+enum OfferCardSize { regular, small }
+
 class OfferCard extends StatelessWidget {
   const OfferCard({
     Key? key,
     required this.offer,
+    required this.keyPrefix,
+    this.cardSize = OfferCardSize.regular,
   }) : super(key: key);
 
   final Offer offer;
+  final String keyPrefix;
+  final OfferCardSize? cardSize;
+
+  double calculateCardSize(double screenWidth) {
+    final isRegular = cardSize == OfferCardSize.regular;
+
+    return isRegular ? screenWidth : screenWidth / 2;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         SizedBox(
-          width: SizeConfig.screenWidth,
+          width: calculateCardSize(SizeConfig.screenWidth),
           child: GestureDetector(
             onTap: () => Navigator.pushNamed(
               context,
-              HomeScreen.routeName,
-              // arguments: ProductDetailsArguments(product: product),
+              DetailsScreen.routeName,
+              arguments: OfferDetailsArguments(offer.id),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,10 +51,13 @@ class OfferCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // TODO: Replace with GradientBackground widget
                         AspectRatio(
                           aspectRatio: 2,
                           child: Hero(
-                            tag: offer.id.toString(),
+                            tag: keyPrefix.isNotEmpty
+                                ? "$keyPrefix-${offer.id.toString()}"
+                                : offer.id.toString(),
                             child: Container(
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
