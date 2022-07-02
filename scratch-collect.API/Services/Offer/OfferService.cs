@@ -23,7 +23,10 @@ namespace scratch_collect.API.Services
 
         public List<OfferDTO> Get(OfferSearchRequest request)
         {
-            var query = _context.Offers.Include(a => a.Category).AsQueryable();
+            var query = _context
+                .Offers
+                .Include(a => a.Category)
+                .AsQueryable();
 
             if(!string.IsNullOrWhiteSpace(request.Query)) {
                 query = query.Where(a => a.Title.Contains(request.Query));
@@ -36,6 +39,7 @@ namespace scratch_collect.API.Services
 
             // Default sort
             var list = query
+                .Where(x => x.Quantity != 0)
                 .OrderByDescending(x => x.UpdatedAt)
                 .ToList();
 
