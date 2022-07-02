@@ -4,6 +4,7 @@ import 'package:scratch_collect/modules/auth/signup.screen.dart';
 import 'package:scratch_collect/modules/home/details.screen.dart';
 import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/items/items.screen.dart';
+import 'package:scratch_collect/modules/items/play.screen.dart';
 import 'package:scratch_collect/modules/profile/change_password.screen.dart';
 import 'package:scratch_collect/modules/profile/profile.screen.dart';
 import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
@@ -22,6 +23,7 @@ final Map<String, WidgetBuilder> routes = {
   DetailsScreen.routeName: (context) => const DetailsScreen(),
   // My items
   ItemsScreen.routeName: (context) => const ItemsScreen(),
+  PlayScreen.routeName: (context) => const PlayScreen(),
   // Winnings
   WinningsScreen.routeName: (context) => const WinningsScreen(),
   // Profile

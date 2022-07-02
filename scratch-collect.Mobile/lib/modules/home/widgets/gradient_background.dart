@@ -4,10 +4,12 @@ import 'package:scratch_collect/modules/shared/utils/colors.dart';
 
 class GradientBackground extends StatelessWidget {
   final Category? category;
+  final String tag;
 
   const GradientBackground({
     Key? key,
     required this.category,
+    required this.tag,
   }) : super(key: key);
 
   @override
@@ -15,7 +17,9 @@ class GradientBackground extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 2,
       child: Hero(
-        tag: category?.id.toString() ?? "offer-details-no-item",
+        tag: tag.isNotEmpty
+            ? tag
+            : category?.id.toString() ?? 'offer-details-no-item',
         child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(

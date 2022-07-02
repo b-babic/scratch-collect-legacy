@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/home/details.screen.dart';
+import 'package:scratch_collect/modules/home/widgets/gradient_background.dart';
 import 'package:scratch_collect/modules/items/models/user_offer.model.dart';
+import 'package:scratch_collect/modules/items/play.screen.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/utils/colors.dart';
 import 'package:scratch_collect/modules/shared/widgets/button.dart';
 
 class UserOfferCard extends StatelessWidget {
@@ -27,7 +28,7 @@ class UserOfferCard extends StatelessWidget {
             onTap: () => Navigator.pushNamed(
               context,
               // TODO: Add play offer screen
-              DetailsScreen.routeName,
+              PlayScreen.routeName,
               // arguments: OfferDetailsArguments(offer.id),
             ),
             child: Column(
@@ -42,32 +43,11 @@ class UserOfferCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // TODO: Replace with GradientBackground widget
-                        AspectRatio(
-                          aspectRatio: 2,
-                          child: Hero(
-                            tag: keyPrefix.isNotEmpty
-                                ? "$keyPrefix-${userOffer.id.toString()}"
-                                : userOffer.id.toString(),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  // Add one stop for each color. Stops should increase from 0 to 1
-                                  stops: const [0.1, 0.9],
-                                  colors: [
-                                    colorFromHex(userOffer
-                                            .offer?.category?.gradientStart ??
-                                        ""),
-                                    colorFromHex(userOffer
-                                            .offer?.category?.gradientStop ??
-                                        ""),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
+                        GradientBackground(
+                          category: userOffer.offer?.category,
+                          tag: keyPrefix.isNotEmpty
+                              ? "$keyPrefix-${userOffer.id.toString()}"
+                              : userOffer.id.toString(),
                         ),
                         SizedBox(
                           height: getProportionateScreenHeight(15),

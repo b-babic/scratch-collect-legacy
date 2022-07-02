@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/home/details.screen.dart';
 import 'package:scratch_collect/modules/home/models/offer.model.dart';
 import 'package:scratch_collect/modules/home/models/offer_details_arguments.model.dart';
+import 'package:scratch_collect/modules/home/widgets/gradient_background.dart';
 import 'package:scratch_collect/modules/items/models/user_offer.model.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
@@ -52,30 +53,11 @@ class OfferCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // TODO: Replace with GradientBackground widget
-                        AspectRatio(
-                          aspectRatio: 2,
-                          child: Hero(
-                            tag: keyPrefix.isNotEmpty
-                                ? "$keyPrefix-${offer.id.toString()}"
-                                : offer.id.toString(),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: Alignment.topRight,
-                                  end: Alignment.bottomLeft,
-                                  // Add one stop for each color. Stops should increase from 0 to 1
-                                  stops: const [0.1, 0.9],
-                                  colors: [
-                                    colorFromHex(
-                                        offer.category?.gradientStart ?? ""),
-                                    colorFromHex(
-                                        offer.category?.gradientStop ?? ""),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
+                        GradientBackground(
+                          category: offer.category,
+                          tag: keyPrefix.isNotEmpty
+                              ? "$keyPrefix-${offer.id.toString()}"
+                              : offer.id.toString(),
                         ),
                         SizedBox(
                           height: getProportionateScreenHeight(15),
