@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/home/models/offer_buy_request.model.dart';
 import 'package:scratch_collect/modules/home/services/offer.service.dart';
 import 'package:scratch_collect/modules/home/widgets/offer_button_info.dart';
@@ -67,6 +69,16 @@ class BuyOfferButtonState extends State<BuyOfferButton> {
 
               if (response.offer != null) {
                 Snackbar.showSuccess(context, "Successfully bought offer!");
+
+                // If we bought the last item, move back to the offers screen
+                if (response.offer?.quantity == 0) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomeScreen(),
+                    ),
+                  );
+                }
               } else {
                 Snackbar.showError(context, "Something went wrong!");
               }
