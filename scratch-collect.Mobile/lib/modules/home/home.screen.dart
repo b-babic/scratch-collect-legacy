@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scratch_collect/modules/home/widgets/offers_body.dart';
 import 'package:scratch_collect/modules/shared/enums.dart';
 import 'package:scratch_collect/modules/shared/widgets/navigation.dart';
 
@@ -15,7 +16,8 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        bottomNavigationBar: BottomNavigation(selectedMenu: MenuState.offers),
-        body: Center(child: Text("Body")));
+      bottomNavigationBar: BottomNavigation(selectedMenu: MenuState.offers),
+      body: OffersBody(),
+    );
   }
 }
