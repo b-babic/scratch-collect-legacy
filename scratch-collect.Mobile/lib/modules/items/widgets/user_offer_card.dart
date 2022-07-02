@@ -85,7 +85,7 @@ class UserOfferCard extends StatelessWidget {
                           height: getProportionateScreenHeight(30),
                         ),
                         const Button(
-                          text: "Try your luck",
+                          text: "Scratch & Collect",
                         ),
                       ],
                     ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/items/widgets/user_items_body.dart';
+import 'package:scratch_collect/modules/items/widgets/user_offers_body.dart';
 import 'package:scratch_collect/modules/shared/enums.dart';
 import 'package:scratch_collect/modules/shared/widgets/navigation.dart';
 
