@@ -207,6 +207,11 @@ namespace scratch_collect.API.Services
                 query = query.Where(x => x.Offer.Category.Id == request.CategoryId);
             }
 
+            if(!String.IsNullOrEmpty(request?.Query))
+            {
+                query = query.Where(x => x.Offer.Title.Contains(request.Query));
+            }
+
             // Return only not played offers
             // Default sort by bougt on date
             var list = query

@@ -78,7 +78,7 @@ namespace scratch_collect.API.Controllers
 
         // User offers
         [Authorize(Roles = "Administrator, Client")]
-        [HttpGet("{id:int}/offers")]
+        [HttpPost("{id:int}/offers")]
         public List<UserOfferDTO> Offers([FromBody] UsserOfferSearchRequest request)
         {
             return _offerService.GetUserOffers(request);
