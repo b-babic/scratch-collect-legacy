@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 
@@ -32,7 +33,14 @@ class DetailsAppBar extends StatelessWidget {
                   backgroundColor: Colors.white,
                   padding: EdgeInsets.zero,
                 ),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomeScreen(),
+                    ),
+                  );
+                },
                 child: const SizedBox(
                   width: 20,
                   child: Icon(Icons.arrow_back),
