@@ -1,26 +1,17 @@
 import 'package:flutter/widgets.dart';
 import 'package:scratch_collect/modules/home/models/offer.model.dart';
 import 'package:scratch_collect/modules/home/models/offer_details_request.model.dart';
-import 'package:scratch_collect/modules/home/models/offer_search_request.model.dart';
 import 'package:scratch_collect/modules/home/services/offer.service.dart';
 import 'package:scratch_collect/modules/home/widgets/buy_offer_button.dart';
-import 'package:scratch_collect/modules/home/widgets/categories.dart';
 import 'package:scratch_collect/modules/home/widgets/details_info.dart';
 import 'package:scratch_collect/modules/home/widgets/gradient_background.dart';
 import 'package:scratch_collect/modules/home/widgets/offer_details_body_loading.dart';
-import 'package:scratch_collect/modules/home/widgets/offers_body_loading.dart';
-import 'package:scratch_collect/modules/home/widgets/offers_intro.dart';
-import 'package:scratch_collect/modules/home/widgets/offers_list.dart';
 import 'package:scratch_collect/modules/home/widgets/recommended_items.dart';
 import 'package:scratch_collect/modules/home/widgets/rounded_container.dart';
-import 'package:scratch_collect/modules/home/widgets/search.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/styles.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/widgets/button.dart';
 import 'package:scratch_collect/modules/shared/widgets/error_data.dart';
-import 'package:scratch_collect/modules/shared/widgets/no_data.dart';
 import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
 
 class DetailsBody extends StatefulWidget {
@@ -98,7 +89,10 @@ class DetailsBodyState extends State<DetailsBody> {
                             description: offer.description,
                           ),
                           SizedBox(height: getProportionateScreenHeight(30)),
-                          BuyOfferButton(id: offer.id),
+                          BuyOfferButton(
+                            offerId: offer.id,
+                            requiredPrice: offer.requiredPrice,
+                          ),
                           SizedBox(height: getProportionateScreenHeight(30)),
                           RecommendedItems(),
                         ],

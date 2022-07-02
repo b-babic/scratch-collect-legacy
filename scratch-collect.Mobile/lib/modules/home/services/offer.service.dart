@@ -1,4 +1,8 @@
+import 'dart:convert';
+
+import 'package:scratch_collect/modules/home/models/buy_offer.model.dart';
 import 'package:scratch_collect/modules/home/models/offer.model.dart';
+import 'package:scratch_collect/modules/home/models/offer_buy_request.model.dart';
 import 'package:scratch_collect/modules/home/models/offer_details_request.model.dart';
 import 'package:scratch_collect/modules/home/models/offer_search_request.model.dart';
 import 'package:scratch_collect/modules/shared/utils/api/api.dart';
@@ -40,5 +44,18 @@ class OfferService {
     var response = await Api().dio.get('/offer/$id');
 
     return Offer.fromJson(response.data);
+  }
+
+  Future<BuyOffer> buyOffer(OfferBuyRequest request) async {
+    var id = request.offerId;
+
+    var response = await Api().dio.post(
+          '/offer/buy/$id',
+          data: jsonEncode(
+            request.toJson(),
+          ),
+        );
+
+    return BuyOffer.fromJson(response.data);
   }
 }

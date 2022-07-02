@@ -1,0 +1,27 @@
+import 'package:flutter/widgets.dart';
+import 'package:scratch_collect/modules/shared/theme/colors.dart';
+
+class OfferButtonInfo extends StatelessWidget {
+  const OfferButtonInfo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: const <Widget>[
+        Text(
+          "*You don't have enough money to buy this!",
+          style: TextStyle(
+            color: secondaryColor,
+          ),
+        ),
+        Text(
+          "*Please fill the wallet up.",
+          style: TextStyle(
+            color: secondaryColor,
+          ),
+        ),
+      ],
+    );
+  }
+}

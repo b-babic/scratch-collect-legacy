@@ -29,7 +29,8 @@ class Offer {
     requiredPrice = json['requiredPrice'];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
-    category = Category.fromJson(json['category']);
+    category =
+        json['category'] != null ? Category.fromJson(json['category']) : null;
   }
 
   Map<String, dynamic> toJson() {
