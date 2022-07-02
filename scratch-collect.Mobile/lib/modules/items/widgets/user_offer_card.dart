@@ -1,44 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/home/details.screen.dart';
-import 'package:scratch_collect/modules/home/models/offer.model.dart';
-import 'package:scratch_collect/modules/home/models/offer_details_arguments.model.dart';
 import 'package:scratch_collect/modules/items/models/user_offer.model.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/utils/colors.dart';
+import 'package:scratch_collect/modules/shared/widgets/button.dart';
 
-enum OfferCardSize { regular, small }
-
-class OfferCard extends StatelessWidget {
-  const OfferCard({
+class UserOfferCard extends StatelessWidget {
+  const UserOfferCard({
     Key? key,
-    required this.offer,
+    required this.userOffer,
     required this.keyPrefix,
-    this.cardSize = OfferCardSize.regular,
   }) : super(key: key);
 
-  final Offer offer;
+  final UserOffer userOffer;
   final String keyPrefix;
-  final OfferCardSize? cardSize;
-
-  double calculateCardSize(double screenWidth) {
-    final isRegular = cardSize == OfferCardSize.regular;
-
-    return isRegular ? screenWidth : screenWidth / 2;
-  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         SizedBox(
-          width: calculateCardSize(SizeConfig.screenWidth),
+          width: SizeConfig.screenWidth,
           child: GestureDetector(
             onTap: () => Navigator.pushNamed(
               context,
+              // TODO: Add play offer screen
               DetailsScreen.routeName,
-              arguments: OfferDetailsArguments(offer.id),
+              // arguments: OfferDetailsArguments(offer.id),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,8 +47,8 @@ class OfferCard extends StatelessWidget {
                           aspectRatio: 2,
                           child: Hero(
                             tag: keyPrefix.isNotEmpty
-                                ? "$keyPrefix-${offer.id.toString()}"
-                                : offer.id.toString(),
+                                ? "$keyPrefix-${userOffer.id.toString()}"
+                                : userOffer.id.toString(),
                             child: Container(
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
@@ -67,10 +57,12 @@ class OfferCard extends StatelessWidget {
                                   // Add one stop for each color. Stops should increase from 0 to 1
                                   stops: const [0.1, 0.9],
                                   colors: [
-                                    colorFromHex(
-                                        offer.category?.gradientStart ?? ""),
-                                    colorFromHex(
-                                        offer.category?.gradientStop ?? ""),
+                                    colorFromHex(userOffer
+                                            .offer?.category?.gradientStart ??
+                                        ""),
+                                    colorFromHex(userOffer
+                                            .offer?.category?.gradientStop ??
+                                        ""),
                                   ],
                                 ),
                               ),
@@ -81,7 +73,7 @@ class OfferCard extends StatelessWidget {
                           height: getProportionateScreenHeight(15),
                         ),
                         Text(
-                          offer.title ?? "",
+                          userOffer.offer?.title ?? "",
                           style: TextStyle(
                             color: textColor,
                             fontWeight: FontWeight.bold,
@@ -92,26 +84,9 @@ class OfferCard extends StatelessWidget {
                         SizedBox(
                           height: getProportionateScreenHeight(30),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "\$${offer.requiredPrice}",
-                              style: TextStyle(
-                                fontSize: getProportionateScreenWidth(18),
-                                fontWeight: FontWeight.w600,
-                                color: primaryColor,
-                              ),
-                            ),
-                            Text(
-                              "qty: ${offer.quantity}",
-                              style: TextStyle(
-                                fontSize: getProportionateScreenWidth(18),
-                                color: secondaryColor,
-                              ),
-                            ),
-                          ],
-                        )
+                        const Button(
+                          text: "Try your luck",
+                        ),
                       ],
                     ),
                   ),
