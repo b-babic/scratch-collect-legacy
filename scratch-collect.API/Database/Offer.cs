@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -25,7 +26,7 @@ namespace scratch_collect.API.Database
 
         [Required]
         public DateTime CreatedAt { get; set; }
-         
+
         [Required]
         public DateTime UpdatedAt { get; set; }
 
@@ -34,5 +35,7 @@ namespace scratch_collect.API.Database
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
+
+        public ICollection<Rating> OfferRatings { get; set; }
     }
 }

@@ -28,7 +28,8 @@ namespace scratch_collect.API.Services
                 .Include(a => a.Category)
                 .AsQueryable();
 
-            if(!string.IsNullOrWhiteSpace(request.Query)) {
+            if (!string.IsNullOrWhiteSpace(request.Query))
+            {
                 query = query.Where(a => a.Title.Contains(request.Query));
             }
 
@@ -48,12 +49,54 @@ namespace scratch_collect.API.Services
 
         public OfferDTO GetById(int id)
         {
-            var entity =
-                _context.Set<Offer>()
+            var entity = _context
+                .Offers
                 .Include(c => c.Category)
                 .FirstOrDefault(x => x.Id == id);
 
-            return _mapper.Map<OfferDTO>(entity);
+            var offer = _mapper.Map<OfferDTO>(entity);
+
+            // Recommended items
+            var recommended = _context
+                .Offers
+                .Where(x => x.CategoryId == entity.CategoryId)
+                .Select(a => new OfferDTO
+                {
+                    Id = a.Id,
+                    Title = a.Title,
+                    Description = a.Description,
+                    Quantity = a.Quantity,
+                    RequiredPrice = a.RequiredPrice,
+                    UpdatedAt = a.UpdatedAt,
+                    CreatedAt = a.CreatedAt,
+                    Category = _mapper.Map<CategoryDTO>(a.Category),
+                    AverageRating = _context
+                    .Ratings
+                    .Where(x => x.OfferId == a.Id)
+                    .Any() ? _context
+                    .Ratings
+                    .Where(x => x.OfferId == a.Id)
+                    .Average(a => a.RateCount) : 0.0
+                })
+                .Where(x => x.AverageRating > 3.0)
+                .OrderByDescending(a => a.UpdatedAt)
+                .Take(3)
+                .ToList();
+
+            offer.RecommendedItems = _mapper.Map<List<OfferDTO>>(recommended);
+
+            // Average rating
+            var entityHasRatings = _context
+                .Ratings
+                .Where(x => x.OfferId == offer.Id)
+                .Any();
+
+            offer.AverageRating = entityHasRatings ? _context
+                .Ratings
+                .Where(x => x.OfferId == offer.Id)
+                .Average(a => a.RateCount) : 0.0;
+
+            return offer;
         }
 
         public OfferDTO Insert(OfferUpsertRequest request)
@@ -207,7 +250,7 @@ namespace scratch_collect.API.Services
                 query = query.Where(x => x.Offer.Category.Id == request.CategoryId);
             }
 
-            if(!String.IsNullOrEmpty(request?.Query))
+            if (!String.IsNullOrEmpty(request?.Query))
             {
                 query = query.Where(x => x.Offer.Title.Contains(request.Query));
             }
@@ -222,7 +265,7 @@ namespace scratch_collect.API.Services
             return _mapper.Map<List<UserOfferDTO>>(list);
         }
 
-        public UserOfferDTO Play(UserOfferPlayRequest request) 
+        public UserOfferDTO Play(UserOfferPlayRequest request)
         {
             var entity = _context.UserOffers
                 .Include(a => a.Offer)
@@ -240,6 +283,5 @@ namespace scratch_collect.API.Services
 
             return _mapper.Map<UserOfferDTO>(entity);
         }
-
     }
 }

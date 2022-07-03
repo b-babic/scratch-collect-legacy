@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using scratch_collect.API.Database;
 
@@ -11,9 +12,10 @@ using scratch_collect.API.Database;
 namespace scratch_collect.API.Migrations
 {
     [DbContext(typeof(ScratchCollectContext))]
-    partial class ScratchCollectContextModelSnapshot : ModelSnapshot
+    [Migration("20220703144125_OfferReviews")]
+    partial class OfferReviews
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1972,6 +1974,267 @@ namespace scratch_collect.API.Migrations
                         });
                 });
 
+            modelBuilder.Entity("scratch_collect.API.Database.Rating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("OfferId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("RateCount")
+                        .HasColumnType("float");
+
+                    b.Property<int>("RateForId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RatedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("RatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OfferId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Ratings");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            RateCount = 3.0,
+                            RateForId = 1,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            RateCount = 4.0,
+                            RateForId = 1,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            RateCount = 3.0,
+                            RateForId = 2,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            RateCount = 4.0,
+                            RateForId = 2,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            RateCount = 5.0,
+                            RateForId = 3,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            RateCount = 4.0,
+                            RateForId = 3,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            RateCount = 4.0,
+                            RateForId = 4,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            RateCount = 4.0,
+                            RateForId = 4,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            RateCount = 5.0,
+                            RateForId = 5,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            RateCount = 4.0,
+                            RateForId = 5,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            RateCount = 5.0,
+                            RateForId = 6,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            RateCount = 5.0,
+                            RateForId = 6,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 13,
+                            RateCount = 2.0,
+                            RateForId = 7,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 14,
+                            RateCount = 3.0,
+                            RateForId = 7,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            RateCount = 2.0,
+                            RateForId = 8,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 16,
+                            RateCount = 4.0,
+                            RateForId = 8,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 17,
+                            RateCount = 5.0,
+                            RateForId = 9,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 18,
+                            RateCount = 4.0,
+                            RateForId = 9,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 19,
+                            RateCount = 5.0,
+                            RateForId = 10,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 20,
+                            RateCount = 4.0,
+                            RateForId = 10,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 21,
+                            RateCount = 2.0,
+                            RateForId = 11,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 22,
+                            RateCount = 4.0,
+                            RateForId = 11,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 23,
+                            RateCount = 5.0,
+                            RateForId = 12,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 24,
+                            RateCount = 5.0,
+                            RateForId = 12,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 25,
+                            RateCount = 5.0,
+                            RateForId = 13,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 26,
+                            RateCount = 5.0,
+                            RateForId = 13,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 27,
+                            RateCount = 1.0,
+                            RateForId = 14,
+                            RatedById = 1,
+                            RatedOn = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 28,
+                            RateCount = 2.0,
+                            RateForId = 14,
+                            RatedById = 2,
+                            RatedOn = new DateTime(2022, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
             modelBuilder.Entity("scratch_collect.API.Database.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -2282,6 +2545,21 @@ namespace scratch_collect.API.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("scratch_collect.API.Database.Rating", b =>
+                {
+                    b.HasOne("scratch_collect.API.Database.Offer", "Offer")
+                        .WithMany("OfferRatings")
+                        .HasForeignKey("OfferId");
+
+                    b.HasOne("scratch_collect.API.Database.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Offer");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("scratch_collect.API.Database.User", b =>
                 {
                     b.HasOne("scratch_collect.API.Database.Role", "Role")
@@ -2331,6 +2609,11 @@ namespace scratch_collect.API.Migrations
             modelBuilder.Entity("scratch_collect.API.Database.Country", b =>
                 {
                     b.Navigation("Merchants");
+                });
+
+            modelBuilder.Entity("scratch_collect.API.Database.Offer", b =>
+                {
+                    b.Navigation("OfferRatings");
                 });
 
             modelBuilder.Entity("scratch_collect.API.Database.Role", b =>

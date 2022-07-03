@@ -1,0 +1,198 @@
+[
+  {
+    "id": 1,
+    "rateCount": 3.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 1
+  },
+  {
+    "id": 2,
+    "rateCount": 4.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 1
+  },
+  {
+    "id": 3,
+    "rateCount": 3.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 2
+  },
+  {
+    "id": 4,
+    "rateCount": 4.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 2
+  },
+  {
+    "id": 5,
+    "rateCount": 5.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 3
+  },
+  {
+    "id": 6,
+    "rateCount": 4.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 3
+  },
+  {
+    "id": 7,
+    "rateCount": 4.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 4
+  },
+  {
+    "id": 8,
+    "rateCount": 4.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 4
+  },
+  {
+    "id": 9,
+    "rateCount": 5.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 5
+  },
+  {
+    "id": 10,
+    "rateCount": 4.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 5
+  },
+  {
+    "id": 11,
+    "rateCount": 5.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 6
+  },
+  {
+    "id": 12,
+    "rateCount": 5.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 6
+  },
+  {
+    "id": 13,
+    "rateCount": 2.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 7
+  },
+  {
+    "id": 14,
+    "rateCount": 3.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 7
+  },
+  {
+    "id": 15,
+    "rateCount": 2.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 8
+  },
+  {
+    "id": 16,
+    "rateCount": 4.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 8
+  },
+  {
+    "id": 17,
+    "rateCount": 5.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 9
+  },
+  {
+    "id": 18,
+    "rateCount": 4.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 9
+  },
+  {
+    "id": 19,
+    "rateCount": 5.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 10
+  },
+  {
+    "id": 20,
+    "rateCount": 4.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 10
+  },
+  {
+    "id": 21,
+    "rateCount": 2.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 11
+  },
+  {
+    "id": 22,
+    "rateCount": 4.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 11
+  },
+  {
+    "id": 23,
+    "rateCount": 5.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 12
+  },
+  {
+    "id": 24,
+    "rateCount": 5.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 12
+  },
+  {
+    "id": 25,
+    "rateCount": 5.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 13
+  },
+  {
+    "id": 26,
+    "rateCount": 5.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 13
+  },
+  {
+    "id": 27,
+    "rateCount": 1.0,
+    "ratedOn": "3/7/2022",
+    "userId": 1,
+    "offerId": 14
+  },
+  {
+    "id": 28,
+    "rateCount": 2.0,
+    "ratedOn": "2/7/2022",
+    "userId": 2,
+    "offerId": 14
+  }
+]

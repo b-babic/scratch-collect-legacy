@@ -44,6 +44,9 @@ namespace scratch_collect.API.Infra
 
             // Category
             CreateMap<Database.Category, CategoryDTO>();
+
+            // Rating
+            CreateMap<Database.Rating, RatingDTO>();
         }
     }
 }

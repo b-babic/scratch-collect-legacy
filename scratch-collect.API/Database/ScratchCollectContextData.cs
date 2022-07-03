@@ -12,7 +12,7 @@ namespace scratch_collect.API.Database
 
             modelBuilder.Entity<Role>().HasData(Helper.Json.LoadFromFile<Role>
                 ("Role.json"));
-            
+
             modelBuilder.Entity<Wallet>().HasData(Helper.Json.LoadFromFile<Wallet>
                 ("Wallet.json"));
 
@@ -33,6 +33,9 @@ namespace scratch_collect.API.Database
 
             modelBuilder.Entity<Category>().HasData(Helper.Json.LoadFromFile<Category>
                 ("Category.json"));
+
+            modelBuilder.Entity<Rating>().HasData(Helper.Json.LoadFromFile<Rating>
+                ("Rating.json"));
         }
     }
 }

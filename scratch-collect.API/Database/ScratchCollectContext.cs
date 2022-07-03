@@ -17,14 +17,16 @@ namespace scratch_collect.API.Database
 
         // define db sets
         public virtual DbSet<User> Users { get; set; }
+
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Wallet> Wallets { get; set; }
-        public virtual DbSet<UserOffer> UserOffers { get; set;}
+        public virtual DbSet<UserOffer> UserOffers { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Merchant> Merchants { get; set; }
         public virtual DbSet<Offer> Offers { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -53,7 +55,7 @@ namespace scratch_collect.API.Database
                     .HasMany(a => a.Users)
                     .WithOne(b => b.Role);
             });
-            
+
             // Users and coupons
             // Users and wallets
             // Users and offers
@@ -89,12 +91,20 @@ namespace scratch_collect.API.Database
                     .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
-            // Offers and categories
+            // Categories and offers
             modelBuilder.Entity<Category>(entity =>
             {
                 entity
                     .HasMany(e => e.Offers)
                     .WithOne(e => e.Category);
+            });
+
+            // Offers and ratings
+            modelBuilder.Entity<Rating>(entity =>
+            {
+                entity
+                    .HasOne(r => r.Offer)
+                    .WithMany(r => r.OfferRatings);
             });
 
             // custom partial for setting seed data
