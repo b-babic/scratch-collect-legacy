@@ -79,6 +79,23 @@ class OfferService {
     );
   }
 
+  Future<List<UserOffer>> userWonOffers(OfferSearchRequest request) async {
+    String url = '/user/won';
+
+    var response = await Api().dio.post(
+          url,
+          data: jsonEncode(
+            request.toJson(),
+          ),
+        );
+
+    return List<UserOffer>.from(
+      response.data.map(
+        (model) => UserOffer.fromJson(model),
+      ),
+    );
+  }
+
   Future<UserOffer> play(UserOfferPlayRequest request) async {
     var response = await Api().dio.post(
           '/offer/play',
