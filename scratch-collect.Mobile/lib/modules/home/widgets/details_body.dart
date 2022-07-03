@@ -97,7 +97,7 @@ class DetailsBodyState extends State<DetailsBody> {
                             requiredPrice: offer.requiredPrice,
                           ),
                           SizedBox(height: getProportionateScreenHeight(30)),
-                          RecommendedItems(),
+                          RecommendedItems(items: offer.recommendedItems ?? []),
                         ],
                       ),
                     )

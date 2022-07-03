@@ -16,22 +16,17 @@ class GradientBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: 2,
-      child: Hero(
-        tag: tag.isNotEmpty
-            ? tag
-            : category?.id.toString() ?? 'offer-details-no-item',
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              // Add one stop for each color. Stops should increase from 0 to 1
-              stops: const [0.1, 0.9],
-              colors: [
-                colorFromHex(category?.gradientStart ?? ""),
-                colorFromHex(category?.gradientStop ?? ""),
-              ],
-            ),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            // Add one stop for each color. Stops should increase from 0 to 1
+            stops: const [0.1, 0.9],
+            colors: [
+              colorFromHex(category?.gradientStart ?? ""),
+              colorFromHex(category?.gradientStop ?? ""),
+            ],
           ),
         ),
       ),

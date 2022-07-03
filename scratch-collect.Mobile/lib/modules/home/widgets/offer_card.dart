@@ -37,7 +37,10 @@ class OfferCard extends StatelessWidget {
             onTap: () => Navigator.pushNamed(
               context,
               DetailsScreen.routeName,
-              arguments: OfferDetailsArguments(offer.id),
+              arguments: OfferDetailsArguments(
+                offer.id,
+                offer.averageRating,
+              ),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -4,15 +4,12 @@ import 'package:IB210370/modules/home/widgets/offer_card.dart';
 import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class RecommendedItems extends StatelessWidget {
-  RecommendedItems({Key? key}) : super(key: key);
+  const RecommendedItems({
+    Key? key,
+    required this.items,
+  }) : super(key: key);
 
-  // TODO: Feature builder and get list of recommended items ?
-  // Or return initial one inside the offer details response
-  final List<Offer> dummyOffers = [
-    Offer(id: 1, title: 'test', description: 'test'),
-    Offer(id: 2, title: 'test 2', description: 'test3'),
-    Offer(id: 3, title: 'test 3', description: 'test 3')
-  ];
+  final List<Offer> items;
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +29,11 @@ class RecommendedItems extends StatelessWidget {
           child: Row(
             children: [
               ...List.generate(
-                3,
+                items.length,
                 (index) {
                   // TODO: Generate small cards
                   return OfferCard(
-                    offer: dummyOffers[index],
+                    offer: items[index],
                     keyPrefix: "recommended",
                     cardSize: OfferCardSize.small,
                   );
