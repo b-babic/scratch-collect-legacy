@@ -221,5 +221,25 @@ namespace scratch_collect.API.Services
 
             return _mapper.Map<List<UserOfferDTO>>(list);
         }
+
+        public UserOfferDTO Play(UserOfferPlayRequest request) 
+        {
+            var entity = _context.UserOffers
+                .Include(a => a.Offer)
+                .ThenInclude(c => c.Category)
+                .Where(x => x.Id == request.UserOfferId)
+                .FirstOrDefault();
+
+            // Set won status
+            entity.Played = true;
+            entity.PlayedOn = DateTime.Now;
+            entity.Won = request.Won;
+
+            _context.UserOffers.Update(entity);
+            _context.SaveChanges();
+
+            return _mapper.Map<UserOfferDTO>(entity);
+        }
+
     }
 }

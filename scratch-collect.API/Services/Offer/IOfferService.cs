@@ -22,5 +22,7 @@ namespace scratch_collect.API.Services
         public UserOfferDTO ArchiveOffer(UserOfferUpsertRequest request);
 
         public List<UserOfferDTO> GetUserOffers(UsserOfferSearchRequest request);
+
+        public UserOfferDTO Play(UserOfferPlayRequest request);
     }
 }

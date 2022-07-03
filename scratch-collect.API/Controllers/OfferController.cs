@@ -69,5 +69,12 @@ namespace scratch_collect.API.Controllers
 
             return _offerService.ArchiveOffer(request);
         }
+
+        [Authorize(Roles = "Client")]
+        [HttpPost("play")]
+        public UserOfferDTO Play(UserOfferPlayRequest request)
+        {
+            return _offerService.Play(request);
+        }
     }
 }
