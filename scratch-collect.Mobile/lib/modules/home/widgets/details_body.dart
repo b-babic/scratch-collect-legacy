@@ -77,7 +77,10 @@ class DetailsBodyState extends State<DetailsBody> {
                 ),
                 child: ListView(
                   children: <Widget>[
-                    GradientBackground(category: offer.category),
+                    GradientBackground(
+                      category: offer.category,
+                      tag: "recommended-${offer.id.toString()}",
+                    ),
                     RoundedContainer(
                       color: whiteColor,
                       child: Column(

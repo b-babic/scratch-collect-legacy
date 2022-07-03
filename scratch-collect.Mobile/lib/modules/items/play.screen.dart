@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scratch_collect/modules/items/items.screen.dart';
 import 'package:scratch_collect/modules/items/widgets/play_body.dart';
 import 'package:scratch_collect/modules/shared/enums.dart';
 import 'package:scratch_collect/modules/shared/widgets/navigation.dart';
@@ -15,9 +16,25 @@ class PlayScreen extends StatefulWidget {
 class PlayScreenState extends State<PlayScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      bottomNavigationBar: BottomNavigation(selectedMenu: MenuState.items),
-      body: PlayBody(),
+    return Scaffold(
+      appBar: AppBar(
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ItemsScreen(),
+              ),
+            );
+          },
+        ),
+        title: const Text(
+          "Scratch & Collect",
+        ),
+      ),
+      bottomNavigationBar:
+          const BottomNavigation(selectedMenu: MenuState.items),
+      body: const PlayBody(),
     );
   }
 }

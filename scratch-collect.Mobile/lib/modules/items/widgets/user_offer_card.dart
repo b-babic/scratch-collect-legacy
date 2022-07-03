@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scratch_collect/modules/home/details.screen.dart';
 import 'package:scratch_collect/modules/home/widgets/gradient_background.dart';
+import 'package:scratch_collect/modules/items/models/play_screen_arguments.model.dart';
 import 'package:scratch_collect/modules/items/models/user_offer.model.dart';
 import 'package:scratch_collect/modules/items/play.screen.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
@@ -27,9 +28,12 @@ class UserOfferCard extends StatelessWidget {
           child: GestureDetector(
             onTap: () => Navigator.pushNamed(
               context,
-              // TODO: Add play offer screen
               PlayScreen.routeName,
-              // arguments: OfferDetailsArguments(offer.id),
+              arguments: PlayScreenArguments(
+                userOffer.id,
+                userOffer.offer?.id,
+                userOffer.offer?.requiredPrice,
+              ),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
