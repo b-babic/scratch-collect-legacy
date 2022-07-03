@@ -94,7 +94,7 @@ namespace scratch_collect.API.Controllers
 
         // User won items
         [Authorize(Roles = "Administrator, Client")]
-        [HttpGet("{id:int}/won")]
+        [HttpPost("won")]
         public List<UserOfferDTO> WonItems([FromBody] UsserOfferSearchRequest request)
         {
             return _userService.UserWonItems(request);

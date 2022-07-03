@@ -95,14 +95,12 @@ namespace scratch_collect.API.Services
             return _mapper.Map<UserDTO>(result);
         }
 
-
         public UserDTO EditProfile(int id, EditProfileRequest request)
         {
             var entity = _context.Users.Find(id);
 
             if (entity == null)
                 throw new BadRequestException("User does not exist !");
-
 
             if(request.Username != null)
                 entity.Username = request.Username;
@@ -120,13 +118,12 @@ namespace scratch_collect.API.Services
                 entity.Address = request.Address;
 
             _context.Users.Attach(entity);
-            _context.Users.Update(entity); 
+            _context.Users.Update(entity);
 
             _context.SaveChanges();
 
             return _mapper.Map<UserDTO>(entity);
         }
-
 
         public UserDTO EditPassword(int id, EditPasswordRequest request) {
             var entity = _context.Users.Find(id);
@@ -146,13 +143,12 @@ namespace scratch_collect.API.Services
             entity.PasswordHash = newHash;
 
             _context.Users.Attach(entity);
-            _context.Users.Update(entity); 
+            _context.Users.Update(entity);
 
             _context.SaveChanges();
 
             return _mapper.Map<UserDTO>(entity);
         }
-
 
         public UserDTO Update(int id, UserUpsertRequest request)
         {
@@ -213,21 +209,25 @@ namespace scratch_collect.API.Services
         }
 
         // Won items
-
         public List<UserOfferDTO> UserWonItems(UsserOfferSearchRequest request) {
-            var wonItems = _context
+            var query = _context
                 .UserOffers
                 .Include(a => a.Offer)
                 .ThenInclude(b => b.Category)
                 .Where(x => x.UserId == request.UserId && x.Won == true)
+                .AsQueryable();
+
+            if(!String.IsNullOrEmpty(request.Query))
+            {
+                query = query.Where(x => x.Offer.Title.Contains(request.Query));
+            }
+
+            // Default order
+            var list = query
                 .OrderByDescending(a => a.PlayedOn)
                 .ToList();
-            
-            
-            if (wonItems == null)
-                throw new BadRequestException("No items found !");
 
-            return _mapper.Map<List<UserOfferDTO>>(wonItems);
+            return _mapper.Map<List<UserOfferDTO>>(list);
         }
 
         public List<UserOfferDTO> AllWonItems(UsserOfferSearchRequest request) {
@@ -250,20 +250,16 @@ namespace scratch_collect.API.Services
 
                 query = query.Where(s => s.PlayedOn <= to);
             }
-            else if(!string.IsNullOrEmpty(request.TimeFrom) && !string.IsNullOrEmpty(request.TimeTo)) 
+            else if(!string.IsNullOrEmpty(request.TimeFrom) && !string.IsNullOrEmpty(request.TimeTo))
             {
                 DateTime from = DateTime.Parse(request.TimeFrom);
                 DateTime to = DateTime.Parse(request.TimeTo);
 
-
                 query = query.Where(s => s.PlayedOn >= from && s.PlayedOn <= to);
             }
 
-           
-
             var list = query.ToList();
 
-            
             if (list == null)
                 throw new BadRequestException("No items found !");
 
