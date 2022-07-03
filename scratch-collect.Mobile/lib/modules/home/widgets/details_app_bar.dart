@@ -10,6 +10,7 @@ class DetailsAppBar extends StatelessWidget {
   const DetailsAppBar({Key? key, required this.rating}) : super(key: key);
 
   @override
+  // AppBar().preferredSize.height provide us the height that appy on our app bar
   Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
 
   @override

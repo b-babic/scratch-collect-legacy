@@ -6,6 +6,7 @@ import 'package:scratch_collect/modules/home/models/offer_buy_request.model.dart
 import 'package:scratch_collect/modules/home/models/offer_details_request.model.dart';
 import 'package:scratch_collect/modules/home/models/offer_search_request.model.dart';
 import 'package:scratch_collect/modules/items/models/user_offer.model.dart';
+import 'package:scratch_collect/modules/items/models/user_offer_play_request.model.dart';
 import 'package:scratch_collect/modules/shared/utils/api/api.dart';
 
 class OfferService {
@@ -76,5 +77,16 @@ class OfferService {
         (model) => UserOffer.fromJson(model),
       ),
     );
+  }
+
+  Future<UserOffer> play(UserOfferPlayRequest request) async {
+    var response = await Api().dio.post(
+          '/offer/play',
+          data: jsonEncode(
+            request.toJson(),
+          ),
+        );
+
+    return UserOffer.fromJson(response.data);
   }
 }

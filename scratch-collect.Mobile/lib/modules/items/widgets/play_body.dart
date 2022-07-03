@@ -1,12 +1,19 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:scratch_collect/modules/home/services/offer.service.dart';
 import 'package:scratch_collect/modules/items/items.screen.dart';
+import 'package:scratch_collect/modules/items/models/play_screen_arguments.model.dart';
+import 'package:scratch_collect/modules/items/models/user_offer_play_request.model.dart';
+import 'package:scratch_collect/modules/items/utils/probability.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/widgets/button.dart';
+import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
 
 class PlayBody extends StatefulWidget {
-  const PlayBody({Key? key}) : super(key: key);
+  final PlayScreenArguments args;
+
+  const PlayBody({Key? key, required this.args}) : super(key: key);
 
   @override
   State<PlayBody> createState() => _PlayBodyState();
@@ -43,12 +50,22 @@ class _PlayBodyState extends State<PlayBody> {
       scratchStarted = true;
     });
 
-    // TODO: API CALL
-    await Future.delayed(const Duration(seconds: 2));
+    try {
+      var won = await calculateWonProbability(widget.args.requiredPrice);
 
-    if (!mounted) return;
+      var request = UserOfferPlayRequest(
+        widget.args.userOfferId,
+        widget.args.offerId,
+        won,
+      );
 
-    await showRevealDialog(context, false);
+      var response = await OfferService().play(request);
+      if (!mounted) return;
+
+      await showRevealDialog(context, response.won ?? false);
+    } on Exception catch (e) {
+      Snackbar.showError(context, e.toString());
+    }
   }
 
   Future<void> showRevealDialog(BuildContext context, bool success) async {
