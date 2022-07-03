@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/home/models/offer.model.dart';
-import 'package:scratch_collect/modules/home/widgets/offer_card.dart';
+import 'package:IB210370/modules/home/models/offer.model.dart';
+import 'package:IB210370/modules/home/widgets/offer_card.dart';
 
 class OffersList extends StatelessWidget {
   final List<Offer> offers;

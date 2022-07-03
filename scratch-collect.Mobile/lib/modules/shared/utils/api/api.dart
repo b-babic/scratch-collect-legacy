@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
-import 'package:scratch_collect/modules/shared/constants.dart';
-import 'package:scratch_collect/modules/shared/utils/api/interceptors.dart';
+import 'package:IB210370/modules/shared/constants.dart';
+import 'package:IB210370/modules/shared/utils/api/interceptors.dart';
 
 class Api {
   final dio = createDio();

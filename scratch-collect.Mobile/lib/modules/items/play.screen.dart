@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/items/items.screen.dart';
-import 'package:scratch_collect/modules/items/models/play_screen_arguments.model.dart';
-import 'package:scratch_collect/modules/items/widgets/play_body.dart';
-import 'package:scratch_collect/modules/shared/enums.dart';
-import 'package:scratch_collect/modules/shared/widgets/navigation.dart';
+import 'package:IB210370/modules/items/items.screen.dart';
+import 'package:IB210370/modules/items/models/play_screen_arguments.model.dart';
+import 'package:IB210370/modules/items/widgets/play_body.dart';
+import 'package:IB210370/modules/shared/enums.dart';
+import 'package:IB210370/modules/shared/widgets/navigation.dart';
 
 class PlayScreen extends StatefulWidget {
   const PlayScreen({Key? key}) : super(key: key);

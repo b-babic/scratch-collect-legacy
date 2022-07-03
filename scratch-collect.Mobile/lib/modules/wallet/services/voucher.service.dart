@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:scratch_collect/modules/shared/utils/api/api.dart';
-import 'package:scratch_collect/modules/wallet/models/use_voucher_request.dart';
-import 'package:scratch_collect/modules/wallet/models/voucher_options_buy_request.dart';
-import 'package:scratch_collect/modules/wallet/models/wallet.model.dart';
+import 'package:IB210370/modules/shared/utils/api/api.dart';
+import 'package:IB210370/modules/wallet/models/use_voucher_request.dart';
+import 'package:IB210370/modules/wallet/models/voucher_options_buy_request.dart';
+import 'package:IB210370/modules/wallet/models/wallet.model.dart';
 
 class VoucherService {
   static VoucherService? _instance;

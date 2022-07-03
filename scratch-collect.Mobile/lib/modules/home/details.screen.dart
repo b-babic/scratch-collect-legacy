@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/home/models/offer_details_arguments.model.dart';
-import 'package:scratch_collect/modules/home/widgets/details_app_bar.dart';
-import 'package:scratch_collect/modules/home/widgets/details_body.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/home/models/offer_details_arguments.model.dart';
+import 'package:IB210370/modules/home/widgets/details_app_bar.dart';
+import 'package:IB210370/modules/home/widgets/details_body.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
 
 class DetailsScreen extends StatelessWidget {
   static String routeName = "/details";

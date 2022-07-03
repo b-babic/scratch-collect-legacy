@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/shared/enums.dart';
-import 'package:scratch_collect/modules/shared/widgets/navigation.dart';
-import 'package:scratch_collect/modules/winnings/widgets/winnings_body.dart';
+import 'package:IB210370/modules/shared/enums.dart';
+import 'package:IB210370/modules/shared/widgets/navigation.dart';
+import 'package:IB210370/modules/winnings/widgets/winnings_body.dart';
 
 class WinningsScreen extends StatefulWidget {
   const WinningsScreen({Key? key}) : super(key: key);

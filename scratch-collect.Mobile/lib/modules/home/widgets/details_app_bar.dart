@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:scratch_collect/modules/home/home.screen.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/home/home.screen.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class DetailsAppBar extends StatelessWidget {
   final double rating;

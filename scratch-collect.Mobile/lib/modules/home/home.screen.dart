@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/home/widgets/offers_body.dart';
-import 'package:scratch_collect/modules/shared/enums.dart';
-import 'package:scratch_collect/modules/shared/widgets/navigation.dart';
+import 'package:IB210370/modules/home/widgets/offers_body.dart';
+import 'package:IB210370/modules/shared/enums.dart';
+import 'package:IB210370/modules/shared/widgets/navigation.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

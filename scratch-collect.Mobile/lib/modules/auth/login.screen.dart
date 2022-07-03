@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/auth/widgets/intro.dart';
-import 'package:scratch_collect/modules/auth/widgets/signin_form.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/widgets/logo.dart';
+import 'package:IB210370/modules/auth/widgets/intro.dart';
+import 'package:IB210370/modules/auth/widgets/signin_form.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/size_config.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/widgets/logo.dart';
 
 import 'widgets/no_account_text.dart';
 

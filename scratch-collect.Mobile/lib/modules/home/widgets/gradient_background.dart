@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/home/models/category.model.dart';
-import 'package:scratch_collect/modules/shared/utils/colors.dart';
+import 'package:IB210370/modules/home/models/category.model.dart';
+import 'package:IB210370/modules/shared/utils/colors.dart';
 
 class GradientBackground extends StatelessWidget {
   final Category? category;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/profile/models/edit_password_arguments.dart';
-import 'package:scratch_collect/modules/profile/widgets/change_password_form.dart';
-import 'package:scratch_collect/modules/shared/theme/styles.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/profile/models/edit_password_arguments.dart';
+import 'package:IB210370/modules/profile/widgets/change_password_form.dart';
+import 'package:IB210370/modules/shared/theme/styles.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
 
 import '../shared/theme/size_config.dart';
 

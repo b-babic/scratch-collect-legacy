@@ -1,4 +1,4 @@
-import 'package:scratch_collect/modules/home/models/offer.model.dart';
+import 'package:IB210370/modules/home/models/offer.model.dart';
 
 class BuyOffer {
   int? id;

@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/home/services/offer.service.dart';
-import 'package:scratch_collect/modules/items/items.screen.dart';
-import 'package:scratch_collect/modules/items/models/play_screen_arguments.model.dart';
-import 'package:scratch_collect/modules/items/models/user_offer_play_request.model.dart';
-import 'package:scratch_collect/modules/items/utils/probability.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/widgets/button.dart';
-import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
+import 'package:IB210370/modules/home/services/offer.service.dart';
+import 'package:IB210370/modules/items/items.screen.dart';
+import 'package:IB210370/modules/items/models/play_screen_arguments.model.dart';
+import 'package:IB210370/modules/items/models/user_offer_play_request.model.dart';
+import 'package:IB210370/modules/items/utils/probability.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/widgets/button.dart';
+import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 
 class PlayBody extends StatefulWidget {
   final PlayScreenArguments args;

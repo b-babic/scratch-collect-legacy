@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:scratch_collect/modules/auth/models/signin_request.model.dart';
-import 'package:scratch_collect/modules/auth/models/signin_response.dart';
-import 'package:scratch_collect/modules/auth/models/signup_request.model.dart';
-import 'package:scratch_collect/modules/profile/models/profile.model.dart';
-import 'package:scratch_collect/modules/shared/utils/api/api.dart';
-import 'package:scratch_collect/modules/shared/utils/secure_storage.dart';
+import 'package:IB210370/modules/auth/models/signin_request.model.dart';
+import 'package:IB210370/modules/auth/models/signin_response.dart';
+import 'package:IB210370/modules/auth/models/signup_request.model.dart';
+import 'package:IB210370/modules/profile/models/profile.model.dart';
+import 'package:IB210370/modules/shared/utils/api/api.dart';
+import 'package:IB210370/modules/shared/utils/secure_storage.dart';
 
 class AuthService {
   static AuthService? _instance;

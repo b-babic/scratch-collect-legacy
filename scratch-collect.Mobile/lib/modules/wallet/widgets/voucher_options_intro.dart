@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class VoucherOptionsIntro extends StatelessWidget {
   const VoucherOptionsIntro({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/home/models/category.model.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/home/models/category.model.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
 
 class Categories extends StatefulWidget {
   final Function? onCategoryChange;

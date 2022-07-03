@@ -13,16 +13,16 @@ import 'package:IB210370/modules/shared/widgets/error_data.dart';
 import 'package:IB210370/modules/shared/widgets/no_data.dart';
 import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 
-class OffersBody extends StatefulWidget {
-  const OffersBody({
+class UserItemsBody extends StatefulWidget {
+  const UserItemsBody({
     Key? key,
   }) : super(key: key);
 
   @override
-  OffersBodyState createState() => OffersBodyState();
+  UserItemsBodyState createState() => UserItemsBodyState();
 }
 
-class OffersBodyState extends State<OffersBody> {
+class UserItemsBodyState extends State<UserItemsBody> {
   // Search
   String? query;
   int? categoryId;

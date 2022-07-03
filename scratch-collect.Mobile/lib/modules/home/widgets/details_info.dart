@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class DetailsInfo extends StatelessWidget {
   final String? title;

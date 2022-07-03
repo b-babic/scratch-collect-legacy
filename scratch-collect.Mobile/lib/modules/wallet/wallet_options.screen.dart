@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/shared/enums.dart';
-import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/widgets/navigation.dart';
-import 'package:scratch_collect/modules/wallet/widgets/voucher_option_choose.dart';
-import 'package:scratch_collect/modules/wallet/widgets/voucher_options_intro.dart';
+import 'package:IB210370/modules/shared/enums.dart';
+import 'package:IB210370/modules/shared/theme/size_config.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/widgets/navigation.dart';
+import 'package:IB210370/modules/wallet/widgets/voucher_option_choose.dart';
+import 'package:IB210370/modules/wallet/widgets/voucher_options_intro.dart';
 
 class WalletOptionsScreen extends StatefulWidget {
   const WalletOptionsScreen({Key? key}) : super(key: key);

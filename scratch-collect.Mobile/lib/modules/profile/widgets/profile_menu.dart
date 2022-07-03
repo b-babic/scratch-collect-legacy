@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
 
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({

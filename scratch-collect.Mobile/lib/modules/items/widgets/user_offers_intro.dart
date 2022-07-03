@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class UserOffersIntro extends StatelessWidget {
   const UserOffersIntro({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class UserOffersIntro extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Welcome",
+          "My Items",
           style: TextStyle(
             color: textColor,
             fontSize: getProportionateScreenWidth(28),
@@ -19,7 +19,7 @@ class UserOffersIntro extends StatelessWidget {
           ),
         ),
         Text(
-          "Check out all the latest offers",
+          "Start scratching to see if you won.",
           style: TextStyle(
             fontSize: getProportionateScreenWidth(16),
           ),

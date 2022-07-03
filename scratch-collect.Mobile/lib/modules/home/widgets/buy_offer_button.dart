@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/home/home.screen.dart';
-import 'package:scratch_collect/modules/home/models/offer_buy_request.model.dart';
-import 'package:scratch_collect/modules/home/services/offer.service.dart';
-import 'package:scratch_collect/modules/home/widgets/offer_button_info.dart';
-import 'package:scratch_collect/modules/profile/models/profile.model.dart';
-import 'package:scratch_collect/modules/profile/services/profile.service.dart';
-import 'package:scratch_collect/modules/shared/widgets/button.dart';
-import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
+import 'package:IB210370/modules/home/home.screen.dart';
+import 'package:IB210370/modules/home/models/offer_buy_request.model.dart';
+import 'package:IB210370/modules/home/services/offer.service.dart';
+import 'package:IB210370/modules/home/widgets/offer_button_info.dart';
+import 'package:IB210370/modules/profile/models/profile.model.dart';
+import 'package:IB210370/modules/profile/services/profile.service.dart';
+import 'package:IB210370/modules/shared/widgets/button.dart';
+import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 
 class BuyOfferButton extends StatefulWidget {
   final int? offerId;

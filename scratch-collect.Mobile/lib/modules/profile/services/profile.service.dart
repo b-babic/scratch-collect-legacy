@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:scratch_collect/modules/profile/models/edit_password.request.dart';
-import 'package:scratch_collect/modules/profile/models/edit_profile_request.dart';
-import 'package:scratch_collect/modules/profile/models/profile.model.dart';
-import 'package:scratch_collect/modules/profile/models/profile_request.model.dart';
-import 'package:scratch_collect/modules/shared/utils/api/api.dart';
-import 'package:scratch_collect/modules/shared/utils/secure_storage.dart';
+import 'package:IB210370/modules/profile/models/edit_password.request.dart';
+import 'package:IB210370/modules/profile/models/edit_profile_request.dart';
+import 'package:IB210370/modules/profile/models/profile.model.dart';
+import 'package:IB210370/modules/profile/models/profile_request.model.dart';
+import 'package:IB210370/modules/shared/utils/api/api.dart';
+import 'package:IB210370/modules/shared/utils/secure_storage.dart';
 
 class ProfileService {
   static ProfileService? _instance;

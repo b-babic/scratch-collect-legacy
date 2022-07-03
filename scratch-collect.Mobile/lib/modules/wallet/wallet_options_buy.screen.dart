@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/shared/theme/styles.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/wallet/models/voucher_options_buy_arguments.dart';
-import 'package:scratch_collect/modules/wallet/widgets/buy_voucher_options_form.dart';
+import 'package:IB210370/modules/shared/theme/styles.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/wallet/models/voucher_options_buy_arguments.dart';
+import 'package:IB210370/modules/wallet/widgets/buy_voucher_options_form.dart';
 
 import '../shared/theme/size_config.dart';
 

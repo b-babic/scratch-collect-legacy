@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/home/widgets/gradient_background.dart';
-import 'package:scratch_collect/modules/items/models/play_screen_arguments.model.dart';
-import 'package:scratch_collect/modules/items/models/user_offer.model.dart';
-import 'package:scratch_collect/modules/items/play.screen.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/widgets/button.dart';
+import 'package:IB210370/modules/home/widgets/gradient_background.dart';
+import 'package:IB210370/modules/items/models/play_screen_arguments.model.dart';
+import 'package:IB210370/modules/items/models/user_offer.model.dart';
+import 'package:IB210370/modules/items/play.screen.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/size_config.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/widgets/button.dart';
 
 class UserOfferCard extends StatelessWidget {
   const UserOfferCard({

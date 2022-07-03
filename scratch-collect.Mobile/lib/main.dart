@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/home/home.screen.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/routes.dart';
+import 'package:IB210370/modules/home/home.screen.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/routes.dart';
 
 void main() {
   runApp(const MyApp());

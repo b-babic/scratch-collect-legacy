@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/profile/profile.screen.dart';
-import 'package:scratch_collect/modules/wallet/widgets/purchase_voucher.dart';
-import 'package:scratch_collect/modules/wallet/widgets/voucher_intro.dart';
-import 'package:scratch_collect/modules/shared/enums.dart';
-import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/widgets/navigation.dart';
-import 'package:scratch_collect/modules/wallet/widgets/voucher_use_form.dart';
+import 'package:IB210370/modules/profile/profile.screen.dart';
+import 'package:IB210370/modules/wallet/widgets/purchase_voucher.dart';
+import 'package:IB210370/modules/wallet/widgets/voucher_intro.dart';
+import 'package:IB210370/modules/shared/enums.dart';
+import 'package:IB210370/modules/shared/theme/size_config.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/widgets/navigation.dart';
+import 'package:IB210370/modules/wallet/widgets/voucher_use_form.dart';
 
 class WalletVoucherScreen extends StatefulWidget {
   const WalletVoucherScreen({Key? key}) : super(key: key);

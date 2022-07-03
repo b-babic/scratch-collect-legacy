@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:scratch_collect/modules/auth/constants.dart';
-import 'package:scratch_collect/modules/auth/services/auth.service.dart';
-import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/utils/keyboard.dart';
-import 'package:scratch_collect/modules/shared/widgets/button.dart';
-import 'package:scratch_collect/modules/shared/widgets/form_error.dart';
-import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
-import 'package:scratch_collect/modules/wallet/models/voucher_options_buy_arguments.dart';
-import 'package:scratch_collect/modules/wallet/models/voucher_options_buy_request.dart';
-import 'package:scratch_collect/modules/wallet/services/voucher.service.dart';
-import 'package:scratch_collect/modules/wallet/wallet_voucher.screen.dart';
+import 'package:IB210370/modules/auth/constants.dart';
+import 'package:IB210370/modules/auth/services/auth.service.dart';
+import 'package:IB210370/modules/shared/theme/size_config.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/utils/keyboard.dart';
+import 'package:IB210370/modules/shared/widgets/button.dart';
+import 'package:IB210370/modules/shared/widgets/form_error.dart';
+import 'package:IB210370/modules/shared/widgets/snackbar.dart';
+import 'package:IB210370/modules/wallet/models/voucher_options_buy_arguments.dart';
+import 'package:IB210370/modules/wallet/models/voucher_options_buy_request.dart';
+import 'package:IB210370/modules/wallet/services/voucher.service.dart';
+import 'package:IB210370/modules/wallet/wallet_voucher.screen.dart';
 
 class BuyVoucherOptionsForm extends StatefulWidget {
   final VoucherOptionsBuyArguments initialValues;

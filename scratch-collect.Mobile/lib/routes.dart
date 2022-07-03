@@ -1,17 +1,17 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/auth/login.screen.dart';
-import 'package:scratch_collect/modules/auth/signup.screen.dart';
-import 'package:scratch_collect/modules/home/details.screen.dart';
-import 'package:scratch_collect/modules/home/home.screen.dart';
-import 'package:scratch_collect/modules/items/items.screen.dart';
-import 'package:scratch_collect/modules/items/play.screen.dart';
-import 'package:scratch_collect/modules/profile/change_password.screen.dart';
-import 'package:scratch_collect/modules/profile/profile.screen.dart';
-import 'package:scratch_collect/modules/profile/profile_edit.screen.dart';
-import 'package:scratch_collect/modules/wallet/wallet_options.screen.dart';
-import 'package:scratch_collect/modules/wallet/wallet_options_buy.screen.dart';
-import 'package:scratch_collect/modules/wallet/wallet_voucher.screen.dart';
-import 'package:scratch_collect/modules/winnings/winnings.screen.dart';
+import 'package:IB210370/modules/auth/login.screen.dart';
+import 'package:IB210370/modules/auth/signup.screen.dart';
+import 'package:IB210370/modules/home/details.screen.dart';
+import 'package:IB210370/modules/home/home.screen.dart';
+import 'package:IB210370/modules/items/items.screen.dart';
+import 'package:IB210370/modules/items/play.screen.dart';
+import 'package:IB210370/modules/profile/change_password.screen.dart';
+import 'package:IB210370/modules/profile/profile.screen.dart';
+import 'package:IB210370/modules/profile/profile_edit.screen.dart';
+import 'package:IB210370/modules/wallet/wallet_options.screen.dart';
+import 'package:IB210370/modules/wallet/wallet_options_buy.screen.dart';
+import 'package:IB210370/modules/wallet/wallet_voucher.screen.dart';
+import 'package:IB210370/modules/winnings/winnings.screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
   // TODO: Splash screen

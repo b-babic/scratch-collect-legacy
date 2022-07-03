@@ -1,18 +1,18 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/auth/services/auth.service.dart';
-import 'package:scratch_collect/modules/home/models/offer_search_request.model.dart';
-import 'package:scratch_collect/modules/home/services/offer.service.dart';
-import 'package:scratch_collect/modules/home/widgets/search.dart';
-import 'package:scratch_collect/modules/items/models/user_offer.model.dart';
-import 'package:scratch_collect/modules/profile/models/profile.model.dart';
-import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/widgets/error_data.dart';
-import 'package:scratch_collect/modules/shared/widgets/no_data.dart';
-import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
-import 'package:scratch_collect/modules/winnings/widgets/winnings_body_loading.dart';
-import 'package:scratch_collect/modules/winnings/widgets/winnings_intro.dart';
-import 'package:scratch_collect/modules/winnings/widgets/winnings_list.dart';
+import 'package:IB210370/modules/auth/services/auth.service.dart';
+import 'package:IB210370/modules/home/models/offer_search_request.model.dart';
+import 'package:IB210370/modules/home/services/offer.service.dart';
+import 'package:IB210370/modules/home/widgets/search.dart';
+import 'package:IB210370/modules/items/models/user_offer.model.dart';
+import 'package:IB210370/modules/profile/models/profile.model.dart';
+import 'package:IB210370/modules/shared/theme/size_config.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/widgets/error_data.dart';
+import 'package:IB210370/modules/shared/widgets/no_data.dart';
+import 'package:IB210370/modules/shared/widgets/snackbar.dart';
+import 'package:IB210370/modules/winnings/widgets/winnings_body_loading.dart';
+import 'package:IB210370/modules/winnings/widgets/winnings_intro.dart';
+import 'package:IB210370/modules/winnings/widgets/winnings_list.dart';
 
 class WinningsBody extends StatefulWidget {
   const WinningsBody({

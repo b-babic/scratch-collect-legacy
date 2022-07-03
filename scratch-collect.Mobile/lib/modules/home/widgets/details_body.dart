@@ -1,18 +1,18 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/home/models/offer.model.dart';
-import 'package:scratch_collect/modules/home/models/offer_details_request.model.dart';
-import 'package:scratch_collect/modules/home/services/offer.service.dart';
-import 'package:scratch_collect/modules/home/widgets/buy_offer_button.dart';
-import 'package:scratch_collect/modules/home/widgets/details_info.dart';
-import 'package:scratch_collect/modules/home/widgets/gradient_background.dart';
-import 'package:scratch_collect/modules/home/widgets/offer_details_body_loading.dart';
-import 'package:scratch_collect/modules/home/widgets/recommended_items.dart';
-import 'package:scratch_collect/modules/home/widgets/rounded_container.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/widgets/error_data.dart';
-import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
+import 'package:IB210370/modules/home/models/offer.model.dart';
+import 'package:IB210370/modules/home/models/offer_details_request.model.dart';
+import 'package:IB210370/modules/home/services/offer.service.dart';
+import 'package:IB210370/modules/home/widgets/buy_offer_button.dart';
+import 'package:IB210370/modules/home/widgets/details_info.dart';
+import 'package:IB210370/modules/home/widgets/gradient_background.dart';
+import 'package:IB210370/modules/home/widgets/offer_details_body_loading.dart';
+import 'package:IB210370/modules/home/widgets/recommended_items.dart';
+import 'package:IB210370/modules/home/widgets/rounded_container.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/size_config.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/widgets/error_data.dart';
+import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 
 class DetailsBody extends StatefulWidget {
   final int? id;

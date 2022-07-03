@@ -1,4 +1,4 @@
-import 'package:scratch_collect/modules/shared/theme/size_config.dart';
+import 'package:IB210370/modules/shared/theme/size_config.dart';
 
 // Base layout sizes based on most of the designs
 const double layoutHeight = 812.0;

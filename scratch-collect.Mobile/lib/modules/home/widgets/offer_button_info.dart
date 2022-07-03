@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
 
 class OfferButtonInfo extends StatelessWidget {
   const OfferButtonInfo({Key? key}) : super(key: key);

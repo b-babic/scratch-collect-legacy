@@ -1,4 +1,4 @@
-import 'package:scratch_collect/modules/wallet/models/wallet.model.dart';
+import 'package:IB210370/modules/wallet/models/wallet.model.dart';
 
 class ProfileResponse {
   int? id;

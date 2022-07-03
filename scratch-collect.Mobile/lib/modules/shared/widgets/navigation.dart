@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:scratch_collect/modules/home/home.screen.dart';
-import 'package:scratch_collect/modules/items/items.screen.dart';
-import 'package:scratch_collect/modules/profile/profile.screen.dart';
-import 'package:scratch_collect/modules/shared/enums.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/modules/winnings/winnings.screen.dart';
+import 'package:IB210370/modules/home/home.screen.dart';
+import 'package:IB210370/modules/items/items.screen.dart';
+import 'package:IB210370/modules/profile/profile.screen.dart';
+import 'package:IB210370/modules/shared/enums.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/winnings/winnings.screen.dart';
 
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({Key? key, required this.selectedMenu})

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class VoucherOptionItem extends StatelessWidget {
   final int? id;

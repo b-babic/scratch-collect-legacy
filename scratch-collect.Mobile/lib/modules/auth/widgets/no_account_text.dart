@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/auth/signup.screen.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/auth/signup.screen.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class NoAccountText extends StatelessWidget {
   const NoAccountText({

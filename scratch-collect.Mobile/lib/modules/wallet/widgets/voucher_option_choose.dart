@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/widgets/button.dart';
-import 'package:scratch_collect/modules/wallet/models/voucher_options_buy_arguments.dart';
-import 'package:scratch_collect/modules/wallet/wallet_options_buy.screen.dart';
-import 'package:scratch_collect/modules/wallet/widgets/voucher_option_item.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/widgets/button.dart';
+import 'package:IB210370/modules/wallet/models/voucher_options_buy_arguments.dart';
+import 'package:IB210370/modules/wallet/wallet_options_buy.screen.dart';
+import 'package:IB210370/modules/wallet/widgets/voucher_option_item.dart';
 
 class VoucherOption {
   int? id;

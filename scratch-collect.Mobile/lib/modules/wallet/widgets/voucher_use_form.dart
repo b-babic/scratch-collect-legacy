@@ -1,16 +1,16 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/auth/constants.dart';
-import 'package:scratch_collect/modules/profile/services/profile.service.dart';
-import 'package:scratch_collect/modules/shared/theme/size_config.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/utils/keyboard.dart';
-import 'package:scratch_collect/modules/shared/widgets/button.dart';
-import 'package:scratch_collect/modules/shared/widgets/form_error.dart';
-import 'package:scratch_collect/modules/shared/widgets/snackbar.dart';
-import 'package:scratch_collect/modules/wallet/models/use_voucher_request.dart';
-import 'package:scratch_collect/modules/wallet/services/voucher.service.dart';
+import 'package:IB210370/modules/auth/constants.dart';
+import 'package:IB210370/modules/profile/services/profile.service.dart';
+import 'package:IB210370/modules/shared/theme/size_config.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/utils/keyboard.dart';
+import 'package:IB210370/modules/shared/widgets/button.dart';
+import 'package:IB210370/modules/shared/widgets/form_error.dart';
+import 'package:IB210370/modules/shared/widgets/snackbar.dart';
+import 'package:IB210370/modules/wallet/models/use_voucher_request.dart';
+import 'package:IB210370/modules/wallet/services/voucher.service.dart';
 
 class VoucherUseForm extends StatefulWidget {
   const VoucherUseForm({Key? key}) : super(key: key);

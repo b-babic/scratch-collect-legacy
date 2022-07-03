@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
-import 'package:scratch_collect/modules/shared/theme/utils.dart';
+import 'package:IB210370/modules/shared/theme/colors.dart';
+import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class OffersIntro extends StatelessWidget {
   const OffersIntro({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class OffersIntro extends StatelessWidget {
           ),
         ),
         Text(
-          "Check out all the latest offers",
+          "Check out all the latest offers.",
           style: TextStyle(
             fontSize: getProportionateScreenWidth(16),
           ),
