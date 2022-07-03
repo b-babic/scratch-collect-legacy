@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/home/models/offer_buy_request.model.dart';
 import 'package:scratch_collect/modules/home/services/offer.service.dart';

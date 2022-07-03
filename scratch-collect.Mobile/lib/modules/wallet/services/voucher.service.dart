@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:scratch_collect/modules/profile/models/profile.model.dart';
 import 'package:scratch_collect/modules/shared/utils/api/api.dart';
 import 'package:scratch_collect/modules/wallet/models/use_voucher_request.dart';
 import 'package:scratch_collect/modules/wallet/models/voucher_options_buy_request.dart';

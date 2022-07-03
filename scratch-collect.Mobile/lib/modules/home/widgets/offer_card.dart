@@ -3,11 +3,9 @@ import 'package:scratch_collect/modules/home/details.screen.dart';
 import 'package:scratch_collect/modules/home/models/offer.model.dart';
 import 'package:scratch_collect/modules/home/models/offer_details_arguments.model.dart';
 import 'package:scratch_collect/modules/home/widgets/gradient_background.dart';
-import 'package:scratch_collect/modules/items/models/user_offer.model.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/size_config.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
-import 'package:scratch_collect/modules/shared/utils/colors.dart';
 
 enum OfferCardSize { regular, small }
 

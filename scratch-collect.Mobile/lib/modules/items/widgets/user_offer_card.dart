@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/home/details.screen.dart';
 import 'package:scratch_collect/modules/home/widgets/gradient_background.dart';
 import 'package:scratch_collect/modules/items/models/play_screen_arguments.model.dart';
 import 'package:scratch_collect/modules/items/models/user_offer.model.dart';

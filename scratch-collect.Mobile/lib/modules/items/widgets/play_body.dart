@@ -1,13 +1,9 @@
 import 'dart:async';
 
-import 'package:circular_reveal_animation/circular_reveal_animation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:scratch_collect/modules/items/items.screen.dart';
-import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/modules/shared/theme/utils.dart';
 import 'package:scratch_collect/modules/shared/widgets/button.dart';
-import 'package:scratcher/scratcher.dart';
 
 class PlayBody extends StatefulWidget {
   const PlayBody({Key? key}) : super(key: key);

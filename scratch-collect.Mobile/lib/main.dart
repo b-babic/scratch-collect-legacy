@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scratch_collect/modules/auth/login.screen.dart';
 import 'package:scratch_collect/modules/home/home.screen.dart';
 import 'package:scratch_collect/modules/shared/theme/colors.dart';
 import 'package:scratch_collect/routes.dart';
