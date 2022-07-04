@@ -1,5 +1,6 @@
 ﻿using scratch_collect.Admin.Forms.Coupons;
 using scratch_collect.Admin.Forms.Merchants;
+using scratch_collect.Admin.Forms.Users;
 using scratch_collect.Admin.Reports;
 using scratch_collect.Admin.Services;
 using System;
@@ -20,9 +21,9 @@ namespace scratch_collect.Admin.Forms
         // Generic Events
         private void users_control_menu_Click(object sender, EventArgs e)
         {
-            //var homepage = new AllUsers();
+            var homepage = new AllUsers();
 
-            //homepage.ShowDialog();
+            homepage.ShowDialog();
         }
 
         private void vouchers_control_menu_Click(object sender, EventArgs e)
