@@ -1,4 +1,5 @@
 ﻿using scratch_collect.Admin.Forms.Merchants;
+using scratch_collect.Admin.Reports;
 using scratch_collect.Admin.Services;
 using System;
 using System.Windows.Forms;
@@ -53,9 +54,9 @@ namespace scratch_collect.Admin.Forms
 
         private void btn_offers_report_Click(object sender, EventArgs e)
         {
-            //var offersReport = new OffersReportForm();
+            var offersReport = new OffersReportForm();
 
-            //offersReport.ShowDialog();
+            offersReport.ShowDialog();
         }
 
         // Helpers
