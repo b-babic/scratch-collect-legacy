@@ -43,6 +43,15 @@
     <Compile Update="Forms\Coupons\GenerateCoupons.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Offers\AllOffers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Offers\EditOffer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Offers\NewOffer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Users\AllUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,7 +76,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Forms\Offers\" />
     <Folder Include="Forms\Winnings\" />
   </ItemGroup>
 

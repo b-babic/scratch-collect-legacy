@@ -42,9 +42,9 @@ namespace scratch_collect.Admin.Forms
 
         private void offers_control_menu_Click(object sender, EventArgs e)
         {
-            //var offers = new AllOffers();
+            var offers = new AllOffers();
 
-            //offers.ShowDialog();
+            offers.ShowDialog();
         }
 
         private void winnings_control_menu_Click(object sender, EventArgs e)
