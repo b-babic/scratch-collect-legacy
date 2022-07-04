@@ -20,7 +20,7 @@ namespace scratch_collect.Desktop.Services
 
         public async Task<List<OfferDTO>> GetAll(string? categoryId = null)
         {
-            Dictionary<string, string> parameters = new();
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
 
             if (!string.IsNullOrEmpty(categoryId))
                 parameters["CategoryId"] = categoryId;

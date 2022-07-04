@@ -20,7 +20,7 @@ namespace scratch_collect.Desktop.Services
 
         public async Task<List<UserVM>> GetAllUsers(string emailQuery = null, string usernameQuery = null)
         {
-            Dictionary<string, string> parameters = new();
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
 
             if (!string.IsNullOrEmpty(emailQuery))
                 parameters["Email"] = emailQuery;
@@ -101,7 +101,7 @@ namespace scratch_collect.Desktop.Services
         // Won items
         public async Task<List<UserOfferDTO>> AllWonOffers(DateTime? dateFrom, DateTime? dateTo)
         {
-            Dictionary<string, string> parameters = new();
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
 
             if (dateFrom != null)
                 parameters["TimeFrom"] = dateFrom.ToString();

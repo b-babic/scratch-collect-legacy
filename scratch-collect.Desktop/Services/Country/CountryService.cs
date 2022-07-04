@@ -11,7 +11,7 @@ namespace scratch_collect.Desktop.Services
 
         public async Task<List<CountryDTO>> GetAll(string textQuery = null)
         {
-            Dictionary<string, string> parameters = new();
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
 
             if (!string.IsNullOrEmpty(textQuery))
                 parameters["Text"] = textQuery;
