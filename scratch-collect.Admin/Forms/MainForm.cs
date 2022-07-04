@@ -1,4 +1,5 @@
-﻿using scratch_collect.Admin.Forms.Merchants;
+﻿using scratch_collect.Admin.Forms.Coupons;
+using scratch_collect.Admin.Forms.Merchants;
 using scratch_collect.Admin.Reports;
 using scratch_collect.Admin.Services;
 using System;
@@ -26,9 +27,9 @@ namespace scratch_collect.Admin.Forms
 
         private void vouchers_control_menu_Click(object sender, EventArgs e)
         {
-            //var vouchers = new AllCoupons();
+            var vouchers = new AllCoupons();
 
-            //vouchers.ShowDialog();
+            vouchers.ShowDialog();
         }
 
         private void merchants_control_menu_Click(object sender, EventArgs e)
