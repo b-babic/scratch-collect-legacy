@@ -1,8 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>netstandard2.0</TargetFramework>
         <RootNamespace>scratch_collect.Model</RootNamespace>
+
+		<NullableReferenceTypes>true</NullableReferenceTypes>
+		<LangVersion>8.0</LangVersion>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    </ItemGroup>
 
 </Project>
