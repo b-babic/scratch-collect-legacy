@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using scratch_collect.Admin.Utilities;
 using scratch_collect.Model;
 using scratch_collect.Model.Desktop;
 using System;
@@ -10,11 +11,10 @@ namespace scratch_collect.Admin.Services
     public class MerchantService
     {
         private static string _baseUrl = System.Configuration.ConfigurationManager.AppSettings["BASE_API_URL"] + "merchant";
-        private static IMapper _mapper;
+        private static IMapper _mapper = ObjectMapper.GetMapper();
 
-        public MerchantService(IMapper mapper)
+        public MerchantService()
         {
-            _mapper = mapper;
         }
 
         public static async Task<List<MerchantDTO>> GetAll(string textQuery = null, string countryQuery = null)
