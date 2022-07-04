@@ -58,6 +58,13 @@ namespace scratch_collect.Desktop.Forms
             winnings.ShowDialog();
         }
 
+        private void btn_offers_report_Click(object sender, EventArgs e)
+        {
+            //var offersReport = new OffersReportForm();
+
+            //offersReport.ShowDialog();
+        }
+
         // Helpers
         private static void FakeAuthentication()
         {

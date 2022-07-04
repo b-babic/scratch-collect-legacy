@@ -12,7 +12,7 @@ namespace scratch_collect.Desktop.Services
 
         public async Task<List<MerchantDTO>> GetAllVouchers(string textQuery)
         {
-            Dictionary<string, string> parameters = new();
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
 
             if (!string.IsNullOrEmpty(textQuery))
                 parameters["Text"] = textQuery;
