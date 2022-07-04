@@ -1,5 +1,5 @@
+import 'package:IB210370/modules/auth/login.screen.dart';
 import 'package:flutter/material.dart';
-import 'package:IB210370/modules/home/home.screen.dart';
 import 'package:IB210370/modules/shared/theme/colors.dart';
 import 'package:IB210370/routes.dart';
 
@@ -18,12 +18,13 @@ class MyApp extends StatelessWidget {
       title: 'Scratch & Collect',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(color: primaryColor),
-        pageTransitionsTheme: const PageTransitionsTheme(builders: {
-          TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-        }),
+        pageTransitionsTheme: const PageTransitionsTheme(
+          builders: {
+            TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+          },
+        ),
       ),
-      // home: SplashScreen(), TODO: Set splash as root once finished
-      initialRoute: HomeScreen.routeName,
+      initialRoute: LoginScreen.routeName,
       routes: routes,
     );
   }

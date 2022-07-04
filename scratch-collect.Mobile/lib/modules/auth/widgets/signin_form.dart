@@ -27,6 +27,7 @@ class SigninFormState extends State<SigninForm> {
 
   String? email;
   String? password;
+  bool isLoading = false;
 
   final List<String?> errors = [];
 
@@ -46,6 +47,12 @@ class SigninFormState extends State<SigninForm> {
     }
   }
 
+  void toggleLoading() {
+    setState(() {
+      isLoading = !isLoading;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -61,6 +68,8 @@ class SigninFormState extends State<SigninForm> {
             FormError(errors: errors),
             SizedBox(height: getProportionateScreenHeight(60)),
             Button(
+                disabled: isLoading,
+                loading: isLoading,
                 text: "Continue",
                 press: () async {
                   if (_formKey.currentState!.validate()) {
@@ -68,11 +77,12 @@ class SigninFormState extends State<SigninForm> {
 
                     KeyboardUtil.hideKeyboard(context);
 
-                    var model = SigninRequest(email: email, password: password);
+                    toggleLoading();
 
                     try {
+                      var model =
+                          SigninRequest(email: email, password: password);
                       var response = await AuthService().signin(model);
-
                       var token = response.token;
 
                       if (token != null) {
@@ -93,6 +103,8 @@ class SigninFormState extends State<SigninForm> {
                       }
                     } on Exception catch (e) {
                       Snackbar.showError(context, e.toString());
+                    } finally {
+                      toggleLoading();
                     }
                   }
                 })
