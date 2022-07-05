@@ -43,6 +43,7 @@
             this.winnings_control_menu = new System.Windows.Forms.ToolStripLabel();
             this.main_panel_wrapper = new System.Windows.Forms.Panel();
             this.second_report = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btn_users_report = new System.Windows.Forms.Button();
             this.report_offers = new System.Windows.Forms.GroupBox();
             this.offers_report_category_combobox = new System.Windows.Forms.ComboBox();
@@ -52,7 +53,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_offers_report = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.table_layout_main.SuspendLayout();
             this.main_layout.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -213,12 +213,21 @@
             this.second_report.TabStop = false;
             this.second_report.Text = "Active Users Report";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(241, 16);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "List of most active users on the platform.";
+            // 
             // btn_users_report
             // 
-            this.btn_users_report.Location = new System.Drawing.Point(985, 42);
+            this.btn_users_report.Location = new System.Drawing.Point(1014, 39);
             this.btn_users_report.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_users_report.Name = "btn_users_report";
-            this.btn_users_report.Size = new System.Drawing.Size(179, 23);
+            this.btn_users_report.Size = new System.Drawing.Size(150, 29);
             this.btn_users_report.TabIndex = 1;
             this.btn_users_report.Text = "Generate report";
             this.btn_users_report.UseVisualStyleBackColor = true;
@@ -293,23 +302,14 @@
             // 
             // btn_offers_report
             // 
-            this.btn_offers_report.Location = new System.Drawing.Point(985, 43);
+            this.btn_offers_report.Location = new System.Drawing.Point(1014, 42);
             this.btn_offers_report.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_offers_report.Name = "btn_offers_report";
-            this.btn_offers_report.Size = new System.Drawing.Size(179, 23);
+            this.btn_offers_report.Size = new System.Drawing.Size(150, 29);
             this.btn_offers_report.TabIndex = 0;
             this.btn_offers_report.Text = "Generate report";
             this.btn_offers_report.UseVisualStyleBackColor = true;
             this.btn_offers_report.Click += new System.EventHandler(this.btn_offers_report_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(201, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "List of most active users on the platform.";
             // 
             // MainForm
             // 

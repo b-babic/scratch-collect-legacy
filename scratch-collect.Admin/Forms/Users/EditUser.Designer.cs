@@ -68,47 +68,52 @@
             // 
             // username_input
             // 
-            this.username_input.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.username_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.username_input, 4);
-            this.username_input.Location = new System.Drawing.Point(36, 132);
+            this.username_input.Location = new System.Drawing.Point(29, 84);
+            this.username_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.username_input.Name = "username_input";
-            this.username_input.Size = new System.Drawing.Size(292, 45);
+            this.username_input.Size = new System.Drawing.Size(234, 39);
             this.username_input.TabIndex = 8;
             // 
             // email_input
             // 
-            this.email_input.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.email_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.email_input, 4);
-            this.email_input.Location = new System.Drawing.Point(36, 256);
+            this.email_input.Location = new System.Drawing.Point(29, 164);
+            this.email_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(655, 45);
+            this.email_input.Size = new System.Drawing.Size(525, 39);
             this.email_input.TabIndex = 7;
             // 
             // address_input
             // 
-            this.address_input.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.address_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.address_input, 4);
-            this.address_input.Location = new System.Drawing.Point(36, 685);
+            this.address_input.Location = new System.Drawing.Point(29, 452);
+            this.address_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.address_input.Name = "address_input";
-            this.address_input.Size = new System.Drawing.Size(655, 45);
+            this.address_input.Size = new System.Drawing.Size(525, 39);
             this.address_input.TabIndex = 5;
             // 
             // last_name_input
             // 
-            this.last_name_input.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.last_name_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.last_name_input, 4);
-            this.last_name_input.Location = new System.Drawing.Point(384, 566);
+            this.last_name_input.Location = new System.Drawing.Point(307, 362);
+            this.last_name_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.last_name_input.Name = "last_name_input";
-            this.last_name_input.Size = new System.Drawing.Size(307, 45);
+            this.last_name_input.Size = new System.Drawing.Size(246, 39);
             this.last_name_input.TabIndex = 3;
             // 
             // first_name_input
             // 
-            this.first_name_input.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.first_name_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.first_name_input, 4);
-            this.first_name_input.Location = new System.Drawing.Point(36, 566);
+            this.first_name_input.Location = new System.Drawing.Point(29, 362);
+            this.first_name_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.first_name_input.Name = "first_name_input";
-            this.first_name_input.Size = new System.Drawing.Size(292, 45);
+            this.first_name_input.Size = new System.Drawing.Size(234, 39);
             this.first_name_input.TabIndex = 0;
             // 
             // go_back_button
@@ -117,8 +122,9 @@
             this.go_back_button.Image = ((System.Drawing.Image)(resources.GetObject("go_back_button.Image")));
             this.go_back_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.go_back_button.Location = new System.Drawing.Point(0, 0);
+            this.go_back_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.go_back_button.Name = "go_back_button";
-            this.go_back_button.Size = new System.Drawing.Size(145, 76);
+            this.go_back_button.Size = new System.Drawing.Size(116, 48);
             this.go_back_button.TabIndex = 4;
             this.go_back_button.Text = "Go Back";
             this.go_back_button.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -130,20 +136,22 @@
             this.panel2.Controls.Add(this.go_back_button);
             this.panel2.Controls.Add(this.logo_title);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1572, 76);
+            this.panel2.Size = new System.Drawing.Size(1258, 48);
             this.panel2.TabIndex = 4;
             // 
             // logo_title
             // 
             this.logo_title.AutoSize = true;
             this.logo_title.Dock = System.Windows.Forms.DockStyle.Right;
-            this.logo_title.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.logo_title.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.logo_title.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.logo_title.Location = new System.Drawing.Point(1296, 0);
+            this.logo_title.Location = new System.Drawing.Point(1021, 0);
+            this.logo_title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.logo_title.Name = "logo_title";
-            this.logo_title.Size = new System.Drawing.Size(276, 45);
+            this.logo_title.Size = new System.Drawing.Size(237, 37);
             this.logo_title.TabIndex = 3;
             this.logo_title.Text = "Scratch && Collect";
             this.logo_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -151,22 +159,24 @@
             // validation_label
             // 
             this.validation_label.AutoSize = true;
-            this.validation_label.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.validation_label.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.validation_label.ForeColor = System.Drawing.Color.IndianRed;
-            this.validation_label.Location = new System.Drawing.Point(993, 549);
+            this.validation_label.Location = new System.Drawing.Point(794, 351);
+            this.validation_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.validation_label.Name = "validation_label";
-            this.validation_label.Size = new System.Drawing.Size(83, 36);
+            this.validation_label.Size = new System.Drawing.Size(71, 30);
             this.validation_label.TabIndex = 18;
             this.validation_label.Text = "label1";
             // 
             // update_user_button
             // 
             this.update_user_button.BackColor = System.Drawing.Color.OliveDrab;
-            this.update_user_button.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.update_user_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.update_user_button.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.update_user_button.Location = new System.Drawing.Point(977, 675);
+            this.update_user_button.Location = new System.Drawing.Point(793, 442);
+            this.update_user_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.update_user_button.Name = "update_user_button";
-            this.update_user_button.Size = new System.Drawing.Size(263, 55);
+            this.update_user_button.Size = new System.Drawing.Size(210, 49);
             this.update_user_button.TabIndex = 17;
             this.update_user_button.Text = "Update user";
             this.update_user_button.UseVisualStyleBackColor = false;
@@ -175,18 +185,20 @@
             // user_photo_preview
             // 
             this.user_photo_preview.Image = global::scratch_collect.Admin.Properties.Resources.account;
-            this.user_photo_preview.Location = new System.Drawing.Point(991, 100);
+            this.user_photo_preview.Location = new System.Drawing.Point(793, 64);
+            this.user_photo_preview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.user_photo_preview.Name = "user_photo_preview";
-            this.user_photo_preview.Size = new System.Drawing.Size(517, 301);
+            this.user_photo_preview.Size = new System.Drawing.Size(414, 193);
             this.user_photo_preview.TabIndex = 16;
             this.user_photo_preview.TabStop = false;
             // 
             // upload_profile_image_button
             // 
-            this.upload_profile_image_button.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.upload_profile_image_button.Location = new System.Drawing.Point(991, 431);
+            this.upload_profile_image_button.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.upload_profile_image_button.Location = new System.Drawing.Point(793, 276);
+            this.upload_profile_image_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.upload_profile_image_button.Name = "upload_profile_image_button";
-            this.upload_profile_image_button.Size = new System.Drawing.Size(226, 55);
+            this.upload_profile_image_button.Size = new System.Drawing.Size(181, 42);
             this.upload_profile_image_button.TabIndex = 15;
             this.upload_profile_image_button.Text = "Upload image";
             this.upload_profile_image_button.UseVisualStyleBackColor = true;
@@ -195,80 +207,88 @@
             // user_photo_label
             // 
             this.user_photo_label.AutoSize = true;
-            this.user_photo_label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.user_photo_label.Location = new System.Drawing.Point(993, 45);
+            this.user_photo_label.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.user_photo_label.Location = new System.Drawing.Point(794, 29);
+            this.user_photo_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.user_photo_label.Name = "user_photo_label";
-            this.user_photo_label.Size = new System.Drawing.Size(181, 38);
+            this.user_photo_label.Size = new System.Drawing.Size(155, 32);
             this.user_photo_label.TabIndex = 14;
             this.user_photo_label.Text = "Profile image";
             // 
             // role_combobox
             // 
-            this.role_combobox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.role_combobox.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.role_combobox.FormattingEnabled = true;
-            this.role_combobox.Location = new System.Drawing.Point(36, 399);
+            this.role_combobox.Location = new System.Drawing.Point(29, 255);
+            this.role_combobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.role_combobox.Name = "role_combobox";
-            this.role_combobox.Size = new System.Drawing.Size(655, 46);
+            this.role_combobox.Size = new System.Drawing.Size(525, 39);
             this.role_combobox.TabIndex = 13;
             this.role_combobox.Text = "Select";
             // 
             // role_label
             // 
             this.role_label.AutoSize = true;
-            this.role_label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.role_label.Location = new System.Drawing.Point(36, 358);
+            this.role_label.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.role_label.Location = new System.Drawing.Point(30, 221);
+            this.role_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.role_label.Name = "role_label";
-            this.role_label.Size = new System.Drawing.Size(161, 38);
+            this.role_label.Size = new System.Drawing.Size(138, 32);
             this.role_label.TabIndex = 12;
             this.role_label.Text = "System role";
             // 
             // username_label
             // 
             this.username_label.AutoSize = true;
-            this.username_label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.username_label.Location = new System.Drawing.Point(36, 91);
+            this.username_label.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.username_label.Location = new System.Drawing.Point(30, 50);
+            this.username_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.username_label.Name = "username_label";
-            this.username_label.Size = new System.Drawing.Size(142, 38);
+            this.username_label.Size = new System.Drawing.Size(121, 32);
             this.username_label.TabIndex = 9;
             this.username_label.Text = "Username";
             // 
             // email_label
             // 
             this.email_label.AutoSize = true;
-            this.email_label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.email_label.Location = new System.Drawing.Point(38, 217);
+            this.email_label.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.email_label.Location = new System.Drawing.Point(30, 130);
+            this.email_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.email_label.Name = "email_label";
-            this.email_label.Size = new System.Drawing.Size(83, 38);
+            this.email_label.Size = new System.Drawing.Size(71, 32);
             this.email_label.TabIndex = 6;
             this.email_label.Text = "Email";
             // 
             // address_label
             // 
             this.address_label.AutoSize = true;
-            this.address_label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.address_label.Location = new System.Drawing.Point(38, 646);
+            this.address_label.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.address_label.Location = new System.Drawing.Point(30, 418);
+            this.address_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.address_label.Name = "address_label";
-            this.address_label.Size = new System.Drawing.Size(116, 38);
+            this.address_label.Size = new System.Drawing.Size(98, 32);
             this.address_label.TabIndex = 4;
             this.address_label.Text = "Address";
             // 
             // last_name_label
             // 
             this.last_name_label.AutoSize = true;
-            this.last_name_label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.last_name_label.Location = new System.Drawing.Point(386, 518);
+            this.last_name_label.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.last_name_label.Location = new System.Drawing.Point(312, 328);
+            this.last_name_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.last_name_label.Name = "last_name_label";
-            this.last_name_label.Size = new System.Drawing.Size(147, 38);
+            this.last_name_label.Size = new System.Drawing.Size(126, 32);
             this.last_name_label.TabIndex = 2;
             this.last_name_label.Text = "Last Name";
             // 
             // first_name_label
             // 
             this.first_name_label.AutoSize = true;
-            this.first_name_label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.first_name_label.Location = new System.Drawing.Point(38, 518);
+            this.first_name_label.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.first_name_label.Location = new System.Drawing.Point(30, 328);
+            this.first_name_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.first_name_label.Name = "first_name_label";
-            this.first_name_label.Size = new System.Drawing.Size(151, 38);
+            this.first_name_label.Size = new System.Drawing.Size(129, 32);
             this.first_name_label.TabIndex = 1;
             this.first_name_label.Text = "First Name";
             // 
@@ -292,11 +312,12 @@
             this.groupBox1.Controls.Add(this.first_name_label);
             this.groupBox1.Controls.Add(this.first_name_input);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Size = new System.Drawing.Size(1572, 826);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox1.Size = new System.Drawing.Size(1258, 528);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Update user";
@@ -305,9 +326,10 @@
             // 
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 85);
+            this.panel1.Location = new System.Drawing.Point(2, 54);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1572, 826);
+            this.panel1.Size = new System.Drawing.Size(1258, 528);
             this.panel1.TabIndex = 3;
             // 
             // table_layout_main
@@ -317,24 +339,26 @@
             this.table_layout_main.Controls.Add(this.panel1, 0, 1);
             this.table_layout_main.Controls.Add(this.panel2, 0, 0);
             this.table_layout_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.table_layout_main.Location = new System.Drawing.Point(40, 40);
+            this.table_layout_main.Location = new System.Drawing.Point(32, 26);
+            this.table_layout_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.table_layout_main.Name = "table_layout_main";
             this.table_layout_main.RowCount = 2;
             this.table_layout_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.971554F));
             this.table_layout_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.02845F));
-            this.table_layout_main.Size = new System.Drawing.Size(1578, 914);
+            this.table_layout_main.Size = new System.Drawing.Size(1262, 584);
             this.table_layout_main.TabIndex = 5;
             // 
             // EditUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1658, 994);
+            this.ClientSize = new System.Drawing.Size(1326, 636);
             this.Controls.Add(this.table_layout_main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EditUser";
-            this.Padding = new System.Windows.Forms.Padding(40);
-            this.Text = "EditUser";
+            this.Padding = new System.Windows.Forms.Padding(32, 26, 32, 26);
+            this.Text = "Edit User";
             ((System.ComponentModel.ISupportInitialize)(this.new_user_error_provider)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

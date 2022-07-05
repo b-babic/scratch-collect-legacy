@@ -126,7 +126,7 @@
             this.validation_label.AutoSize = true;
             this.validation_label.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.validation_label.ForeColor = System.Drawing.Color.IndianRed;
-            this.validation_label.Location = new System.Drawing.Point(793, 350);
+            this.validation_label.Location = new System.Drawing.Point(788, 371);
             this.validation_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.validation_label.Name = "validation_label";
             this.validation_label.Size = new System.Drawing.Size(71, 30);
@@ -136,12 +136,12 @@
             // create_user_button
             // 
             this.create_user_button.BackColor = System.Drawing.Color.OliveDrab;
-            this.create_user_button.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.create_user_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.create_user_button.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.create_user_button.Location = new System.Drawing.Point(782, 432);
+            this.create_user_button.Location = new System.Drawing.Point(793, 433);
             this.create_user_button.Margin = new System.Windows.Forms.Padding(2);
             this.create_user_button.Name = "create_user_button";
-            this.create_user_button.Size = new System.Drawing.Size(210, 35);
+            this.create_user_button.Size = new System.Drawing.Size(210, 48);
             this.create_user_button.TabIndex = 17;
             this.create_user_button.Text = "Create user";
             this.create_user_button.UseVisualStyleBackColor = false;
@@ -159,11 +159,11 @@
             // 
             // upload_profile_image_button
             // 
-            this.upload_profile_image_button.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.upload_profile_image_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.upload_profile_image_button.Location = new System.Drawing.Point(793, 276);
             this.upload_profile_image_button.Margin = new System.Windows.Forms.Padding(2);
             this.upload_profile_image_button.Name = "upload_profile_image_button";
-            this.upload_profile_image_button.Size = new System.Drawing.Size(181, 35);
+            this.upload_profile_image_button.Size = new System.Drawing.Size(181, 41);
             this.upload_profile_image_button.TabIndex = 15;
             this.upload_profile_image_button.Text = "Upload image";
             this.upload_profile_image_button.UseVisualStyleBackColor = true;
@@ -262,7 +262,7 @@
             // 
             this.email_label.AutoSize = true;
             this.email_label.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.email_label.Location = new System.Drawing.Point(29, 138);
+            this.email_label.Location = new System.Drawing.Point(30, 130);
             this.email_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.email_label.Name = "email_label";
             this.email_label.Size = new System.Drawing.Size(71, 32);
@@ -273,7 +273,7 @@
             // 
             this.address_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.address_input, 4);
-            this.address_input.Location = new System.Drawing.Point(29, 438);
+            this.address_input.Location = new System.Drawing.Point(29, 446);
             this.address_input.Margin = new System.Windows.Forms.Padding(2);
             this.address_input.Name = "address_input";
             this.address_input.Size = new System.Drawing.Size(525, 39);
@@ -389,7 +389,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NewUserForm";
             this.Padding = new System.Windows.Forms.Padding(32, 26, 32, 26);
-            this.Text = "New";
+            this.Text = "New User";
             this.table_layout_main.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

@@ -53,7 +53,7 @@
             this.table_layout_main.Controls.Add(this.panel2, 0, 0);
             this.table_layout_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.table_layout_main.Location = new System.Drawing.Point(32, 26);
-            this.table_layout_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.table_layout_main.Margin = new System.Windows.Forms.Padding(2);
             this.table_layout_main.Name = "table_layout_main";
             this.table_layout_main.RowCount = 2;
             this.table_layout_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.971554F));
@@ -66,7 +66,7 @@
             this.main_panel.Controls.Add(this.generate_coupons_groupbox);
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_panel.Location = new System.Drawing.Point(2, 54);
-            this.main_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.main_panel.Margin = new System.Windows.Forms.Padding(2);
             this.main_panel.Name = "main_panel";
             this.main_panel.Size = new System.Drawing.Size(1257, 527);
             this.main_panel.TabIndex = 3;
@@ -79,9 +79,9 @@
             this.generate_coupons_groupbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.generate_coupons_groupbox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.generate_coupons_groupbox.Location = new System.Drawing.Point(0, 0);
-            this.generate_coupons_groupbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.generate_coupons_groupbox.Margin = new System.Windows.Forms.Padding(2);
             this.generate_coupons_groupbox.Name = "generate_coupons_groupbox";
-            this.generate_coupons_groupbox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.generate_coupons_groupbox.Padding = new System.Windows.Forms.Padding(2);
             this.generate_coupons_groupbox.Size = new System.Drawing.Size(1257, 527);
             this.generate_coupons_groupbox.TabIndex = 0;
             this.generate_coupons_groupbox.TabStop = false;
@@ -91,9 +91,9 @@
             // 
             this.coupons_generate_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.coupons_generate_button.Location = new System.Drawing.Point(26, 214);
-            this.coupons_generate_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.coupons_generate_button.Margin = new System.Windows.Forms.Padding(2);
             this.coupons_generate_button.Name = "coupons_generate_button";
-            this.coupons_generate_button.Size = new System.Drawing.Size(174, 40);
+            this.coupons_generate_button.Size = new System.Drawing.Size(174, 49);
             this.coupons_generate_button.TabIndex = 3;
             this.coupons_generate_button.Text = "Generate";
             this.coupons_generate_button.UseVisualStyleBackColor = true;
@@ -101,8 +101,8 @@
             // 
             // coupons_generate_numeric_input
             // 
-            this.coupons_generate_numeric_input.Location = new System.Drawing.Point(26, 122);
-            this.coupons_generate_numeric_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.coupons_generate_numeric_input.Location = new System.Drawing.Point(31, 130);
+            this.coupons_generate_numeric_input.Margin = new System.Windows.Forms.Padding(2);
             this.coupons_generate_numeric_input.Maximum = new decimal(new int[] {
             15,
             0,
@@ -139,7 +139,7 @@
             this.panel2.Controls.Add(this.logo_title);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(2, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1257, 48);
             this.panel2.TabIndex = 4;
@@ -150,7 +150,7 @@
             this.go_back_button.Image = ((System.Drawing.Image)(resources.GetObject("go_back_button.Image")));
             this.go_back_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.go_back_button.Location = new System.Drawing.Point(0, 0);
-            this.go_back_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.go_back_button.Margin = new System.Windows.Forms.Padding(2);
             this.go_back_button.Name = "go_back_button";
             this.go_back_button.Size = new System.Drawing.Size(116, 48);
             this.go_back_button.TabIndex = 4;
@@ -179,10 +179,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1325, 635);
             this.Controls.Add(this.table_layout_main);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GenerateCoupons";
             this.Padding = new System.Windows.Forms.Padding(32, 26, 32, 26);
-            this.Text = "GenerateCoupons";
+            this.Text = "Generate Coupons";
             this.table_layout_main.ResumeLayout(false);
             this.main_panel.ResumeLayout(false);
             this.generate_coupons_groupbox.ResumeLayout(false);

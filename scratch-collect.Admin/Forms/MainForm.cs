@@ -17,10 +17,6 @@ namespace scratch_collect.Admin.Forms
         {
             InitializeComponent();
 
-            // TODO: Remove this before MVP
-            // Fake Authentication for DEV purposes.
-            FakeAuthentication();
-
             PopulateReportsParams();
         }
 
@@ -114,12 +110,6 @@ namespace scratch_collect.Admin.Forms
             var usersReport = new UsersReportForm();
 
             usersReport.ShowDialog();
-        }
-
-        // Helpers
-        private static void FakeAuthentication()
-        {
-            AuthService.FakeAuthentication();
         }
     }
 }

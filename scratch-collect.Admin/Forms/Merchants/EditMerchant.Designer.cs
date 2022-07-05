@@ -61,7 +61,7 @@
             this.table_layout_main.Controls.Add(this.panel2, 0, 0);
             this.table_layout_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.table_layout_main.Location = new System.Drawing.Point(32, 26);
-            this.table_layout_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.table_layout_main.Margin = new System.Windows.Forms.Padding(2);
             this.table_layout_main.Name = "table_layout_main";
             this.table_layout_main.RowCount = 2;
             this.table_layout_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.971554F));
@@ -74,7 +74,7 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(2, 54);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1258, 528);
             this.panel1.TabIndex = 3;
@@ -94,7 +94,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Size = new System.Drawing.Size(1258, 528);
@@ -105,8 +105,8 @@
             // telephone_input
             // 
             this.telephone_input.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.telephone_input.Location = new System.Drawing.Point(30, 244);
-            this.telephone_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.telephone_input.Location = new System.Drawing.Point(38, 247);
+            this.telephone_input.Margin = new System.Windows.Forms.Padding(2);
             this.telephone_input.Mask = "(999) 000-0000";
             this.telephone_input.Name = "telephone_input";
             this.telephone_input.Size = new System.Drawing.Size(525, 39);
@@ -139,12 +139,12 @@
             // edit_merchant_button
             // 
             this.edit_merchant_button.BackColor = System.Drawing.Color.OliveDrab;
-            this.edit_merchant_button.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.edit_merchant_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.edit_merchant_button.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.edit_merchant_button.Location = new System.Drawing.Point(39, 474);
-            this.edit_merchant_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.edit_merchant_button.Location = new System.Drawing.Point(30, 459);
+            this.edit_merchant_button.Margin = new System.Windows.Forms.Padding(2);
             this.edit_merchant_button.Name = "edit_merchant_button";
-            this.edit_merchant_button.Size = new System.Drawing.Size(210, 35);
+            this.edit_merchant_button.Size = new System.Drawing.Size(210, 48);
             this.edit_merchant_button.TabIndex = 17;
             this.edit_merchant_button.Text = "Edit Merchant";
             this.edit_merchant_button.UseVisualStyleBackColor = false;
@@ -154,8 +154,8 @@
             // 
             this.country_combobox.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.country_combobox.FormattingEnabled = true;
-            this.country_combobox.Location = new System.Drawing.Point(30, 339);
-            this.country_combobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.country_combobox.Location = new System.Drawing.Point(38, 338);
+            this.country_combobox.Margin = new System.Windows.Forms.Padding(2);
             this.country_combobox.Name = "country_combobox";
             this.country_combobox.Size = new System.Drawing.Size(525, 39);
             this.country_combobox.TabIndex = 13;
@@ -175,8 +175,8 @@
             // name_input
             // 
             this.name_input.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.name_input.Location = new System.Drawing.Point(30, 81);
-            this.name_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.name_input.Location = new System.Drawing.Point(38, 90);
+            this.name_input.Margin = new System.Windows.Forms.Padding(2);
             this.name_input.Name = "name_input";
             this.name_input.Size = new System.Drawing.Size(525, 39);
             this.name_input.TabIndex = 7;
@@ -196,8 +196,8 @@
             // address_input
             // 
             this.address_input.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.address_input.Location = new System.Drawing.Point(30, 159);
-            this.address_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.address_input.Location = new System.Drawing.Point(38, 168);
+            this.address_input.Margin = new System.Windows.Forms.Padding(2);
             this.address_input.Name = "address_input";
             this.address_input.Size = new System.Drawing.Size(525, 39);
             this.address_input.TabIndex = 5;
@@ -220,7 +220,7 @@
             this.panel2.Controls.Add(this.logo_title);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(2, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1258, 48);
             this.panel2.TabIndex = 4;
@@ -228,9 +228,10 @@
             // go_back_button
             // 
             this.go_back_button.Dock = System.Windows.Forms.DockStyle.Left;
+            this.go_back_button.Image = global::scratch_collect.Admin.Properties.Resources.undo;
             this.go_back_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.go_back_button.Location = new System.Drawing.Point(0, 0);
-            this.go_back_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.go_back_button.Margin = new System.Windows.Forms.Padding(2);
             this.go_back_button.Name = "go_back_button";
             this.go_back_button.Size = new System.Drawing.Size(116, 48);
             this.go_back_button.TabIndex = 4;
@@ -263,10 +264,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 636);
             this.Controls.Add(this.table_layout_main);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditMerchant";
             this.Padding = new System.Windows.Forms.Padding(32, 26, 32, 26);
-            this.Text = "EditMerchant";
+            this.Text = "Edit Merchant";
             this.table_layout_main.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

@@ -135,7 +135,7 @@
             // 
             this.price_combobox.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.price_combobox.FormattingEnabled = true;
-            this.price_combobox.Location = new System.Drawing.Point(708, 74);
+            this.price_combobox.Location = new System.Drawing.Point(708, 81);
             this.price_combobox.Margin = new System.Windows.Forms.Padding(2);
             this.price_combobox.Name = "price_combobox";
             this.price_combobox.Size = new System.Drawing.Size(284, 39);
@@ -146,7 +146,7 @@
             // 
             this.description_label.AutoSize = true;
             this.description_label.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.description_label.Location = new System.Drawing.Point(30, 134);
+            this.description_label.Location = new System.Drawing.Point(30, 175);
             this.description_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.description_label.Name = "description_label";
             this.description_label.Size = new System.Drawing.Size(135, 32);
@@ -156,7 +156,7 @@
             // description_input
             // 
             this.description_input.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.description_input.Location = new System.Drawing.Point(30, 167);
+            this.description_input.Location = new System.Drawing.Point(30, 222);
             this.description_input.Margin = new System.Windows.Forms.Padding(2);
             this.description_input.Name = "description_input";
             this.description_input.Size = new System.Drawing.Size(444, 209);
@@ -168,7 +168,7 @@
             // 
             this.quantity_label.AutoSize = true;
             this.quantity_label.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.quantity_label.Location = new System.Drawing.Point(708, 134);
+            this.quantity_label.Location = new System.Drawing.Point(708, 124);
             this.quantity_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.quantity_label.Name = "quantity_label";
             this.quantity_label.Size = new System.Drawing.Size(106, 32);
@@ -180,7 +180,7 @@
             this.validation_label.AutoSize = true;
             this.validation_label.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.validation_label.ForeColor = System.Drawing.Color.IndianRed;
-            this.validation_label.Location = new System.Drawing.Point(708, 321);
+            this.validation_label.Location = new System.Drawing.Point(709, 333);
             this.validation_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.validation_label.Name = "validation_label";
             this.validation_label.Size = new System.Drawing.Size(71, 30);
@@ -190,12 +190,12 @@
             // create_offer_button
             // 
             this.create_offer_button.BackColor = System.Drawing.Color.OliveDrab;
-            this.create_offer_button.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.create_offer_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.create_offer_button.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.create_offer_button.Location = new System.Drawing.Point(708, 407);
+            this.create_offer_button.Location = new System.Drawing.Point(708, 404);
             this.create_offer_button.Margin = new System.Windows.Forms.Padding(2);
             this.create_offer_button.Name = "create_offer_button";
-            this.create_offer_button.Size = new System.Drawing.Size(210, 35);
+            this.create_offer_button.Size = new System.Drawing.Size(210, 46);
             this.create_offer_button.TabIndex = 17;
             this.create_offer_button.Text = "Create offer";
             this.create_offer_button.UseVisualStyleBackColor = false;
@@ -205,7 +205,7 @@
             // 
             this.category_combobox.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.category_combobox.FormattingEnabled = true;
-            this.category_combobox.Location = new System.Drawing.Point(708, 248);
+            this.category_combobox.Location = new System.Drawing.Point(707, 256);
             this.category_combobox.Margin = new System.Windows.Forms.Padding(2);
             this.category_combobox.Name = "category_combobox";
             this.category_combobox.Size = new System.Drawing.Size(284, 39);
@@ -226,7 +226,7 @@
             // title_input
             // 
             this.title_input.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.title_input.Location = new System.Drawing.Point(30, 74);
+            this.title_input.Location = new System.Drawing.Point(30, 90);
             this.title_input.Margin = new System.Windows.Forms.Padding(2);
             this.title_input.Name = "title_input";
             this.title_input.Size = new System.Drawing.Size(444, 39);
@@ -308,7 +308,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NewOffer";
             this.Padding = new System.Windows.Forms.Padding(32, 26, 32, 26);
-            this.Text = "NewForm";
+            this.Text = "New Offer";
             this.table_layout_main.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.new__section_groupbox.ResumeLayout(false);

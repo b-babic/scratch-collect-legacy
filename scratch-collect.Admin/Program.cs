@@ -26,8 +26,7 @@ namespace scratch_collect.Admin
             Application.SetCompatibleTextRenderingDefault(false);
             ConfigureServices();
 
-            // TODO: Remove before MVP
-            Application.Run(new MainForm());
+            Application.Run(new LoginForm());
         }
     }
 }

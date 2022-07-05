@@ -30,6 +30,7 @@
         {
             this.all_users_main_layout = new System.Windows.Forms.TableLayoutPanel();
             this.all_users_panel = new System.Windows.Forms.Panel();
+            this.offer_info_report_button = new System.Windows.Forms.Button();
             this.filter_category_combobox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -39,7 +40,6 @@
             this.offers_filter_button = new System.Windows.Forms.Button();
             this.users_layout_content_panel = new System.Windows.Forms.Panel();
             this.offers_datagrid = new System.Windows.Forms.DataGridView();
-            this.offer_info_report_button = new System.Windows.Forms.Button();
             this.all_users_main_layout.SuspendLayout();
             this.all_users_panel.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -77,6 +77,18 @@
             this.all_users_panel.Size = new System.Drawing.Size(1256, 62);
             this.all_users_panel.TabIndex = 2;
             // 
+            // offer_info_report_button
+            // 
+            this.offer_info_report_button.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.offer_info_report_button.Location = new System.Drawing.Point(542, 12);
+            this.offer_info_report_button.Margin = new System.Windows.Forms.Padding(2);
+            this.offer_info_report_button.Name = "offer_info_report_button";
+            this.offer_info_report_button.Size = new System.Drawing.Size(266, 39);
+            this.offer_info_report_button.TabIndex = 7;
+            this.offer_info_report_button.Text = "Generate Offer Stats Report";
+            this.offer_info_report_button.UseVisualStyleBackColor = true;
+            this.offer_info_report_button.Click += new System.EventHandler(this.offer_info_report_button_Click);
+            // 
             // filter_category_combobox
             // 
             this.filter_category_combobox.FormattingEnabled = true;
@@ -113,10 +125,10 @@
             this.offers_delete_button.BackColor = System.Drawing.Color.Brown;
             this.offers_delete_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.offers_delete_button.ForeColor = System.Drawing.Color.LightCoral;
-            this.offers_delete_button.Location = new System.Drawing.Point(32, 17);
+            this.offers_delete_button.Location = new System.Drawing.Point(29, 15);
             this.offers_delete_button.Margin = new System.Windows.Forms.Padding(2);
             this.offers_delete_button.Name = "offers_delete_button";
-            this.offers_delete_button.Size = new System.Drawing.Size(90, 31);
+            this.offers_delete_button.Size = new System.Drawing.Size(90, 37);
             this.offers_delete_button.TabIndex = 6;
             this.offers_delete_button.Text = "Delete";
             this.offers_delete_button.UseVisualStyleBackColor = false;
@@ -125,10 +137,10 @@
             // offers_edit_button
             // 
             this.offers_edit_button.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.offers_edit_button.Location = new System.Drawing.Point(150, 17);
+            this.offers_edit_button.Location = new System.Drawing.Point(149, 15);
             this.offers_edit_button.Margin = new System.Windows.Forms.Padding(2);
             this.offers_edit_button.Name = "offers_edit_button";
-            this.offers_edit_button.Size = new System.Drawing.Size(90, 31);
+            this.offers_edit_button.Size = new System.Drawing.Size(90, 36);
             this.offers_edit_button.TabIndex = 5;
             this.offers_edit_button.Text = "Edit";
             this.offers_edit_button.UseVisualStyleBackColor = true;
@@ -137,10 +149,10 @@
             // offers_new_button
             // 
             this.offers_new_button.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.offers_new_button.Location = new System.Drawing.Point(262, 17);
+            this.offers_new_button.Location = new System.Drawing.Point(259, 15);
             this.offers_new_button.Margin = new System.Windows.Forms.Padding(2);
             this.offers_new_button.Name = "offers_new_button";
-            this.offers_new_button.Size = new System.Drawing.Size(90, 31);
+            this.offers_new_button.Size = new System.Drawing.Size(90, 36);
             this.offers_new_button.TabIndex = 4;
             this.offers_new_button.Text = "New";
             this.offers_new_button.UseVisualStyleBackColor = true;
@@ -149,10 +161,10 @@
             // offers_filter_button
             // 
             this.offers_filter_button.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.offers_filter_button.Location = new System.Drawing.Point(306, 16);
+            this.offers_filter_button.Location = new System.Drawing.Point(311, 9);
             this.offers_filter_button.Margin = new System.Windows.Forms.Padding(2);
             this.offers_filter_button.Name = "offers_filter_button";
-            this.offers_filter_button.Size = new System.Drawing.Size(90, 31);
+            this.offers_filter_button.Size = new System.Drawing.Size(90, 42);
             this.offers_filter_button.TabIndex = 1;
             this.offers_filter_button.Text = "Filter";
             this.offers_filter_button.UseVisualStyleBackColor = true;
@@ -189,18 +201,6 @@
             this.offers_datagrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.offers_datagrid_DataBindingComplete);
             this.offers_datagrid.SelectionChanged += new System.EventHandler(this.offers_datagrid_SelectionChanged);
             // 
-            // offer_info_report_button
-            // 
-            this.offer_info_report_button.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.offer_info_report_button.Location = new System.Drawing.Point(558, 17);
-            this.offer_info_report_button.Margin = new System.Windows.Forms.Padding(2);
-            this.offer_info_report_button.Name = "offer_info_report_button";
-            this.offer_info_report_button.Size = new System.Drawing.Size(266, 31);
-            this.offer_info_report_button.TabIndex = 7;
-            this.offer_info_report_button.Text = "Generate Offer Stats Report";
-            this.offer_info_report_button.UseVisualStyleBackColor = true;
-            this.offer_info_report_button.Click += new System.EventHandler(this.offer_info_report_button_Click);
-            // 
             // AllOffers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -210,7 +210,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AllOffers";
             this.Padding = new System.Windows.Forms.Padding(32, 26, 32, 26);
-            this.Text = "AllOffers";
+            this.Text = "All Offers";
             this.Load += new System.EventHandler(this.AllOffers_Load);
             this.all_users_main_layout.ResumeLayout(false);
             this.all_users_panel.ResumeLayout(false);

@@ -30,6 +30,8 @@
         {
             this.all_users_main_layout = new System.Windows.Forms.TableLayoutPanel();
             this.all_users_panel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.merchants_country_filter = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -40,8 +42,6 @@
             this.merchants_filter_button = new System.Windows.Forms.Button();
             this.users_layout_content_panel = new System.Windows.Forms.Panel();
             this.merchants_datagrid = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.all_users_main_layout.SuspendLayout();
             this.all_users_panel.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -58,7 +58,7 @@
             this.all_users_main_layout.Controls.Add(this.users_layout_content_panel, 0, 1);
             this.all_users_main_layout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.all_users_main_layout.Location = new System.Drawing.Point(32, 26);
-            this.all_users_main_layout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.all_users_main_layout.Margin = new System.Windows.Forms.Padding(2);
             this.all_users_main_layout.Name = "all_users_main_layout";
             this.all_users_main_layout.RowCount = 2;
             this.all_users_main_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.40351F));
@@ -76,16 +76,34 @@
             this.all_users_panel.Controls.Add(this.merchants_text_filter);
             this.all_users_panel.Controls.Add(this.merchants_filter_button);
             this.all_users_panel.Location = new System.Drawing.Point(2, 2);
-            this.all_users_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.all_users_panel.Margin = new System.Windows.Forms.Padding(2);
             this.all_users_panel.Name = "all_users_panel";
             this.all_users_panel.Size = new System.Drawing.Size(1256, 62);
             this.all_users_panel.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 16);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Text:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(337, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Country:";
+            // 
             // merchants_country_filter
             // 
             this.merchants_country_filter.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.merchants_country_filter.Location = new System.Drawing.Point(429, 20);
-            this.merchants_country_filter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.merchants_country_filter.Location = new System.Drawing.Point(397, 15);
+            this.merchants_country_filter.Margin = new System.Windows.Forms.Padding(2);
             this.merchants_country_filter.Name = "merchants_country_filter";
             this.merchants_country_filter.Size = new System.Drawing.Size(194, 34);
             this.merchants_country_filter.TabIndex = 5;
@@ -94,7 +112,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Location = new System.Drawing.Point(865, 10);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(4, 38);
             this.panel2.TabIndex = 4;
@@ -106,7 +124,7 @@
             this.panel3.Controls.Add(this.merchants_new_button);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(894, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(362, 62);
             this.panel3.TabIndex = 3;
@@ -116,10 +134,10 @@
             this.merchants_delete_button.BackColor = System.Drawing.Color.Brown;
             this.merchants_delete_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.merchants_delete_button.ForeColor = System.Drawing.Color.LightCoral;
-            this.merchants_delete_button.Location = new System.Drawing.Point(32, 17);
-            this.merchants_delete_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.merchants_delete_button.Location = new System.Drawing.Point(33, 13);
+            this.merchants_delete_button.Margin = new System.Windows.Forms.Padding(2);
             this.merchants_delete_button.Name = "merchants_delete_button";
-            this.merchants_delete_button.Size = new System.Drawing.Size(90, 31);
+            this.merchants_delete_button.Size = new System.Drawing.Size(90, 38);
             this.merchants_delete_button.TabIndex = 6;
             this.merchants_delete_button.Text = "Delete";
             this.merchants_delete_button.UseVisualStyleBackColor = false;
@@ -128,10 +146,10 @@
             // merchants_edit_button
             // 
             this.merchants_edit_button.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.merchants_edit_button.Location = new System.Drawing.Point(150, 17);
-            this.merchants_edit_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.merchants_edit_button.Location = new System.Drawing.Point(158, 12);
+            this.merchants_edit_button.Margin = new System.Windows.Forms.Padding(2);
             this.merchants_edit_button.Name = "merchants_edit_button";
-            this.merchants_edit_button.Size = new System.Drawing.Size(90, 31);
+            this.merchants_edit_button.Size = new System.Drawing.Size(90, 36);
             this.merchants_edit_button.TabIndex = 5;
             this.merchants_edit_button.Text = "Edit";
             this.merchants_edit_button.UseVisualStyleBackColor = true;
@@ -140,10 +158,10 @@
             // merchants_new_button
             // 
             this.merchants_new_button.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.merchants_new_button.Location = new System.Drawing.Point(262, 17);
-            this.merchants_new_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.merchants_new_button.Location = new System.Drawing.Point(269, 13);
+            this.merchants_new_button.Margin = new System.Windows.Forms.Padding(2);
             this.merchants_new_button.Name = "merchants_new_button";
-            this.merchants_new_button.Size = new System.Drawing.Size(90, 31);
+            this.merchants_new_button.Size = new System.Drawing.Size(90, 36);
             this.merchants_new_button.TabIndex = 4;
             this.merchants_new_button.Text = "New";
             this.merchants_new_button.UseVisualStyleBackColor = true;
@@ -152,8 +170,8 @@
             // merchants_text_filter
             // 
             this.merchants_text_filter.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.merchants_text_filter.Location = new System.Drawing.Point(73, 15);
-            this.merchants_text_filter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.merchants_text_filter.Location = new System.Drawing.Point(54, 15);
+            this.merchants_text_filter.Margin = new System.Windows.Forms.Padding(2);
             this.merchants_text_filter.Name = "merchants_text_filter";
             this.merchants_text_filter.Size = new System.Drawing.Size(194, 34);
             this.merchants_text_filter.TabIndex = 2;
@@ -161,10 +179,10 @@
             // merchants_filter_button
             // 
             this.merchants_filter_button.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.merchants_filter_button.Location = new System.Drawing.Point(706, 17);
-            this.merchants_filter_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.merchants_filter_button.Location = new System.Drawing.Point(690, 10);
+            this.merchants_filter_button.Margin = new System.Windows.Forms.Padding(2);
             this.merchants_filter_button.Name = "merchants_filter_button";
-            this.merchants_filter_button.Size = new System.Drawing.Size(90, 31);
+            this.merchants_filter_button.Size = new System.Drawing.Size(90, 39);
             this.merchants_filter_button.TabIndex = 1;
             this.merchants_filter_button.Text = "Filter";
             this.merchants_filter_button.UseVisualStyleBackColor = true;
@@ -175,7 +193,7 @@
             this.users_layout_content_panel.Controls.Add(this.merchants_datagrid);
             this.users_layout_content_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.users_layout_content_panel.Location = new System.Drawing.Point(2, 68);
-            this.users_layout_content_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.users_layout_content_panel.Margin = new System.Windows.Forms.Padding(2);
             this.users_layout_content_panel.Name = "users_layout_content_panel";
             this.users_layout_content_panel.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.users_layout_content_panel.Size = new System.Drawing.Size(1257, 513);
@@ -188,7 +206,7 @@
             this.merchants_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.merchants_datagrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.merchants_datagrid.Location = new System.Drawing.Point(4, 3);
-            this.merchants_datagrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.merchants_datagrid.Margin = new System.Windows.Forms.Padding(2);
             this.merchants_datagrid.MultiSelect = false;
             this.merchants_datagrid.Name = "merchants_datagrid";
             this.merchants_datagrid.ReadOnly = true;
@@ -200,34 +218,16 @@
             this.merchants_datagrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.merchants_datagrid_DataBindingComplete);
             this.merchants_datagrid.SelectionChanged += new System.EventHandler(this.merchants_datagrid_SelectionChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(363, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Country:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Text:";
-            // 
             // AllMerchants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1325, 635);
             this.Controls.Add(this.all_users_main_layout);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AllMerchants";
             this.Padding = new System.Windows.Forms.Padding(32, 26, 32, 26);
-            this.Text = "AllMerchants";
+            this.Text = "All Merchants";
             this.Load += new System.EventHandler(this.AllMerchants_Load);
             this.all_users_main_layout.ResumeLayout(false);
             this.all_users_panel.ResumeLayout(false);
