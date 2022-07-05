@@ -12,6 +12,8 @@ class ProfileBodyLoading extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SkeletonAvatar(
                   style: SkeletonAvatarStyle(
@@ -19,26 +21,55 @@ class ProfileBodyLoading extends StatelessWidget {
                     width: getProportionateScreenWidth(250),
                     shape: BoxShape.circle,
                   ),
-                )
+                ),
+                SizedBox(
+                  height: getProportionateScreenHeight(15),
+                ),
+                SkeletonLine(
+                  style: SkeletonLineStyle(
+                    height: getProportionateScreenHeight(30),
+                  ),
+                ),
               ],
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: getProportionateScreenHeight(30)),
             SkeletonLine(
-                style: SkeletonLineStyle(
-                    height: getProportionateScreenHeight(40))),
-            const SizedBox(height: 30),
+              style: SkeletonLineStyle(
+                height: getProportionateScreenHeight(60),
+              ),
+            ),
+            SizedBox(height: getProportionateScreenHeight(30)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SkeletonLine(
+                  style: SkeletonLineStyle(
+                    width: getProportionateScreenHeight(60),
+                  ),
+                ),
+                SizedBox(
+                  width: getProportionateScreenWidth(45),
+                ),
+                SkeletonLine(
+                  style: SkeletonLineStyle(
+                    width: getProportionateScreenHeight(60),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: getProportionateScreenWidth(30)),
             SkeletonLine(
-                style: SkeletonLineStyle(
-                    height: getProportionateScreenHeight(60))),
-            const SizedBox(height: 20),
+              style: SkeletonLineStyle(
+                height: getProportionateScreenHeight(60),
+              ),
+            ),
+            SizedBox(height: getProportionateScreenWidth(20)),
             SkeletonLine(
-                style: SkeletonLineStyle(
-                    height: getProportionateScreenHeight(60))),
-            const SizedBox(height: 20),
-            SkeletonLine(
-                style: SkeletonLineStyle(
-                    height: getProportionateScreenHeight(60))),
-            const SizedBox(height: 20),
+              style: SkeletonLineStyle(
+                height: getProportionateScreenHeight(60),
+              ),
+            ),
+            SizedBox(height: getProportionateScreenWidth(20)),
           ],
         ));
   }
