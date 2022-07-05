@@ -24,5 +24,12 @@ namespace scratch_collect.API.Controllers
         {
             return _reportService.SuccessOffers(request);
         }
+
+        [HttpGet]
+        [Route("active-users")]
+        public List<ActiveUser> Get()
+        {
+            return _reportService.ActiveUsers();
+        }
     }
 }

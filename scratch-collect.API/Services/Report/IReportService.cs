@@ -6,5 +6,7 @@ namespace scratch_collect.API.Services
     public interface IReportService
     {
         List<SuccessOffer> SuccessOffers(SuccessOffersRequest request);
+
+        List<ActiveUser> ActiveUsers();
     }
 }

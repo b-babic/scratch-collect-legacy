@@ -79,5 +79,39 @@ namespace scratch_collect.API.Services
 
             return _mapper.Map<List<SuccessOffer>>(test);
         }
+
+        public List<ActiveUser> ActiveUsers()
+        {
+            var query = _context
+                .UserOffers
+                .Include(x => x.User)
+                .AsQueryable();
+
+            var results = query
+                          .ToList()
+                          .GroupBy(r => r.User)
+                          .Select(gr => new
+                          {
+                              User = gr.Key,
+                              TimesPlayed = gr.Count(a => a.Played)
+                          })
+                          .Where(a => a.TimesPlayed > 0)
+                          .OrderByDescending(a => a.TimesPlayed)
+                          .ToList();
+
+            List<ActiveUser> test = new List<ActiveUser>();
+            foreach (var metric in results)
+            {
+                test.Add(new ActiveUser
+                {
+                    Email = metric.User.Email,
+                    FirstName = metric.User.FirstName,
+                    LastName = metric.User.LastName,
+                    OffersPlayedCount = metric.TimesPlayed,
+                });
+            }
+
+            return _mapper.Map<List<ActiveUser>>(test);
+        }
     }
 }
