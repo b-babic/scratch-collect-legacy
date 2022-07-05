@@ -1,6 +1,6 @@
+import 'package:IB210370/modules/profile/profile.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:IB210370/modules/auth/constants.dart';
-import 'package:IB210370/modules/home/home.screen.dart';
 import 'package:IB210370/modules/profile/models/edit_profile_arguments.model.dart';
 import 'package:IB210370/modules/profile/models/edit_profile_request.dart';
 import 'package:IB210370/modules/profile/services/profile.service.dart';
@@ -89,6 +89,8 @@ class EditProfileFormState extends State<EditProfileForm> {
           children: [
             buildEmailFormField(),
             SizedBox(height: getProportionateScreenHeight(30)),
+            buildUsernameFormField(),
+            SizedBox(height: getProportionateScreenHeight(30)),
             buildFirstNameFormField(),
             SizedBox(height: getProportionateScreenHeight(30)),
             buildLastNameFormField(),
@@ -126,7 +128,12 @@ class EditProfileFormState extends State<EditProfileForm> {
 
                       if (updated.id != null) {
                         Snackbar.showSuccess(context, "Profile updated!");
-                        Navigator.pushNamed(context, HomeScreen.routeName);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProfileScreen(),
+                          ),
+                        );
                       }
                     } on Exception catch (e) {
                       Snackbar.showError(context, e.toString());

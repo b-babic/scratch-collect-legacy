@@ -1,3 +1,4 @@
+import 'package:IB210370/modules/profile/profile.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:IB210370/modules/profile/models/edit_password_arguments.dart';
 import 'package:IB210370/modules/profile/widgets/change_password_form.dart';
@@ -18,7 +19,19 @@ class ChangePasswordScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ProfileScreen(),
+              ),
+            );
+          },
+        ),
+        title: const Text(
+          "Profile",
+        ),
       ),
       body: SafeArea(
         child: SizedBox(

@@ -11,16 +11,17 @@ class ProfileResponse {
   String? userPhoto;
   Wallet? wallet;
 
-  ProfileResponse(
-      {this.id,
-      this.username,
-      this.email,
-      this.firstName,
-      this.lastName,
-      this.address,
-      this.wallet,
-      this.registeredAt,
-      this.userPhoto});
+  ProfileResponse({
+    this.id,
+    this.username,
+    this.email,
+    this.firstName,
+    this.lastName,
+    this.address,
+    this.wallet,
+    this.registeredAt,
+    this.userPhoto,
+  });
 
   ProfileResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -29,7 +30,7 @@ class ProfileResponse {
     firstName = json['firstName'];
     lastName = json['lastName'];
     address = json['address'];
-    wallet = Wallet.fromJson(json['wallet']);
+    wallet = json['wallet'] != null ? Wallet.fromJson(json['wallet']) : null;
     registeredAt = json['registeredAt'];
     userPhoto = json['userPhoto'];
   }
