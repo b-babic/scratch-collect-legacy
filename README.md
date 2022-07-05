@@ -1,5 +1,10 @@
 # Scratch & Collect
 
+## Versions
+1. Flutter version 3.0.4
+2. API uses .net 6.0
+3. Windows forms uses .NET 4.7.2
+
 ## Running the app
 1. Clone the repo;
 2. `cd` into the cloned folder;
