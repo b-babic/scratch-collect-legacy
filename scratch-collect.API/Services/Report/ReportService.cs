@@ -113,5 +113,39 @@ namespace scratch_collect.API.Services
 
             return _mapper.Map<List<ActiveUser>>(test);
         }
+
+        public List<OfferInfo> OfferInfo(OfferInfoRequest request)
+        {
+            var query = _context
+                .UserOffers
+                .Include(x => x.Offer)
+                .AsQueryable();
+
+            var results = query
+                          .ToList()
+                          .Where(a => a.Offer.Id == request.OfferId)
+                          .GroupBy(r => r.Offer)
+                          .Select(gr => new
+                          {
+                              Offer = gr.Key,
+                              Unplayed = gr.Where(gr => gr.Played == false).Count(),
+                              PlayedWon = gr.Where(gr => gr.Played == true && gr.Won == true).Count(),
+                              PlayedNotWon = gr.Where(gr => gr.Played == true && gr.Won == false).Count()
+                          })
+                          .ToList();
+
+            List<OfferInfo> test = new List<OfferInfo>();
+            foreach (var metric in results)
+            {
+                test.Add(new OfferInfo
+                {
+                    Unplayed = metric.Unplayed,
+                    PlayedNotWon = metric.PlayedWon,
+                    PlayedWon = metric.PlayedWon,
+                });
+            }
+
+            return _mapper.Map<List<OfferInfo>>(test);
+        }
     }
 }

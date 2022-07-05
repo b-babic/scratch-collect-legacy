@@ -20,16 +20,23 @@ namespace scratch_collect.API.Controllers
 
         [HttpPost]
         [Route("success-offers")]
-        public List<SuccessOffer> Get([FromBody] SuccessOffersRequest request)
+        public List<SuccessOffer> GetSuccessOffers([FromBody] SuccessOffersRequest request)
         {
             return _reportService.SuccessOffers(request);
         }
 
         [HttpGet]
         [Route("active-users")]
-        public List<ActiveUser> Get()
+        public List<ActiveUser> GetActiveUsers()
         {
             return _reportService.ActiveUsers();
+        }
+
+        [HttpPost]
+        [Route("offer-info")]
+        public List<OfferInfo> GetOfferInfo([FromBody] OfferInfoRequest request)
+        {
+            return _reportService.OfferInfo(request);
         }
     }
 }

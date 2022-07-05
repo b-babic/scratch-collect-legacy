@@ -8,5 +8,7 @@ namespace scratch_collect.API.Services
         List<SuccessOffer> SuccessOffers(SuccessOffersRequest request);
 
         List<ActiveUser> ActiveUsers();
+
+        List<OfferInfo> OfferInfo(OfferInfoRequest request);
     }
 }
