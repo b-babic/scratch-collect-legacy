@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:IB210370/modules/shared/theme/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:IB210370/modules/auth/login.screen.dart';
@@ -79,16 +80,16 @@ class ProfileBodyState extends State<ProfileBody> {
                 ProfilePic(
                   profilePhoto: userProfile.userPhoto,
                 ),
-                const SizedBox(height: 15),
+                SizedBox(height: getProportionateScreenHeight(15)),
                 ProfileBalance(balance: "${userProfile.wallet?.balance}\$"),
-                const SizedBox(height: 15),
+                SizedBox(height: getProportionateScreenHeight(15)),
                 ProfileMenu(
                   text: "Wallet - payments",
                   icon: "lib/modules/shared/assets/icons/dollar.svg",
                   press: () => Navigator.pushNamed(
                       context, WalletVoucherScreen.routeName),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: getProportionateScreenHeight(40)),
                 ProfileInfo(
                   name: (userProfile.firstName!.isNotEmpty &&
                           userProfile.lastName!.isNotEmpty)
@@ -96,7 +97,7 @@ class ProfileBodyState extends State<ProfileBody> {
                       : "",
                   username: "${userProfile.username}",
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: getProportionateScreenHeight(20)),
                 ProfileMenu(
                   text: "Edit Profile",
                   icon: "lib/modules/shared/assets/icons/user.svg",

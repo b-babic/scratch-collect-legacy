@@ -1,3 +1,4 @@
+import 'package:IB210370/modules/shared/theme/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:IB210370/modules/shared/theme/colors.dart';
@@ -31,9 +32,9 @@ class ProfileMenu extends StatelessWidget {
             SvgPicture.asset(
               icon,
               color: primaryColor,
-              width: 22,
+              width: getProportionateScreenWidth(22),
             ),
-            const SizedBox(width: 20),
+            SizedBox(width: getProportionateScreenWidth(20)),
             Expanded(child: Text(text)),
             const Icon(Icons.arrow_forward_ios),
           ],
