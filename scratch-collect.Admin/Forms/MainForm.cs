@@ -109,6 +109,13 @@ namespace scratch_collect.Admin.Forms
             offersReport.ShowDialog();
         }
 
+        private void btn_users_report_Click(object sender, EventArgs e)
+        {
+            var usersReport = new UsersReportForm();
+
+            usersReport.ShowDialog();
+        }
+
         // Helpers
         private static void FakeAuthentication()
         {

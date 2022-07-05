@@ -22,5 +22,19 @@ namespace scratch_collect.Admin.Services
                 throw;
             }
         }
+
+        public static async Task<List<ActiveUser>> ActiveUsers()
+        {
+            try
+            {
+                var users = await BaseService.GetAsync<List<ActiveUser>>(_baseUrl + "/active-users");
+
+                return users;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

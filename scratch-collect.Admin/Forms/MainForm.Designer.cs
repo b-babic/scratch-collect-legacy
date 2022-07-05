@@ -42,23 +42,21 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.winnings_control_menu = new System.Windows.Forms.ToolStripLabel();
             this.main_panel_wrapper = new System.Windows.Forms.Panel();
-            this.third_report = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.second_report = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_users_report = new System.Windows.Forms.Button();
             this.report_offers = new System.Windows.Forms.GroupBox();
-            this.btn_offers_report = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.offers_report_date_to_picker = new System.Windows.Forms.DateTimePicker();
-            this.offers_report_date_from_picker = new System.Windows.Forms.DateTimePicker();
             this.offers_report_category_combobox = new System.Windows.Forms.ComboBox();
+            this.offers_report_date_from_picker = new System.Windows.Forms.DateTimePicker();
+            this.offers_report_date_to_picker = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_offers_report = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.table_layout_main.SuspendLayout();
             this.main_layout.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.main_panel_wrapper.SuspendLayout();
-            this.third_report.SuspendLayout();
             this.second_report.SuspendLayout();
             this.report_offers.SuspendLayout();
             this.SuspendLayout();
@@ -193,7 +191,6 @@
             // 
             // main_panel_wrapper
             // 
-            this.main_panel_wrapper.Controls.Add(this.third_report);
             this.main_panel_wrapper.Controls.Add(this.second_report);
             this.main_panel_wrapper.Controls.Add(this.report_offers);
             this.main_panel_wrapper.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -203,31 +200,10 @@
             this.main_panel_wrapper.Size = new System.Drawing.Size(1255, 477);
             this.main_panel_wrapper.TabIndex = 1;
             // 
-            // third_report
-            // 
-            this.third_report.Controls.Add(this.button2);
-            this.third_report.Location = new System.Drawing.Point(28, 319);
-            this.third_report.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.third_report.Name = "third_report";
-            this.third_report.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.third_report.Size = new System.Drawing.Size(1197, 100);
-            this.third_report.TabIndex = 2;
-            this.third_report.TabStop = false;
-            this.third_report.Text = "Third Report";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(20, 46);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Generate third report";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // second_report
             // 
-            this.second_report.Controls.Add(this.button1);
+            this.second_report.Controls.Add(this.label4);
+            this.second_report.Controls.Add(this.btn_users_report);
             this.second_report.Location = new System.Drawing.Point(28, 170);
             this.second_report.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.second_report.Name = "second_report";
@@ -235,17 +211,18 @@
             this.second_report.Size = new System.Drawing.Size(1197, 100);
             this.second_report.TabIndex = 1;
             this.second_report.TabStop = false;
-            this.second_report.Text = "Second report";
+            this.second_report.Text = "Active Users Report";
             // 
-            // button1
+            // btn_users_report
             // 
-            this.button1.Location = new System.Drawing.Point(20, 42);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(179, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Generate second report";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_users_report.Location = new System.Drawing.Point(985, 42);
+            this.btn_users_report.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_users_report.Name = "btn_users_report";
+            this.btn_users_report.Size = new System.Drawing.Size(179, 23);
+            this.btn_users_report.TabIndex = 1;
+            this.btn_users_report.Text = "Generate report";
+            this.btn_users_report.UseVisualStyleBackColor = true;
+            this.btn_users_report.Click += new System.EventHandler(this.btn_users_report_Click);
             // 
             // report_offers
             // 
@@ -263,36 +240,29 @@
             this.report_offers.Size = new System.Drawing.Size(1197, 100);
             this.report_offers.TabIndex = 0;
             this.report_offers.TabStop = false;
-            this.report_offers.Text = "Offers report";
+            this.report_offers.Text = "Offers Success Report";
             // 
-            // btn_offers_report
+            // offers_report_category_combobox
             // 
-            this.btn_offers_report.Location = new System.Drawing.Point(985, 43);
-            this.btn_offers_report.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_offers_report.Name = "btn_offers_report";
-            this.btn_offers_report.Size = new System.Drawing.Size(179, 23);
-            this.btn_offers_report.TabIndex = 0;
-            this.btn_offers_report.Text = "Generate offers report";
-            this.btn_offers_report.UseVisualStyleBackColor = true;
-            this.btn_offers_report.Click += new System.EventHandler(this.btn_offers_report_Click);
+            this.offers_report_category_combobox.FormattingEnabled = true;
+            this.offers_report_category_combobox.Location = new System.Drawing.Point(195, 47);
+            this.offers_report_category_combobox.Name = "offers_report_category_combobox";
+            this.offers_report_category_combobox.Size = new System.Drawing.Size(121, 24);
+            this.offers_report_category_combobox.TabIndex = 5;
             // 
-            // label1
+            // offers_report_date_from_picker
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(115, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Category:";
+            this.offers_report_date_from_picker.Location = new System.Drawing.Point(399, 45);
+            this.offers_report_date_from_picker.Name = "offers_report_date_from_picker";
+            this.offers_report_date_from_picker.Size = new System.Drawing.Size(200, 22);
+            this.offers_report_date_from_picker.TabIndex = 4;
             // 
-            // label2
+            // offers_report_date_to_picker
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(346, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "From:";
+            this.offers_report_date_to_picker.Location = new System.Drawing.Point(672, 47);
+            this.offers_report_date_to_picker.Name = "offers_report_date_to_picker";
+            this.offers_report_date_to_picker.Size = new System.Drawing.Size(200, 22);
+            this.offers_report_date_to_picker.TabIndex = 2;
             // 
             // label3
             // 
@@ -303,27 +273,43 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "To:";
             // 
-            // offers_report_date_to_picker
+            // label2
             // 
-            this.offers_report_date_to_picker.Location = new System.Drawing.Point(672, 47);
-            this.offers_report_date_to_picker.Name = "offers_report_date_to_picker";
-            this.offers_report_date_to_picker.Size = new System.Drawing.Size(200, 22);
-            this.offers_report_date_to_picker.TabIndex = 2;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(346, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "From:";
             // 
-            // offers_report_date_from_picker
+            // label1
             // 
-            this.offers_report_date_from_picker.Location = new System.Drawing.Point(399, 45);
-            this.offers_report_date_from_picker.Name = "offers_report_date_from_picker";
-            this.offers_report_date_from_picker.Size = new System.Drawing.Size(200, 22);
-            this.offers_report_date_from_picker.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(115, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Category:";
             // 
-            // offers_report_category_combobox
+            // btn_offers_report
             // 
-            this.offers_report_category_combobox.FormattingEnabled = true;
-            this.offers_report_category_combobox.Location = new System.Drawing.Point(195, 47);
-            this.offers_report_category_combobox.Name = "offers_report_category_combobox";
-            this.offers_report_category_combobox.Size = new System.Drawing.Size(121, 24);
-            this.offers_report_category_combobox.TabIndex = 5;
+            this.btn_offers_report.Location = new System.Drawing.Point(985, 43);
+            this.btn_offers_report.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_offers_report.Name = "btn_offers_report";
+            this.btn_offers_report.Size = new System.Drawing.Size(179, 23);
+            this.btn_offers_report.TabIndex = 0;
+            this.btn_offers_report.Text = "Generate report";
+            this.btn_offers_report.UseVisualStyleBackColor = true;
+            this.btn_offers_report.Click += new System.EventHandler(this.btn_offers_report_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(201, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "List of most active users on the platform.";
             // 
             // MainForm
             // 
@@ -342,8 +328,8 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.main_panel_wrapper.ResumeLayout(false);
-            this.third_report.ResumeLayout(false);
             this.second_report.ResumeLayout(false);
+            this.second_report.PerformLayout();
             this.report_offers.ResumeLayout(false);
             this.report_offers.PerformLayout();
             this.ResumeLayout(false);
@@ -365,17 +351,16 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripLabel winnings_control_menu;
         private System.Windows.Forms.Panel main_panel_wrapper;
-        private System.Windows.Forms.GroupBox third_report;
         private System.Windows.Forms.GroupBox second_report;
         private System.Windows.Forms.GroupBox report_offers;
         private System.Windows.Forms.Button btn_offers_report;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_users_report;
         private System.Windows.Forms.ComboBox offers_report_category_combobox;
         private System.Windows.Forms.DateTimePicker offers_report_date_from_picker;
         private System.Windows.Forms.DateTimePicker offers_report_date_to_picker;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
     }
 }
