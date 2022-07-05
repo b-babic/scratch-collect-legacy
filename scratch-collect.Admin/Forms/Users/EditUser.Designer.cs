@@ -71,7 +71,7 @@
             this.username_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.username_input, 4);
             this.username_input.Location = new System.Drawing.Point(29, 84);
-            this.username_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.username_input.Margin = new System.Windows.Forms.Padding(2);
             this.username_input.Name = "username_input";
             this.username_input.Size = new System.Drawing.Size(234, 39);
             this.username_input.TabIndex = 8;
@@ -81,7 +81,7 @@
             this.email_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.email_input, 4);
             this.email_input.Location = new System.Drawing.Point(29, 164);
-            this.email_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.email_input.Margin = new System.Windows.Forms.Padding(2);
             this.email_input.Name = "email_input";
             this.email_input.Size = new System.Drawing.Size(525, 39);
             this.email_input.TabIndex = 7;
@@ -91,7 +91,7 @@
             this.address_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.address_input, 4);
             this.address_input.Location = new System.Drawing.Point(29, 452);
-            this.address_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.address_input.Margin = new System.Windows.Forms.Padding(2);
             this.address_input.Name = "address_input";
             this.address_input.Size = new System.Drawing.Size(525, 39);
             this.address_input.TabIndex = 5;
@@ -101,7 +101,7 @@
             this.last_name_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.last_name_input, 4);
             this.last_name_input.Location = new System.Drawing.Point(307, 362);
-            this.last_name_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.last_name_input.Margin = new System.Windows.Forms.Padding(2);
             this.last_name_input.Name = "last_name_input";
             this.last_name_input.Size = new System.Drawing.Size(246, 39);
             this.last_name_input.TabIndex = 3;
@@ -111,7 +111,7 @@
             this.first_name_input.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.new_user_error_provider.SetIconPadding(this.first_name_input, 4);
             this.first_name_input.Location = new System.Drawing.Point(29, 362);
-            this.first_name_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.first_name_input.Margin = new System.Windows.Forms.Padding(2);
             this.first_name_input.Name = "first_name_input";
             this.first_name_input.Size = new System.Drawing.Size(234, 39);
             this.first_name_input.TabIndex = 0;
@@ -122,7 +122,7 @@
             this.go_back_button.Image = ((System.Drawing.Image)(resources.GetObject("go_back_button.Image")));
             this.go_back_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.go_back_button.Location = new System.Drawing.Point(0, 0);
-            this.go_back_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.go_back_button.Margin = new System.Windows.Forms.Padding(2);
             this.go_back_button.Name = "go_back_button";
             this.go_back_button.Size = new System.Drawing.Size(116, 48);
             this.go_back_button.TabIndex = 4;
@@ -137,7 +137,7 @@
             this.panel2.Controls.Add(this.logo_title);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(2, 2);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1258, 48);
             this.panel2.TabIndex = 4;
@@ -174,7 +174,7 @@
             this.update_user_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.update_user_button.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.update_user_button.Location = new System.Drawing.Point(793, 442);
-            this.update_user_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.update_user_button.Margin = new System.Windows.Forms.Padding(2);
             this.update_user_button.Name = "update_user_button";
             this.update_user_button.Size = new System.Drawing.Size(210, 49);
             this.update_user_button.TabIndex = 17;
@@ -186,7 +186,7 @@
             // 
             this.user_photo_preview.Image = global::scratch_collect.Admin.Properties.Resources.account;
             this.user_photo_preview.Location = new System.Drawing.Point(793, 64);
-            this.user_photo_preview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.user_photo_preview.Margin = new System.Windows.Forms.Padding(2);
             this.user_photo_preview.Name = "user_photo_preview";
             this.user_photo_preview.Size = new System.Drawing.Size(414, 193);
             this.user_photo_preview.TabIndex = 16;
@@ -196,7 +196,7 @@
             // 
             this.upload_profile_image_button.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.upload_profile_image_button.Location = new System.Drawing.Point(793, 276);
-            this.upload_profile_image_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.upload_profile_image_button.Margin = new System.Windows.Forms.Padding(2);
             this.upload_profile_image_button.Name = "upload_profile_image_button";
             this.upload_profile_image_button.Size = new System.Drawing.Size(181, 42);
             this.upload_profile_image_button.TabIndex = 15;
@@ -220,7 +220,7 @@
             this.role_combobox.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.role_combobox.FormattingEnabled = true;
             this.role_combobox.Location = new System.Drawing.Point(29, 255);
-            this.role_combobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.role_combobox.Margin = new System.Windows.Forms.Padding(2);
             this.role_combobox.Name = "role_combobox";
             this.role_combobox.Size = new System.Drawing.Size(525, 39);
             this.role_combobox.TabIndex = 13;
@@ -314,7 +314,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Size = new System.Drawing.Size(1258, 528);
@@ -327,7 +327,7 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(2, 54);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1258, 528);
             this.panel1.TabIndex = 3;
@@ -340,7 +340,7 @@
             this.table_layout_main.Controls.Add(this.panel2, 0, 0);
             this.table_layout_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.table_layout_main.Location = new System.Drawing.Point(32, 26);
-            this.table_layout_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.table_layout_main.Margin = new System.Windows.Forms.Padding(2);
             this.table_layout_main.Name = "table_layout_main";
             this.table_layout_main.RowCount = 2;
             this.table_layout_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.971554F));
@@ -355,7 +355,7 @@
             this.ClientSize = new System.Drawing.Size(1326, 636);
             this.Controls.Add(this.table_layout_main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditUser";
             this.Padding = new System.Windows.Forms.Padding(32, 26, 32, 26);
             this.Text = "Edit User";
