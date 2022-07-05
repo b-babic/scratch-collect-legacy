@@ -1,5 +1,7 @@
 ﻿using Microsoft.Reporting.WinForms;
+using scratch_collect.Admin.Services;
 using scratch_collect.Model.Desktop;
+using scratch_collect.Model.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,27 +16,32 @@ namespace scratch_collect.Admin.Reports
 {
     public partial class OffersReportForm : Form
     {
-        public OffersReportForm()
+        private static SuccessOffersRequest request;
+
+        public OffersReportForm(SuccessOffersRequest initial)
         {
             InitializeComponent();
+
+            request = initial;
         }
 
-        private void OffersReportForm_Load(object sender, EventArgs e)
+        private async void OffersReportForm_Load(object sender, EventArgs e)
         {
-            // API CALL
-            List<OfferReportVM> dummy = new List<OfferReportVM>();
-            dummy.Add(new OfferReportVM
-            {
-                Id = 1,
-                Name = "Test",
-                PlayedOn = DateTime.Now,
-                Won = true,
-                Category = "Test Category"
-            });
+            var items = await ReportService.SuccessOffers(request);
 
             // Setup rds
-            ReportDataSource rds = new ReportDataSource("DataSet1", dummy);
+            ReportDataSource rds = new ReportDataSource("dsSuccessOffers", items as List<SuccessOffer> ?? new List<SuccessOffer>());
             this.reportViewer1.LocalReport.DataSources.Add(rds);
+
+            // Params
+            var parameters = new ReportParameter[]{
+                new ReportParameter("pFromDate", !string.IsNullOrEmpty(request.TimeFrom.ToString()) ? request.TimeFrom.ToString() : "All dates"),
+                new ReportParameter("pToDate", !string.IsNullOrEmpty(request.TimeTo.ToString()) ? request.TimeTo.ToString() : "All dates"),
+                new ReportParameter("pCategory", request.Category)
+            };
+
+            this.reportViewer1.LocalReport.SetParameters(parameters);
+            this.reportViewer1.ZoomMode = ZoomMode.PageWidth;
 
             reportViewer1.RefreshReport();
         }
