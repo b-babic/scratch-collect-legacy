@@ -25,6 +25,7 @@ class BuyOfferButton extends StatefulWidget {
 class BuyOfferButtonState extends State<BuyOfferButton> {
   late final ProfileResponse? user;
   bool canBuy = false;
+  bool isLoading = false;
 
   int? get offerId => widget.offerId;
   int? get requiredPrice => widget.requiredPrice ?? 0;
@@ -44,8 +45,11 @@ class BuyOfferButtonState extends State<BuyOfferButton> {
     });
   }
 
-// TODO Get initial user object initially and handle disabled states if enough money ?
-// Handle on press to buy item and redirect back or to bought items screen ?
+  void toggleLoading() {
+    setState(() {
+      isLoading = !isLoading;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +57,12 @@ class BuyOfferButtonState extends State<BuyOfferButton> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Button(
+          disabled: !canBuy || isLoading,
+          loading: isLoading,
           text: "Buy this offer",
-          disabled: !canBuy,
           press: () async {
+            toggleLoading();
+
             try {
               var request = OfferBuyRequest(
                 userId: user?.id,
@@ -83,6 +90,8 @@ class BuyOfferButtonState extends State<BuyOfferButton> {
               }
             } on Exception catch (e) {
               Snackbar.showError(context, e.toString());
+            } finally {
+              toggleLoading();
             }
           },
         ),

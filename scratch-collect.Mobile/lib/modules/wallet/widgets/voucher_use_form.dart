@@ -26,6 +26,8 @@ class VoucherUseFormState extends State<VoucherUseForm> {
 
   final List<String?> errors = [];
 
+  bool isLoading = false;
+
   void addError({String? error}) {
     if (!errors.contains(error)) {
       setState(() {
@@ -48,6 +50,12 @@ class VoucherUseFormState extends State<VoucherUseForm> {
     });
   }
 
+  void toggleLoading() {
+    setState(() {
+      isLoading = !isLoading;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -61,6 +69,8 @@ class VoucherUseFormState extends State<VoucherUseForm> {
             FormError(errors: errors),
             SizedBox(height: getProportionateScreenHeight(60)),
             Button(
+              disabled: isLoading,
+              loading: isLoading,
               text: "Use Voucher",
               press: () async {
                 if (_formKey.currentState!.validate()) {
@@ -69,6 +79,8 @@ class VoucherUseFormState extends State<VoucherUseForm> {
                   KeyboardUtil.hideKeyboard(context);
 
                   clearErrors();
+
+                  toggleLoading();
 
                   try {
                     final profile =
@@ -89,6 +101,8 @@ class VoucherUseFormState extends State<VoucherUseForm> {
                     }
                   } on Exception catch (e) {
                     Snackbar.showError(context, e.toString());
+                  } finally {
+                    toggleLoading();
                   }
                 }
               },

@@ -2,6 +2,8 @@
 
 import 'dart:convert';
 
+import 'package:IB210370/modules/profile/models/profile_request.model.dart';
+import 'package:IB210370/modules/profile/services/profile.service.dart';
 import 'package:flutter/material.dart';
 import 'package:IB210370/modules/auth/constants.dart';
 import 'package:IB210370/modules/auth/models/signin_request.model.dart';
@@ -91,6 +93,13 @@ class SigninFormState extends State<SigninForm> {
 
                         var persisted = await AuthService().getPersistedUser();
                         var savedToken = persisted.token;
+
+                        var request = ProfileRequest(id: persisted.id);
+                        var user =
+                            await ProfileService().getUserProfile(request);
+
+                        await SecureStorage()
+                            .write("profile", json.encode(user.toJson()));
 
                         if (savedToken != null) {
                           Snackbar.showSuccess(

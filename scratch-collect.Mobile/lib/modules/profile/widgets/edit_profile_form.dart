@@ -40,6 +40,8 @@ class EditProfileFormState extends State<EditProfileForm> {
 
   final List<String?> errors = [];
 
+  bool isLoading = false;
+
   @override
   void initState() {
     super.initState();
@@ -71,6 +73,12 @@ class EditProfileFormState extends State<EditProfileForm> {
     }
   }
 
+  void toggleLoading() {
+    setState(() {
+      isLoading = !isLoading;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -90,6 +98,8 @@ class EditProfileFormState extends State<EditProfileForm> {
             FormError(errors: errors),
             SizedBox(height: getProportionateScreenHeight(60)),
             Button(
+                disabled: isLoading,
+                loading: isLoading,
                 text: "Update Profile",
                 press: () async {
                   if (_formKey.currentState!.validate()) {
@@ -97,15 +107,18 @@ class EditProfileFormState extends State<EditProfileForm> {
 
                     KeyboardUtil.hideKeyboard(context);
 
-                    var request = EditProfileRequest(
+                    toggleLoading();
+
+                    try {
+                      var request = EditProfileRequest(
                         id: widget.initialValues.id,
                         email: email,
                         username: username,
                         firstName: firstName,
                         lastName: lastName,
-                        address: address);
+                        address: address,
+                      );
 
-                    try {
                       var updated =
                           await ProfileService().updateProfile(request);
 
@@ -117,6 +130,8 @@ class EditProfileFormState extends State<EditProfileForm> {
                       }
                     } on Exception catch (e) {
                       Snackbar.showError(context, e.toString());
+                    } finally {
+                      toggleLoading();
                     }
                   }
                 })

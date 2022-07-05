@@ -29,6 +29,8 @@ class SignupFormState extends State<SignupForm> {
   String? lastName;
   String? address;
 
+  bool isLoading = false;
+
   // Controllers
   final passwordController = TextEditingController();
 
@@ -48,6 +50,12 @@ class SignupFormState extends State<SignupForm> {
         errors.remove(error);
       });
     }
+  }
+
+  void toggleLoading() {
+    setState(() {
+      isLoading = !isLoading;
+    });
   }
 
   @override
@@ -75,12 +83,16 @@ class SignupFormState extends State<SignupForm> {
             FormError(errors: errors),
             SizedBox(height: getProportionateScreenHeight(60)),
             Button(
+                disabled: isLoading,
+                loading: isLoading,
                 text: "Create Account",
                 press: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
 
                     KeyboardUtil.hideKeyboard(context);
+
+                    toggleLoading();
 
                     final request = SignupRequest(
                         email: email,
@@ -105,6 +117,8 @@ class SignupFormState extends State<SignupForm> {
                       }
                     } on Exception catch (e) {
                       Snackbar.showError(context, e.toString());
+                    } finally {
+                      toggleLoading();
                     }
                   }
                 })
