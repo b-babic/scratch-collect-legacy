@@ -3,7 +3,10 @@ using scratch_collect.Admin.Forms.Merchants;
 using scratch_collect.Admin.Forms.Users;
 using scratch_collect.Admin.Reports;
 using scratch_collect.Admin.Services;
+using scratch_collect.Model;
+using scratch_collect.Model.Report;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace scratch_collect.Admin.Forms
@@ -17,6 +20,42 @@ namespace scratch_collect.Admin.Forms
             // TODO: Remove this before MVP
             // Fake Authentication for DEV purposes.
             FakeAuthentication();
+
+            PopulateReportsParams();
+        }
+
+        private void PopulateReportsParams()
+        {
+            PopulateSuccessReportParams();
+        }
+
+        private async Task PopulateSuccessReportParams()
+        {
+            UseWaitCursor = true;
+
+            try
+            {
+                var categories = await CategoryService.Get();
+
+                if (categories != null)
+                {
+                    // Populate data
+                    offers_report_category_combobox.DataSource = categories;
+                    offers_report_category_combobox.DisplayMember = "Name";
+                    offers_report_category_combobox.ValueMember = "Id";
+
+                    UseWaitCursor = false;
+                    offers_report_category_combobox.Enabled = true;
+                }
+
+                // Date from two years ago
+                var dummyYear = 2020;
+                offers_report_date_from_picker.Value = new DateTime(dummyYear, 12, 31);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error while fetching list of all categories !");
+            }
         }
 
         // Generic Events
@@ -57,7 +96,17 @@ namespace scratch_collect.Admin.Forms
 
         private void btn_offers_report_Click(object sender, EventArgs e)
         {
-            var offersReport = new OffersReportForm();
+            var request = new SuccessOffersRequest
+            {
+                CategoryId = ((CategoryDTO)offers_report_category_combobox.SelectedItem).Id,
+                Category = ((CategoryDTO)offers_report_category_combobox.SelectedItem).Name,
+                TimeFrom = offers_report_date_from_picker.Text,
+                TimeTo = offers_report_date_to_picker.Text
+            };
+
+            System.Console.WriteLine(request.CategoryId.ToString());
+
+            var offersReport = new OffersReportForm(request);
 
             offersReport.ShowDialog();
         }
