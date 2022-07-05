@@ -32,6 +32,8 @@ class ChangePasswordFormState extends State<ChangePasswordForm> {
 
   final List<String?> errors = [];
 
+  bool isLoading = false;
+
   void addError({String? error}) {
     if (!errors.contains(error)) {
       setState(() {
@@ -46,6 +48,12 @@ class ChangePasswordFormState extends State<ChangePasswordForm> {
         errors.remove(error);
       });
     }
+  }
+
+  void toggleLoading() {
+    setState(() {
+      isLoading = !isLoading;
+    });
   }
 
   @override
@@ -63,6 +71,8 @@ class ChangePasswordFormState extends State<ChangePasswordForm> {
             FormError(errors: errors),
             SizedBox(height: getProportionateScreenHeight(60)),
             Button(
+                disabled: isLoading,
+                loading: isLoading,
                 text: "Change Password",
                 press: () async {
                   if (_formKey.currentState!.validate()) {
@@ -70,7 +80,8 @@ class ChangePasswordFormState extends State<ChangePasswordForm> {
 
                     KeyboardUtil.hideKeyboard(context);
 
-                    // TODO: Create model class for signin / signup
+                    toggleLoading();
+
                     final request = EditPasswordRequest(
                         id: widget.arguments.id,
                         oldPassword: oldPassword,
@@ -88,6 +99,8 @@ class ChangePasswordFormState extends State<ChangePasswordForm> {
                       }
                     } on Exception catch (e) {
                       Snackbar.showError(context, e.toString());
+                    } finally {
+                      toggleLoading();
                     }
                   }
                 })

@@ -37,6 +37,8 @@ class BuyVoucherOptionsFormState extends State<BuyVoucherOptionsForm> {
 
   final List<String?> errors = [];
 
+  bool isLoading = false;
+
   @override
   void initState() {
     super.initState();
@@ -67,6 +69,12 @@ class BuyVoucherOptionsFormState extends State<BuyVoucherOptionsForm> {
     });
   }
 
+  void toggleLoading() {
+    setState(() {
+      isLoading = !isLoading;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -88,6 +96,8 @@ class BuyVoucherOptionsFormState extends State<BuyVoucherOptionsForm> {
             FormError(errors: errors),
             SizedBox(height: getProportionateScreenHeight(60)),
             Button(
+                disabled: isLoading,
+                loading: isLoading,
                 text: "Confirm Payment",
                 press: () async {
                   if (_formKey.currentState!.validate()) {
@@ -96,6 +106,8 @@ class BuyVoucherOptionsFormState extends State<BuyVoucherOptionsForm> {
                     KeyboardUtil.hideKeyboard(context);
 
                     clearErrors();
+
+                    toggleLoading();
 
                     try {
                       var user = await AuthService().getPersistedUser();
@@ -120,6 +132,8 @@ class BuyVoucherOptionsFormState extends State<BuyVoucherOptionsForm> {
                       }
                     } on Exception catch (e) {
                       Snackbar.showError(context, e.toString());
+                    } finally {
+                      toggleLoading();
                     }
                   }
                 })
