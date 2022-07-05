@@ -14,7 +14,6 @@ import 'package:IB210370/modules/wallet/wallet_voucher.screen.dart';
 import 'package:IB210370/modules/winnings/winnings.screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
-  // TODO: Splash screen
   // Auth
   LoginScreen.routeName: (context) => const LoginScreen(),
   SignupScreen.routeName: (context) => const SignupScreen(),

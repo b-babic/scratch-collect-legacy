@@ -18,7 +18,6 @@ class DetailsScreen extends StatelessWidget {
       backgroundColor: whiteColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(AppBar().preferredSize.height),
-        // TODO: Add rating to the offer model ?
         child: DetailsAppBar(rating: args.rating ?? 0.0),
       ),
       body: DetailsBody(id: args.id),

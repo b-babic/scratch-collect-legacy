@@ -18,7 +18,6 @@ class Categories extends StatefulWidget {
 }
 
 class CategoriesState extends State<Categories> {
-  // TODO: Fetch from API and default to custom list if neccessary
   List<Category> categories = [
     Category(id: 1, name: "Luxury"),
     Category(id: 2, name: "Sports"),

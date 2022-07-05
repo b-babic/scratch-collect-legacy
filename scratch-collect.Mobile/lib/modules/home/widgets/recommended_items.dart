@@ -31,7 +31,6 @@ class RecommendedItems extends StatelessWidget {
               ...List.generate(
                 items.length,
                 (index) {
-                  // TODO: Generate small cards
                   return OfferCard(
                     offer: items[index],
                     keyPrefix: "recommended",
