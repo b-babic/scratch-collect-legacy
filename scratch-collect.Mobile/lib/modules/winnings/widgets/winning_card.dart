@@ -22,10 +22,14 @@ class WinningCard extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text(
-            "${winning.offer?.title}",
-            style: const TextStyle(
-              fontWeight: FontWeight.w500,
+          Expanded(
+            child: Text(
+              "${winning.offer?.title}",
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
           Text(

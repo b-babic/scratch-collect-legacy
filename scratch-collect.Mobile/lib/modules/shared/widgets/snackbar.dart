@@ -18,7 +18,13 @@ class Snackbar {
             SizedBox(
               width: getProportionateScreenWidth(10),
             ),
-            Text(message)
+            Expanded(
+              child: Text(
+                message,
+                maxLines: 1,
+                style: const TextStyle(overflow: TextOverflow.ellipsis),
+              ),
+            )
           ],
         ),
       ),
