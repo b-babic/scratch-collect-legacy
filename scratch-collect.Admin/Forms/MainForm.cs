@@ -13,6 +13,7 @@ namespace scratch_collect.Admin.Forms
         public MainForm()
         {
             InitializeComponent();
+
             // TODO: Remove this before MVP
             // Fake Authentication for DEV purposes.
             FakeAuthentication();
@@ -49,9 +50,9 @@ namespace scratch_collect.Admin.Forms
 
         private void winnings_control_menu_Click(object sender, EventArgs e)
         {
-            //var winnings = new AllWinnings();
+            var winnings = new AllWinnings();
 
-            //winnings.ShowDialog();
+            winnings.ShowDialog();
         }
 
         private void btn_offers_report_Click(object sender, EventArgs e)
