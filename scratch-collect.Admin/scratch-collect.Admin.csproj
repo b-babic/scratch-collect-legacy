@@ -61,6 +61,9 @@
     <Compile Update="Forms\Users\NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Winnings\AllWinnings.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -73,10 +76,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Forms\Winnings\" />
   </ItemGroup>
 
 </Project>
