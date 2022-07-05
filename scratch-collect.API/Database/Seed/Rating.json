@@ -194,5 +194,145 @@
     "ratedOn": "2/7/2022",
     "userId": 2,
     "offerId": 14
+  },
+  {
+    "id": 29,
+    "rateCount": 4.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 1
+  },
+  {
+    "id": 30,
+    "rateCount": 2.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 2
+  },
+  {
+    "id": 31,
+    "rateCount": 5.0,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 3
+  },
+  {
+    "id": 32,
+    "rateCount": 5.0,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 4
+  },
+  {
+    "id": 33,
+    "rateCount": 5.0,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 5
+  },
+  {
+    "id": 34,
+    "rateCount": 4.0,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 6
+  },
+  {
+    "id": 35,
+    "rateCount": 3.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 7
+  },
+  {
+    "id": 36,
+    "rateCount": 4.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 8
+  },
+  {
+    "id": 37,
+    "rateCount": 4.0,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 9
+  },
+  {
+    "id": 38,
+    "rateCount": 3.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 10
+  },
+  {
+    "id": 39,
+    "rateCount": 2.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 11
+  },
+  {
+    "id": 40,
+    "rateCount": 2.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 12
+  },
+  {
+    "id": 41,
+    "rateCount": 3.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 13
+  },
+  {
+    "id": 42,
+    "rateCount": 3.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 14
+  },
+  {
+    "id": 43,
+    "rateCount": 4.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 15
+  },
+  {
+    "id": 44,
+    "rateCount": 4.0,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 16
+  },
+  {
+    "id": 45,
+    "rateCount": 3.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 17
+  },
+  {
+    "id": 46,
+    "rateCount": 4.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 18
+  },
+  {
+    "id": 47,
+    "rateCount": 1.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 19
+  },
+  {
+    "id": 48,
+    "rateCount": 4.5,
+    "ratedOn": "5/7/2022",
+    "userId": 3,
+    "offerId": 20
   }
 ]

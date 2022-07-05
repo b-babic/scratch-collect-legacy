@@ -28,6 +28,15 @@
   },
   {
     "id": 4,
+    "boughtOn": "11/5/2021",
+    "played": false,
+    "playedOn": null,
+    "won": false,
+    "userId": 2,
+    "offerId": 4
+  },
+  {
+    "id": 5,
     "boughtOn": "6/29/2021",
     "played": false,
     "playedOn": null,
@@ -36,7 +45,7 @@
     "offerId": 15
   },
   {
-    "id": 5,
+    "id": 6,
     "boughtOn": "8/28/2021",
     "played": false,
     "playedOn": null,
@@ -45,7 +54,7 @@
     "offerId": 14
   },
   {
-    "id": 6,
+    "id": 7,
     "boughtOn": "9/14/2021",
     "played": false,
     "playedOn": null,
@@ -54,7 +63,7 @@
     "offerId": 5
   },
   {
-    "id": 7,
+    "id": 8,
     "boughtOn": "9/14/2021",
     "played": true,
     "playedOn": "9/14/2021",
@@ -63,12 +72,93 @@
     "offerId": 6
   },
   {
-    "id": 8,
+    "id": 9,
     "boughtOn": "9/14/2021",
     "played": true,
     "playedOn": "9/14/2021",
     "won": true,
     "userId": 2,
     "offerId": 5
+  },
+  {
+    "id": 10,
+    "boughtOn": "03/14/2022",
+    "played": true,
+    "playedOn": "03/14/2022",
+    "won": true,
+    "userId": 2,
+    "offerId": 10
+  },
+  {
+    "id": 11,
+    "boughtOn": "03/14/2022",
+    "played": true,
+    "playedOn": "03/14/2022",
+    "won": true,
+    "userId": 2,
+    "offerId": 6
+  },
+  {
+    "id": 12,
+    "boughtOn": "03/14/2022",
+    "played": true,
+    "playedOn": "03/14/2022",
+    "won": true,
+    "userId": 2,
+    "offerId": 15
+  },
+  {
+    "id": 13,
+    "boughtOn": "03/14/2022",
+    "played": true,
+    "playedOn": "03/14/2022",
+    "won": true,
+    "userId": 2,
+    "offerId": 15
+  },
+  {
+    "id": 14,
+    "boughtOn": "03/14/2022",
+    "played": true,
+    "playedOn": "03/14/2022",
+    "won": false,
+    "userId": 2,
+    "offerId": 15
+  },
+  {
+    "id": 15,
+    "boughtOn": "03/14/2022",
+    "played": true,
+    "playedOn": "03/14/2022",
+    "won": true,
+    "userId": 2,
+    "offerId": 7
+  },
+  {
+    "id": 16,
+    "boughtOn": "03/14/2022",
+    "played": true,
+    "playedOn": "03/14/2022",
+    "won": true,
+    "userId": 2,
+    "offerId": 5
+  },
+  {
+    "id": 17,
+    "boughtOn": "03/14/2022",
+    "played": true,
+    "playedOn": "03/14/2022",
+    "won": false,
+    "userId": 2,
+    "offerId": 1
+  },
+  {
+    "id": 18,
+    "boughtOn": "03/14/2022",
+    "played": true,
+    "playedOn": "03/14/2022",
+    "won": false,
+    "userId": 2,
+    "offerId": 2
   }
 ]
