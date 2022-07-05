@@ -100,7 +100,6 @@ namespace scratch_collect.API.Services
             _context.SaveChanges();
         }
 
-
         // Coupons and wallets
         public WalletDTO Use(CouponUseRequest request)
         {
@@ -112,7 +111,6 @@ namespace scratch_collect.API.Services
 
             if (coupon == null)
                 throw new BadRequestException("Coupon not found / valid !");
-
 
             coupon.UsedAt = DateTime.Now;
             coupon.UsedById = request.UserId;

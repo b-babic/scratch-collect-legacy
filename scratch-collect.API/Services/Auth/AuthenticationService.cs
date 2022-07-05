@@ -55,7 +55,8 @@ namespace scratch_collect.API.Services
             entity.RoleId = 2;
 
             // Assign default image
-            if(request.UserPhoto == null) {
+            if (request.UserPhoto == null)
+            {
                 entity.UserPhoto = new ImageHelper().GetDefaultImageByte();
             }
 
@@ -63,7 +64,8 @@ namespace scratch_collect.API.Services
             _context.SaveChanges();
 
             // Create new user wallet
-            var wallet = new WalletUpsertRequest {
+            var wallet = new WalletUpsertRequest
+            {
                 Balance = 50,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,

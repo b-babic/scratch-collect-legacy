@@ -1,5 +1,3 @@
-using System;
-
 namespace scratch_collect.Model
 {
     public class UserOfferUpsertRequest
@@ -10,6 +8,7 @@ namespace scratch_collect.Model
 
         // relations
         public int UserId { get; set; }
+
         public int OfferId { get; set; }
     }
 }

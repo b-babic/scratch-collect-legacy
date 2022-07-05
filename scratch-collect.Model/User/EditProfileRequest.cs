@@ -1,6 +1,3 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-
 namespace scratch_collect.Model.Requests
 {
     public class EditProfileRequest
@@ -14,6 +11,5 @@ namespace scratch_collect.Model.Requests
         public string LastName { get; set; }
 
         public string Address { get; set; }
-
     }
 }

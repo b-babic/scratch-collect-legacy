@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using scratch_collect.API.Database;
-using scratch_collect.API.Exceptions;
-using scratch_collect.Model;
 using scratch_collect.Model.Report;
-using scratch_collect.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;

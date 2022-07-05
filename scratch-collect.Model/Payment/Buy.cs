@@ -15,7 +15,7 @@ namespace scratch_collect.Model.Requests
 
         [Required]
         public string CVV { get; set; }
-        
+
         [Required]
         public double Amount { get; set; }
     }

@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using scratch_collect.Model;
 using scratch_collect.Model.Desktop;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace scratch_collect.Admin.Utilities
 {

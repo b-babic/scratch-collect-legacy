@@ -1,7 +1,5 @@
-using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using scratch_collect.Admin.Forms;
-using scratch_collect.Admin.Utilities;
 using System;
 using System.Windows.Forms;
 

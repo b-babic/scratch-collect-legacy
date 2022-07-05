@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using scratch_collect.API.Services;
 using scratch_collect.Model;
 using scratch_collect.Model.Requests;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

@@ -14,6 +14,7 @@ namespace scratch_collect.Model.Requests
 
         // relations
         public int UserId { get; set; }
+
         public UserDTO User { get; set; }
     }
 }

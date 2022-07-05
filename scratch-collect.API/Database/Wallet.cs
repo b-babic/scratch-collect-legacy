@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace scratch_collect.API.Database
@@ -15,10 +14,11 @@ namespace scratch_collect.API.Database
         public DateTime CreatedAt { get; set; }
 
         [Required]
-        public DateTime UpdatedAt { get; set; }        
+        public DateTime UpdatedAt { get; set; }
 
         // Relations
         public int UserId { get; set; }
-        public virtual User User { get; set; } 
+
+        public virtual User User { get; set; }
     }
 }

@@ -104,8 +104,6 @@ namespace scratch_collect.Admin.Forms
                 TimeTo = offers_report_date_to_picker.Text
             };
 
-            System.Console.WriteLine(request.CategoryId.ToString());
-
             var offersReport = new OffersReportForm(request);
 
             offersReport.ShowDialog();

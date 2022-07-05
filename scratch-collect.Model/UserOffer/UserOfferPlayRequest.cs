@@ -1,5 +1,3 @@
-using System;
-
 namespace scratch_collect.Model.Requests
 {
     public class UserOfferPlayRequest

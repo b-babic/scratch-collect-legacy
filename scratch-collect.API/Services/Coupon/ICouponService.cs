@@ -18,6 +18,6 @@ namespace scratch_collect.API.Services
         void Delete(int id);
 
         // Use Coupon
-        public WalletDTO Use (CouponUseRequest request);
+        public WalletDTO Use(CouponUseRequest request);
     }
 }

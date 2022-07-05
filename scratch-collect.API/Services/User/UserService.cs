@@ -65,7 +65,7 @@ namespace scratch_collect.API.Services
             if (userAlreadyExist)
                 throw new BadRequestException("User with provided email already exist in the system !");
 
-            if(request.RegisteredAt == null) entity.RegisteredAt = DateTime.Now;
+            if (request.RegisteredAt == null) entity.RegisteredAt = DateTime.Now;
 
             entity.PasswordSalt = Password.GenerateSalt();
             entity.PasswordHash = Password.GenerateHash(entity.PasswordSalt, request.Password);
@@ -74,7 +74,8 @@ namespace scratch_collect.API.Services
             _context.SaveChanges();
 
             // Create new user wallet
-            var wallet = new WalletUpsertRequest {
+            var wallet = new WalletUpsertRequest
+            {
                 Balance = 50,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
@@ -102,19 +103,19 @@ namespace scratch_collect.API.Services
             if (entity == null)
                 throw new BadRequestException("User does not exist !");
 
-            if(request.Username != null)
+            if (request.Username != null)
                 entity.Username = request.Username;
 
-            if(request.Email != null)
+            if (request.Email != null)
                 entity.Email = request.Email;
 
-            if(request.FirstName != null)
+            if (request.FirstName != null)
                 entity.FirstName = request.FirstName;
 
-            if(request.LastName != null)
+            if (request.LastName != null)
                 entity.LastName = request.LastName;
 
-            if(request.Address != null)
+            if (request.Address != null)
                 entity.Address = request.Address;
 
             _context.Users.Attach(entity);
@@ -125,7 +126,8 @@ namespace scratch_collect.API.Services
             return _mapper.Map<UserDTO>(entity);
         }
 
-        public UserDTO EditPassword(int id, EditPasswordRequest request) {
+        public UserDTO EditPassword(int id, EditPasswordRequest request)
+        {
             var entity = _context.Users.Find(id);
 
             if (entity == null)
@@ -134,10 +136,10 @@ namespace scratch_collect.API.Services
             var requestHash = Password.GenerateHash(entity.PasswordSalt, request.OldPassword);
             var newHash = Password.GenerateHash(entity.PasswordSalt, request.NewPassword);
 
-            if(entity.PasswordHash != requestHash)
+            if (entity.PasswordHash != requestHash)
                 throw new BadRequestException("Old password is wrong!");
 
-            if(requestHash == newHash)
+            if (requestHash == newHash)
                 throw new BadRequestException("Password cannot be same as old one!");
 
             entity.PasswordHash = newHash;
@@ -193,7 +195,8 @@ namespace scratch_collect.API.Services
         }
 
         // Get used coupons
-        public List<CouponDTO> GetUsersCoupons(int id) {
+        public List<CouponDTO> GetUsersCoupons(int id)
+        {
             var user = _context
                         .Users
                         .Include(a => a.Role)
@@ -209,7 +212,8 @@ namespace scratch_collect.API.Services
         }
 
         // Won items
-        public List<UserOfferDTO> UserWonItems(UsserOfferSearchRequest request) {
+        public List<UserOfferDTO> UserWonItems(UsserOfferSearchRequest request)
+        {
             var query = _context
                 .UserOffers
                 .Include(a => a.Offer)
@@ -217,7 +221,7 @@ namespace scratch_collect.API.Services
                 .Where(x => x.UserId == request.UserId && x.Won == true)
                 .AsQueryable();
 
-            if(!String.IsNullOrEmpty(request.Query))
+            if (!String.IsNullOrEmpty(request.Query))
             {
                 query = query.Where(x => x.Offer.Title.Contains(request.Query));
             }
@@ -230,7 +234,8 @@ namespace scratch_collect.API.Services
             return _mapper.Map<List<UserOfferDTO>>(list);
         }
 
-        public List<UserOfferDTO> AllWonItems(UsserOfferSearchRequest request) {
+        public List<UserOfferDTO> AllWonItems(UsserOfferSearchRequest request)
+        {
             var query = _context
                 .UserOffers
                 .Include(a => a.Offer)
@@ -240,17 +245,19 @@ namespace scratch_collect.API.Services
                 .OrderByDescending(a => a.PlayedOn)
                 .AsQueryable();
 
-            if(!string.IsNullOrEmpty(request.TimeFrom) && string.IsNullOrEmpty(request.TimeTo)) {
+            if (!string.IsNullOrEmpty(request.TimeFrom) && string.IsNullOrEmpty(request.TimeTo))
+            {
                 DateTime from = DateTime.Parse(request.TimeFrom);
 
                 query = query.Where(s => s.PlayedOn >= from);
             }
-            else if (string.IsNullOrEmpty(request.TimeFrom) && !string.IsNullOrEmpty(request.TimeTo)) {
+            else if (string.IsNullOrEmpty(request.TimeFrom) && !string.IsNullOrEmpty(request.TimeTo))
+            {
                 DateTime to = DateTime.Parse(request.TimeTo);
 
                 query = query.Where(s => s.PlayedOn <= to);
             }
-            else if(!string.IsNullOrEmpty(request.TimeFrom) && !string.IsNullOrEmpty(request.TimeTo))
+            else if (!string.IsNullOrEmpty(request.TimeFrom) && !string.IsNullOrEmpty(request.TimeTo))
             {
                 DateTime from = DateTime.Parse(request.TimeFrom);
                 DateTime to = DateTime.Parse(request.TimeTo);

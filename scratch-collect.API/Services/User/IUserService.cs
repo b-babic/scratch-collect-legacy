@@ -13,11 +13,10 @@ namespace scratch_collect.API.Services
         UserDTO Insert(UserUpsertRequest request);
 
         UserDTO Update(int id, UserUpsertRequest request);
-        
+
         UserDTO EditProfile(int id, EditProfileRequest request);
 
         UserDTO EditPassword(int id, EditPasswordRequest request);
-
 
         void Delete(int id);
 

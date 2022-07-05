@@ -7,10 +7,7 @@ using scratch_collect.Model;
 using scratch_collect.Model.Requests;
 using Stripe;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace scratch_collect.API.Services
 {

@@ -54,7 +54,7 @@ namespace scratch_collect.API.Services
 
             _context.Wallets.Attach(entity);
             _context.Wallets.Update(entity);
-            
+
             _context.SaveChanges();
 
             return _mapper.Map<WalletDTO>(entity);
@@ -71,7 +71,7 @@ namespace scratch_collect.API.Services
 
             _context.Wallets.Attach(entity);
             _context.Wallets.Update(entity);
-            
+
             _context.SaveChanges();
 
             return _mapper.Map<WalletDTO>(entity);
