@@ -45,6 +45,5 @@
 - cvv: 333
 
 ## Screenshots
--![image](scratch-collect.Documentation/screenshots/screenshot_1.png)
-![image](scratch-collect.Documentation/screenshots/screenshot_2.png)
+![image](scratch-collect.Documentation/screenshots/screenshot2.png)
 >INFO: [More screenshots](scratch-collect.Documentation/screenshots)
