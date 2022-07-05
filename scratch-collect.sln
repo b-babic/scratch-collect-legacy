@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scratch-collect.API", "scra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scratch-collect.Model", "scratch-collect.Model\scratch-collect.Model.csproj", "{8115423B-0904-45C5-8ED3-E117EAB13C4E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scratch-collect.Desktop", "scratch-collect.Desktop\scratch-collect.Desktop.csproj", "{5F649F6C-FAC7-4617-A02C-BADB59EBE5ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scratch-collect.Desktop(Deprecated)", "scratch-collect.Desktop\scratch-collect.Desktop(Deprecated).csproj", "{5F649F6C-FAC7-4617-A02C-BADB59EBE5ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scratch-collect.Admin", "scratch-collect.Admin\scratch-collect.Admin.csproj", "{11585A84-9292-42E3-86BF-FAC1890FC5A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scratch-collect.Admin", "scratch-collect.Admin\scratch-collect.Admin.csproj", "{11585A84-9292-42E3-86BF-FAC1890FC5A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
