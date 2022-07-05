@@ -17,6 +17,20 @@ namespace scratch_collect.Admin.Services
         {
         }
 
+        public static string TruncateWithEllipsis(string s, int length)
+        {
+            //there may be a more appropiate unicode character for this
+            const string Ellipsis = "...";
+
+            if (Ellipsis.Length > length)
+                throw new ArgumentOutOfRangeException("length", length, "length must be at least as long as ellipsis.");
+
+            if (s.Length > length)
+                return s.Substring(0, length - Ellipsis.Length) + Ellipsis;
+            else
+                return s;
+        }
+
         public static async Task<List<OfferDTO>> GetAll(string? categoryId = null)
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
@@ -27,6 +41,12 @@ namespace scratch_collect.Admin.Services
             try
             {
                 var offers = await BaseService.GetAsync<List<OfferDTO>>(_baseUrl, parameters);
+
+                foreach (var offer in offers)
+                {
+                    offer.Title = TruncateWithEllipsis(offer.Title, 30);
+                    offer.Description = TruncateWithEllipsis(offer.Description, 50);
+                }
 
                 return _mapper.Map<List<OfferDTO>>(offers);
             }
