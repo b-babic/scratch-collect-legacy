@@ -41,9 +41,9 @@ class DetailsAppBar extends StatelessWidget {
                     ),
                   );
                 },
-                child: const SizedBox(
-                  width: 20,
-                  child: Icon(Icons.arrow_back),
+                child: SizedBox(
+                  width: getProportionateScreenWidth(20),
+                  child: const Icon(Icons.arrow_back),
                 ),
               ),
             ),
@@ -63,7 +63,7 @@ class DetailsAppBar extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SizedBox(width: 5),
+                  SizedBox(width: getProportionateScreenWidth(5)),
                   SvgPicture.asset("lib/modules/shared/assets/icons/star.svg"),
                 ],
               ),

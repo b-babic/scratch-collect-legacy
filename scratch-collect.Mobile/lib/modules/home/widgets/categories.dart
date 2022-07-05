@@ -1,3 +1,4 @@
+import 'package:IB210370/modules/shared/theme/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:IB210370/modules/home/models/category.model.dart';
 import 'package:IB210370/modules/shared/theme/colors.dart';
@@ -28,9 +29,9 @@ class CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
+      padding: EdgeInsets.symmetric(vertical: getProportionateScreenHeight(20)),
       child: SizedBox(
-        height: 30,
+        height: getProportionateScreenHeight(30),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,
@@ -60,9 +61,8 @@ class CategoriesState extends State<Categories> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 40 / 4), //top padding 5
-              height: 2,
-              width: 30,
+              height: getProportionateScreenHeight(4),
+              width: getProportionateScreenWidth(30),
               color: widget.selectedCategory == category.id
                   ? textColor
                   : Colors.transparent,

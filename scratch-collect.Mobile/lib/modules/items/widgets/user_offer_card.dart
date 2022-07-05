@@ -74,7 +74,7 @@ class UserOfferCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: getProportionateScreenHeight(10)),
               ],
             ),
           ),
