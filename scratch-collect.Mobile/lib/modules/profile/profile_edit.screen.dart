@@ -1,3 +1,4 @@
+import 'package:IB210370/modules/profile/profile.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:IB210370/modules/profile/models/edit_profile_arguments.model.dart';
 import 'package:IB210370/modules/profile/widgets/edit_profile_form.dart';
@@ -19,7 +20,19 @@ class ProfileEditScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ProfileScreen(),
+              ),
+            );
+          },
+        ),
+        title: const Text(
+          "Profile",
+        ),
       ),
       body: SafeArea(
         child: SizedBox(
