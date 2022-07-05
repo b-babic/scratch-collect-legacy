@@ -41,6 +41,24 @@ namespace scratch_collect.API.Services
             // Default sort
             var list = query
                 .Where(x => x.Quantity != 0)
+                .Select(x => new OfferDTO
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Description = x.Description,
+                    CreatedAt = x.CreatedAt,
+                    UpdatedAt = x.UpdatedAt,
+                    Quantity = x.Quantity,
+                    Category = _mapper.Map<CategoryDTO>(x.Category),
+                    RequiredPrice = x.RequiredPrice,
+                    AverageRating = _context
+                    .Ratings
+                    .Where(x => x.OfferId == x.Id)
+                    .Any() ? _context
+                    .Ratings
+                    .Where(x => x.OfferId == x.Id)
+                    .Average(a => a.RateCount) : 0.0
+                })
                 .OrderByDescending(x => x.UpdatedAt)
                 .ToList();
 
