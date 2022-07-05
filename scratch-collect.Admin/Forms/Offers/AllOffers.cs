@@ -1,5 +1,7 @@
-﻿using scratch_collect.Admin.Services;
+﻿using scratch_collect.Admin.Reports;
+using scratch_collect.Admin.Services;
 using scratch_collect.Model;
+using scratch_collect.Model.Report;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -81,6 +83,24 @@ namespace scratch_collect.Admin.Forms
 
             // Show
             newPage.ShowDialog();
+            Hide();
+        }
+
+        private void offer_info_report_button_Click(object sender, EventArgs e)
+        {
+            // Validation
+            var selectedID = ValidateRowSelection("Generate offer stats report");
+            if (selectedID == null) return;
+
+            // Override styles
+            var offerStats = new OfferInfoForm(new OfferInfoRequest()
+            {
+                OfferId = Int32.Parse(selectedID.ToString()),
+            });
+            offerStats.Location = Location;
+
+            // Show
+            offerStats.ShowDialog();
             Hide();
         }
 
@@ -309,6 +329,9 @@ namespace scratch_collect.Admin.Forms
             // Disable delete button
             offers_delete_button.Enabled = false;
             offers_delete_button.Visible = false;
+            // Report generate button
+            offer_info_report_button.Enabled = false;
+            offer_info_report_button.Visible = false;
         }
 
         private void EnableFilterActionControls()
@@ -319,6 +342,9 @@ namespace scratch_collect.Admin.Forms
             // Disable delete button
             offers_delete_button.Enabled = true;
             offers_delete_button.Visible = true;
+            // Report generate button
+            offer_info_report_button.Enabled = true;
+            offer_info_report_button.Visible = true;
         }
     }
 }

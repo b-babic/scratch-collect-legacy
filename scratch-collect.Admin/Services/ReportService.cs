@@ -36,5 +36,19 @@ namespace scratch_collect.Admin.Services
                 throw;
             }
         }
+
+        public static async Task<List<OfferInfo>> OfferInfo(OfferInfoRequest request)
+        {
+            try
+            {
+                var offers = await BaseService.PostAsync<List<OfferInfo>, OfferInfoRequest>(_baseUrl + "/offer-info", request);
+
+                return offers;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
