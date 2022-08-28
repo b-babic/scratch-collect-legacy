@@ -1,3 +1,4 @@
+import 'package:IB210370/modules/home/widgets/rating_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:IB210370/modules/home/home.screen.dart';
@@ -48,32 +49,9 @@ class DetailsAppBar extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
-              decoration: BoxDecoration(
-                color: whiteColor,
-                borderRadius: BorderRadius.circular(14),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "$rating",
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  SizedBox(width: getProportionateScreenWidth(5)),
-                  SvgPicture.asset(
-                    "lib/modules/shared/assets/icons/star.svg",
-                    width: getProportionateScreenWidth(32),
-                    height: getProportionateScreenHeight(32),
-                  ),
-                ],
-              ),
-            )
+            RatingInfo(
+              rating: rating,
+            ),
           ],
         ),
       ),
