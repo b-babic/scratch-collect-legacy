@@ -14,11 +14,13 @@ namespace scratch_collect.API.Services
     {
         private readonly ScratchCollectContext _context;
         private readonly IMapper _mapper;
+        private DataHelper _helper;
 
         public OfferService(ScratchCollectContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
+            _helper = new DataHelper(context);
         }
 
         public List<OfferDTO> Get(OfferSearchRequest request)
@@ -38,7 +40,6 @@ namespace scratch_collect.API.Services
                 query = query.Where(x => x.Category.Id == request.CategoryId);
             }
 
-            // Default sort
             var list = query
                 .Where(x => x.Quantity != 0)
                 .Select(x => new OfferDTO
@@ -51,13 +52,7 @@ namespace scratch_collect.API.Services
                     Quantity = x.Quantity,
                     Category = _mapper.Map<CategoryDTO>(x.Category),
                     RequiredPrice = x.RequiredPrice,
-                    AverageRating = _context
-                    .Ratings
-                    .Where(x => x.OfferId == x.Id)
-                    .Any() ? _context
-                    .Ratings
-                    .Where(x => x.OfferId == x.Id)
-                    .Average(a => a.RateCount) : 0.0
+                    AverageRating = _helper.CalculateOfferAverageRating(x.Id),
                 })
                 .OrderByDescending(x => x.UpdatedAt)
                 .ToList();
@@ -88,31 +83,15 @@ namespace scratch_collect.API.Services
                     UpdatedAt = a.UpdatedAt,
                     CreatedAt = a.CreatedAt,
                     Category = _mapper.Map<CategoryDTO>(a.Category),
-                    AverageRating = _context
-                    .Ratings
-                    .Where(x => x.OfferId == a.Id)
-                    .Any() ? _context
-                    .Ratings
-                    .Where(x => x.OfferId == a.Id)
-                    .Average(a => a.RateCount) : 0.0
+                    AverageRating = _helper.CalculateOfferAverageRating(a.Id),
                 })
-                .Where(x => x.AverageRating > 3.0)
+                .AsEnumerable()
+                .Where(a => a.AverageRating > 3.0)
                 .OrderByDescending(a => a.UpdatedAt)
                 .Take(3)
                 .ToList();
 
             offer.RecommendedItems = _mapper.Map<List<OfferDTO>>(recommended);
-
-            // Average rating
-            var entityHasRatings = _context
-                .Ratings
-                .Where(x => x.OfferId == offer.Id)
-                .Any();
-
-            offer.AverageRating = entityHasRatings ? _context
-                .Ratings
-                .Where(x => x.OfferId == offer.Id)
-                .Average(a => a.RateCount) : 0.0;
 
             return offer;
         }
