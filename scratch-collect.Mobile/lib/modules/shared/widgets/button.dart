@@ -55,13 +55,17 @@ class Button extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (loading)
-              const CircularProgressIndicator(
-                color: whiteColor,
-                strokeWidth: 2.0,
+              SizedBox(
+                height: getProportionateScreenHeight(28),
+                width: getProportionateScreenWidth(22),
+                child: const CircularProgressIndicator(
+                  color: whiteColor,
+                  strokeWidth: 2.0,
+                ),
               ),
             if (loading)
               SizedBox(
-                width: getProportionateScreenWidth(30),
+                width: getProportionateScreenWidth(25),
               ),
             loading
                 ? Text(
