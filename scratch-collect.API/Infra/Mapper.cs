@@ -47,6 +47,7 @@ namespace scratch_collect.API.Infra
 
             // Rating
             CreateMap<Database.Rating, RatingDTO>();
+            CreateMap<Database.Rating, RatingRequest>().ReverseMap();
         }
     }
 }
