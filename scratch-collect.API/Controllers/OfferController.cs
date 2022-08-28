@@ -46,7 +46,7 @@ namespace scratch_collect.API.Controllers
 
         [Authorize(Roles = "Administrator")]
         [HttpDelete("{id:int}")]
-        public void delete(int id)
+        public void Delete(int id)
         {
             _offerService.Delete(id);
         }
