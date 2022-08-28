@@ -14,5 +14,8 @@ const primaryGradientColor = LinearGradient(
 const textColor = Color(0xFF1C1825);
 const secondaryColor = Color(0xFFACA9C6);
 const tertiaryColor = Color(0xFFC8C6D7);
+const transparentColor = Colors.transparent;
+
+const amberColor = Colors.amber;
 
 const animationDurationDefault = Duration(milliseconds: 200);

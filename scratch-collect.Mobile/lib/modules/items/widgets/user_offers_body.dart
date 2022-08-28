@@ -112,7 +112,10 @@ class UserOffersBodyState extends State<UserOffersBody> {
                   height: getProportionateScreenHeight(45),
                 ),
                 userOffers.isNotEmpty
-                    ? UserOffersList(offers: userOffers)
+                    ? UserOffersList(
+                        offers: userOffers,
+                        refreshData: loadUserAndOffers,
+                      )
                     : const NoData()
               ],
             ),

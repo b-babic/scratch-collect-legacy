@@ -4,10 +4,12 @@ import 'package:IB210370/modules/items/widgets/user_offer_card.dart';
 
 class UserOffersList extends StatelessWidget {
   final List<UserOffer> offers;
+  final Future<void> Function() refreshData;
 
   const UserOffersList({
     Key? key,
     required this.offers,
+    required this.refreshData,
   }) : super(key: key);
 
   @override
@@ -18,7 +20,10 @@ class UserOffersList extends StatelessWidget {
           offers.length,
           (index) {
             return UserOfferCard(
-                userOffer: offers[index], keyPrefix: "user-offers");
+              userOffer: offers[index],
+              keyPrefix: "user-offers",
+              refreshData: refreshData,
+            );
           },
         )
       ],
