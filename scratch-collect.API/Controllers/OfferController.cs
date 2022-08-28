@@ -70,7 +70,7 @@ namespace scratch_collect.API.Controllers
             return _offerService.ArchiveOffer(request);
         }
 
-        [Authorize(Roles = "Client")]
+        [AllowAnonymous]
         [HttpPost("play")]
         public UserOfferDTO Play(UserOfferPlayRequest request)
         {
