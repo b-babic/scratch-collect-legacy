@@ -12,6 +12,10 @@ namespace scratch_collect.Model
 
         public bool Won { get; set; }
 
+        public double? AverageRating { get; set; } = 0.0;
+
+        public bool AlreadyRated { get; set; }
+
         // relations
         public int UserId { get; set; }
 
