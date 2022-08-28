@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace scratch_collect.Model
 {
@@ -15,7 +16,7 @@ namespace scratch_collect.Model
 
         public int RequiredPrice { get; set; }
 
-        public double AverageRating { get; set; }
+        public double AverageRating { get; set; } = 0.0;
 
         public DateTime CreatedAt { get; set; }
 
