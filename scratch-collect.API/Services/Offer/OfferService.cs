@@ -268,7 +268,7 @@ namespace scratch_collect.API.Services
                     Offer = _mapper.Map<OfferDTO>(o.Offer),
                     OfferId = o.OfferId,
                     AverageRating = _helper.CalculateOfferAverageRating(o.OfferId),
-                    AlreadyRated = _helper.CheckIfUserAlreadyRatedItem(o.OfferId, o.UserId),
+                    AlreadyRated = _helper.CheckIfUserAlreadyRatedItem(o.UserId, o.OfferId),
                 })
                 .OrderByDescending(x => x.BoughtOn)
                 .ToList();
