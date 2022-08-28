@@ -4,6 +4,7 @@ using scratch_collect.API.Database;
 using scratch_collect.API.Exceptions;
 using scratch_collect.Model;
 using scratch_collect.Model.Requests;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,13 @@ namespace scratch_collect.API.Services
     {
         private readonly ScratchCollectContext _context;
         private readonly IMapper _mapper;
+        private readonly IRecommendationService _recommendationService;
 
-        public OfferService(ScratchCollectContext context, IMapper mapper)
+        public OfferService(ScratchCollectContext context, IMapper mapper, IRecommendationService recommendationService)
         {
             _context = context;
             _mapper = mapper;
+            _recommendationService = recommendationService;
         }
 
         public List<OfferDTO> Get(OfferSearchRequest request)
@@ -75,32 +78,7 @@ namespace scratch_collect.API.Services
             var offer = _mapper.Map<OfferDTO>(entity);
 
             // Recommended items
-            var recommended = _context
-                .Offers
-                .Where(x => x.CategoryId == entity.CategoryId)
-                .Select(a => new OfferDTO
-                {
-                    Id = a.Id,
-                    Title = a.Title,
-                    Description = a.Description,
-                    Quantity = a.Quantity,
-                    RequiredPrice = a.RequiredPrice,
-                    UpdatedAt = a.UpdatedAt,
-                    CreatedAt = a.CreatedAt,
-                    Category = _mapper.Map<CategoryDTO>(a.Category),
-                    AverageRating = _context
-                    .Ratings
-                    .Where(x => x.OfferId == a.Id)
-                    .Any() ? _context
-                    .Ratings
-                    .Where(x => x.OfferId == a.Id)
-                    .Average(a => a.RateCount) : 0.0
-                })
-                .Where(x => x.AverageRating > 3.0)
-                .OrderByDescending(a => a.UpdatedAt)
-                .Take(3)
-                .ToList();
-
+            var recommended = _recommendationService.GetRecommendedItems(entity.Id);
             offer.RecommendedItems = _mapper.Map<List<OfferDTO>>(recommended);
 
             // Average rating

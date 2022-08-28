@@ -90,6 +90,7 @@ namespace scratch_collect.API
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IPaymentService, PaymentService>();
             services.AddScoped<IReportService, ReportService>();
+            services.AddScoped<IRecommendationService, RecommendationService>();
 
             services.AddAutoMapper(typeof(Startup));
 
