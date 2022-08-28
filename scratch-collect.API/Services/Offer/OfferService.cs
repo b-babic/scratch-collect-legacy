@@ -254,6 +254,22 @@ namespace scratch_collect.API.Services
             // Default sort by bougt on date
             var list = query
                 .Where(a => a.Played == false)
+                .Include(q => q.Offer)
+                .ThenInclude(q => q.Category)
+                .Select(o => new UserOfferDTO
+                {
+                    Id = o.Id,
+                    BoughtOn = o.BoughtOn,
+                    Played = o.Played,
+                    PlayedOn = o.PlayedOn,
+                    Won = o.Won,
+                    User = _mapper.Map<UserDTO>(o.User),
+                    UserId = o.UserId,
+                    Offer = _mapper.Map<OfferDTO>(o.Offer),
+                    OfferId = o.OfferId,
+                    AverageRating = _helper.CalculateOfferAverageRating(o.OfferId),
+                    AlreadyRated = _helper.CheckIfUserAlreadyRatedItem(o.OfferId, o.UserId),
+                })
                 .OrderByDescending(x => x.BoughtOn)
                 .ToList();
 
