@@ -8,6 +8,8 @@ class UserOffer {
   bool? won;
   int? userId;
   Offer? offer;
+  double? averageRating;
+  bool? alreadyRated;
 
   UserOffer({
     this.id,
@@ -17,6 +19,8 @@ class UserOffer {
     this.won,
     this.userId,
     this.offer,
+    this.averageRating,
+    this.alreadyRated = false,
   });
 
   UserOffer.fromJson(Map<String, dynamic> json) {
@@ -27,6 +31,8 @@ class UserOffer {
     won = json['won'];
     userId = json['userId'];
     offer = json['offer'] != null ? Offer.fromJson(json['offer']) : null;
+    averageRating = json['averageRating'];
+    alreadyRated = json['alreadyRated'];
   }
 
   Map<String, dynamic> toJson() {
@@ -39,6 +45,8 @@ class UserOffer {
     data['won'] = won;
     data['userId'] = userId;
     data['offer'] = offer;
+    data['averageRating'] = averageRating;
+    data['alreadyRated'] = alreadyRated;
 
     return data;
   }
