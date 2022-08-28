@@ -10,16 +10,16 @@ class DetailsAppBar extends StatelessWidget {
   const DetailsAppBar({Key? key, required this.rating}) : super(key: key);
 
   @override
-  // AppBar().preferredSize.height provide us the height that appy on our app bar
-  Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
-
-  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+        padding: EdgeInsets.symmetric(
+          horizontal: getProportionateScreenWidth(10),
+          vertical: getProportionateScreenWidth(10),
+        ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
               height: getProportionateScreenWidth(40),
@@ -30,7 +30,7 @@ class DetailsAppBar extends StatelessWidget {
                     borderRadius: BorderRadius.circular(60),
                   ),
                   primary: primaryColor,
-                  backgroundColor: Colors.white,
+                  backgroundColor: whiteColor,
                   padding: EdgeInsets.zero,
                 ),
                 onPressed: () {
@@ -55,6 +55,8 @@ class DetailsAppBar extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "$rating",
@@ -64,7 +66,11 @@ class DetailsAppBar extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: getProportionateScreenWidth(5)),
-                  SvgPicture.asset("lib/modules/shared/assets/icons/star.svg"),
+                  SvgPicture.asset(
+                    "lib/modules/shared/assets/icons/star.svg",
+                    width: getProportionateScreenWidth(32),
+                    height: getProportionateScreenHeight(32),
+                  ),
                 ],
               ),
             )

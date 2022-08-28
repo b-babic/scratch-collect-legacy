@@ -72,7 +72,7 @@ class DetailsBodyState extends State<DetailsBody> {
               width: double.infinity,
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                  vertical: getProportionateScreenHeight(20),
+                  vertical: getProportionateScreenHeight(10),
                   horizontal: getProportionateScreenWidth(20),
                 ),
                 child: ListView(
