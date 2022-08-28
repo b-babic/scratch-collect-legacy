@@ -115,8 +115,6 @@ namespace scratch_collect.API.Services
             _context.Offers.Add(entity);
             _context.SaveChanges();
 
-            _context.SaveChanges();
-
             var result = _context.Offers.Include(a => a.Category).FirstOrDefault(x => x.Id == entity.Id);
 
             return _mapper.Map<OfferDTO>(result);
@@ -269,6 +267,9 @@ namespace scratch_collect.API.Services
                 .ThenInclude(c => c.Category)
                 .Where(x => x.Id == request.UserOfferId)
                 .FirstOrDefault();
+
+            if (entity == null)
+                throw new BadRequestException("User offer does not exist!");
 
             // Set won status
             entity.Played = true;
