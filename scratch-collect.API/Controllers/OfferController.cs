@@ -12,10 +12,12 @@ namespace scratch_collect.API.Controllers
     public class OfferController : ControllerBase
     {
         private IOfferService _offerService;
+        private IRatingService _ratingService;
 
-        public OfferController(IOfferService offerService)
+        public OfferController(IOfferService offerService, IRatingService ratingService)
         {
             _offerService = offerService;
+            _ratingService = ratingService;
         }
 
         [HttpGet]
@@ -75,6 +77,14 @@ namespace scratch_collect.API.Controllers
         public UserOfferDTO Play(UserOfferPlayRequest request)
         {
             return _offerService.Play(request);
+        }
+
+        // Ratings
+        [AllowAnonymous]
+        [HttpPost("rate")]
+        public RatingDTO Rate([FromBody] RatingRequest request)
+        {
+            return _ratingService.Rate(request);
         }
     }
 }
