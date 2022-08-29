@@ -15,12 +15,14 @@ namespace scratch_collect.API.Services
         private readonly ScratchCollectContext _context;
         private readonly IMapper _mapper;
         private DataHelper _helper;
+        private readonly IRecommendationService _recommendationService;
 
-        public OfferService(ScratchCollectContext context, IMapper mapper)
+        public OfferService(ScratchCollectContext context, IMapper mapper, IRecommendationService recommendationService)
         {
             _context = context;
             _mapper = mapper;
             _helper = new DataHelper(context);
+            _recommendationService = recommendationService;
         }
 
         public List<OfferDTO> Get(OfferSearchRequest request)
@@ -70,28 +72,7 @@ namespace scratch_collect.API.Services
             var offer = _mapper.Map<OfferDTO>(entity);
 
             // Recommended items
-            var recommended = _context
-                .Offers
-                .Where(x => x.CategoryId == entity.CategoryId)
-                .Select(a => new OfferDTO
-                {
-                    Id = a.Id,
-                    Title = a.Title,
-                    Description = a.Description,
-                    Quantity = a.Quantity,
-                    RequiredPrice = a.RequiredPrice,
-                    UpdatedAt = a.UpdatedAt,
-                    CreatedAt = a.CreatedAt,
-                    Category = _mapper.Map<CategoryDTO>(a.Category),
-                    AverageRating = _helper.CalculateOfferAverageRating(a.Id),
-                })
-                .AsEnumerable()
-                .Where(a => a.AverageRating > 3.0)
-                .OrderByDescending(a => a.UpdatedAt)
-                .Take(3)
-                .ToList();
-
-            offer.RecommendedItems = _mapper.Map<List<OfferDTO>>(recommended);
+            offer.RecommendedItems = _recommendationService.GetRecommendedItems(offer.Id);
 
             return offer;
         }
