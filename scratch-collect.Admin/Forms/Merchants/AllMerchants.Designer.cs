@@ -84,11 +84,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 28);
+            this.label2.Location = new System.Drawing.Point(3, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 16);
+            this.label2.Size = new System.Drawing.Size(47, 16);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Text:";
+            this.label2.Text = "Name:";
             // 
             // label1
             // 
@@ -105,7 +105,7 @@
             this.merchants_country_filter.Location = new System.Drawing.Point(397, 15);
             this.merchants_country_filter.Margin = new System.Windows.Forms.Padding(2);
             this.merchants_country_filter.Name = "merchants_country_filter";
-            this.merchants_country_filter.Size = new System.Drawing.Size(194, 34);
+            this.merchants_country_filter.Size = new System.Drawing.Size(194, 29);
             this.merchants_country_filter.TabIndex = 5;
             // 
             // panel2
@@ -173,7 +173,7 @@
             this.merchants_text_filter.Location = new System.Drawing.Point(54, 15);
             this.merchants_text_filter.Margin = new System.Windows.Forms.Padding(2);
             this.merchants_text_filter.Name = "merchants_text_filter";
-            this.merchants_text_filter.Size = new System.Drawing.Size(194, 34);
+            this.merchants_text_filter.Size = new System.Drawing.Size(194, 29);
             this.merchants_text_filter.TabIndex = 2;
             // 
             // merchants_filter_button
