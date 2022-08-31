@@ -161,6 +161,7 @@ namespace scratch_collect.Admin.Forms.Coupons
             }
             finally
             {
+                EnableCommonElements();
                 StopLoading();
             }
         }
