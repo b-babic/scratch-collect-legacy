@@ -1,15 +1,23 @@
+import 'package:IB210370/modules/shared/theme/colors.dart';
 import 'package:flutter/widgets.dart';
 import 'package:IB210370/modules/home/models/offer.model.dart';
 import 'package:IB210370/modules/home/widgets/offer_card.dart';
 import 'package:IB210370/modules/shared/theme/utils.dart';
 
-class RecommendedItems extends StatelessWidget {
+class RecommendedItems extends StatefulWidget {
   const RecommendedItems({
     Key? key,
     required this.items,
   }) : super(key: key);
 
   final List<Offer> items;
+
+  @override
+  State<RecommendedItems> createState() => _RecommendedItemsState();
+}
+
+class _RecommendedItemsState extends State<RecommendedItems> {
+  late var hasItems = widget.items.isNotEmpty;
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +32,37 @@ class RecommendedItems extends StatelessWidget {
           ),
         ),
         SizedBox(height: getProportionateScreenHeight(20)),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              ...List.generate(
-                items.length,
-                (index) {
-                  return OfferCard(
-                    offer: items[index],
-                    keyPrefix: "recommended",
-                    cardSize: OfferCardSize.small,
-                  );
-                },
+        if (hasItems)
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                ...List.generate(
+                  widget.items.length,
+                  (index) {
+                    return OfferCard(
+                      offer: widget.items[index],
+                      keyPrefix: "recommended",
+                      cardSize: OfferCardSize.small,
+                    );
+                  },
+                ),
+              ],
+            ),
+          )
+        else
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                "No recommendation criteria yet.",
+                style: TextStyle(
+                  fontSize: getProportionateScreenWidth(14),
+                  color: secondaryColor,
+                ),
               ),
             ],
           ),
-        ),
       ],
     );
   }
