@@ -218,6 +218,7 @@ namespace scratch_collect.API.Services
                 .UserOffers
                 .Include(a => a.Offer)
                 .ThenInclude(b => b.Category)
+                .ToList()
                 .Where(x => x.UserId == request.UserId && x.Won == true)
                 .AsQueryable();
 
@@ -229,7 +230,7 @@ namespace scratch_collect.API.Services
             // Default order
             var list = query
                 .OrderByDescending(a => a.PlayedOn)
-                .ToList();
+                .AsEnumerable();
 
             return _mapper.Map<List<UserOfferDTO>>(list);
         }

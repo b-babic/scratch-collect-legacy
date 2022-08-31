@@ -107,10 +107,10 @@ namespace scratch_collect.API.Services
                         .Offers
                         .Include(x => x.Category)
                         .Include(x => x.OfferRatings)
-                        .AsQueryable()
                         // Take into account current stock of item.
                         // Don't recommend items that have quantity of 0.
                         .Where(o => o.Id == associatedRating.Key && o.Quantity > 0)
+                        .ToList()
                         .Select(o => new OfferDTO
                         {
                             Id = o.Id,

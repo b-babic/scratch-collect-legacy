@@ -44,6 +44,7 @@ namespace scratch_collect.API.Services
 
             var list = query
                 .Where(x => x.Quantity != 0)
+                .ToList()
                 .Select(x => new OfferDTO
                 {
                     Id = x.Id,
@@ -67,6 +68,7 @@ namespace scratch_collect.API.Services
             var entity = _context
                 .Offers
                 .Include(c => c.Category)
+                .AsEnumerable()
                 .FirstOrDefault(x => x.Id == id);
 
             var offer = _mapper.Map<OfferDTO>(entity);
@@ -237,6 +239,7 @@ namespace scratch_collect.API.Services
                 .Where(a => a.Played == false)
                 .Include(q => q.Offer)
                 .ThenInclude(q => q.Category)
+                .ToList()
                 .Select(o => new UserOfferDTO
                 {
                     Id = o.Id,
