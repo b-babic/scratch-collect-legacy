@@ -48,7 +48,7 @@ namespace scratch_collect.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
 
                     b.HasData(
                         new
@@ -101,7 +101,7 @@ namespace scratch_collect.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Countries");
+                    b.ToTable("Countries", (string)null);
 
                     b.HasData(
                         new
@@ -1595,7 +1595,7 @@ namespace scratch_collect.API.Migrations
 
                     b.HasIndex("UsedById");
 
-                    b.ToTable("Coupons");
+                    b.ToTable("Coupons", (string)null);
 
                     b.HasData(
                         new
@@ -1685,7 +1685,7 @@ namespace scratch_collect.API.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Merchants");
+                    b.ToTable("Merchants", (string)null);
 
                     b.HasData(
                         new
@@ -1763,7 +1763,7 @@ namespace scratch_collect.API.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Offers");
+                    b.ToTable("Offers", (string)null);
 
                     b.HasData(
                         new
@@ -2014,7 +2014,7 @@ namespace scratch_collect.API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Ratings");
+                    b.ToTable("Ratings", (string)null);
 
                     b.HasData(
                         new
@@ -2422,7 +2422,7 @@ namespace scratch_collect.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
 
                     b.HasData(
                         new
@@ -2501,7 +2501,7 @@ namespace scratch_collect.API.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
 
                     b.HasData(
                         new
@@ -2580,7 +2580,7 @@ namespace scratch_collect.API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserOffers");
+                    b.ToTable("UserOffers", (string)null);
 
                     b.HasData(
                         new
@@ -2783,7 +2783,7 @@ namespace scratch_collect.API.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Wallets");
+                    b.ToTable("Wallets", (string)null);
 
                     b.HasData(
                         new
