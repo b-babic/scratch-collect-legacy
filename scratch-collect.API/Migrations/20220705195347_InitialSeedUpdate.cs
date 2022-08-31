@@ -629,10 +629,10 @@ namespace scratch_collect.API.Migrations
                 columns: new[] { "Id", "CreatedAt", "Text", "UsedAt", "UsedById", "Value" },
                 values: new object[,]
                 {
-                    { 4, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "497D-A613", null, 2, 30 },
-                    { 5, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "47E7-9714", null, 2, 50 },
-                    { 6, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "497C-A113", null, 3, 30 },
-                    { 7, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "27E8-9714", null, 3, 15 }
+                    { 4, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "497D-A613", new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), 2, 30 },
+                    { 5, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "47E7-9714", new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), 2, 50 },
+                    { 6, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "497C-A113", new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), 3, 30 },
+                    { 7, new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), "27E8-9714", new DateTime(2022, 6, 9, 22, 50, 36, 40, DateTimeKind.Unspecified).AddTicks(6503), 3, 15 }
                 });
 
             migrationBuilder.InsertData(
