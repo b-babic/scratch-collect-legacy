@@ -224,7 +224,8 @@ namespace scratch_collect.API.Services
 
             if (!String.IsNullOrEmpty(request.Query))
             {
-                query = query.Where(x => x.Offer.Title.Contains(request.Query));
+                query = query
+                .Where(x => x.Offer.Title.ToLower().Contains(request.Query.ToLower()));
             }
 
             // Default order
