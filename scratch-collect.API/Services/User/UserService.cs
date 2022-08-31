@@ -107,7 +107,12 @@ namespace scratch_collect.API.Services
                 entity.Username = request.Username;
 
             if (request.Email != null)
+            {
+                if (RegexUtilities.IsValidEmail(request.Email) == false)
+                    throw new BadRequestException("Email must be valid!");
+
                 entity.Email = request.Email;
+            }
 
             if (request.FirstName != null)
                 entity.FirstName = request.FirstName;
