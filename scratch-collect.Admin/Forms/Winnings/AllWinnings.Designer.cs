@@ -51,13 +51,13 @@
             this.all_users_main_layout.Controls.Add(this.all_users_panel, 0, 0);
             this.all_users_main_layout.Controls.Add(this.users_layout_content_panel, 0, 1);
             this.all_users_main_layout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.all_users_main_layout.Location = new System.Drawing.Point(32, 26);
+            this.all_users_main_layout.Location = new System.Drawing.Point(24, 21);
             this.all_users_main_layout.Margin = new System.Windows.Forms.Padding(2);
             this.all_users_main_layout.Name = "all_users_main_layout";
             this.all_users_main_layout.RowCount = 2;
             this.all_users_main_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.40351F));
             this.all_users_main_layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.59649F));
-            this.all_users_main_layout.Size = new System.Drawing.Size(1261, 583);
+            this.all_users_main_layout.Size = new System.Drawing.Size(946, 474);
             this.all_users_main_layout.TabIndex = 2;
             // 
             // all_users_panel
@@ -70,13 +70,13 @@
             this.all_users_panel.Location = new System.Drawing.Point(2, 2);
             this.all_users_panel.Margin = new System.Windows.Forms.Padding(2);
             this.all_users_panel.Name = "all_users_panel";
-            this.all_users_panel.Size = new System.Drawing.Size(1256, 62);
+            this.all_users_panel.Size = new System.Drawing.Size(942, 50);
             this.all_users_panel.TabIndex = 2;
             // 
             // date_to_label
             // 
             this.date_to_label.AutoSize = true;
-            this.date_to_label.Location = new System.Drawing.Point(357, 25);
+            this.date_to_label.Location = new System.Drawing.Point(268, 20);
             this.date_to_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.date_to_label.Name = "date_to_label";
             this.date_to_label.Size = new System.Drawing.Size(23, 13);
@@ -86,36 +86,40 @@
             // date_from_label
             // 
             this.date_from_label.AutoSize = true;
-            this.date_from_label.Location = new System.Drawing.Point(21, 25);
+            this.date_from_label.Location = new System.Drawing.Point(16, 20);
             this.date_from_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.date_from_label.Name = "date_from_label";
-            this.date_from_label.Size = new System.Drawing.Size(34, 13);
+            this.date_from_label.Size = new System.Drawing.Size(33, 13);
             this.date_from_label.TabIndex = 4;
             this.date_from_label.Text = "From:";
             // 
             // date_to_picker
             // 
-            this.date_to_picker.Location = new System.Drawing.Point(385, 20);
+            this.date_to_picker.CustomFormat = "yyyy-MM-dd";
+            this.date_to_picker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_to_picker.Location = new System.Drawing.Point(289, 16);
             this.date_to_picker.Margin = new System.Windows.Forms.Padding(2);
             this.date_to_picker.Name = "date_to_picker";
-            this.date_to_picker.Size = new System.Drawing.Size(241, 22);
+            this.date_to_picker.Size = new System.Drawing.Size(182, 20);
             this.date_to_picker.TabIndex = 3;
             // 
             // date_from_picker
             // 
-            this.date_from_picker.Location = new System.Drawing.Point(63, 22);
+            this.date_from_picker.CustomFormat = "yyyy-MM-dd";
+            this.date_from_picker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date_from_picker.Location = new System.Drawing.Point(47, 18);
             this.date_from_picker.Margin = new System.Windows.Forms.Padding(2);
             this.date_from_picker.Name = "date_from_picker";
-            this.date_from_picker.Size = new System.Drawing.Size(241, 22);
+            this.date_from_picker.Size = new System.Drawing.Size(182, 20);
             this.date_from_picker.TabIndex = 2;
             // 
             // winnings_filter_button
             // 
             this.winnings_filter_button.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.winnings_filter_button.Location = new System.Drawing.Point(723, 13);
+            this.winnings_filter_button.Location = new System.Drawing.Point(542, 11);
             this.winnings_filter_button.Margin = new System.Windows.Forms.Padding(2);
             this.winnings_filter_button.Name = "winnings_filter_button";
-            this.winnings_filter_button.Size = new System.Drawing.Size(90, 35);
+            this.winnings_filter_button.Size = new System.Drawing.Size(68, 28);
             this.winnings_filter_button.TabIndex = 1;
             this.winnings_filter_button.Text = "Filter";
             this.winnings_filter_button.UseVisualStyleBackColor = true;
@@ -125,11 +129,11 @@
             // 
             this.users_layout_content_panel.Controls.Add(this.winnings_datagrid);
             this.users_layout_content_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.users_layout_content_panel.Location = new System.Drawing.Point(2, 68);
+            this.users_layout_content_panel.Location = new System.Drawing.Point(2, 56);
             this.users_layout_content_panel.Margin = new System.Windows.Forms.Padding(2);
             this.users_layout_content_panel.Name = "users_layout_content_panel";
-            this.users_layout_content_panel.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.users_layout_content_panel.Size = new System.Drawing.Size(1257, 513);
+            this.users_layout_content_panel.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.users_layout_content_panel.Size = new System.Drawing.Size(942, 416);
             this.users_layout_content_panel.TabIndex = 3;
             // 
             // winnings_datagrid
@@ -141,7 +145,7 @@
             this.winnings_datagrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.winnings_datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.winnings_datagrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.winnings_datagrid.Location = new System.Drawing.Point(4, 3);
+            this.winnings_datagrid.Location = new System.Drawing.Point(3, 2);
             this.winnings_datagrid.Margin = new System.Windows.Forms.Padding(2);
             this.winnings_datagrid.MultiSelect = false;
             this.winnings_datagrid.Name = "winnings_datagrid";
@@ -149,19 +153,19 @@
             this.winnings_datagrid.RowHeadersWidth = 62;
             this.winnings_datagrid.RowTemplate.Height = 33;
             this.winnings_datagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.winnings_datagrid.Size = new System.Drawing.Size(1249, 507);
+            this.winnings_datagrid.Size = new System.Drawing.Size(936, 412);
             this.winnings_datagrid.TabIndex = 0;
             this.winnings_datagrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.winnings_datagrid_DataBindingComplete);
             // 
             // AllWinnings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1325, 635);
+            this.ClientSize = new System.Drawing.Size(994, 516);
             this.Controls.Add(this.all_users_main_layout);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AllWinnings";
-            this.Padding = new System.Windows.Forms.Padding(32, 26, 32, 26);
+            this.Padding = new System.Windows.Forms.Padding(24, 21, 24, 21);
             this.Text = "Latest Winnings";
             this.Load += new System.EventHandler(this.AllWinnings_Load);
             this.all_users_main_layout.ResumeLayout(false);

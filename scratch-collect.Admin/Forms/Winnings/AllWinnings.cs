@@ -40,7 +40,7 @@ namespace scratch_collect.Admin.Forms
             {
                 var merchants = await UserService.AllWonOffers(dateFromQuery, dateToQuery);
 
-                if (merchants != null) HandleDataSuccess(merchants);
+                if (merchants != null && merchants.Count > 0) HandleDataSuccess(merchants);
             }
             catch (Exception)
             {
@@ -93,7 +93,7 @@ namespace scratch_collect.Admin.Forms
         {
             // Prepare data
             var dateFromQuery = date_from_picker.Value;
-            var dateToQuery = date_from_picker.Value;
+            var dateToQuery = date_to_picker.Value;
 
             // Disabled states
             StartLoading();
@@ -112,8 +112,8 @@ namespace scratch_collect.Admin.Forms
             }
             finally
             {
-                EnableCommonElements();
                 StopLoading();
+                EnableCommonElements();
             }
         }
 
@@ -157,7 +157,12 @@ namespace scratch_collect.Admin.Forms
             DisableCommonElements();
 
             // Set default date filters
+            date_from_picker.Format = DateTimePickerFormat.Custom;
+            date_from_picker.CustomFormat = "yyyy-MM-dd";
             date_from_picker.Value = DateTime.Today.AddYears(-1);
+
+            date_to_picker.Format = DateTimePickerFormat.Custom;
+            date_to_picker.CustomFormat = "yyyy-MM-dd";
             date_to_picker.Value = DateTime.Today;
         }
 
@@ -168,7 +173,6 @@ namespace scratch_collect.Admin.Forms
             winnings_datagrid.Visible = false;
 
             // Filters
-            winnings_filter_button.Enabled = false;
             winnings_filter_button.Enabled = false;
         }
 

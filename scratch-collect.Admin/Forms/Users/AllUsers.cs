@@ -178,8 +178,8 @@ namespace scratch_collect.Admin.Forms.Users
             }
             finally
             {
-                EnableCommonElements();
                 StopLoading();
+                EnableCommonElements();
             }
         }
 
