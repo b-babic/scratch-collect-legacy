@@ -24,9 +24,12 @@ class ProfilePic extends StatelessWidget {
         children: [
           CircleAvatar(
             backgroundColor: tertiaryColor,
-            child: ClipOval(
-              child: Image.memory(
-                base64.decode(profilePhoto ?? ""),
+            child: SizedBox.expand(
+              child: ClipOval(
+                child: Image.memory(
+                  base64.decode(profilePhoto ?? ""),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
