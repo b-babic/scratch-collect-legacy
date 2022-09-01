@@ -5,6 +5,7 @@ using scratch_collect.Model;
 using scratch_collect.Model.Desktop;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace scratch_collect.Desktop.Services
@@ -102,12 +103,13 @@ namespace scratch_collect.Desktop.Services
         public static async Task<List<UserOfferDTO>> AllWonOffers(DateTime? dateFrom, DateTime? dateTo)
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
+            CultureInfo ci = CultureInfo.InvariantCulture;
 
             if (dateFrom != null)
-                parameters["TimeFrom"] = dateFrom.ToString();
+                parameters["TimeFrom"] = dateFrom.Value.ToString("yyyy-MM-dd", ci);
 
             if (dateTo != null)
-                parameters["TimeTo"] = dateTo.ToString();
+                parameters["TimeTo"] = dateTo.Value.ToString("yyyy-MM-dd", ci);
 
             try
             {
