@@ -273,7 +273,7 @@ namespace scratch_collect.API.Services
 
             // Set won status
             entity.Played = true;
-            entity.PlayedOn = DateTime.Now;
+            entity.PlayedOn = DateTime.Now.Date;
             entity.Won = request.Won;
 
             _context.UserOffers.Update(entity);
