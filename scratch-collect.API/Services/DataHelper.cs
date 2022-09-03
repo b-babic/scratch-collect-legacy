@@ -26,6 +26,16 @@ namespace scratch_collect.API.Services
             return alreadyRated;
         }
 
+        public bool CheckIfAnyUserRatedItem(int itemId)
+        {
+            var haveAnyRatings = _context
+                .Ratings
+                .Where(r => r.OfferId == itemId)
+                .Any();
+
+            return haveAnyRatings;
+        }
+
         // Average rating helpers
         private bool HasItemAnyRatings(int id)
         {

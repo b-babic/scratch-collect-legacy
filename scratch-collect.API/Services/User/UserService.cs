@@ -15,11 +15,13 @@ namespace scratch_collect.API.Services
     {
         private readonly ScratchCollectContext _context;
         private readonly IMapper _mapper;
+        private DataHelper _helper;
 
         public UserService(ScratchCollectContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
+            _helper = new DataHelper(context);
         }
 
         public List<UserDTO> Get(UserSearchRequest request)
@@ -272,7 +274,23 @@ namespace scratch_collect.API.Services
                 query = query.Where(s => s.PlayedOn >= from && s.PlayedOn <= to);
             }
 
-            var list = query.ToList();
+            var list = query
+                .ToList()
+                .Select(o => new UserOfferDTO
+                {
+                    Id = o.Id,
+                    BoughtOn = o.BoughtOn,
+                    Played = o.Played,
+                    PlayedOn = o.PlayedOn,
+                    Won = o.Won,
+                    User = _mapper.Map<UserDTO>(o.User),
+                    UserId = o.UserId,
+                    Offer = _mapper.Map<OfferDTO>(o.Offer),
+                    OfferId = o.OfferId,
+                    AverageRating = _helper.CalculateOfferAverageRating(o.OfferId),
+                    AlreadyRated = _helper.CheckIfAnyUserRatedItem(o.OfferId),
+                })
+                ;
 
             if (list == null)
                 throw new BadRequestException("No items found !");
