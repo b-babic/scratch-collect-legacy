@@ -6,9 +6,9 @@ class OfferButtonInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const <Widget>[
+      children: <Widget>[
         Text(
           "*You don't have enough money to buy this!",
           style: TextStyle(

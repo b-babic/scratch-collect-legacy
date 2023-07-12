@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:IB210370/modules/home/widgets/offer_card.dart';
 import 'package:IB210370/modules/items/models/user_offer.model.dart';
 import 'package:IB210370/modules/winnings/widgets/winning_card.dart';
 

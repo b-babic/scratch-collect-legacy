@@ -42,11 +42,10 @@ class Button extends StatelessWidget {
       width: double.infinity,
       child: TextButton(
         style: TextButton.styleFrom(
-          shape: RoundedRectangleBorder(
+          foregroundColor: disabled ? tertiaryColor : _buildVariantBackgroundColor(), shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
           padding: const EdgeInsets.all(15),
-          primary: disabled ? tertiaryColor : _buildVariantBackgroundColor(),
           backgroundColor:
               disabled ? tertiaryColor : _buildVariantBackgroundColor(),
         ),

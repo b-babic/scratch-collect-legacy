@@ -217,6 +217,7 @@ class SignupFormState extends State<SignupForm> {
           addError(error: passwordLengthError);
           return "";
         }
+        return null;
       },
       decoration: const InputDecoration(
         labelText: "Password",
@@ -252,6 +253,7 @@ class SignupFormState extends State<SignupForm> {
           addError(error: passwordConfirmMatchError);
           return "";
         }
+        return null;
       },
       decoration: const InputDecoration(
         labelText: "Password Confirm",

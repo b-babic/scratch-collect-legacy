@@ -130,6 +130,7 @@ class VoucherUseFormState extends State<VoucherUseForm> {
           addError(error: voucherLengthError);
           return "";
         }
+        return null;
       },
       decoration: const InputDecoration(
         labelText: "Voucher",

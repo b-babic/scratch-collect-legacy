@@ -141,6 +141,7 @@ class SigninFormState extends State<SigninForm> {
           addError(error: passwordLengthError);
           return "";
         }
+        return null;
       },
       decoration: const InputDecoration(
         labelText: "Password",

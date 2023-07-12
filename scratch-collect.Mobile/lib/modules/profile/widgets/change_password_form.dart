@@ -131,6 +131,7 @@ class ChangePasswordFormState extends State<ChangePasswordForm> {
           addError(error: oldPasswordLengthError);
           return "";
         }
+        return null;
       },
       decoration: const InputDecoration(
         labelText: "Old Password",
@@ -166,6 +167,7 @@ class ChangePasswordFormState extends State<ChangePasswordForm> {
           addError(error: oldNewPasswordMatchError);
           return "";
         }
+        return null;
       },
       decoration: const InputDecoration(
         labelText: "New Password",

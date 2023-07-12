@@ -1,6 +1,5 @@
 import 'package:IB210370/modules/home/widgets/rating_info.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:IB210370/modules/home/home.screen.dart';
 import 'package:IB210370/modules/shared/theme/colors.dart';
 import 'package:IB210370/modules/shared/theme/utils.dart';
@@ -27,10 +26,9 @@ class DetailsAppBar extends StatelessWidget {
               width: getProportionateScreenWidth(40),
               child: TextButton(
                 style: TextButton.styleFrom(
-                  shape: RoundedRectangleBorder(
+                  foregroundColor: primaryColor, shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(60),
                   ),
-                  primary: primaryColor,
                   backgroundColor: whiteColor,
                   padding: EdgeInsets.zero,
                 ),

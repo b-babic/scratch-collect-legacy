@@ -1,4 +1,3 @@
-import 'package:IB210370/modules/home/details.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:IB210370/modules/home/home.screen.dart';
 import 'package:IB210370/modules/home/models/offer_buy_request.model.dart';
