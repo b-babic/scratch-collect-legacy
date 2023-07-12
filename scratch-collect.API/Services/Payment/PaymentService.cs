@@ -11,117 +11,114 @@ using System.Linq;
 
 namespace scratch_collect.API.Services
 {
-    public class PaymentService : IPaymentService
-    {
-        private readonly ScratchCollectContext _context;
-        private readonly IMapper _mapper;
-        private string _stripeKey;
+	public class PaymentService : IPaymentService
+	{
+		private readonly ScratchCollectContext _context;
+		private readonly IMapper _mapper;
+		private string _stripeKey;
 
-        public PaymentService(ScratchCollectContext context, IMapper mapper, IOptions<AppSettings> settings)
-        {
-            _context = context;
-            _mapper = mapper;
-            _stripeKey = settings.Value.StripeKey;
-        }
+		public PaymentService(ScratchCollectContext context, IMapper mapper, IOptions<AppSettings> settings)
+		{
+			_context = context;
+			_mapper = mapper;
+			_stripeKey = settings.Value.StripeKey;
+		}
 
-        public PaymentDetailsDTO ProcessPayment(PaymentBuyRequest request)
-        {
-            if (request.UserId == null)
-                throw new BadRequestException("User id is required !");
+		public PaymentDetailsDTO ProcessPayment(PaymentBuyRequest request)
+		{
+			StripeConfiguration.ApiKey = _stripeKey;
 
-            StripeConfiguration.ApiKey = _stripeKey;
+			PaymentMethod paymentMethod = CreatePaymentMethod(request);
 
-            PaymentMethod paymentMethod = CreatePaymentMethod(request);
+			if (paymentMethod.Id != null)
+			{
+				// Create the PaymentIntent
+				var paymentIntentInfo = CreatePaymentIntent(request.Amount, paymentMethod.Id);
 
-            if (paymentMethod.Id != null)
-            {
-                // Create the PaymentIntent
-                var paymentIntentInfo = CreatePaymentIntent(request.Amount, paymentMethod.Id);
+				return new PaymentDetailsDTO()
+				{
+					PaymentAmount = paymentIntentInfo.Amount,
+					CreatedOn = DateTime.Now,
+					Currency = paymentIntentInfo.Currency,
+					InvoiceId = paymentIntentInfo.InvoiceId,
+					PaymentIntentId = paymentIntentInfo.Id,
+					PaymentMethodId = paymentIntentInfo.PaymentMethodId
+				};
+			}
 
-                return new PaymentDetailsDTO()
-                {
-                    PaymentAmount = paymentIntentInfo.Amount,
-                    CreatedOn = DateTime.Now,
-                    Currency = paymentIntentInfo.Currency,
-                    InvoiceId = paymentIntentInfo.InvoiceId,
-                    PaymentIntentId = paymentIntentInfo.Id,
-                    PaymentMethodId = paymentIntentInfo.PaymentMethodId
-                };
-            }
+			return null;
+		}
 
-            return null;
-        }
+		private PaymentIntent CreatePaymentIntent(double amount, string paymentMethodId)
+		{
+			var createOptions = new PaymentIntentCreateOptions
+			{
+				PaymentMethod = paymentMethodId,
+				Amount = (long?)amount * 100,
+				Currency = "eur",
+			};
 
-        private PaymentIntent CreatePaymentIntent(double amount, string paymentMethodId)
-        {
-            var createOptions = new PaymentIntentCreateOptions
-            {
-                PaymentMethod = paymentMethodId,
-                Amount = (long?)amount * 100,
-                Currency = "eur",
-            };
+			PaymentIntentService paymentIntentService = new PaymentIntentService();
 
-            PaymentIntentService paymentIntentService = new PaymentIntentService();
+			try
+			{
+				PaymentIntent paymentIntent = paymentIntentService.Create(createOptions);
 
-            try
-            {
-                PaymentIntent paymentIntent = paymentIntentService.Create(createOptions);
+				if (paymentIntent.Id != null)
+				{
+					var confirmOptions = new PaymentIntentConfirmOptions { };
 
-                if (paymentIntent.Id != null)
-                {
-                    var confirmOptions = new PaymentIntentConfirmOptions { };
+					paymentIntent = paymentIntentService.Confirm(
+						paymentIntent.Id,
+						confirmOptions
+					);
 
-                    paymentIntent = paymentIntentService.Confirm(
-                        paymentIntent.Id,
-                        confirmOptions
-                    );
+					return paymentIntent;
+				}
+			}
+			catch (Exception e)
+			{
+				throw new BadRequestException(String.Format("{0}", e.Message));
+			}
 
-                    return paymentIntent;
-                }
-            }
-            catch (Exception e)
-            {
-                throw new BadRequestException(String.Format("{0}", e.Message));
-            }
+			return null;
+		}
 
-            return null;
-        }
+		private PaymentMethod CreatePaymentMethod(PaymentBuyRequest request)
+		{
+			var paymentMethodOptions = new PaymentMethodCreateOptions
+			{
+				Type = "card",
+				Card = new PaymentMethodCardOptions
+				{
+					Number = request.CardNumber,
+					ExpMonth = GetExpMonth(request.ExpiryDate),
+					ExpYear = GetExpYear(request.ExpiryDate),
+					Cvc = request.CVV,
+				},
+			};
 
-        private PaymentMethod CreatePaymentMethod(PaymentBuyRequest request)
-        {
-            var paymentMethodOptions = new PaymentMethodCreateOptions
-            {
-                Type = "card",
-                Card = new PaymentMethodCardOptions
-                {
-                    Number = request.CardNumber,
-                    ExpMonth = GetExpMonth(request.ExpiryDate),
-                    ExpYear = GetExpYear(request.ExpiryDate),
-                    Cvc = request.CVV,
-                },
-            };
+			var paymentMethodService = new PaymentMethodService();
 
-            var paymentMethodService = new PaymentMethodService();
+			try
+			{
+				PaymentMethod paymentMethod = paymentMethodService.Create(paymentMethodOptions);
+				return paymentMethod;
+			}
+			catch (Exception e)
+			{
+				throw new BadRequestException(String.Format("{0}", e.Message));
+			}
+		}
 
-            try
-            {
-                PaymentMethod paymentMethod = paymentMethodService.Create(paymentMethodOptions);
-                return paymentMethod;
-            }
-            catch (Exception e)
-            {
-                throw new BadRequestException(String.Format("{0}", e.Message));
-            }
-        }
+		private int GetExpMonth(string expDate)
+		{
+			return int.Parse(expDate.Split("/").First());
+		}
 
-        private int GetExpMonth(string expDate)
-        {
-            return int.Parse(expDate.Split("/").First());
-        }
-
-        private int GetExpYear(string expDate)
-        {
-            return int.Parse(expDate.Split("/").Last());
-        }
-    }
+		private int GetExpYear(string expDate)
+		{
+			return int.Parse(expDate.Split("/").Last());
+		}
+	}
 }
