@@ -11,114 +11,50 @@ using System.Linq;
 
 namespace scratch_collect.API.Services
 {
-	public class PaymentService : IPaymentService
-	{
-		private readonly ScratchCollectContext _context;
-		private readonly IMapper _mapper;
-		private string _stripeKey;
+    public class PaymentService : IPaymentService
+    {
+        private readonly ScratchCollectContext _context;
+        private readonly IMapper _mapper;
+        private string _stripeKey;
 
-		public PaymentService(ScratchCollectContext context, IMapper mapper, IOptions<AppSettings> settings)
-		{
-			_context = context;
-			_mapper = mapper;
-			_stripeKey = settings.Value.StripeKey;
-		}
+        public PaymentService(ScratchCollectContext context, IMapper mapper, IOptions<AppSettings> settings)
+        {
+            _context = context;
+            _mapper = mapper;
+            _stripeKey = settings.Value.StripeKey;
+        }
 
-		public PaymentDetailsDTO ProcessPayment(PaymentBuyRequest request)
-		{
-			StripeConfiguration.ApiKey = _stripeKey;
+        public PaymentDetailsDTO ProcessPayment(PaymentBuyRequest request)
+        {
+            StripeConfiguration.ApiKey = _stripeKey;
 
-			PaymentMethod paymentMethod = CreatePaymentMethod(request);
+            // Create the PaymentIntent
+            var paymentIntentInfo = CreatePaymentIntentOptions(request.Amount);
 
-			if (paymentMethod.Id != null)
-			{
-				// Create the PaymentIntent
-				var paymentIntentInfo = CreatePaymentIntent(request.Amount, paymentMethod.Id);
+            var service = new PaymentIntentService();
+            var paymentIntent = service.Create(paymentIntentInfo);
 
-				return new PaymentDetailsDTO()
-				{
-					PaymentAmount = paymentIntentInfo.Amount,
-					CreatedOn = DateTime.Now,
-					Currency = paymentIntentInfo.Currency,
-					InvoiceId = paymentIntentInfo.InvoiceId,
-					PaymentIntentId = paymentIntentInfo.Id,
-					PaymentMethodId = paymentIntentInfo.PaymentMethodId
-				};
-			}
+            return new PaymentDetailsDTO()
+            {
+                PaymentAmount = paymentIntent.Amount,
+                CreatedOn = DateTime.Now,
+                Currency = paymentIntentInfo.Currency,
+                InvoiceId = paymentIntent.InvoiceId,
+                PaymentIntentId = paymentIntent.Id,
+                PaymentMethodId = paymentIntent.PaymentMethodId
+            };
+        }
 
-			return null;
-		}
+        private PaymentIntentCreateOptions CreatePaymentIntentOptions(double amount)
+        {
+            var createOptions = new PaymentIntentCreateOptions
+            {
+                Amount = (long?)amount * 100,
+                Currency = "EUR",
+                PaymentMethod = "pm_card_visa",
+            };
 
-		private PaymentIntent CreatePaymentIntent(double amount, string paymentMethodId)
-		{
-			var createOptions = new PaymentIntentCreateOptions
-			{
-				PaymentMethod = paymentMethodId,
-				Amount = (long?)amount * 100,
-				Currency = "eur",
-			};
-
-			PaymentIntentService paymentIntentService = new PaymentIntentService();
-
-			try
-			{
-				PaymentIntent paymentIntent = paymentIntentService.Create(createOptions);
-
-				if (paymentIntent.Id != null)
-				{
-					var confirmOptions = new PaymentIntentConfirmOptions { };
-
-					paymentIntent = paymentIntentService.Confirm(
-						paymentIntent.Id,
-						confirmOptions
-					);
-
-					return paymentIntent;
-				}
-			}
-			catch (Exception e)
-			{
-				throw new BadRequestException(String.Format("{0}", e.Message));
-			}
-
-			return null;
-		}
-
-		private PaymentMethod CreatePaymentMethod(PaymentBuyRequest request)
-		{
-			var paymentMethodOptions = new PaymentMethodCreateOptions
-			{
-				Type = "card",
-				Card = new PaymentMethodCardOptions
-				{
-					Number = request.CardNumber,
-					ExpMonth = GetExpMonth(request.ExpiryDate),
-					ExpYear = GetExpYear(request.ExpiryDate),
-					Cvc = request.CVV,
-				},
-			};
-
-			var paymentMethodService = new PaymentMethodService();
-
-			try
-			{
-				PaymentMethod paymentMethod = paymentMethodService.Create(paymentMethodOptions);
-				return paymentMethod;
-			}
-			catch (Exception e)
-			{
-				throw new BadRequestException(String.Format("{0}", e.Message));
-			}
-		}
-
-		private int GetExpMonth(string expDate)
-		{
-			return int.Parse(expDate.Split("/").First());
-		}
-
-		private int GetExpYear(string expDate)
-		{
-			return int.Parse(expDate.Split("/").Last());
-		}
-	}
+            return createOptions;
+        }
+    }
 }
