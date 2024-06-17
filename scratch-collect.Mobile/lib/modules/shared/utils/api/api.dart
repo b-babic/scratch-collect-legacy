@@ -1,55 +1,44 @@
 import 'dart:io';
 
+import 'package:IB210370/configuration_manager.dart';
 import 'package:dio/dio.dart';
-import 'package:IB210370/modules/shared/constants.dart';
 import 'package:IB210370/modules/shared/utils/api/interceptors.dart';
 import 'package:dio/io.dart';
 
 class Api {
   final dio = createDio();
-  final tokenDio = Dio(BaseOptions(baseUrl: url));
+  // ignore: prefer_typing_uninitialized_variables
+  final tokenDio;
 
-  Api._internal();
+  Api._internal()
+      : tokenDio =
+            Dio(BaseOptions(baseUrl: ConfigurationManager().config.apiUrl));
 
   static final _singleton = Api._internal();
 
   factory Api() => _singleton;
 
   static Dio createDio() {
+    var url = ConfigurationManager().config.apiUrl;
+
     var dio = Dio(BaseOptions(
       baseUrl: url,
-      receiveTimeout: const Duration(seconds: 20000), // 20 seconds
-      connectTimeout: const Duration(seconds: 20000),
-      sendTimeout: const Duration(seconds: 20000),
+      receiveTimeout: const Duration(seconds: 10),
+      connectTimeout: const Duration(seconds: 10),
+      sendTimeout: const Duration(seconds: 10),
     ));
 
     dio.interceptors.addAll({
       AppInterceptors(dio),
     });
 
-    // Handle localhost TLS handshake
-
-    // NOTE: Deprecated code (used in old dio versions)
-    // (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-    //     (HttpClient dioClient) {
-    //   dioClient.badCertificateCallback =
-    //       ((X509Certificate cert, String host, int port) => true);
-    //   return dioClient;
-    // };
-
-    // dio.httpClientAdapter = IOHttpClientAdapter(
-    //   onHttpClientCreate: (client) {
-    //     client.badCertificateCallback =
-    //         (X509Certificate cert, String host, int port) => true;
-    //     return client;
-    //   },
-    // );
-
-    dio.httpClientAdapter = IOHttpClientAdapter(
-      createHttpClient: () => HttpClient()
-        ..badCertificateCallback =
-            ((X509Certificate cert, String host, int port) => true),
-    );
+    // Allow self-signed certificate
+    bool trustSelfSigned = true;
+    (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
+      final client = HttpClient();
+      client.badCertificateCallback = (cert, host, port) => trustSelfSigned;
+      return client;
+    };
 
     return dio;
   }

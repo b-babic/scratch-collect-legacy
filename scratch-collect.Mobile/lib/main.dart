@@ -1,9 +1,15 @@
+import 'dart:io';
+
+import 'package:IB210370/configuration_manager.dart';
 import 'package:IB210370/modules/auth/login.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:IB210370/modules/shared/theme/colors.dart';
 import 'package:IB210370/routes.dart';
 
 void main() {
+  const flavor = String.fromEnvironment('FLAVOR', defaultValue: 'dev');
+  ConfigurationManager().loadConfig(flavor);
+
   runApp(const MyApp());
 }
 

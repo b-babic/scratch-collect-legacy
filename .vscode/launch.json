@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter-dev",
+            "program": "lib/main.dart",
+            "cwd": "scratch-collect.Mobile",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+               "--flavor",
+                "dev"
+            ]
+        },
+        {
+            "name": "Flutter-prod",
+            "program": "lib/main.dart",
+            "cwd": "scratch-collect.Mobile",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+               "--flavor",
+                "prod"
+            ]
+        }
+    ]
+}
