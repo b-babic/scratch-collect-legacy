@@ -14,8 +14,7 @@ import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 class EditProfileForm extends StatefulWidget {
   final EditProfileArguments initialValues;
 
-  const EditProfileForm({Key? key, required this.initialValues})
-      : super(key: key);
+  const EditProfileForm({super.key, required this.initialValues});
 
   @override
   EditProfileFormState createState() => EditProfileFormState();

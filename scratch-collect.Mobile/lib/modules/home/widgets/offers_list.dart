@@ -6,9 +6,9 @@ class OffersList extends StatelessWidget {
   final List<Offer> offers;
 
   const OffersList({
-    Key? key,
+    super.key,
     required this.offers,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

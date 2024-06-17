@@ -8,10 +8,10 @@ class Categories extends StatefulWidget {
   final int selectedCategory;
 
   const Categories({
-    Key? key,
+    super.key,
     this.onCategoryChange,
     required this.selectedCategory,
-  }) : super(key: key);
+  });
 
   @override
   CategoriesState createState() => CategoriesState();

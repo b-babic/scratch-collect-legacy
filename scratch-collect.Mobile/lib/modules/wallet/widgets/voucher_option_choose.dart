@@ -19,8 +19,8 @@ class VoucherOption {
 
 class VoucherOptionChoose extends StatefulWidget {
   const VoucherOptionChoose({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   VoucherOptionChooseState createState() => VoucherOptionChooseState();

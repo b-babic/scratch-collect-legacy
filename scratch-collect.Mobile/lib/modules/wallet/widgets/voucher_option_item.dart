@@ -10,13 +10,13 @@ class VoucherOptionItem extends StatelessWidget {
   final Function? press;
 
   const VoucherOptionItem({
-    Key? key,
+    super.key,
     required this.id,
     required this.title,
     required this.amount,
     required this.press,
     this.selected = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

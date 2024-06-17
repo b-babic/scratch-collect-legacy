@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:IB210370/modules/shared/theme/colors.dart';
 
 class OfferButtonInfo extends StatelessWidget {
-  const OfferButtonInfo({Key? key}) : super(key: key);
+  const OfferButtonInfo({super.key});
 
   @override
   Widget build(BuildContext context) {

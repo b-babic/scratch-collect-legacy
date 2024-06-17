@@ -3,7 +3,7 @@ import 'package:IB210370/modules/shared/theme/colors.dart';
 import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class WinningsIntro extends StatelessWidget {
-  const WinningsIntro({Key? key}) : super(key: key);
+  const WinningsIntro({super.key});
 
   @override
   Widget build(BuildContext context) {

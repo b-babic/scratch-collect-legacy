@@ -13,10 +13,10 @@ class BuyOfferButton extends StatefulWidget {
   final int? requiredPrice;
 
   const BuyOfferButton({
-    Key? key,
+    super.key,
     required this.offerId,
     required this.requiredPrice,
-  }) : super(key: key);
+  });
 
   @override
   BuyOfferButtonState createState() => BuyOfferButtonState();

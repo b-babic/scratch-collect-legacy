@@ -16,8 +16,7 @@ import 'package:IB210370/modules/wallet/wallet_voucher.screen.dart';
 class BuyVoucherOptionsForm extends StatefulWidget {
   final VoucherOptionsBuyArguments initialValues;
 
-  const BuyVoucherOptionsForm({Key? key, required this.initialValues})
-      : super(key: key);
+  const BuyVoucherOptionsForm({super.key, required this.initialValues});
 
   @override
   BuyVoucherOptionsFormState createState() => BuyVoucherOptionsFormState();

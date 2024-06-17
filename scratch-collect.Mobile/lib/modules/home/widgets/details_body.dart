@@ -18,9 +18,9 @@ class DetailsBody extends StatefulWidget {
   final int? id;
 
   const DetailsBody({
-    Key? key,
+    super.key,
     required this.id,
-  }) : super(key: key);
+  });
 
   @override
   DetailsBodyState createState() => DetailsBodyState();

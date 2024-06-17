@@ -26,7 +26,7 @@ import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 import 'package:IB210370/modules/wallet/wallet_voucher.screen.dart';
 
 class ProfileBody extends StatefulWidget {
-  const ProfileBody({Key? key}) : super(key: key);
+  const ProfileBody({super.key});
 
   @override
   ProfileBodyState createState() => ProfileBodyState();

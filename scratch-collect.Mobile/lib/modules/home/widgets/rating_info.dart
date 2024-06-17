@@ -5,9 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class RatingInfo extends StatelessWidget {
   const RatingInfo({
-    Key? key,
+    super.key,
     required this.rating,
-  }) : super(key: key);
+  });
 
   final double rating;
 

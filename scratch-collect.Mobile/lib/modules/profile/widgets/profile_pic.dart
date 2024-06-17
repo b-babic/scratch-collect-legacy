@@ -8,7 +8,7 @@ import 'package:IB210370/modules/shared/theme/utils.dart';
 class ProfilePic extends StatelessWidget {
   final String? profilePhoto;
 
-  const ProfilePic({Key? key, this.profilePhoto}) : super(key: key);
+  const ProfilePic({super.key, this.profilePhoto});
 
   @override
   Widget build(BuildContext context) {

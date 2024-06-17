@@ -6,7 +6,7 @@ import 'package:IB210370/modules/shared/theme/styles.dart';
 import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+  const SignupScreen({super.key});
 
   static String routeName = "/auth/signup";
 

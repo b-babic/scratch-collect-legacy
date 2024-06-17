@@ -4,7 +4,7 @@ import 'package:IB210370/modules/shared/widgets/button.dart';
 import 'package:IB210370/modules/wallet/wallet_options.screen.dart';
 
 class PurchaseVoucher extends StatelessWidget {
-  const PurchaseVoucher({Key? key}) : super(key: key);
+  const PurchaseVoucher({super.key});
 
   @override
   Widget build(BuildContext context) {

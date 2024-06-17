@@ -11,13 +11,13 @@ final buttonStyle = TextStyle(
 
 class Button extends StatelessWidget {
   const Button({
-    Key? key,
+    super.key,
     this.text,
     this.variant = ButtonVariants.primary,
     this.disabled = false,
     this.loading = false,
     this.press,
-  }) : super(key: key);
+  });
 
   final ButtonVariants variant;
   final String? text;

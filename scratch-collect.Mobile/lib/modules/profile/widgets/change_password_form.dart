@@ -14,8 +14,7 @@ import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 class ChangePasswordForm extends StatefulWidget {
   final EditPasswordArguments arguments;
 
-  const ChangePasswordForm({Key? key, required this.arguments})
-      : super(key: key);
+  const ChangePasswordForm({super.key, required this.arguments});
 
   @override
   ChangePasswordFormState createState() => ChangePasswordFormState();

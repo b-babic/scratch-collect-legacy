@@ -21,7 +21,7 @@ class RatingDialog extends StatefulWidget {
   final Function? onCancelled;
 
   const RatingDialog({
-    Key? key,
+    super.key,
     required this.title,
     this.message,
     required this.submitButtonText,
@@ -31,7 +31,7 @@ class RatingDialog extends StatefulWidget {
     this.showCloseButton = true,
     this.force = false,
     this.initialRating = 0.0,
-  }) : super(key: key);
+  });
 
   @override
   State<RatingDialog> createState() => _RatingDialogState();

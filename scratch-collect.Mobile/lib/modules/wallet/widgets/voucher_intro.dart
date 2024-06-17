@@ -3,7 +3,7 @@ import 'package:IB210370/modules/shared/theme/colors.dart';
 import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class VoucherIntro extends StatelessWidget {
-  const VoucherIntro({Key? key}) : super(key: key);
+  const VoucherIntro({super.key});
 
   @override
   Widget build(BuildContext context) {

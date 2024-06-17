@@ -7,10 +7,10 @@ class UserOffersList extends StatelessWidget {
   final Future<void> Function() refreshData;
 
   const UserOffersList({
-    Key? key,
+    super.key,
     required this.offers,
     required this.refreshData,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

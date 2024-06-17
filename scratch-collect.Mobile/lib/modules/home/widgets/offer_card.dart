@@ -11,11 +11,11 @@ enum OfferCardSize { regular, small }
 
 class OfferCard extends StatelessWidget {
   const OfferCard({
-    Key? key,
+    super.key,
     required this.offer,
     required this.keyPrefix,
     this.cardSize = OfferCardSize.regular,
-  }) : super(key: key);
+  });
 
   final Offer offer;
   final String keyPrefix;

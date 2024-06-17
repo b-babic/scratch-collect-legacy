@@ -15,11 +15,11 @@ import 'package:IB210370/modules/shared/widgets/button.dart';
 
 class UserOfferCard extends StatefulWidget {
   const UserOfferCard({
-    Key? key,
+    super.key,
     required this.userOffer,
     required this.keyPrefix,
     required this.refreshData,
-  }) : super(key: key);
+  });
 
   final UserOffer userOffer;
   final String keyPrefix;

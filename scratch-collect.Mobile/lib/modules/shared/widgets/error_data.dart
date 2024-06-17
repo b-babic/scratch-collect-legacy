@@ -5,7 +5,7 @@ import 'package:IB210370/modules/shared/theme/styles.dart';
 import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class ErrorData extends StatelessWidget {
-  const ErrorData({Key? key}) : super(key: key);
+  const ErrorData({super.key});
 
   @override
   Widget build(BuildContext context) {

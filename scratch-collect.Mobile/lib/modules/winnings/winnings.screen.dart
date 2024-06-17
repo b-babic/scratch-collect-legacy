@@ -4,7 +4,7 @@ import 'package:IB210370/modules/shared/widgets/navigation.dart';
 import 'package:IB210370/modules/winnings/widgets/winnings_body.dart';
 
 class WinningsScreen extends StatefulWidget {
-  const WinningsScreen({Key? key}) : super(key: key);
+  const WinningsScreen({super.key});
 
   static String routeName = "/winnings";
 

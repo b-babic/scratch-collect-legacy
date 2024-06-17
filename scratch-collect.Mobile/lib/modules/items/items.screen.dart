@@ -4,7 +4,7 @@ import 'package:IB210370/modules/shared/enums.dart';
 import 'package:IB210370/modules/shared/widgets/navigation.dart';
 
 class ItemsScreen extends StatefulWidget {
-  const ItemsScreen({Key? key}) : super(key: key);
+  const ItemsScreen({super.key});
 
   static String routeName = "/items";
 

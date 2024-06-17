@@ -7,7 +7,7 @@ import 'package:IB210370/modules/shared/theme/utils.dart';
 class DetailsAppBar extends StatelessWidget {
   final double rating;
 
-  const DetailsAppBar({Key? key, required this.rating}) : super(key: key);
+  const DetailsAppBar({super.key, required this.rating});
 
   @override
   Widget build(BuildContext context) {

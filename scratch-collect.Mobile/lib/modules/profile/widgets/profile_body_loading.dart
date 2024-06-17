@@ -3,7 +3,7 @@ import 'package:IB210370/modules/shared/theme/utils.dart';
 import 'package:skeletons/skeletons.dart';
 
 class ProfileBodyLoading extends StatelessWidget {
-  const ProfileBodyLoading({Key? key}) : super(key: key);
+  const ProfileBodyLoading({super.key});
 
   @override
   Widget build(BuildContext context) {

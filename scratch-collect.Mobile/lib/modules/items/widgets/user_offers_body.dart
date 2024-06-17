@@ -17,8 +17,8 @@ import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 
 class UserOffersBody extends StatefulWidget {
   const UserOffersBody({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   UserOffersBodyState createState() => UserOffersBodyState();

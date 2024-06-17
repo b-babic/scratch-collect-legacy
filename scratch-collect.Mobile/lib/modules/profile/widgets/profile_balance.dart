@@ -20,9 +20,9 @@ class ProfileBalance extends StatelessWidget {
   final String balance;
 
   const ProfileBalance({
-    Key? key,
+    super.key,
     required this.balance,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

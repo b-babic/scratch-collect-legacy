@@ -6,9 +6,9 @@ class WinningsList extends StatelessWidget {
   final List<UserOffer> winnings;
 
   const WinningsList({
-    Key? key,
+    super.key,
     required this.winnings,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -3,10 +3,10 @@ import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class RoundedContainer extends StatelessWidget {
   const RoundedContainer({
-    Key? key,
+    super.key,
     required this.color,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Color color;
   final Widget child;

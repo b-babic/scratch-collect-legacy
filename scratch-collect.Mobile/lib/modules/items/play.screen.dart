@@ -6,7 +6,7 @@ import 'package:IB210370/modules/shared/enums.dart';
 import 'package:IB210370/modules/shared/widgets/navigation.dart';
 
 class PlayScreen extends StatefulWidget {
-  const PlayScreen({Key? key}) : super(key: key);
+  const PlayScreen({super.key});
 
   static String routeName = "/items/play";
 

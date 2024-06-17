@@ -9,7 +9,7 @@ import 'package:IB210370/modules/shared/widgets/logo.dart';
 import 'widgets/no_account_text.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   static String routeName = "/auth/login";
 

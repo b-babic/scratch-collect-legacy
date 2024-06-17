@@ -21,10 +21,10 @@ class ProfileInfo extends StatelessWidget {
   final String username;
 
   const ProfileInfo({
-    Key? key,
+    super.key,
     required this.name,
     required this.username,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

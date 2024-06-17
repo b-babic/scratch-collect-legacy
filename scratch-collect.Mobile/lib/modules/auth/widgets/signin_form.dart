@@ -18,7 +18,7 @@ import 'package:IB210370/modules/shared/widgets/form_error.dart';
 import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 
 class SigninForm extends StatefulWidget {
-  const SigninForm({Key? key}) : super(key: key);
+  const SigninForm({super.key});
 
   @override
   SigninFormState createState() => SigninFormState();

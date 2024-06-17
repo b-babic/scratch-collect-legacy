@@ -4,7 +4,7 @@ import 'package:IB210370/modules/shared/enums.dart';
 import 'package:IB210370/modules/shared/widgets/navigation.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
 
   static String routeName = "/profile";
 

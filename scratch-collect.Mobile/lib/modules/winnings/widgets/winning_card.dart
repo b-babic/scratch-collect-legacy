@@ -4,10 +4,10 @@ import 'package:IB210370/modules/shared/theme/colors.dart';
 
 class WinningCard extends StatelessWidget {
   const WinningCard({
-    Key? key,
+    super.key,
     required this.winning,
     required this.keyPrefix,
-  }) : super(key: key);
+  });
 
   final UserOffer winning;
   final String keyPrefix;

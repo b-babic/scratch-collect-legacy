@@ -16,8 +16,8 @@ import 'package:IB210370/modules/winnings/widgets/winnings_list.dart';
 
 class WinningsBody extends StatefulWidget {
   const WinningsBody({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   WinningsBodyState createState() => WinningsBodyState();

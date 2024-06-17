@@ -13,7 +13,7 @@ import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 class PlayBody extends StatefulWidget {
   final PlayScreenArguments args;
 
-  const PlayBody({Key? key, required this.args}) : super(key: key);
+  const PlayBody({super.key, required this.args});
 
   @override
   State<PlayBody> createState() => _PlayBodyState();

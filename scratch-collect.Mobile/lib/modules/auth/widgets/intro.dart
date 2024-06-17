@@ -3,7 +3,7 @@ import 'package:IB210370/modules/shared/theme/colors.dart';
 import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class Intro extends StatelessWidget {
-  const Intro({Key? key}) : super(key: key);
+  const Intro({super.key});
 
   @override
   Widget build(BuildContext context) {

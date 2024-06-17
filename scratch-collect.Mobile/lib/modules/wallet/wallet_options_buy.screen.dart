@@ -8,8 +8,8 @@ import '../shared/theme/size_config.dart';
 
 class WalletOptionsBuyScreen extends StatelessWidget {
   const WalletOptionsBuyScreen({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   static String routeName = "/wallet/voucher/options/buy";
 

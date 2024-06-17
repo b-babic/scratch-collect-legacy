@@ -8,7 +8,7 @@ import 'package:IB210370/modules/shared/theme/utils.dart';
 import '../shared/theme/size_config.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
-  const ChangePasswordScreen({Key? key}) : super(key: key);
+  const ChangePasswordScreen({super.key});
 
   static String routeName = "/profile/password/edit";
 

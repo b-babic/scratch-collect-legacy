@@ -13,7 +13,7 @@ import 'package:IB210370/modules/wallet/models/use_voucher_request.dart';
 import 'package:IB210370/modules/wallet/services/voucher.service.dart';
 
 class VoucherUseForm extends StatefulWidget {
-  const VoucherUseForm({Key? key}) : super(key: key);
+  const VoucherUseForm({super.key});
 
   @override
   VoucherUseFormState createState() => VoucherUseFormState();

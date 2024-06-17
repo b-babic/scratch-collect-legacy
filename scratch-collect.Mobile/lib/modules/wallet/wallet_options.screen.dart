@@ -7,7 +7,7 @@ import 'package:IB210370/modules/wallet/widgets/voucher_option_choose.dart';
 import 'package:IB210370/modules/wallet/widgets/voucher_options_intro.dart';
 
 class WalletOptionsScreen extends StatefulWidget {
-  const WalletOptionsScreen({Key? key}) : super(key: key);
+  const WalletOptionsScreen({super.key});
 
   static String routeName = "/wallet/voucher/options";
 

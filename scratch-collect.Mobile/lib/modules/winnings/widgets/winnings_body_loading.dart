@@ -3,7 +3,7 @@ import 'package:IB210370/modules/shared/theme/utils.dart';
 import 'package:skeletons/skeletons.dart';
 
 class WinningsBodyLoading extends StatelessWidget {
-  const WinningsBodyLoading({Key? key}) : super(key: key);
+  const WinningsBodyLoading({super.key});
 
   @override
   Widget build(BuildContext context) {

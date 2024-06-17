@@ -15,8 +15,8 @@ import 'package:IB210370/modules/shared/widgets/snackbar.dart';
 
 class UserItemsBody extends StatefulWidget {
   const UserItemsBody({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   UserItemsBodyState createState() => UserItemsBodyState();

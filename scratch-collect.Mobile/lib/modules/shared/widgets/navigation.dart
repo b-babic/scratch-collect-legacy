@@ -8,8 +8,7 @@ import 'package:IB210370/modules/shared/theme/colors.dart';
 import 'package:IB210370/modules/winnings/winnings.screen.dart';
 
 class BottomNavigation extends StatelessWidget {
-  const BottomNavigation({Key? key, required this.selectedMenu})
-      : super(key: key);
+  const BottomNavigation({super.key, required this.selectedMenu});
 
   final MenuState selectedMenu;
 

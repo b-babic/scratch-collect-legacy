@@ -8,7 +8,7 @@ import 'package:IB210370/modules/shared/theme/utils.dart';
 import '../shared/theme/size_config.dart';
 
 class ProfileEditScreen extends StatelessWidget {
-  const ProfileEditScreen({Key? key}) : super(key: key);
+  const ProfileEditScreen({super.key});
 
   static String routeName = "/profile/edit";
 

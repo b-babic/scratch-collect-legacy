@@ -6,9 +6,9 @@ import 'package:IB210370/modules/shared/theme/utils.dart';
 
 class RecommendedItems extends StatefulWidget {
   const RecommendedItems({
-    Key? key,
+    super.key,
     required this.items,
-  }) : super(key: key);
+  });
 
   final List<Offer> items;
 

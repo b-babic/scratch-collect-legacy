@@ -4,7 +4,7 @@ import 'package:IB210370/modules/shared/enums.dart';
 import 'package:IB210370/modules/shared/widgets/navigation.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   static String routeName = "/home_screen";
 

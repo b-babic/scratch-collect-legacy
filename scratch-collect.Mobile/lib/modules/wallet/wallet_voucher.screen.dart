@@ -9,7 +9,7 @@ import 'package:IB210370/modules/shared/widgets/navigation.dart';
 import 'package:IB210370/modules/wallet/widgets/voucher_use_form.dart';
 
 class WalletVoucherScreen extends StatefulWidget {
-  const WalletVoucherScreen({Key? key}) : super(key: key);
+  const WalletVoucherScreen({super.key});
 
   static String routeName = "/wallet/voucher/use";
 
