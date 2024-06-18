@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net472</TargetFramework>
-    <RootNamespace>scratch_collect.Admin</RootNamespace>
+    <RootNamespace>scratch_collect.AdminLegacy</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <NullableReferenceTypes>true</NullableReferenceTypes>
 	<LangVersion>8.0</LangVersion>
