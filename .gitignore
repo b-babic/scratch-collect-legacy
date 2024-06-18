@@ -12,7 +12,6 @@ tarballs/
 test-results/
 
 # Local dev
-.vscode
 .fleet
 .idea
 
