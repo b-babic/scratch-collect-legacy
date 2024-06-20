@@ -2,7 +2,7 @@
     package="com.example.scratch_collect">
      <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="scratch_collect"
+        android:label="IB210370_legacy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="false">
