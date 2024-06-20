@@ -2,13 +2,12 @@
 
 import 'dart:convert';
 
-import 'package:IB210370/modules/profile/models/profile_request.model.dart';
-import 'package:IB210370/modules/profile/services/profile.service.dart';
-import 'package:flutter/material.dart';
 import 'package:IB210370/modules/auth/constants.dart';
 import 'package:IB210370/modules/auth/models/signin_request.model.dart';
 import 'package:IB210370/modules/auth/services/auth.service.dart';
 import 'package:IB210370/modules/home/home.screen.dart';
+import 'package:IB210370/modules/profile/models/profile_request.model.dart';
+import 'package:IB210370/modules/profile/services/profile.service.dart';
 import 'package:IB210370/modules/shared/theme/size_config.dart';
 import 'package:IB210370/modules/shared/theme/utils.dart';
 import 'package:IB210370/modules/shared/utils/keyboard.dart';
@@ -16,6 +15,7 @@ import 'package:IB210370/modules/shared/utils/secure_storage.dart';
 import 'package:IB210370/modules/shared/widgets/button.dart';
 import 'package:IB210370/modules/shared/widgets/form_error.dart';
 import 'package:IB210370/modules/shared/widgets/snackbar.dart';
+import 'package:flutter/material.dart';
 
 class SigninForm extends StatefulWidget {
   const SigninForm({super.key});
